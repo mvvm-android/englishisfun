@@ -39,4 +39,4 @@ class HomeViewStateTest {
         assertTrue(state.isNavigationScreen())
         assertFalse(state.isFullScreen())
     }
- }
+}
