@@ -20,8 +20,7 @@ include(
     ":feature_home",
     ":feature_abbreviations",
     ":libraries:test_utils",
-    ":commons:ui",
-    ":commons:views"
+    ":commons:ui"
 )
 
 rootProject.buildFileName = "build.gradle.kts"
