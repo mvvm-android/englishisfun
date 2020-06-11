@@ -144,7 +144,7 @@ afterEvaluate {
 }
 
 dependencies {
-    implementation(project(BuildModules.CORE))
+    implementation(project(BuildModules.BASE_ANDROID))
     implementation(
         arrayOf(
             Dependencies.KOTLIN,

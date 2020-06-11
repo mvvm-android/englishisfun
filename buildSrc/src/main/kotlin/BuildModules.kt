@@ -3,15 +3,11 @@
  */
 object BuildModules {
     const val APP = ":app"
-    const val CORE = ":core"
+    const val BASE_ANDROID = ":base-android"
 
     object Features {
         const val HOME = ":feature_home"
         const val ABBREVIATIONS = ":feature_abbreviations"
-    }
-
-    object Commons {
-        const val UI = ":commons:ui"
     }
 
     object Libraries {

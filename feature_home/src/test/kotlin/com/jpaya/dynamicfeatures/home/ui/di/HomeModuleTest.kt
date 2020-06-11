@@ -17,7 +17,7 @@
 package com.jpaya.dynamicfeatures.home.ui.di
 
 import androidx.lifecycle.ViewModel
-import com.jpaya.commons.ui.extensions.viewModel
+import com.jpaya.base.ui.extensions.viewModel
 import com.jpaya.dynamicfeatures.home.ui.HomeFragment
 import com.jpaya.dynamicfeatures.home.ui.HomeViewModel
 import com.nhaarman.mockitokotlin2.mock
@@ -48,7 +48,7 @@ class HomeModuleTest {
 
     @Test
     fun verifyProvidedHomeViewModel() {
-        mockkStatic("com.jpaya.commons.ui.extensions.FragmentExtensionsKt")
+        mockkStatic("com.jpaya.base.ui.extensions.FragmentExtensionsKt")
 
         every {
             fragment.viewModel(any(), any<() -> ViewModel>())
