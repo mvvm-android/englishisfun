@@ -6,8 +6,8 @@ object BuildModules {
     const val CORE = ":core"
 
     object Features {
-        const val HOME = ":features:home"
-        const val ABBREVIATIONS = ":features:abbreviations"
+        const val HOME = ":feature_home"
+        const val ABBREVIATIONS = ":feature_abbreviations"
     }
 
     object Commons {
