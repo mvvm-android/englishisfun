@@ -48,7 +48,7 @@ class HomeModuleTest {
 
     @Test
     fun verifyProvidedHomeViewModel() {
-        mockkStatic("com.jpaya.core.ui.extensions.FragmentExtensionsKt")
+        mockkStatic("com.jpaya.base.ui.extensions.FragmentExtensionsKt")
 
         every {
             fragment.viewModel(any(), any<() -> ViewModel>())
