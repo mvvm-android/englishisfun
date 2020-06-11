@@ -17,7 +17,6 @@
 package com.jpaya.core.ui.extensions
 
 import android.content.Context
-import com.jpaya.core.ui.extensions.getString
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK

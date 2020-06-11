@@ -43,7 +43,7 @@ class RecyclerViewBindingTest : TestRobolectric() {
         assertEquals(1, recyclerView.itemDecorationCount)
 
         val decoration = recyclerView.getItemDecorationAt(0)
-        assertThat(decoration, instanceOf(com.jpaya.core.ui.recyclerview.RecyclerViewItemDecoration::class.java))
-        assertEquals(spacingPx.toInt(), (decoration as com.jpaya.core.ui.recyclerview.RecyclerViewItemDecoration).spacingPx)
+        assertThat(decoration, instanceOf(RecyclerViewItemDecoration::class.java))
+        assertEquals(spacingPx.toInt(), (decoration as RecyclerViewItemDecoration).spacingPx)
     }
 }

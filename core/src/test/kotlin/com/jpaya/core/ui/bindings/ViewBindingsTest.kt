@@ -17,9 +17,6 @@
 package com.jpaya.core.ui.bindings
 
 import android.view.View
-import com.jpaya.core.ui.bindings.gone
-import com.jpaya.core.ui.bindings.invisible
-import com.jpaya.core.ui.bindings.visible
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
