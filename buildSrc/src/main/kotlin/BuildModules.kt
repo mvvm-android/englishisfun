@@ -10,10 +10,6 @@ object BuildModules {
         const val ABBREVIATIONS = ":feature_abbreviations"
     }
 
-    object Commons {
-        const val UI = ":commons:ui"
-    }
-
     object Libraries {
         const val TEST_UTILS = ":libraries:test_utils"
     }

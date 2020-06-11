@@ -14,12 +14,9 @@
  * limitations under the License.
  */
 
-include(
-    ":app",
-    ":core",
-    ":feature_home",
-    ":feature_abbreviations",
-    ":libraries:test_utils"
-)
+package com.jpaya.core.ui.base
 
-rootProject.buildFileName = "build.gradle.kts"
+/**
+ * Base state interface to describe different state of the view.
+ */
+interface BaseViewState

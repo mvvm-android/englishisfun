@@ -14,12 +14,15 @@
  * limitations under the License.
  */
 
-include(
-    ":app",
-    ":core",
-    ":feature_home",
-    ":feature_abbreviations",
-    ":libraries:test_utils"
-)
+package com.jpaya.core.ui.extensions
 
-rootProject.buildFileName = "build.gradle.kts"
+import android.content.Context
+import androidx.annotation.StringRes
+
+/**
+ * Get resource string from optional id
+ *
+ * @param resId Resource string identifier.
+ * @return The key value if exist, otherwise empty.
+ */
+fun Context.getString(@StringRes resId: Int?) = if (resId != null) getString(resId) else ""

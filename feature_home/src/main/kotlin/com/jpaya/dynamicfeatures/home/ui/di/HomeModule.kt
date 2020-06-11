@@ -19,7 +19,7 @@ package com.jpaya.dynamicfeatures.home.ui.di
 import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
 import com.google.firebase.auth.FirebaseAuth
-import com.jpaya.commons.ui.extensions.viewModel
+import com.jpaya.core.ui.extensions.viewModel
 import com.jpaya.core.di.scopes.FeatureScope
 import com.jpaya.dynamicfeatures.home.ui.HomeFragment
 import com.jpaya.dynamicfeatures.home.ui.HomeViewModel

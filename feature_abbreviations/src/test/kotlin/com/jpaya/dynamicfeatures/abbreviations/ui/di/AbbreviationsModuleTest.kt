@@ -19,7 +19,7 @@ package com.jpaya.dynamicfeatures.abbreviations.ui.di
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.FirebaseFirestore
-import com.jpaya.commons.ui.extensions.viewModel
+import com.jpaya.core.ui.extensions.viewModel
 import com.jpaya.core.firebase.FireStoreProperties
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListViewModel

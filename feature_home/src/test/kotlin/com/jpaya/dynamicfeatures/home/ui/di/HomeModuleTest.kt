@@ -17,7 +17,7 @@
 package com.jpaya.dynamicfeatures.home.ui.di
 
 import androidx.lifecycle.ViewModel
-import com.jpaya.commons.ui.extensions.viewModel
+import com.jpaya.core.ui.extensions.viewModel
 import com.jpaya.dynamicfeatures.home.ui.HomeFragment
 import com.jpaya.dynamicfeatures.home.ui.HomeViewModel
 import com.nhaarman.mockitokotlin2.mock

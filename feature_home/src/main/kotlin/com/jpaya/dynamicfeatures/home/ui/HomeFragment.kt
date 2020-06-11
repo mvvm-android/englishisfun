@@ -22,8 +22,8 @@ import android.view.MenuInflater
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
-import com.jpaya.commons.ui.base.BaseFragment
-import com.jpaya.commons.ui.extensions.setupWithNavController
+import com.jpaya.core.ui.base.BaseFragment
+import com.jpaya.core.ui.extensions.setupWithNavController
 import com.jpaya.core.utils.ThemeUtils
 import com.jpaya.dynamicfeatures.home.R
 import com.jpaya.dynamicfeatures.home.databinding.FragmentHomeBinding

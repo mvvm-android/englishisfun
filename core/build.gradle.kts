@@ -23,6 +23,10 @@ plugins {
     id("commons.android-library")
 }
 
+junitJacoco {
+    excludes = listOf("**/extensions/NavigationExtensions*.*")
+}
+
 allOpen {
     // allows mocking for classes w/o directly opening them for release builds
     annotation("com.jpaya.core.annotations.OpenClass")
@@ -31,19 +35,25 @@ allOpen {
 dependencies {
     implementation(
         arrayOf(
-            Dependencies.ROOM,
-            Dependencies.ROOM_KTX,
-            Dependencies.LIFECYCLE_EXTENSIONS,
-            Dependencies.NAVIGATION_UI,
-            Dependencies.FRAGMENT_KTX,
+            Dependencies.COIL,
+            Dependencies.CONSTRAINT_LAYOUT,
             Dependencies.CORE_KTX,
+            Dependencies.FIREBASE_FIRESTORE,
+            Dependencies.FIREBASE_AUTH,
+            Dependencies.FRAGMENT_KTX,
+            Dependencies.LIFECYCLE_EXTENSIONS,
+            Dependencies.LIFECYCLE_VIEWMODEL,
+            Dependencies.LOGGING,
+            Dependencies.NAVIGATION_FRAGMENT,
+            Dependencies.NAVIGATION_UI,
+            Dependencies.PAGING,
+            Dependencies.RECYCLER_VIEW,
             Dependencies.RETROFIT,
             Dependencies.RETROFIT_CONVERTER,
-            Dependencies.LOGGING,
+            Dependencies.ROOM,
+            Dependencies.ROOM_KTX,
             Dependencies.MOSHI,
-            Dependencies.MOSHI_KTX,
-            Dependencies.FIREBASE_FIRESTORE,
-            Dependencies.FIREBASE_AUTH
+            Dependencies.MOSHI_KTX
         )
     )
     kapt(
