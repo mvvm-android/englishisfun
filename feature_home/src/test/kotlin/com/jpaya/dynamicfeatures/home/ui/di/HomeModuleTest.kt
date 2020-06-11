@@ -16,40 +16,52 @@
 
 package com.jpaya.dynamicfeatures.home.ui.di
 
-// class HomeModuleTest {
-//
-//    @MockK
-//    lateinit var fragment: HomeFragment
-//    lateinit var module: HomeModule
-//
-//    @Before
-//    fun setUp() {
-//        MockKAnnotations.init(this)
-//    }
-//
-//    @Test
-//    fun initializeHomeModule_ShouldSetUpCorrectly() {
-//        module = HomeModule(fragment)
-//
-//        assertEquals(fragment, module.fragment)
-//    }
-//
-//    @Test
-//    fun verifyProvidedHomeViewModel() {
-//        mockkStatic("com.jpaya.commons.ui.extensions.FragmentExtensionsKt")
-//
-//        every {
-//            fragment.viewModel(any(), any<() -> ViewModel>())
-//        } returns mockk<HomeViewModel>()
-//
-//        val factoryCaptor = slot<() -> ViewModel>()
-//        module = HomeModule(fragment)
-//        module.providesHomeViewModel()
-//
-//        verify {
-//            fragment.viewModel(factory = capture(factoryCaptor))
-//        }
-//
-//        assertThat(factoryCaptor.captured(), instanceOf(HomeViewModel::class.java))
-//    }
-// }
+import androidx.lifecycle.ViewModel
+import com.jpaya.commons.ui.extensions.viewModel
+import com.jpaya.dynamicfeatures.home.ui.HomeFragment
+import com.jpaya.dynamicfeatures.home.ui.HomeViewModel
+import com.nhaarman.mockitokotlin2.mock
+import io.mockk.*
+import io.mockk.impl.annotations.MockK
+import org.hamcrest.Matchers.instanceOf
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertThat
+import org.junit.Before
+import org.junit.Test
+
+class HomeModuleTest {
+
+    @MockK
+    lateinit var fragment: HomeFragment
+    lateinit var module: HomeModule
+
+    @Before
+    fun setUp() {
+        MockKAnnotations.init(this)
+    }
+
+    @Test
+    fun initializeHomeModule_ShouldSetUpCorrectly() {
+        module = HomeModule(fragment)
+        assertEquals(fragment, module.fragment)
+    }
+
+    @Test
+    fun verifyProvidedHomeViewModel() {
+        mockkStatic("com.jpaya.commons.ui.extensions.FragmentExtensionsKt")
+
+        every {
+            fragment.viewModel(any(), any<() -> ViewModel>())
+        } returns mockk<HomeViewModel>()
+
+        val factoryCaptor = slot<() -> ViewModel>()
+        module = HomeModule(fragment)
+        module.providesHomeViewModel(mock())
+
+        verify {
+            fragment.viewModel(factory = capture(factoryCaptor))
+        }
+
+        assertThat(factoryCaptor.captured(), instanceOf(HomeViewModel::class.java))
+    }
+}
