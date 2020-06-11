@@ -17,8 +17,8 @@
 include(
     ":app",
     ":core",
-    ":features:home",
-    ":features:abbreviations",
+    ":feature_home",
+    ":feature_abbreviations",
     ":libraries:test_utils",
     ":commons:ui",
     ":commons:views"
