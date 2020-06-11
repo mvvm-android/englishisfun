@@ -16,7 +16,7 @@
 
 package com.jpaya.dynamicfeatures.abbreviations.ui
 
-import com.jpaya.core.ui.base.BaseViewState
+import com.jpaya.base.ui.base.BaseViewState
 
 /**
  * Different states for [AbbreviationsListFragment].

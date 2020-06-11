@@ -16,8 +16,8 @@
 
 package com.jpaya.dynamicfeatures.home.ui.di
 
-import com.jpaya.core.di.CoreComponent
-import com.jpaya.core.di.scopes.FeatureScope
+import com.jpaya.base.di.CoreComponent
+import com.jpaya.base.di.scopes.FeatureScope
 import com.jpaya.dynamicfeatures.home.ui.HomeFragment
 import dagger.Component
 

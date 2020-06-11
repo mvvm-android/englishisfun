@@ -20,9 +20,9 @@ import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.FirebaseFirestore
-import com.jpaya.core.ui.extensions.viewModel
-import com.jpaya.core.di.scopes.FeatureScope
-import com.jpaya.core.firebase.FireStoreProperties
+import com.jpaya.base.ui.extensions.viewModel
+import com.jpaya.base.di.scopes.FeatureScope
+import com.jpaya.base.firebase.FireStoreProperties
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListViewModel
 import com.jpaya.dynamicfeatures.abbreviations.ui.adapter.AbbreviationsListAdapter

@@ -102,7 +102,7 @@ junitJacoco {
 
 dependencies {
     implementation(project(BuildModules.APP))
-    implementation(project(BuildModules.CORE))
+    implementation(project(BuildModules.BASE_ANDROID))
 
     implementation(Dependencies.KOTLIN)
     implementation(Dependencies.APPCOMPAT)
