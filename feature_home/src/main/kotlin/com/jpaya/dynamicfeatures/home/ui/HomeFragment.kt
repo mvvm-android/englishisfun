@@ -30,7 +30,8 @@ import com.jpaya.dynamicfeatures.home.databinding.FragmentHomeBinding
 import com.jpaya.dynamicfeatures.home.ui.di.DaggerHomeComponent
 import com.jpaya.dynamicfeatures.home.ui.di.HomeModule
 import com.jpaya.dynamicfeatures.home.ui.menu.ToggleThemeCheckBox
-import com.jpaya.englishisfun.EnglishIsFunApp
+import com.jpaya.englishisfun.di.HomeModuleDependencies
+import dagger.hilt.android.EntryPointAccessors
 import javax.inject.Inject
 
 /**
@@ -108,7 +109,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(layoutId =
     override fun onInitDependencyInjection() {
         DaggerHomeComponent
             .builder()
-            .coreComponent(EnglishIsFunApp.coreComponent(requireContext()))
+            .homeModuleDependencies(
+                EntryPointAccessors.fromApplication(
+                    requireContext().applicationContext,
+                    HomeModuleDependencies::class.java
+                )
+            )
             .homeModule(HomeModule(this))
             .build()
             .inject(this)

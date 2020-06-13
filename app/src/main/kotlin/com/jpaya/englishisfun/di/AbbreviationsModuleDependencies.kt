@@ -14,34 +14,19 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.di.modules
+package com.jpaya.englishisfun.di
 
-import com.jpaya.base.di.CoreComponent
-import com.jpaya.base.utils.ThemeUtils
-import com.jpaya.base.utils.ThemeUtilsImpl
-import dagger.Binds
-import dagger.Module
-import dagger.Provides
+import com.google.firebase.firestore.FirebaseFirestore
+import com.jpaya.base.firebase.FireStoreProperties
+import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import javax.inject.Singleton
 
-/**
- * Class that contributes to the object graph [CoreComponent].
- *
- * @see Module
- */
-@Module
+@EntryPoint
 @InstallIn(ApplicationComponent::class)
-class UtilsModule {
+interface AbbreviationsModuleDependencies {
 
-    /**
-     * Create a provider method binding for [ThemeUtilsImpl].
-     *
-     * @return Instance of theme utils.
-     * @see Binds
-     */
-    @Singleton
-    @Provides
-    fun bindThemeUtils(): ThemeUtils = ThemeUtilsImpl()
+    fun bindFirebaseFirestore(): FirebaseFirestore
+
+    fun bindFireStoreProperties(): FireStoreProperties
 }

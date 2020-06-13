@@ -16,16 +16,8 @@
 
 package com.jpaya.englishisfun
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.Composable
-import androidx.ui.core.setContent
-import androidx.ui.foundation.Text
-import androidx.ui.material.MaterialTheme
-import androidx.ui.tooling.preview.Preview
-import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 /**
  * Base activity class that use the support library action bar features.
@@ -33,24 +25,4 @@ import javax.inject.Inject
  * @see AppCompatActivity
  */
 @AndroidEntryPoint
-class NavHostActivity : AppCompatActivity() {
-
-    @Inject lateinit var firestore: FirebaseFirestore
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            MaterialTheme {
-                Text(text = "Hello world!")
-            }
-        }
-    }
-}
-
-@Preview
-@Composable
-fun defaultPreview() {
-    MaterialTheme {
-        Text(text = "Hello world!")
-    }
-}
+class NavHostActivity : AppCompatActivity(R.layout.activity_main)

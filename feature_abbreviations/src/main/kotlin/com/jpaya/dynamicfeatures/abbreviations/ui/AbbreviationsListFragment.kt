@@ -29,7 +29,8 @@ import com.jpaya.dynamicfeatures.abbreviations.ui.adapter.AbbreviationsListAdapt
 import com.jpaya.dynamicfeatures.abbreviations.ui.di.AbbreviationsModule
 import com.jpaya.dynamicfeatures.abbreviations.ui.di.DaggerAbbreviationsComponent
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItem
-import com.jpaya.englishisfun.EnglishIsFunApp.Companion.coreComponent
+import com.jpaya.englishisfun.di.AbbreviationsModuleDependencies
+import dagger.hilt.android.EntryPointAccessors
 import javax.inject.Inject
 
 /**
@@ -65,7 +66,12 @@ class AbbreviationsListFragment :
     override fun onInitDependencyInjection() {
         DaggerAbbreviationsComponent
             .builder()
-            .coreComponent(coreComponent(requireContext()))
+            .abbreviationsModuleDependencies(
+                EntryPointAccessors.fromApplication(
+                    requireContext().applicationContext,
+                    AbbreviationsModuleDependencies::class.java
+                )
+            )
             .abbreviationsModule(AbbreviationsModule(this))
             .build()
             .inject(this)

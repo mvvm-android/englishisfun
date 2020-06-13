@@ -16,7 +16,6 @@
 
 package com.jpaya.base.di
 
-import android.content.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.base.di.modules.FirebaseModule

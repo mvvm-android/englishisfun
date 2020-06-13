@@ -20,7 +20,6 @@ import androidx.lifecycle.ViewModel
 import com.jpaya.base.ui.extensions.viewModel
 import com.jpaya.dynamicfeatures.home.ui.HomeFragment
 import com.jpaya.dynamicfeatures.home.ui.HomeViewModel
-import com.nhaarman.mockitokotlin2.mock
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
 import org.hamcrest.Matchers.instanceOf
@@ -56,7 +55,7 @@ class HomeModuleTest {
 
         val factoryCaptor = slot<() -> ViewModel>()
         module = HomeModule(fragment)
-        module.providesHomeViewModel(mock())
+        module.providesHomeViewModel()
 
         verify {
             fragment.viewModel(factory = capture(factoryCaptor))

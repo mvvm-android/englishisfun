@@ -18,7 +18,6 @@ package com.jpaya.dynamicfeatures.home.ui.di
 
 import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
-import com.google.firebase.auth.FirebaseAuth
 import com.jpaya.base.ui.extensions.viewModel
 import com.jpaya.base.di.scopes.FeatureScope
 import com.jpaya.dynamicfeatures.home.ui.HomeFragment
@@ -26,7 +25,6 @@ import com.jpaya.dynamicfeatures.home.ui.HomeViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.components.FragmentComponent
 
 /**
@@ -49,7 +47,7 @@ class HomeModule(
      */
     @Provides
     @FeatureScope
-    fun providesHomeViewModel(firebaseAuth: FirebaseAuth) = fragment.viewModel {
-        HomeViewModel(firebaseAuth)
+    fun providesHomeViewModel() = fragment.viewModel {
+        HomeViewModel()
     }
 }
