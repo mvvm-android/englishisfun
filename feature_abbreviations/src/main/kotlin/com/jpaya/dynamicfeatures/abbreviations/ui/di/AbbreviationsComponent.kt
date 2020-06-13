@@ -16,9 +16,8 @@
 
 package com.jpaya.dynamicfeatures.abbreviations.ui.di
 
-import com.jpaya.base.di.scopes.FeatureScope
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
-import com.jpaya.englishisfun.di.AbbreviationsModuleDependencies
+import com.jpaya.englishisfun.di.dynamicfeatures.AbbreviationsModuleDependencies
 import dagger.Component
 
 /**
@@ -27,7 +26,6 @@ import dagger.Component
  *
  * @see Component
  */
-@FeatureScope
 @Component(modules = [AbbreviationsModule::class], dependencies = [AbbreviationsModuleDependencies::class])
 interface AbbreviationsComponent {
 

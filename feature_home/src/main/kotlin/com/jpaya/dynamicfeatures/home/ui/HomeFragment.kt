@@ -30,7 +30,7 @@ import com.jpaya.dynamicfeatures.home.databinding.FragmentHomeBinding
 import com.jpaya.dynamicfeatures.home.ui.di.DaggerHomeComponent
 import com.jpaya.dynamicfeatures.home.ui.di.HomeModule
 import com.jpaya.dynamicfeatures.home.ui.menu.ToggleThemeCheckBox
-import com.jpaya.englishisfun.di.HomeModuleDependencies
+import com.jpaya.englishisfun.di.dynamicfeatures.HomeModuleDependencies
 import dagger.hilt.android.EntryPointAccessors
 import javax.inject.Inject
 

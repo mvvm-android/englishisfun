@@ -21,7 +21,6 @@ import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.base.ui.extensions.viewModel
-import com.jpaya.base.di.scopes.FeatureScope
 import com.jpaya.base.firebase.FireStoreProperties
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListViewModel
@@ -53,7 +52,6 @@ class AbbreviationsModule(
      * @return Instance of view model.
      * @see Provides
      */
-    @FeatureScope
     @Provides
     fun providesAbbreviationsListViewModel(
         dataFactory: AbbreviationsPageDataSourceFactory
@@ -86,7 +84,6 @@ class AbbreviationsModule(
      * @return Instance of mapper.
      * @see Provides
      */
-    @FeatureScope
     @Provides
     fun providesAbbreviationItemMapper() = AbbreviationItemMapper()
 
@@ -96,7 +93,6 @@ class AbbreviationsModule(
      * @return Instance of adapter.
      * @see Provides
      */
-    @FeatureScope
     @Provides
     fun providesAbbreviationsListAdapter(
         viewModel: AbbreviationsListViewModel

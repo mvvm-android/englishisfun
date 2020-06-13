@@ -16,9 +16,8 @@
 
 package com.jpaya.dynamicfeatures.home.ui.di
 
-import com.jpaya.base.di.scopes.FeatureScope
 import com.jpaya.dynamicfeatures.home.ui.HomeFragment
-import com.jpaya.englishisfun.di.HomeModuleDependencies
+import com.jpaya.englishisfun.di.dynamicfeatures.HomeModuleDependencies
 import dagger.Component
 
 /**
@@ -27,7 +26,6 @@ import dagger.Component
  *
  * @see Component
  */
-@FeatureScope
 @Component(modules = [HomeModule::class], dependencies = [HomeModuleDependencies::class])
 interface HomeComponent {
 

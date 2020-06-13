@@ -14,16 +14,19 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.di
+package com.jpaya.englishisfun.di.dynamicfeatures
 
-import com.jpaya.base.utils.ThemeUtils
+import com.google.firebase.firestore.FirebaseFirestore
+import com.jpaya.base.firebase.FireStoreProperties
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 
 @EntryPoint
 @InstallIn(ApplicationComponent::class)
-interface HomeModuleDependencies {
+interface AbbreviationsModuleDependencies {
 
-    fun bindThemeUtils(): ThemeUtils
+    fun bindFirebaseFirestore(): FirebaseFirestore
+
+    fun bindFireStoreProperties(): FireStoreProperties
 }

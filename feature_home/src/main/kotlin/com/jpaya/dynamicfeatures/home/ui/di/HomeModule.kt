@@ -19,7 +19,6 @@ package com.jpaya.dynamicfeatures.home.ui.di
 import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
 import com.jpaya.base.ui.extensions.viewModel
-import com.jpaya.base.di.scopes.FeatureScope
 import com.jpaya.dynamicfeatures.home.ui.HomeFragment
 import com.jpaya.dynamicfeatures.home.ui.HomeViewModel
 import dagger.Module
@@ -46,7 +45,6 @@ class HomeModule(
      * @see Provides
      */
     @Provides
-    @FeatureScope
     fun providesHomeViewModel() = fragment.viewModel {
         HomeViewModel()
     }

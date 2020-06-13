@@ -14,34 +14,31 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.di.modules
+package com.jpaya.englishisfun.di.modules
 
-import com.jpaya.base.di.CoreComponent
-import com.jpaya.base.utils.ThemeUtils
-import com.jpaya.base.utils.ThemeUtilsImpl
-import dagger.Binds
+import android.content.Context
+import com.jpaya.englishisfun.EnglishIsFunApp
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import javax.inject.Singleton
 
 /**
- * Class that contributes to the object graph [CoreComponent].
+ * Class that contributes to the object graph [ApplicationComponent].
  *
  * @see Module
  */
 @Module
 @InstallIn(ApplicationComponent::class)
-class UtilsModule {
+class AppModule {
 
     /**
-     * Create a provider method binding for [ThemeUtilsImpl].
+     * Create a provider method binding for [Context].
      *
-     * @return Instance of theme utils.
-     * @see Binds
+     * @param application Sample Application.
+     * @return Instance of context.
+     * @see Provides
      */
-    @Singleton
     @Provides
-    fun bindThemeUtils(): ThemeUtils = ThemeUtilsImpl()
+    fun provideContext(application: EnglishIsFunApp): Context = application.applicationContext
 }

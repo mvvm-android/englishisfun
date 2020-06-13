@@ -16,10 +16,7 @@
 
 package com.jpaya.englishisfun
 
-import android.content.Context
 import com.google.android.play.core.splitcompat.SplitCompatApplication
-import com.jpaya.base.di.CoreComponent
-import com.jpaya.base.di.DaggerCoreComponent
 import com.jpaya.base.utils.ThemeUtils
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
@@ -34,21 +31,8 @@ import kotlin.random.Random
 @HiltAndroidApp
 class EnglishIsFunApp : SplitCompatApplication() {
 
-    lateinit var coreComponent: CoreComponent
-
     @Inject
     lateinit var themeUtils: ThemeUtils
-
-    companion object {
-
-        /**
-         * Obtain core dagger component.
-         *
-         * @param context The application context
-         */
-        @JvmStatic
-        fun coreComponent(context: Context) = (context.applicationContext as? EnglishIsFunApp)?.coreComponent
-    }
 
     /**
      * Called when the application is starting, before any activity, service, or receiver objects
@@ -59,17 +43,7 @@ class EnglishIsFunApp : SplitCompatApplication() {
     override fun onCreate() {
         super.onCreate()
         initTimber()
-        initCoreDependencyInjection()
         initRandomNightMode()
-    }
-
-    /**
-     * Initialize core dependency injection component.
-     */
-    private fun initCoreDependencyInjection() {
-        coreComponent = DaggerCoreComponent
-            .builder()
-            .build()
     }
 
     /**

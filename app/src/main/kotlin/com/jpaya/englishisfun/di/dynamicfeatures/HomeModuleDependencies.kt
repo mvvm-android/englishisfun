@@ -14,31 +14,16 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.di
+package com.jpaya.englishisfun.di.dynamicfeatures
 
-import android.content.Context
-import com.jpaya.englishisfun.EnglishIsFunApp
-import dagger.Module
-import dagger.Provides
+import com.jpaya.base.utils.ThemeUtils
+import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 
-/**
- * Class that contributes to the object graph [ApplicationComponent].
- *
- * @see Module
- */
-@Module
+@EntryPoint
 @InstallIn(ApplicationComponent::class)
-class AppModule {
+interface HomeModuleDependencies {
 
-    /**
-     * Create a provider method binding for [Context].
-     *
-     * @param application Sample Application.
-     * @return Instance of context.
-     * @see Provides
-     */
-    @Provides
-    fun provideContext(application: EnglishIsFunApp): Context = application.applicationContext
+    fun bindThemeUtils(): ThemeUtils
 }

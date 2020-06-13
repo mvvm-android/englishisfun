@@ -29,7 +29,7 @@ import com.jpaya.dynamicfeatures.abbreviations.ui.adapter.AbbreviationsListAdapt
 import com.jpaya.dynamicfeatures.abbreviations.ui.di.AbbreviationsModule
 import com.jpaya.dynamicfeatures.abbreviations.ui.di.DaggerAbbreviationsComponent
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItem
-import com.jpaya.englishisfun.di.AbbreviationsModuleDependencies
+import com.jpaya.englishisfun.di.dynamicfeatures.AbbreviationsModuleDependencies
 import dagger.hilt.android.EntryPointAccessors
 import javax.inject.Inject
 
