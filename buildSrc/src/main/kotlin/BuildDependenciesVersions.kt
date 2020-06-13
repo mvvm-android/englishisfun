@@ -17,6 +17,7 @@ object BuildDependenciesVersions {
     const val FIREBASE_PERFORMANCE = "19.0.7"
     const val FRAGMENT_KTX = "1.2.4"
     const val HILT = "2.28-alpha"
+    const val HILT_VIEWMODEL = "1.0.0-alpha01"
     const val KOTLIN = "1.3.72"
     const val LEAKCANARY = "2.3"
     const val LIFECYCLE = "2.2.0"

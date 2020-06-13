@@ -99,6 +99,7 @@ dependencies {
     implementation(Dependencies.COROUTINES)
     implementation(Dependencies.COROUTINES_ANDROID)
     implementation(Dependencies.HILT)
+    implementation(Dependencies.HILT_VIEWMODEL)
     implementation(Dependencies.TIMBER)
 
     kapt(AnnotationProcessorsDependencies.HILT)

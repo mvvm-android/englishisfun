@@ -118,6 +118,7 @@ dependencies {
     implementation(Dependencies.TIMBER)
     implementation(Dependencies.LOGGING)
     implementation(Dependencies.HILT)
+    implementation(Dependencies.HILT_VIEWMODEL)
 
     kapt(AnnotationProcessorsDependencies.HILT)
     kapt(AnnotationProcessorsDependencies.DATABINDING)

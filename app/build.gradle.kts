@@ -28,7 +28,7 @@ plugins {
     id(BuildPlugins.GRAPH_GENERATOR)
     id(BuildPlugins.GOOGLE_SERVICES)
     id(BuildPlugins.FIREBASE_CRASHLYTICS)
-    id(BuildPlugins.FIREBASE_PERFORMANCE)
+//    id(BuildPlugins.FIREBASE_PERFORMANCE)
     id(BuildPlugins.HILT)
 }
 
@@ -162,6 +162,7 @@ dependencies {
             Dependencies.FIREBASE_AUTH,
             Dependencies.FIREBASE_PERFORMANCE,
             Dependencies.HILT,
+            Dependencies.HILT_VIEWMODEL,
             Dependencies.COMPOSE_MATERIAL,
             Dependencies.COMPOSE_RUNTIME,
             Dependencies.COMPOSE_TOOLING
@@ -169,6 +170,7 @@ dependencies {
     )
     debugImplementation(DebugDependencies.LEAKCANARY)
     kapt(AnnotationProcessorsDependencies.HILT)
+    kapt(AnnotationProcessorsDependencies.HILT_VIEWMODEL)
     testImplementation(TestDependencies.all())
     androidTestImplementation(TestAndroidDependencies.all())
 }

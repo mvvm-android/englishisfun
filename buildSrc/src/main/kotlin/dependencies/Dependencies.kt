@@ -26,6 +26,7 @@ object Dependencies {
     const val FIREBASE_PERFORMANCE = "com.google.firebase:firebase-perf:${BuildDependenciesVersions.FIREBASE_PERFORMANCE}"
     const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${BuildDependenciesVersions.FRAGMENT_KTX}"
     const val HILT = "com.google.dagger:hilt-android:${BuildDependenciesVersions.HILT}"
+    const val HILT_VIEWMODEL = "androidx.hilt:hilt-lifecycle-viewmodel:${BuildDependenciesVersions.HILT_VIEWMODEL}"
     const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${BuildDependenciesVersions.KOTLIN}"
     const val LIFECYCLE_EXTENSIONS = "androidx.lifecycle:lifecycle-extensions:${BuildDependenciesVersions.LIFECYCLE}"
     const val LIFECYCLE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:${BuildDependenciesVersions.LIFECYCLE}"
