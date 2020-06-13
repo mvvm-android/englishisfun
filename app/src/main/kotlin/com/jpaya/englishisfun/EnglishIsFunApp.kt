@@ -20,9 +20,9 @@ import android.content.Context
 import com.google.android.play.core.splitcompat.SplitCompatApplication
 import com.jpaya.base.di.CoreComponent
 import com.jpaya.base.di.DaggerCoreComponent
-import com.jpaya.base.di.modules.ContextModule
 import com.jpaya.base.utils.ThemeUtils
 import com.jpaya.englishisfun.di.DaggerAppComponent
+import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import javax.inject.Inject
 import kotlin.random.Random
@@ -32,6 +32,7 @@ import kotlin.random.Random
  *
  * @see SplitCompatApplication
  */
+@HiltAndroidApp
 class EnglishIsFunApp : SplitCompatApplication() {
 
     lateinit var coreComponent: CoreComponent
@@ -81,7 +82,6 @@ class EnglishIsFunApp : SplitCompatApplication() {
     private fun initCoreDependencyInjection() {
         coreComponent = DaggerCoreComponent
             .builder()
-            .contextModule(ContextModule(this))
             .build()
     }
 

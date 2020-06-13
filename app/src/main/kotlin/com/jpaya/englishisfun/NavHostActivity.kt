@@ -23,13 +23,19 @@ import androidx.ui.core.setContent
 import androidx.ui.foundation.Text
 import androidx.ui.material.MaterialTheme
 import androidx.ui.tooling.preview.Preview
+import com.google.firebase.firestore.FirebaseFirestore
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 /**
  * Base activity class that use the support library action bar features.
  *
  * @see AppCompatActivity
  */
+@AndroidEntryPoint
 class NavHostActivity : AppCompatActivity() {
+
+    @Inject lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

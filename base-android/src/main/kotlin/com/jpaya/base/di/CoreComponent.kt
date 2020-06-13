@@ -19,7 +19,6 @@ package com.jpaya.base.di
 import android.content.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.jpaya.base.di.modules.ContextModule
 import com.jpaya.base.di.modules.FirebaseModule
 import com.jpaya.base.di.modules.UtilsModule
 import com.jpaya.base.firebase.FireStoreProperties
@@ -34,18 +33,10 @@ import javax.inject.Singleton
  */
 @Singleton
 @Component(modules = [
-    ContextModule::class,
     UtilsModule::class,
     FirebaseModule::class
 ])
 interface CoreComponent {
-
-    /**
-     * Provide dependency graph Context
-     *
-     * @return Context
-     */
-    fun context(): Context
 
     /**
      * Provide dependency graph ThemeUtils
