@@ -24,7 +24,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 
 /**
- * Class that contributes to the object graph [AppComponent].
+ * Class that contributes to the object graph [ApplicationComponent].
  *
  * @see Module
  */

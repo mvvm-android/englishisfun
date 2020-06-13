@@ -21,7 +21,6 @@ import com.google.android.play.core.splitcompat.SplitCompatApplication
 import com.jpaya.base.di.CoreComponent
 import com.jpaya.base.di.DaggerCoreComponent
 import com.jpaya.base.utils.ThemeUtils
-import com.jpaya.englishisfun.di.DaggerAppComponent
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import javax.inject.Inject
@@ -61,19 +60,7 @@ class EnglishIsFunApp : SplitCompatApplication() {
         super.onCreate()
         initTimber()
         initCoreDependencyInjection()
-        initAppDependencyInjection()
         initRandomNightMode()
-    }
-
-    /**
-     * Initialize app dependency injection component.
-     */
-    private fun initAppDependencyInjection() {
-        DaggerAppComponent
-            .builder()
-            .coreComponent(coreComponent)
-            .build()
-            .inject(this)
     }
 
     /**
