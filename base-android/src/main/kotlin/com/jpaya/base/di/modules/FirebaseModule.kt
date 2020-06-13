@@ -23,6 +23,8 @@ import com.jpaya.base.di.CoreComponent
 import com.jpaya.base.firebase.FireStoreProperties
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import javax.inject.Singleton
 
 /**
@@ -31,6 +33,7 @@ import javax.inject.Singleton
  * @see Module
  */
 @Module
+@InstallIn(ApplicationComponent::class)
 class FirebaseModule {
 
     /**

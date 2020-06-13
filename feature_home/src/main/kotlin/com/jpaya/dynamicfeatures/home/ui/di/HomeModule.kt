@@ -25,6 +25,9 @@ import com.jpaya.dynamicfeatures.home.ui.HomeFragment
 import com.jpaya.dynamicfeatures.home.ui.HomeViewModel
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.components.FragmentComponent
 
 /**
  * Class that contributes to the object graph [HomeComponent].
@@ -32,6 +35,7 @@ import dagger.Provides
  * @see Module
  */
 @Module
+@InstallIn(FragmentComponent::class)
 class HomeModule(
     @VisibleForTesting(otherwise = PRIVATE)
     val fragment: HomeFragment

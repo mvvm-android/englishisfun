@@ -115,11 +115,11 @@ dependencies {
     implementation(Dependencies.CORE_KTX)
     implementation(Dependencies.FRAGMENT_KTX)
     implementation(Dependencies.CONSTRAINT_LAYOUT)
-    implementation(Dependencies.DAGGER)
     implementation(Dependencies.TIMBER)
     implementation(Dependencies.LOGGING)
+    implementation(Dependencies.HILT)
 
-    kapt(AnnotationProcessorsDependencies.DAGGER)
+    kapt(AnnotationProcessorsDependencies.HILT)
     kapt(AnnotationProcessorsDependencies.DATABINDING)
     kapt(AnnotationProcessorsDependencies.ROOM)
 

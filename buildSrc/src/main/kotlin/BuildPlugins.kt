@@ -19,6 +19,8 @@ object BuildPlugins {
     const val FIREBASE_CRASHLYTICS = "com.google.firebase.crashlytics"
     const val FIREBASE_PERFORMANCE = "com.google.firebase.firebase-perf"
 
+    const val HILT = "dagger.hilt.android.plugin"
+
     const val DEPENDENCY_GRAPH = "plugins.dependency-graph"
     const val DETEKT = "plugins.detekt"
     const val DOKKA = "plugins.dokka"

@@ -20,6 +20,8 @@ import android.content.Context
 import com.jpaya.englishisfun.EnglishIsFunApp
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 
 /**
  * Class that contributes to the object graph [AppComponent].
@@ -27,6 +29,7 @@ import dagger.Provides
  * @see Module
  */
 @Module
+@InstallIn(ApplicationComponent::class)
 class AppModule {
 
     /**

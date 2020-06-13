@@ -31,6 +31,8 @@ import com.jpaya.dynamicfeatures.abbreviations.ui.paging.AbbreviationsPageDataSo
 import com.jpaya.dynamicfeatures.abbreviations.ui.paging.AbbreviationsPageDataSourceFactory
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.FragmentComponent
 
 /**
  * Class that contributes to the object graph [AbbreviationsComponent].
@@ -38,6 +40,7 @@ import dagger.Provides
  * @see Module
  */
 @Module
+@InstallIn(FragmentComponent::class)
 class AbbreviationsModule(
     @VisibleForTesting(otherwise = PRIVATE)
     val fragment: AbbreviationsListFragment

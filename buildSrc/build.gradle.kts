@@ -48,6 +48,7 @@ object PluginsVersions {
     const val FIREBASE_CRASHLYTICS = "2.0.0"
     const val FIREBASE_PERFORMANCE = "1.3.1"
     const val SONARQUBE = "3.0"
+    const val HILT = "2.28-alpha"
 }
 
 dependencies {
@@ -66,4 +67,5 @@ dependencies {
     implementation("com.google.firebase:firebase-crashlytics-gradle:${PluginsVersions.FIREBASE_CRASHLYTICS}")
     implementation("com.google.firebase:perf-plugin:${PluginsVersions.FIREBASE_PERFORMANCE}")
     implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:${PluginsVersions.SONARQUBE}")
+    implementation("com.google.dagger:hilt-android-gradle-plugin:${PluginsVersions.HILT}")
 }

@@ -21,6 +21,8 @@ import com.jpaya.base.utils.ThemeUtils
 import com.jpaya.base.utils.ThemeUtilsImpl
 import dagger.Binds
 import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import javax.inject.Singleton
 
 /**
@@ -29,6 +31,7 @@ import javax.inject.Singleton
  * @see Module
  */
 @Module
+@InstallIn(ApplicationComponent::class)
 abstract class UtilsModule {
 
     /**
