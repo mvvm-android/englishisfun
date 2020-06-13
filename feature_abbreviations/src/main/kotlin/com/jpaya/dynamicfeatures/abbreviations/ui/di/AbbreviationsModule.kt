@@ -34,9 +34,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
 
 /**
- * Class that contributes to the object graph [AbbreviationsComponent].
- *
- * @see Module
+ * Class that provides abbreviations-related dependencies to the hilt dependency graph [FragmentComponent].
+ * All dependencies provided by this class will be considered as fragment-level properties.
  */
 @Module
 @InstallIn(FragmentComponent::class)

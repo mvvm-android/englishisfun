@@ -24,9 +24,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 
 /**
- * Class that contributes to the object graph [ApplicationComponent].
- *
- * @see Module
+ * Class that provides the application-level dependencies to the hilt dependency graph [ApplicationComponent].
+ * All dependencies provided by this class will be considered as application-level properties.
  */
 @Module
 @InstallIn(ApplicationComponent::class)

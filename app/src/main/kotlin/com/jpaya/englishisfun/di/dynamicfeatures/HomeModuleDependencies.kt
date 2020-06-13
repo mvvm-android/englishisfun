@@ -21,6 +21,10 @@ import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 
+/**
+ * This class is needed to connect the hilt dependencies graph to the module 'feature_home'.
+ * Note: It is done this way because dynamic features are not supported yet on hilt.
+ */
 @EntryPoint
 @InstallIn(ApplicationComponent::class)
 interface HomeModuleDependencies {

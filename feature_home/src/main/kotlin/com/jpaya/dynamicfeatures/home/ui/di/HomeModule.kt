@@ -24,12 +24,12 @@ import com.jpaya.dynamicfeatures.home.ui.HomeViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.components.FragmentComponent
 
 /**
- * Class that contributes to the object graph [HomeComponent].
- *
- * @see Module
+ * Class that provides home-related dependencies to the hilt dependency graph [FragmentComponent].
+ * All dependencies provided by this class will be considered as fragment-level properties.
  */
 @Module
 @InstallIn(FragmentComponent::class)
