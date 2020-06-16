@@ -17,7 +17,6 @@
 package com.jpaya.dynamicfeatures.abbreviations.ui.di
 
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
-import com.jpaya.dynamicfeatures.home.ui.HomeFragment
 import com.jpaya.englishisfun.di.dynamicfeatures.AbbreviationsModuleDependencies
 import dagger.Component
 

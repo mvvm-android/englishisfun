@@ -24,7 +24,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import javax.inject.Singleton
 
 /**
  * Class that provides Firebase-related dependencies to the hilt dependency graph [ApplicationComponent].
