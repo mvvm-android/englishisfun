@@ -37,9 +37,7 @@ class RecyclerViewBindingTest : TestRobolectric() {
     @Test
     fun setItemDecoration_ShouldAddProperlySpacing() {
         val spacingPx = 10f
-
         recyclerView.setItemDecorationSpacing(spacingPx)
-
         assertEquals(1, recyclerView.itemDecorationCount)
 
         val decoration = recyclerView.getItemDecorationAt(0)
