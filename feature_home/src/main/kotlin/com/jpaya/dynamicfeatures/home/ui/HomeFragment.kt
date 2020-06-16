@@ -127,10 +127,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(layoutId =
         viewBinding.viewModel = viewModel
     }
 
-    // ============================================================================================
-    //  Private setups methods
-    // ============================================================================================
-
     /**
      * Configure app custom support action bar.
      */

@@ -339,10 +339,6 @@ class RecyclerViewItemDecorationTest {
         }
     }
 
-    // ============================================================================================
-    //  Private methods utils
-    // ============================================================================================
-
     private fun generateFakeOffsetsGridLayout(
         position: Int,
         spanCount: Int,

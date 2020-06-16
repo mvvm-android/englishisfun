@@ -50,10 +50,6 @@ sealed class NetworkState {
         val isAdditional: Boolean = false
     ) : NetworkState()
 
-    // ============================================================================================
-    //  Public helpers methods
-    // ============================================================================================
-
     /**
      * Check if current network state is [Success].
      *

@@ -23,8 +23,7 @@ import com.jpaya.base.ui.base.BaseViewState
  *
  * @see BaseViewState
  */
-sealed class HomeViewState :
-    BaseViewState {
+sealed class HomeViewState : BaseViewState {
 
     /**
      * Full screen mode.
@@ -35,10 +34,6 @@ sealed class HomeViewState :
      * Navigation screen mode with bottom bar.
      */
     object NavigationScreen : HomeViewState()
-
-    // ============================================================================================
-    //  Public helpers methods
-    // ============================================================================================
 
     /**
      * Check if current view state is [FullScreen].
