@@ -18,20 +18,20 @@ package com.jpaya.dynamicfeatures.home.ui.di
 
 import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
-import com.google.firebase.auth.FirebaseAuth
 import com.jpaya.base.ui.extensions.viewModel
-import com.jpaya.base.di.scopes.FeatureScope
 import com.jpaya.dynamicfeatures.home.ui.HomeFragment
 import com.jpaya.dynamicfeatures.home.ui.HomeViewModel
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.FragmentComponent
 
 /**
- * Class that contributes to the object graph [HomeComponent].
- *
- * @see Module
+ * Class that provides home-related dependencies to the hilt dependency graph [FragmentComponent].
+ * All dependencies provided by this class will be considered as fragment-level properties.
  */
 @Module
+@InstallIn(FragmentComponent::class)
 class HomeModule(
     @VisibleForTesting(otherwise = PRIVATE)
     val fragment: HomeFragment
@@ -44,8 +44,7 @@ class HomeModule(
      * @see Provides
      */
     @Provides
-    @FeatureScope
-    fun providesHomeViewModel(firebaseAuth: FirebaseAuth) = fragment.viewModel {
-        HomeViewModel(firebaseAuth)
+    fun providesHomeViewModel() = fragment.viewModel {
+        HomeViewModel()
     }
 }

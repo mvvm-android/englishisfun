@@ -16,27 +16,20 @@
 
 package com.jpaya.dynamicfeatures.abbreviations.ui.di
 
-import com.jpaya.base.di.CoreComponent
-import com.jpaya.base.di.scopes.FeatureScope
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
+import com.jpaya.englishisfun.di.dynamicfeatures.AbbreviationsModuleDependencies
 import dagger.Component
 
 /**
- * Class for which a fully-formed, dependency-injected implementation is to
- * be generated from [AbbreviationsModule].
- *
- * @see Component
+ * Dagger component class to inject dependencies into [AbbreviationsListFragment] class.
  */
-@FeatureScope
-@Component(
-    modules = [AbbreviationsModule::class],
-    dependencies = [CoreComponent::class])
+@Component(modules = [AbbreviationsModule::class], dependencies = [AbbreviationsModuleDependencies::class])
 interface AbbreviationsComponent {
 
     /**
-     * Inject dependencies on component.
+     * Inject dependencies on [AbbreviationsListFragment].
      *
-     * @param listFragment Abbreviations list component.
+     * @param listFragment The fragment instance to inject the dependencies into.
      */
     fun inject(listFragment: AbbreviationsListFragment)
 }

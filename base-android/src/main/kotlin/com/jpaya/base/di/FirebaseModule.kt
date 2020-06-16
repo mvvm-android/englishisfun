@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.di.modules
+package com.jpaya.base.di
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.jpaya.base.di.CoreComponent
 import com.jpaya.base.firebase.FireStoreProperties
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 
 /**
- * Class that contributes to the object graph [CoreComponent].
- *
- * @see Module
+ * Class that provides Firebase-related dependencies to the hilt dependency graph [ApplicationComponent].
+ * All dependencies provided by this class will be considered as application-level properties.
  */
 @Module
+@InstallIn(ApplicationComponent::class)
 class FirebaseModule {
 
     /**
@@ -39,7 +39,6 @@ class FirebaseModule {
      * @return Instance of FirebaseFirestore.
      * @see Provides
      */
-    @Singleton
     @Provides
     fun provideFirebaseFireStore() = Firebase.firestore
 
@@ -49,7 +48,6 @@ class FirebaseModule {
      * @return Instance of FirebaseAuth.
      * @see Provides
      */
-    @Singleton
     @Provides
     fun provideFirebaseAuth() = FirebaseAuth.getInstance()
 
@@ -59,7 +57,6 @@ class FirebaseModule {
      * @return Instance of FireStoreProperties.
      * @see Provides
      */
-    @Singleton
     @Provides
     fun provideFireStoreProperties() = FireStoreProperties()
 }

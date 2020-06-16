@@ -16,27 +16,20 @@
 
 package com.jpaya.dynamicfeatures.home.ui.di
 
-import com.jpaya.base.di.CoreComponent
-import com.jpaya.base.di.scopes.FeatureScope
 import com.jpaya.dynamicfeatures.home.ui.HomeFragment
+import com.jpaya.englishisfun.di.dynamicfeatures.HomeModuleDependencies
 import dagger.Component
 
 /**
- * Class for which a fully-formed, dependency-injected implementation is to
- * be generated from [HomeModule].
- *
- * @see Component
+ * Dagger component class to inject dependencies into [HomeFragment] class.
  */
-@FeatureScope
-@Component(
-    modules = [HomeModule::class],
-    dependencies = [CoreComponent::class])
+@Component(modules = [HomeModule::class], dependencies = [HomeModuleDependencies::class])
 interface HomeComponent {
 
     /**
-     * Inject dependencies on component.
+     * Inject dependencies on [HomeFragment]
      *
-     * @param homeFragment Home component.
+     * @param homeFragment The fragment instance to inject the dependencies into.
      */
     fun inject(homeFragment: HomeFragment)
 }

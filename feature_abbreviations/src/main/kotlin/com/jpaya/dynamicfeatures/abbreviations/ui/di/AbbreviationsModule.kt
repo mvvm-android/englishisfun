@@ -21,7 +21,6 @@ import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.base.ui.extensions.viewModel
-import com.jpaya.base.di.scopes.FeatureScope
 import com.jpaya.base.firebase.FireStoreProperties
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListViewModel
@@ -31,13 +30,15 @@ import com.jpaya.dynamicfeatures.abbreviations.ui.paging.AbbreviationsPageDataSo
 import com.jpaya.dynamicfeatures.abbreviations.ui.paging.AbbreviationsPageDataSourceFactory
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.FragmentComponent
 
 /**
- * Class that contributes to the object graph [AbbreviationsComponent].
- *
- * @see Module
+ * Class that provides abbreviations-related dependencies to the hilt dependency graph [FragmentComponent].
+ * All dependencies provided by this class will be considered as fragment-level properties.
  */
 @Module
+@InstallIn(FragmentComponent::class)
 class AbbreviationsModule(
     @VisibleForTesting(otherwise = PRIVATE)
     val fragment: AbbreviationsListFragment
@@ -50,7 +51,6 @@ class AbbreviationsModule(
      * @return Instance of view model.
      * @see Provides
      */
-    @FeatureScope
     @Provides
     fun providesAbbreviationsListViewModel(
         dataFactory: AbbreviationsPageDataSourceFactory
@@ -83,7 +83,6 @@ class AbbreviationsModule(
      * @return Instance of mapper.
      * @see Provides
      */
-    @FeatureScope
     @Provides
     fun providesAbbreviationItemMapper() = AbbreviationItemMapper()
 
@@ -93,7 +92,6 @@ class AbbreviationsModule(
      * @return Instance of adapter.
      * @see Provides
      */
-    @FeatureScope
     @Provides
     fun providesAbbreviationsListAdapter(
         viewModel: AbbreviationsListViewModel

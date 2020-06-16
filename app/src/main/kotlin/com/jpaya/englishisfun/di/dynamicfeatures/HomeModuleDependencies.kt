@@ -14,29 +14,20 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.di
+package com.jpaya.englishisfun.di.dynamicfeatures
 
-import com.jpaya.base.di.CoreComponent
-import com.jpaya.base.di.scopes.AppScope
-import com.jpaya.englishisfun.EnglishIsFunApp
-import dagger.Component
+import com.jpaya.base.utils.ThemeUtils
+import dagger.hilt.EntryPoint
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 
 /**
- * App component that application component's components depend on.
- *
- * @see Component
+ * This class is needed to connect the hilt dependencies graph to the module 'feature_home'.
+ * Note: It is done this way because dynamic features are not supported yet on hilt.
  */
-@AppScope
-@Component(
-    dependencies = [CoreComponent::class],
-    modules = [AppModule::class]
-)
-interface AppComponent {
+@EntryPoint
+@InstallIn(ApplicationComponent::class)
+interface HomeModuleDependencies {
 
-    /**
-     * Inject dependencies on application.
-     *
-     * @param application The sample application.
-     */
-    fun inject(application: EnglishIsFunApp)
+    fun bindThemeUtils(): ThemeUtils
 }

@@ -29,6 +29,7 @@ plugins {
     id(BuildPlugins.GOOGLE_SERVICES)
     id(BuildPlugins.FIREBASE_CRASHLYTICS)
     id(BuildPlugins.FIREBASE_PERFORMANCE)
+    id(BuildPlugins.HILT)
 }
 
 allOpen {
@@ -155,19 +156,21 @@ dependencies {
             Dependencies.TIMBER,
             Dependencies.LOGGING,
             Dependencies.PLAY_CORE,
-            Dependencies.DAGGER,
             Dependencies.FIREBASE_ANALYTICS,
             Dependencies.FIREBASE_CRASHLYTICS,
             Dependencies.FIREBASE_FIRESTORE,
             Dependencies.FIREBASE_AUTH,
             Dependencies.FIREBASE_PERFORMANCE,
+            Dependencies.HILT,
+            Dependencies.HILT_VIEWMODEL,
             Dependencies.COMPOSE_MATERIAL,
             Dependencies.COMPOSE_RUNTIME,
             Dependencies.COMPOSE_TOOLING
         )
     )
     debugImplementation(DebugDependencies.LEAKCANARY)
-    kapt(AnnotationProcessorsDependencies.DAGGER)
+    kapt(AnnotationProcessorsDependencies.HILT)
+    kapt(AnnotationProcessorsDependencies.HILT_VIEWMODEL)
     testImplementation(TestDependencies.all())
     androidTestImplementation(TestAndroidDependencies.all())
 }

@@ -14,28 +14,30 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.di
+package com.jpaya.base.di
 
-import android.content.Context
-import com.jpaya.englishisfun.EnglishIsFunApp
+import com.jpaya.base.utils.ThemeUtils
+import com.jpaya.base.utils.ThemeUtilsImpl
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 
 /**
- * Class that contributes to the object graph [AppComponent].
- *
- * @see Module
+ * Class that provides dependencies to the hilt dependency graph [ApplicationComponent].
+ * All dependencies provided by this class will be considered as application-level properties.
  */
 @Module
-class AppModule {
+@InstallIn(ApplicationComponent::class)
+class UtilsModule {
 
     /**
-     * Create a provider method binding for [Context].
+     * Create a provider method binding for [ThemeUtilsImpl].
      *
-     * @param application Sample Application.
-     * @return Instance of context.
-     * @see Provides
+     * @return Instance of theme utils.
+     * @see Binds
      */
     @Provides
-    fun provideContext(application: EnglishIsFunApp): Context = application.applicationContext
+    fun bindThemeUtils(): ThemeUtils = ThemeUtilsImpl()
 }

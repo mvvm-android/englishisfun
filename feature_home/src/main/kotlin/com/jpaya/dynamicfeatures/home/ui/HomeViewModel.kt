@@ -17,12 +17,10 @@
 package com.jpaya.dynamicfeatures.home.ui
 
 import android.app.Activity
-import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
-import com.google.firebase.auth.FirebaseAuth
 import com.jpaya.dynamicfeatures.home.R
 import javax.inject.Inject
 
@@ -31,10 +29,7 @@ import javax.inject.Inject
  *
  * @see ViewModel
  */
-class HomeViewModel @Inject constructor(
-    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    val firebaseAuth: FirebaseAuth
-) : ViewModel() {
+class HomeViewModel @Inject constructor() : ViewModel() {
 
     private val _state = MutableLiveData<HomeViewState>()
     val state: LiveData<HomeViewState>
@@ -60,7 +55,7 @@ class HomeViewModel @Inject constructor(
     }
 
     fun authenticate(activity: Activity) {
-        firebaseAuth.signInAnonymously().addOnCompleteListener(activity) { task ->
+/*        firebaseAuth.signInAnonymously().addOnCompleteListener(activity) { task ->
             if (task.isSuccessful) {
                 // Sign in success, update UI showing the different application menus
                 _state.postValue(HomeViewState.NavigationScreen)
@@ -71,5 +66,7 @@ class HomeViewModel @Inject constructor(
                 // updateUI(null)
             }
         }
+    }
+ */
     }
 }

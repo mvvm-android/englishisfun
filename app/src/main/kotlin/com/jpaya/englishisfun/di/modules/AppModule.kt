@@ -14,30 +14,30 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.di.modules
+package com.jpaya.englishisfun.di.modules
 
-import android.app.Application
 import android.content.Context
-import com.jpaya.base.di.CoreComponent
+import com.jpaya.englishisfun.EnglishIsFunApp
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 
 /**
- * Class that contributes to the object graph [CoreComponent].
- *
- * @see Module
+ * Class that provides the application-level dependencies to the hilt dependency graph [ApplicationComponent].
+ * All dependencies provided by this class will be considered as application-level properties.
  */
 @Module
-class ContextModule(private val application: Application) {
+@InstallIn(ApplicationComponent::class)
+class AppModule {
 
     /**
      * Create a provider method binding for [Context].
      *
+     * @param application Sample Application.
      * @return Instance of context.
      * @see Provides
      */
-    @Singleton
     @Provides
-    fun provideContext(): Context = application
+    fun provideContext(application: EnglishIsFunApp): Context = application.applicationContext
 }
