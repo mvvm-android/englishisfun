@@ -18,7 +18,6 @@ package com.jpaya.base.di
 
 import com.jpaya.base.utils.ThemeUtils
 import com.jpaya.base.utils.ThemeUtilsImpl
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,8 +35,8 @@ class UtilsModule {
      * Create a provider method binding for [ThemeUtilsImpl].
      *
      * @return Instance of theme utils.
-     * @see Binds
+     * @see Provides
      */
     @Provides
-    fun bindThemeUtils(): ThemeUtils = ThemeUtilsImpl()
+    fun providesThemeUtils(): ThemeUtils = ThemeUtilsImpl()
 }
