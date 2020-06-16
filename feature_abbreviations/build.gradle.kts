@@ -25,11 +25,11 @@ dependencies {
     implementation(project(BuildModules.Features.HOME))
     implementation(
         arrayOf(
-            Dependencies.RECYCLER_VIEW,
-            Dependencies.PAGING,
+            Dependencies.COROUTINES_PLAY_SERVICES,
             Dependencies.FIREBASE_ANALYTICS,
             Dependencies.FIREBASE_FIRESTORE,
-            Dependencies.COROUTINES_PLAY_SERVICES
+            Dependencies.PAGING,
+            Dependencies.RECYCLER_VIEW
         )
     )
 }
