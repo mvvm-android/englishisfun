@@ -65,10 +65,6 @@ sealed class AbbreviationsListViewState : BaseViewState {
      */
     object NoMoreElements : AbbreviationsListViewState()
 
-    // ============================================================================================
-    //  Public helper methods
-    // ============================================================================================
-
     /**
      * Check if current view state is [Refreshing].
      *

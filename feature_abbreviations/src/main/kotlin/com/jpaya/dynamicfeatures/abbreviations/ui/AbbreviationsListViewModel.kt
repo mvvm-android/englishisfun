@@ -68,10 +68,6 @@ class AbbreviationsListViewModel
         }
     }
 
-    // ============================================================================================
-    //  Public methods
-    // ============================================================================================
-
     /**
      * Refresh abbreviations fetch them again and update the list.
      */

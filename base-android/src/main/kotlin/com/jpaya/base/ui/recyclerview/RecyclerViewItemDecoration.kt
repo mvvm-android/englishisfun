@@ -67,10 +67,6 @@ class RecyclerViewItemDecoration(
         }
     }
 
-    // ============================================================================================
-    //  Private configs methods
-    // ============================================================================================
-
     /**
      * Configure spacing for grid layout, given a rectangle.
      *
