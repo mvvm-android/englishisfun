@@ -39,6 +39,7 @@ class ImageViewBindingsTest : TestRobolectric() {
         imageView.imageUrl("https://avatars2.githubusercontent.com/u/30294138", android.R.drawable.presence_offline)
         assertNotNull(imageView.drawable)
     }
+    
     @Test
     fun imageUrlWithoutPlaceholder_shouldLoadImage() {
         assertNull(imageView.drawable)
