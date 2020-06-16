@@ -44,6 +44,8 @@ dependencies {
             Dependencies.LIFECYCLE_EXTENSIONS,
             Dependencies.LIFECYCLE_VIEWMODEL,
             Dependencies.LOGGING,
+            Dependencies.MOSHI,
+            Dependencies.MOSHI_KTX,
             Dependencies.NAVIGATION_FRAGMENT,
             Dependencies.NAVIGATION_UI,
             Dependencies.PAGING,
@@ -51,9 +53,7 @@ dependencies {
             Dependencies.RETROFIT,
             Dependencies.RETROFIT_CONVERTER,
             Dependencies.ROOM,
-            Dependencies.ROOM_KTX,
-            Dependencies.MOSHI,
-            Dependencies.MOSHI_KTX
+            Dependencies.ROOM_KTX
         )
     )
     kapt(
