@@ -22,8 +22,6 @@ jobs:
       VERSION_CODE: ${{ secrets.VERSION_CODE }}
     steps:
       - uses: actions/checkout@v2
-      - name: Extract branch name
-        run: echo running on branch ${GITHUB_REF##*/}
       - name: Add secrets
         run: |
           echo "signing.key.alias=$SIGNING_KEY_ALIAS" >> local.properties
