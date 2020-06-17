@@ -25,6 +25,7 @@ object TestDependencies {
     const val CORE = "androidx.test:core:${BuildDependenciesVersions.TEST}"
     const val COROUTINES_TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${BuildDependenciesVersions.COROUTINES}"
     const val EXT = "androidx.test.ext:junit:${BuildDependenciesVersions.EXT}"
+    const val FRAGMENT_TEST = "androidx.fragment:fragment-testing:${BuildDependenciesVersions.FRAGMENT}"
     const val JUNIT = "junit:junit:${BuildDependenciesVersions.JUNIT}"
     const val MOCKITO = "com.nhaarman.mockitokotlin2:mockito-kotlin:${BuildDependenciesVersions.MOCKITO}"
     const val MOCKK = "io.mockk:mockk:${BuildDependenciesVersions.MOCKK}"
@@ -45,6 +46,7 @@ object TestDependencies {
         CORE,
         COROUTINES_TEST,
         EXT,
+        FRAGMENT_TEST,
         JUNIT,
         MOCKITO,
         MOCKK,
