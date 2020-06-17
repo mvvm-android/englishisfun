@@ -16,6 +16,7 @@
 
 import dependencies.*
 import extensions.*
+import BuildDependenciesVersions
 
 plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
@@ -96,7 +97,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "0.1.0-dev12"
+        kotlinCompilerExtensionVersion = BuildDependenciesVersions.COMPOSE
         kotlinCompilerVersion = "1.3.70-dev-withExperimentalGoogleExtensions-20200424"
     }
 
