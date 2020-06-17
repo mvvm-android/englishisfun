@@ -63,6 +63,7 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: app/build/outputs/bundle/prodRelease/app-prod-release.aab
           asset_name: englishisfun.aab
+          asset_content_type: application/zip
 
   uploadBundle:
     name: Upload Bundle to Google Play
