@@ -2,8 +2,11 @@ name: Internal Release
 
 on:
   push:
-    tags:
-      - '[0-9]+.[0-9]+.[0-9]+-RC[0-9]+'
+    branches:
+      - release/**
+  pull_request:
+    branches:
+      - release/**
 
 jobs:
   release:
@@ -19,6 +22,8 @@ jobs:
       VERSION_CODE: ${{ secrets.VERSION_CODE }}
     steps:
       - uses: actions/checkout@v2
+      - name: Extract branch name
+        run: echo running on branch ${GITHUB_REF##*/}
       - name: Add secrets
         run: |
           echo "signing.key.alias=$SIGNING_KEY_ALIAS" >> local.properties
@@ -31,7 +36,7 @@ jobs:
         run: bash ./gradlew testDevDebugUnitTest
       - name: Update release version
         run: |
-          latest_release="$(git describe --match '[0-9]*.[0-9]*.[0-9]*-RC[0-9]*' --abbrev=0 --tags)"
+          latest_release="${GITHUB_REF##*/}"
           version_name="\"$latest_release\""
           sed -i "s/BuildAndroidConfig.VERSION_NAME/$version_name/g" app/build.gradle.kts
           sed -i "s/BuildAndroidConfig.VERSION_CODE/$VERSION_CODE/g" app/build.gradle.kts
