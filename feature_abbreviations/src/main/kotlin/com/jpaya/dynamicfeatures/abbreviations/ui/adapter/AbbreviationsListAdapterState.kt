@@ -45,10 +45,6 @@ sealed class AbbreviationsListAdapterState {
      */
     object NoMore : AbbreviationsListAdapterState()
 
-    // ============================================================================================
-    //  Public helpers methods
-    // ============================================================================================
-
     /**
      * Check if current view state is [Added].
      *

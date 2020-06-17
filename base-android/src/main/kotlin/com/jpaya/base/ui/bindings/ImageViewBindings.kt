@@ -37,9 +37,9 @@ fun ImageView.imageUrl(url: String?, @DrawableRes placeholderId: Int?) {
     load(url) {
         crossfade(true)
         placeholder(
-            placeholderId?.let {
-                ContextCompat.getDrawable(context, it)
-            } ?: run {
+            if (placeholderId != null) {
+                ContextCompat.getDrawable(context, placeholderId)
+            } else {
                 val placeholdersColors = resources.getStringArray(R.array.placeholders)
                 val placeholderColor = placeholdersColors[Random.nextInt(placeholdersColors.size)]
                 ColorDrawable(Color.parseColor(placeholderColor))

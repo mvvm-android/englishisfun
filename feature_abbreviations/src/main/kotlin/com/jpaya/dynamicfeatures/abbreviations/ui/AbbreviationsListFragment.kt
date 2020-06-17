@@ -87,10 +87,6 @@ class AbbreviationsListFragment :
         }
     }
 
-    // ============================================================================================
-    //  Private observers methods
-    // ============================================================================================
-
     /**
      * Observer view data change on [AbbreviationsListViewModel].
      *
