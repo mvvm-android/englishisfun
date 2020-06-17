@@ -31,8 +31,7 @@ jobs:
         run: bash ./gradlew testDevDebugUnitTest
       - name: Update release version
         run: |
-          latest_release="${GITHUB_REF##*/}"
-          version_name="\"$latest_release\""
+          version_name="\"${GITHUB_REF##*/}\""
           sed -i "s/BuildAndroidConfig.VERSION_NAME/$version_name/g" app/build.gradle.kts
           sed -i "s/BuildAndroidConfig.VERSION_CODE/$VERSION_CODE/g" app/build.gradle.kts
       - name: Build Signed Bundle
