@@ -30,7 +30,10 @@ import androidx.lifecycle.Observer
  * @see LiveData.observe
  */
 fun <T> LifecycleOwner.observe(liveData: LiveData<T>, observer: (T) -> Unit) {
-    liveData.observe(this, Observer {
-        it?.let { t -> observer(t) }
-    })
+    liveData.observe(
+        this,
+        Observer {
+            it?.let { t -> observer(t) }
+        }
+    )
 }

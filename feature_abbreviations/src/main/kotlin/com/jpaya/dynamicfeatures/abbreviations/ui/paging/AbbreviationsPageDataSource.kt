@@ -67,12 +67,14 @@ open class AbbreviationsPageDataSource @Inject constructor(
         callback: LoadInitialCallback<Int, AbbreviationItem>
     ) {
         networkState.postValue(NetworkState.Loading())
-        scope.launch(CoroutineExceptionHandler { _, _ ->
-            retry = {
-                loadInitial(params, callback)
+        scope.launch(
+            CoroutineExceptionHandler { _, _ ->
+                retry = {
+                    loadInitial(params, callback)
+                }
+                networkState.postValue(NetworkState.Error())
             }
-            networkState.postValue(NetworkState.Error())
-        }) {
+        ) {
             val list = fireStore
                 .collection(fireStoreProperties.getAbbreviationCollectionName())
                 .document(fireStoreProperties.getAbbreviationDocumentName())

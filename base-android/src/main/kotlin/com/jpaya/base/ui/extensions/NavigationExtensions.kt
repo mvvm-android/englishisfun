@@ -101,10 +101,8 @@ fun BottomNavigationView.setupWithNavController(
             val newlySelectedItemTag = graphIdToTagMap[item.itemId]
             if (selectedItemTag != newlySelectedItemTag) {
                 // Pop everything above the first fragment (the "fixed start destination")
-                fragmentManager.popBackStack(firstFragmentTag,
-                    FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                val selectedFragment = fragmentManager.findFragmentByTag(newlySelectedItemTag)
-                    as NavHostFragment
+                fragmentManager.popBackStack(firstFragmentTag, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                val selectedFragment = fragmentManager.findFragmentByTag(newlySelectedItemTag) as NavHostFragment
 
                 // Exclude the first fragment tag because it's always in the back stack.
                 if (firstFragmentTag != newlySelectedItemTag) {
@@ -177,8 +175,10 @@ private fun BottomNavigationView.setupDeepLinks(
                 containerId
             )
         // Handle Intent
-        if (navHostFragment.navController.handleDeepLink(intent) &&
-            selectedItemId != navHostFragment.navController.graph.id) {
+        if (
+            navHostFragment.navController.handleDeepLink(intent) &&
+            selectedItemId != navHostFragment.navController.graph.id
+        ) {
             this.selectedItemId = navHostFragment.navController.graph.id
         }
     }
