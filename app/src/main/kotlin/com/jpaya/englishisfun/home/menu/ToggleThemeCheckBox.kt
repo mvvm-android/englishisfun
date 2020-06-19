@@ -14,12 +14,24 @@
  * limitations under the License.
  */
 
-import dependencies.Dependencies
+package com.jpaya.englishisfun.home.menu
 
-plugins {
-    id("commons.android-dynamic-feature")
-}
+import android.content.Context
+import android.util.AttributeSet
+import androidx.appcompat.widget.AppCompatCheckBox
+import com.jpaya.englishisfun.R
 
-dependencies {
-    implementation(Dependencies.FIREBASE_AUTH)
+/**
+ * Animated button menu item check box to apply night/light mode.
+ *
+ * @see AppCompatCheckBox
+ */
+class ToggleThemeCheckBox @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null
+) : AppCompatCheckBox(context, attrs) {
+
+    init {
+        setButtonDrawable(R.drawable.asl_theme)
+    }
 }
