@@ -14,24 +14,23 @@
  * limitations under the License.
  */
 
-package com.jpaya.dynamicfeatures.home.ui
+package com.jpaya.englishisfun.home
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.View
+import android.view.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import com.jpaya.base.ui.base.BaseFragment
 import com.jpaya.base.ui.extensions.setupWithNavController
 import com.jpaya.base.utils.ThemeUtils
-import com.jpaya.dynamicfeatures.home.R
-import com.jpaya.dynamicfeatures.home.databinding.FragmentHomeBinding
-import com.jpaya.dynamicfeatures.home.ui.di.DaggerHomeComponent
-import com.jpaya.dynamicfeatures.home.ui.di.HomeModule
-import com.jpaya.dynamicfeatures.home.ui.menu.ToggleThemeCheckBox
-import com.jpaya.englishisfun.di.dynamicfeatures.HomeModuleDependencies
-import dagger.hilt.android.EntryPointAccessors
+import com.jpaya.englishisfun.R
+import com.jpaya.englishisfun.databinding.FragmentHomeBinding
+import com.jpaya.englishisfun.home.menu.ToggleThemeCheckBox
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 /**
@@ -39,7 +38,8 @@ import javax.inject.Inject
  *
  * @see BaseFragment
  */
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(layoutId = R.layout.fragment_home) {
+@AndroidEntryPoint
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
     companion object {
         private const val DELAY_TO_APPLY_THEME = 1000L
@@ -48,9 +48,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(layoutId =
     @Inject
     lateinit var themeUtils: ThemeUtils
 
+    private val viewModel: HomeViewModel by viewModels()
+    lateinit var viewBinding: FragmentHomeBinding
+
     private val navGraphIds = listOf(
         R.navigation.navigation_abbreviations_graph
     )
+
+    // TODO Duplicated code
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        viewBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+        viewBinding.lifecycleOwner = viewLifecycleOwner
+        return viewBinding.root
+    }
 
     /**
      * Called to have the fragment instantiate its user interface view.
@@ -62,11 +76,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(layoutId =
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewBinding.viewModel = viewModel
         setupToolbar()
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
         }
-        viewModel.authenticate(requireCompatActivity())
+        viewModel.authenticate(requireActivity())
     }
 
     /**
@@ -104,35 +119,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(layoutId =
     }
 
     /**
-     * Initialize dagger injection dependency graph.
-     */
-    override fun onInitDependencyInjection() {
-        DaggerHomeComponent
-            .builder()
-            .homeModuleDependencies(
-                EntryPointAccessors.fromApplication(
-                    requireContext().applicationContext,
-                    HomeModuleDependencies::class.java
-                )
-            )
-            .homeModule(HomeModule(this))
-            .build()
-            .inject(this)
-    }
-
-    /**
-     * Initialize view data binding variables.
-     */
-    override fun onInitDataBinding() {
-        viewBinding.viewModel = viewModel
-    }
-
-    /**
      * Configure app custom support action bar.
      */
     private fun setupToolbar() {
         setHasOptionsMenu(true)
-        requireCompatActivity().setSupportActionBar(viewBinding.toolbar)
+        (requireActivity() as AppCompatActivity).setSupportActionBar(viewBinding.toolbar)
     }
 
     /**
@@ -150,7 +141,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(layoutId =
             viewLifecycleOwner,
             Observer {
                 viewModel.navigationControllerChanged(it)
-                setupActionBarWithNavController(requireCompatActivity(), it)
+                setupActionBarWithNavController(requireActivity() as AppCompatActivity, it)
             }
         )
     }

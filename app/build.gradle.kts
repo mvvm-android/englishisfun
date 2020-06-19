@@ -89,7 +89,6 @@ android {
     }
 
     dynamicFeatures = mutableSetOf(
-        BuildModules.Features.HOME,
         BuildModules.Features.ABBREVIATIONS
     )
 
@@ -166,6 +165,7 @@ dependencies {
             Dependencies.LOGGING,
             Dependencies.MATERIAL,
             Dependencies.NAVIGATION_FRAGMENT,
+            Dependencies.NAVIGATION_UI,
             Dependencies.PLAY_CORE,
             Dependencies.TIMBER
         )

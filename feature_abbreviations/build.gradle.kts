@@ -22,7 +22,6 @@ plugins {
 }
 
 dependencies {
-    implementation(project(BuildModules.Features.HOME))
     implementation(
         arrayOf(
             Dependencies.COROUTINES_PLAY_SERVICES,
