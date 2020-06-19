@@ -17,16 +17,17 @@
 package com.jpaya.englishisfun.home
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
-import com.jpaya.base.ui.base.BaseFragment
 import com.jpaya.base.ui.extensions.setupWithNavController
 import com.jpaya.base.utils.ThemeUtils
 import com.jpaya.englishisfun.R
@@ -38,7 +39,7 @@ import javax.inject.Inject
 /**
  * Home principal view containing bottom navigation bar with different tabs.
  *
- * @see BaseFragment
+ * @see Fragment
  */
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -74,7 +75,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
      * @param view The view returned by onCreateView(LayoutInflater, ViewGroup, Bundle)}.
      * @param savedInstanceState If non-null, this fragment is being re-constructed
      * from a previous saved state as given here.
-     * @see BaseFragment.onViewCreated
+     * @see Fragment.onViewCreated
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -91,7 +92,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
      *
      * @param savedInstanceState If the fragment is being re-created from a previous saved state,
      * this is the state.
-     * @see BaseFragment.onViewStateRestored
+     * @see Fragment.onViewStateRestored
      */
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
@@ -103,7 +104,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
      *
      * @param menu The options menu in which you place your items.
      * @param inflater Inflater to instantiate menu XML files into Menu objects.
-     * @see BaseFragment.onCreateOptionsMenu
+     * @see Fragment.onCreateOptionsMenu
      */
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
