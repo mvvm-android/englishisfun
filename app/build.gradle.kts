@@ -147,6 +147,7 @@ afterEvaluate {
 
 dependencies {
     implementation(project(BuildModules.BASE_ANDROID))
+    implementation(project(BuildModules.Libraries.TEST_UTILS))
     implementation(
         arrayOf(
             Dependencies.APPCOMPAT,
