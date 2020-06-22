@@ -52,14 +52,14 @@ class AbbreviationsPageDataSourceFactoryTest {
     }
 
     @Test
-    fun initializeFactory_WithCreate_ShouldHaveDataSource() {
+    fun init_WithCreate_ShouldHaveDataSource() {
         doReturn(AbbreviationsPageDataSource(mock(), mock(), mock(), mock())).whenever(providerDataSource).get()
         val dataSource = dataSourceFactory.create() as AbbreviationsPageDataSource
         verify(dataSourceFactory.sourceLiveData).postValue(same(dataSource))
     }
 
     @Test
-    fun refreshDataSource_ShouldInvalidateData() {
+    fun refreshDataSource_WithValue_ShouldInvalidateData() {
         val dataSource = mock<AbbreviationsPageDataSource>()
         doReturn(dataSource).whenever(sourceLiveData).value
 
@@ -70,13 +70,35 @@ class AbbreviationsPageDataSourceFactoryTest {
     }
 
     @Test
-    fun retryDataSource_ShouldRetryData() {
+    fun refreshDataSource_WithoutValue_ShouldInvalidateData() {
+        val dataSource = mock<AbbreviationsPageDataSource>()
+        doReturn(null).whenever(sourceLiveData).value
+
+        dataSourceFactory.refresh()
+
+        verify(dataSource, never()).invalidate()
+        verify(dataSource, never()).retry()
+    }
+
+    @Test
+    fun retryDataSource_WithValue_ShouldRetryData() {
         val dataSource = mock<AbbreviationsPageDataSource>()
         doReturn(dataSource).whenever(sourceLiveData).value
 
         dataSourceFactory.retry()
 
         verify(dataSource).retry()
+        verify(dataSource, never()).invalidate()
+    }
+
+    @Test
+    fun retryDataSource_WithoutValue_ShouldRetryData() {
+        val dataSource = mock<AbbreviationsPageDataSource>()
+        doReturn(null).whenever(sourceLiveData).value
+
+        dataSourceFactory.retry()
+
+        verify(dataSource, never()).retry()
         verify(dataSource, never()).invalidate()
     }
 }
