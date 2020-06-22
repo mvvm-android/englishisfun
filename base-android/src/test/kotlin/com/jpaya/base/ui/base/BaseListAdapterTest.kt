@@ -94,7 +94,7 @@ class BaseListAdapterTest : TestRobolectric() {
         verify(contentsSame, after(100).never()).invoke(anyString(), anyString())
     }
 
-    inner class TestBaseListAdapter : com.jpaya.base.ui.base.BaseListAdapter<String>(
+    inner class TestBaseListAdapter : BaseListAdapter<String>(
         itemsSame = itemsSame, contentsSame = contentsSame
     ) {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
