@@ -164,7 +164,7 @@ class BasePagedListAdapterTest : TestRobolectric() {
         verify(recyclerView, never()).scrollToPosition(anyInt())
     }
 
-    inner class TestBasePagedListAdapter : com.jpaya.base.ui.base.BasePagedListAdapter<String>(
+    inner class TestBasePagedListAdapter : BasePagedListAdapter<String>(
         itemsSame = itemsSame, contentsSame = contentsSame
     ) {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
