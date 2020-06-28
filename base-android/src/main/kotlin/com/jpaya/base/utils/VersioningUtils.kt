@@ -24,7 +24,7 @@ interface VersioningUtils {
     /**
      * Obtains the version name of the application.
      */
-    fun versionName(): String
+    fun versionName(): String?
 
     /**
      * Obtains the version code of the application.

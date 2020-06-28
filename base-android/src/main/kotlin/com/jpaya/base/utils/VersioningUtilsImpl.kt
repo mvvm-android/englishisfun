@@ -17,7 +17,6 @@
 package com.jpaya.base.utils
 
 import android.content.Context
-import com.jpaya.base.BuildConfig
 
 /**
  * Implementation of the interface PackageManagerUtils to obtain the application's version.
@@ -27,10 +26,12 @@ class VersioningUtilsImpl(val context: Context) : VersioningUtils {
     /**
      * Obtains the version name of the application.
      */
-    override fun versionName(): String = BuildConfig.VERSION_NAME
+    override fun versionName(): String? = packageInfo().versionName
 
     /**
      * Obtains the version code of the application.
      */
-    override fun versionCode(): Int = BuildConfig.VERSION_CODE
+    override fun versionCode(): Int = packageInfo().versionCode
+
+    private fun packageInfo() = context.packageManager.getPackageInfo(context.packageName, 0)
 }
