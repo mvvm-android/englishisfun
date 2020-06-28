@@ -8,11 +8,6 @@ on:
     - hotfix/**
     - feature/**
     - release/**
-  pull_request:
-    branches:
-    - master
-    - develop
-    - release/**
 
 jobs:
   build:
