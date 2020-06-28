@@ -16,11 +16,12 @@
 
 package com.jpaya.base.di
 
+import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
 
-class UtilsModuleTest {
+class UtilsModuleTest : TestRobolectric() {
 
     private lateinit var module: UtilsModule
 
@@ -32,5 +33,10 @@ class UtilsModuleTest {
     @Test
     fun verifyProvidedThemeUtils() {
         assertNotNull(module.providesThemeUtils())
+    }
+
+    @Test
+    fun verifyProvidedVersioningUtils() {
+        assertNotNull(module.providesVersioningUtils(context))
     }
 }
