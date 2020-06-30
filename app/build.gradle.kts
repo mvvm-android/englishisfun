@@ -147,7 +147,6 @@ afterEvaluate {
 
 dependencies {
     implementation(project(BuildModules.BASE_ANDROID))
-    implementation(project(BuildModules.Libraries.TEST_UTILS))
     implementation(
         arrayOf(
             Dependencies.APPCOMPAT,
@@ -178,6 +177,7 @@ dependencies {
             AnnotationProcessorsDependencies.HILT_VIEWMODEL
         )
     )
+    testImplementation(project(BuildModules.Libraries.TEST_UTILS))
     testImplementation(TestDependencies.all())
     androidTestImplementation(TestAndroidDependencies.all())
 }
