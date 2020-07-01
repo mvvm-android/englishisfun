@@ -80,10 +80,9 @@ open class AbbreviationsPageDataSource @Inject constructor(
                 .await()
                 .toObject(AbbreviationsDocument::class.java)
             list?.let {
-                val abbreviations = it.abbreviations
-                callback.onResult(abbreviations, null, null)
+                callback.onResult(it.abbreviations, null, null)
                 networkState.postValue(
-                    NetworkState.Success(isAdditional = false, isEmptyResponse = abbreviations.isEmpty())
+                    NetworkState.Success(isAdditional = false, isEmptyResponse = it.abbreviations.isEmpty())
                 )
             }
         }
