@@ -21,8 +21,6 @@ import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
 /**
  * Model view to display on the screen [AbbreviationsListFragment].
  */
-class AbbreviationItem {
-    var id: Long = 0
-    lateinit var abbr: String
-    lateinit var desc: String
+class AbbreviationsDocument {
+    lateinit var abbreviations: List<AbbreviationItem>
 }
