@@ -16,14 +16,21 @@
 
 package com.jpaya.dynamicfeatures.abbreviations.ui
 
+import androidx.annotation.VisibleForTesting
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.base.firebase.FireStoreProperties
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationsDocument
 import kotlinx.coroutines.tasks.await
+import javax.inject.Inject
 
-class FireStoreClient {
+class FireStoreClient @Inject constructor(
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val fireStore: FirebaseFirestore,
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val properties: FireStoreProperties
+) {
 
-    suspend fun abbreviations(fireStore: FirebaseFirestore, properties: FireStoreProperties) = fireStore
+    suspend fun abbreviations() = fireStore
         .collection(properties.getAbbreviationCollectionName())
         .document(properties.getAbbreviationDocumentName())
         .get()
