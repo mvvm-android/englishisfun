@@ -16,9 +16,15 @@
 
 package com.jpaya.dynamicfeatures.abbreviations.ui.paging
 
+import androidx.paging.PageKeyedDataSource
 import com.jpaya.base.network.NetworkState
+import com.jpaya.dynamicfeatures.abbreviations.ui.firestore.FireStoreClient
+import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItem
+import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationsDocument
+import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
+import com.nhaarman.mockitokotlin2.whenever
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
@@ -29,10 +35,47 @@ class AbbreviationsPageDataSourceTest {
 
     @ExperimentalCoroutinesApi
     @Test
-    fun loadInitial() = runBlockingTest {
-        dataSource = AbbreviationsPageDataSource(mock(), this)
+    fun loadInitial_withEmptyList() = runBlockingTest {
+        val fireStoreClient: FireStoreClient = mock()
+        dataSource = AbbreviationsPageDataSource(fireStoreClient, this)
         dataSource.networkState = mock()
-        dataSource.loadInitial(mock(), mock())
+
+        val expectedResult = AbbreviationsDocument().apply {
+            abbreviations = listOf()
+        }
+        doReturn(expectedResult).whenever(fireStoreClient).abbreviations()
+
+        val callback: PageKeyedDataSource.LoadInitialCallback<Int, AbbreviationItem> = mock()
+        dataSource.loadInitial(mock(), callback)
+
         verify(dataSource.networkState).postValue(NetworkState.Loading())
+        verify(callback).onResult(expectedResult.abbreviations, null, null)
+        verify(dataSource.networkState).postValue(NetworkState.Success(isAdditional = false, isEmptyResponse = true))
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun loadInitial_withNotEmptyList() = runBlockingTest {
+        val fireStoreClient: FireStoreClient = mock()
+        dataSource = AbbreviationsPageDataSource(fireStoreClient, this)
+        dataSource.networkState = mock()
+
+        val expectedResult = AbbreviationsDocument().apply {
+            abbreviations = listOf(
+                AbbreviationItem().apply {
+                    id = 1
+                    abbr = "LOL"
+                    desc = "Laugh Out Loud"
+                }
+            )
+        }
+        doReturn(expectedResult).whenever(fireStoreClient).abbreviations()
+
+        val callback: PageKeyedDataSource.LoadInitialCallback<Int, AbbreviationItem> = mock()
+        dataSource.loadInitial(mock(), callback)
+
+        verify(dataSource.networkState).postValue(NetworkState.Loading())
+        verify(callback).onResult(expectedResult.abbreviations, null, null)
+        verify(dataSource.networkState).postValue(NetworkState.Success(isAdditional = false, isEmptyResponse = false))
     }
 }
