@@ -23,6 +23,7 @@ import androidx.paging.PageKeyedDataSource
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.base.firebase.FireStoreProperties
 import com.jpaya.base.network.NetworkState
+import com.jpaya.dynamicfeatures.abbreviations.ui.FireStoreClient
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItem
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationsDocument
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -68,12 +69,7 @@ open class AbbreviationsPageDataSource @Inject constructor(
                 networkState.postValue(NetworkState.Error())
             }
         ) {
-            val list = fireStore
-                .collection(fireStoreProperties.getAbbreviationCollectionName())
-                .document(fireStoreProperties.getAbbreviationDocumentName())
-                .get()
-                .await()
-                .toObject(AbbreviationsDocument::class.java)
+            val list = FireStoreClient().abbreviations(fireStore, fireStoreProperties)
             list?.let {
                 callback.onResult(it.abbreviations, null, null)
                 networkState.postValue(
