@@ -31,8 +31,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
-const val PAGE_MAX_ELEMENTS = 50
-
 /**
  * Incremental data loader for page-keyed content, where requests return keys for next/previous
  * pages. Obtaining paginated the abbreviations.

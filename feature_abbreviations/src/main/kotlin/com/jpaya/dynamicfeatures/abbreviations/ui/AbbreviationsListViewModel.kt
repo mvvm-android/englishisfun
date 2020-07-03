@@ -37,12 +37,16 @@ class AbbreviationsListViewModel
     val dataSourceFactory: AbbreviationsPageDataSourceFactory
 ) : ViewModel() {
 
+    companion object {
+        const val PAGE_SIZE = 50
+    }
+
     @VisibleForTesting(otherwise = PRIVATE)
     val networkState = Transformations.switchMap(dataSourceFactory.sourceLiveData) {
         it.networkState
     }
 
-    val data = LivePagedListBuilder(dataSourceFactory, PAGE_MAX_ELEMENTS).build()
+    val data = LivePagedListBuilder(dataSourceFactory, PAGE_SIZE).build()
     val state = Transformations.map(networkState) {
         when (it) {
             is NetworkState.Success ->
