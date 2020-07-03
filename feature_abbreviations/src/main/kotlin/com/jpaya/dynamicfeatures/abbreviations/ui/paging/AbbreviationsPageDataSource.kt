@@ -58,10 +58,7 @@ open class AbbreviationsPageDataSource @Inject constructor(
      * @param callback Callback that receives initial load data.
      * @see PageKeyedDataSource.loadInitial
      */
-    override fun loadInitial(
-        params: LoadInitialParams<Int>,
-        callback: LoadInitialCallback<Int, AbbreviationItem>
-    ) {
+    override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, AbbreviationItem>) {
         networkState.postValue(NetworkState.Loading())
         scope.launch(
             CoroutineExceptionHandler { _, _ ->
@@ -106,17 +103,12 @@ open class AbbreviationsPageDataSource @Inject constructor(
      * @param callback Callback that receives loaded data.
      * @see PageKeyedDataSource.loadBefore
      */
-    override fun loadBefore(
-        params: LoadParams<Int>,
-        callback: LoadCallback<Int, AbbreviationItem>
-    ) {
+    override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, AbbreviationItem>) {
         // Ignored, since we load all list at once
     }
 
     /**
      * Force retry last fetch operation in case it has ever been previously executed.
      */
-    fun retry() {
-        retry?.invoke()
-    }
+    fun retry() = retry?.invoke()
 }
