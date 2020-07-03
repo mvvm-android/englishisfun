@@ -23,7 +23,6 @@ import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import com.jpaya.base.network.NetworkState
 import com.jpaya.dynamicfeatures.abbreviations.ui.paging.AbbreviationsPageDataSourceFactory
-import com.jpaya.dynamicfeatures.abbreviations.ui.paging.PAGE_MAX_ELEMENTS
 import javax.inject.Inject
 
 /**
@@ -37,12 +36,16 @@ class AbbreviationsListViewModel
     val dataSourceFactory: AbbreviationsPageDataSourceFactory
 ) : ViewModel() {
 
+    companion object {
+        const val PAGE_SIZE = 50
+    }
+
     @VisibleForTesting(otherwise = PRIVATE)
     val networkState = Transformations.switchMap(dataSourceFactory.sourceLiveData) {
         it.networkState
     }
 
-    val data = LivePagedListBuilder(dataSourceFactory, PAGE_MAX_ELEMENTS).build()
+    val data = LivePagedListBuilder(dataSourceFactory, PAGE_SIZE).build()
     val state = Transformations.map(networkState) {
         when (it) {
             is NetworkState.Success ->
