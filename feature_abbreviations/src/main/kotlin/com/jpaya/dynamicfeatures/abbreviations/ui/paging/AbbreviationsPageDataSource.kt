@@ -63,8 +63,7 @@ open class AbbreviationsPageDataSource @Inject constructor(
                 networkState.postValue(NetworkState.Error())
             }
         ) {
-            val list = fireStoreClient.abbreviations()
-            list?.let {
+            fireStoreClient.abbreviations()?.let {
                 callback.onResult(it.abbreviations, null, null)
                 networkState.postValue(
                     NetworkState.Success(isAdditional = false, isEmptyResponse = it.abbreviations.isEmpty())
