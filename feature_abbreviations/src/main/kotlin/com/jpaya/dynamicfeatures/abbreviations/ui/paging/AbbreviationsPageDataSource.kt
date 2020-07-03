@@ -41,7 +41,7 @@ open class AbbreviationsPageDataSource @Inject constructor(
     val scope: CoroutineScope
 ) : PageKeyedDataSource<Int, AbbreviationItem>() {
 
-    val networkState = MutableLiveData<NetworkState>()
+    var networkState = MutableLiveData<NetworkState>()
 
     @VisibleForTesting(otherwise = PRIVATE)
     var retry: (() -> Unit)? = null
