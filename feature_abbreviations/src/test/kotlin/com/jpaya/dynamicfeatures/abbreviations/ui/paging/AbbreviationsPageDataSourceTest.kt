@@ -117,5 +117,11 @@ class AbbreviationsPageDataSourceTest {
         verify(dataSource.networkState).postValue(NetworkState.Loading())
         verify(callback, never()).onResult(any(), any(), any())
         verify(dataSource.networkState).postValue(NetworkState.Error())
+
+        dataSource.retry()
+
+        verify(dataSource.networkState, times(2)).postValue(NetworkState.Loading())
+        verify(callback, never()).onResult(any(), any(), any())
+        verify(dataSource.networkState, times(2)).postValue(NetworkState.Error())
     }
 }

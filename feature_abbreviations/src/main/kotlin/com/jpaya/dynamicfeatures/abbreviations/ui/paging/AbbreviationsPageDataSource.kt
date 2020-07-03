@@ -103,5 +103,7 @@ open class AbbreviationsPageDataSource @Inject constructor(
     /**
      * Force retry last fetch operation in case it has ever been previously executed.
      */
-    fun retry() = retry?.invoke()
+    fun retry() {
+        retry?.invoke()
+    }
 }
