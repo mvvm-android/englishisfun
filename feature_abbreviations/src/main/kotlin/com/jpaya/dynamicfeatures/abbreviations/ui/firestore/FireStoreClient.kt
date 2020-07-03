@@ -23,6 +23,9 @@ import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationsDocument
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
+/**
+ * Class to unify all FireStore operations.
+ */
 class FireStoreClient @Inject constructor(
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     val fireStore: FirebaseFirestore,
@@ -30,6 +33,9 @@ class FireStoreClient @Inject constructor(
     val properties: FireStoreProperties
 ) {
 
+    /**
+     * Function to obtain all abbreviations.
+     */
     suspend fun abbreviations() = fireStore
         .collection(properties.getAbbreviationCollectionName())
         .document(properties.getAbbreviationDocumentName())
