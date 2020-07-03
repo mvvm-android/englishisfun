@@ -21,22 +21,46 @@ import com.jpaya.base.network.NetworkState
 import com.jpaya.dynamicfeatures.abbreviations.ui.firestore.FireStoreClient
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItem
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationsDocument
+import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
+import org.junit.Before
 import org.junit.Test
 
 class AbbreviationsPageDataSourceTest {
 
     private lateinit var dataSource: AbbreviationsPageDataSource
 
+    private lateinit var fireStoreClient: FireStoreClient
+
+    @Before
+    fun setUp() {
+        fireStoreClient = mock()
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun loadInitial_withNullList() = runBlockingTest {
+        dataSource = AbbreviationsPageDataSource(fireStoreClient, this)
+        dataSource.networkState = mock()
+
+        doReturn(null).whenever(fireStoreClient).abbreviations()
+
+        val callback: PageKeyedDataSource.LoadInitialCallback<Int, AbbreviationItem> = mock()
+        dataSource.loadInitial(mock(), callback)
+
+        verify(dataSource.networkState).postValue(NetworkState.Loading())
+        verify(callback, never()).onResult(any(), any(), any())
+    }
+
     @ExperimentalCoroutinesApi
     @Test
     fun loadInitial_withEmptyList() = runBlockingTest {
-        val fireStoreClient: FireStoreClient = mock()
         dataSource = AbbreviationsPageDataSource(fireStoreClient, this)
         dataSource.networkState = mock()
 
@@ -56,7 +80,6 @@ class AbbreviationsPageDataSourceTest {
     @ExperimentalCoroutinesApi
     @Test
     fun loadInitial_withNotEmptyList() = runBlockingTest {
-        val fireStoreClient: FireStoreClient = mock()
         dataSource = AbbreviationsPageDataSource(fireStoreClient, this)
         dataSource.networkState = mock()
 
