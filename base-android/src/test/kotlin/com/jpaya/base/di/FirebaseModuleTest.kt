@@ -16,6 +16,11 @@
 
 package com.jpaya.base.di
 
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.mockkStatic
 import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
@@ -27,6 +32,20 @@ class FirebaseModuleTest {
     @Before
     fun setUp() {
         module = FirebaseModule()
+    }
+
+    @Test
+    fun verifyProvidedFirebaseFireStore() {
+        mockkStatic(FirebaseFirestore::class)
+        every { FirebaseFirestore.getInstance() } returns mockk()
+        assertNotNull(module.provideFirebaseFireStore())
+    }
+
+    @Test
+    fun verifyProvidedFirebaseAuth() {
+        mockkStatic(FirebaseAuth::class)
+        every { FirebaseAuth.getInstance() } returns mockk()
+        assertNotNull(module.provideFirebaseAuth())
     }
 
     @Test
