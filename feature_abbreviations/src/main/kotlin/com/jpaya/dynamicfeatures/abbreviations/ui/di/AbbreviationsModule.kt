@@ -19,12 +19,10 @@ package com.jpaya.dynamicfeatures.abbreviations.ui.di
 import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.lifecycle.viewModelScope
-import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.base.ui.extensions.viewModel
-import com.jpaya.base.firebase.FireStoreProperties
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListFragment
 import com.jpaya.dynamicfeatures.abbreviations.ui.AbbreviationsListViewModel
-import com.jpaya.dynamicfeatures.abbreviations.ui.FireStoreClient
+import com.jpaya.dynamicfeatures.abbreviations.ui.firestore.FireStoreClient
 import com.jpaya.dynamicfeatures.abbreviations.ui.adapter.AbbreviationsListAdapter
 import com.jpaya.dynamicfeatures.abbreviations.ui.paging.AbbreviationsPageDataSource
 import com.jpaya.dynamicfeatures.abbreviations.ui.paging.AbbreviationsPageDataSourceFactory

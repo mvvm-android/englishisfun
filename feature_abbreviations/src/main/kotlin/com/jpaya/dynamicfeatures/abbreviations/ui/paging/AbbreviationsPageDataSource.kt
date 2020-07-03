@@ -21,7 +21,7 @@ import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
 import com.jpaya.base.network.NetworkState
-import com.jpaya.dynamicfeatures.abbreviations.ui.FireStoreClient
+import com.jpaya.dynamicfeatures.abbreviations.ui.firestore.FireStoreClient
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItem
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope

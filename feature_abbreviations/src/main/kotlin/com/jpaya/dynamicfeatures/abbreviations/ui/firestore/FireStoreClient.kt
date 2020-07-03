@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jpaya.dynamicfeatures.abbreviations.ui
+package com.jpaya.dynamicfeatures.abbreviations.ui.firestore
 
 import androidx.annotation.VisibleForTesting
 import com.google.firebase.firestore.FirebaseFirestore
