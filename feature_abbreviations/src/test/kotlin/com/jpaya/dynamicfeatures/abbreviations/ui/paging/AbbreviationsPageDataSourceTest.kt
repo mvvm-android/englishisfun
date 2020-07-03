@@ -31,6 +31,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Test
+import org.mockito.Mockito.`when`
 
 class AbbreviationsPageDataSourceTest {
 
@@ -100,5 +101,21 @@ class AbbreviationsPageDataSourceTest {
         verify(dataSource.networkState).postValue(NetworkState.Loading())
         verify(callback).onResult(expectedResult.abbreviations, null, null)
         verify(dataSource.networkState).postValue(NetworkState.Success(isAdditional = false, isEmptyResponse = false))
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun loadInitial_withNetworkError() = runBlockingTest {
+        dataSource = AbbreviationsPageDataSource(fireStoreClient, this)
+        dataSource.networkState = mock()
+
+        `when`(fireStoreClient.abbreviations()).thenThrow(RuntimeException())
+
+        val callback: PageKeyedDataSource.LoadInitialCallback<Int, AbbreviationItem> = mock()
+        dataSource.loadInitial(mock(), callback)
+
+        verify(dataSource.networkState).postValue(NetworkState.Loading())
+        verify(callback, never()).onResult(any(), any(), any())
+        verify(dataSource.networkState).postValue(NetworkState.Error())
     }
 }
