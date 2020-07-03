@@ -25,11 +25,9 @@ import com.jpaya.base.firebase.FireStoreProperties
 import com.jpaya.base.network.NetworkState
 import com.jpaya.dynamicfeatures.abbreviations.ui.FireStoreClient
 import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationItem
-import com.jpaya.dynamicfeatures.abbreviations.ui.model.AbbreviationsDocument
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 /**
