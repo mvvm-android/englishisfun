@@ -41,7 +41,8 @@ open class AbbreviationsPageDataSource @Inject constructor(
     val scope: CoroutineScope
 ) : PageKeyedDataSource<Int, AbbreviationItem>() {
 
-    val networkState = MutableLiveData<NetworkState>()
+    @VisibleForTesting(otherwise = PRIVATE)
+    var networkState = MutableLiveData<NetworkState>()
 
     @VisibleForTesting(otherwise = PRIVATE)
     var retry: (() -> Unit)? = null
@@ -63,12 +64,15 @@ open class AbbreviationsPageDataSource @Inject constructor(
                 networkState.postValue(NetworkState.Error())
             }
         ) {
-            fireStoreClient.abbreviations()?.let {
-                callback.onResult(it.abbreviations, null, null)
-                networkState.postValue(
-                    NetworkState.Success(isAdditional = false, isEmptyResponse = it.abbreviations.isEmpty())
+            val response = fireStoreClient.abbreviations()
+            if (response != null)
+                callback.onResult(response.abbreviations, null, null)
+            networkState.postValue(
+                NetworkState.Success(
+                    isAdditional = false,
+                    isEmptyResponse = response == null || response.abbreviations.isEmpty()
                 )
-            }
+            )
         }
     }
 
@@ -99,5 +103,7 @@ open class AbbreviationsPageDataSource @Inject constructor(
     /**
      * Force retry last fetch operation in case it has ever been previously executed.
      */
-    fun retry() = retry?.invoke()
+    fun retry() {
+        retry?.invoke()
+    }
 }
