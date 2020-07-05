@@ -16,8 +16,11 @@
 
 package com.jpaya.base.di
 
+import android.content.Context
 import com.jpaya.base.utils.ThemeUtils
 import com.jpaya.base.utils.ThemeUtilsImpl
+import com.jpaya.base.utils.VersioningUtils
+import com.jpaya.base.utils.VersioningUtilsImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -39,4 +42,7 @@ class UtilsModule {
      */
     @Provides
     fun providesThemeUtils(): ThemeUtils = ThemeUtilsImpl()
+
+    @Provides
+    fun providesVersioningUtils(context: Context): VersioningUtils = VersioningUtilsImpl(context)
 }

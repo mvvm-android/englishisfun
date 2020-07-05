@@ -14,29 +14,20 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.di
+package com.jpaya.base.utils
 
-import com.jpaya.libraries.testutils.robolectric.TestRobolectric
-import org.junit.Assert.assertNotNull
-import org.junit.Before
-import org.junit.Test
+/**
+ * Utility interface to abstract the obtention of the application's version.
+ */
+interface VersioningUtils {
 
-class UtilsModuleTest : TestRobolectric() {
+    /**
+     * Obtains the version name of the application.
+     */
+    fun versionName(): String?
 
-    private lateinit var module: UtilsModule
-
-    @Before
-    fun setUp() {
-        module = UtilsModule()
-    }
-
-    @Test
-    fun verifyProvidedThemeUtils() {
-        assertNotNull(module.providesThemeUtils())
-    }
-
-    @Test
-    fun verifyProvidedVersioningUtils() {
-        assertNotNull(module.providesVersioningUtils(context))
-    }
+    /**
+     * Obtains the version code of the application.
+     */
+    fun versionCode(): Int
 }

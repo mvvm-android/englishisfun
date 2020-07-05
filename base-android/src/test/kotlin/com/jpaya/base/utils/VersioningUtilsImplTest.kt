@@ -14,29 +14,41 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.di
+package com.jpaya.base.utils
 
+import androidx.test.core.app.ActivityScenario
+import androidx.test.ext.junit.rules.ActivityScenarioRule
+import com.jpaya.libraries.testutils.TestCompatActivity
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertNull
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 
-class UtilsModuleTest : TestRobolectric() {
+class VersioningUtilsImplTest : TestRobolectric() {
 
-    private lateinit var module: UtilsModule
+    @get:Rule
+    val rule = ActivityScenarioRule(TestCompatActivity::class.java)
+    private lateinit var scenario: ActivityScenario<TestCompatActivity>
+
+    private lateinit var versioningUtils: VersioningUtils
 
     @Before
     fun setUp() {
-        module = UtilsModule()
+        scenario = rule.scenario
+        scenario.onActivity {
+            versioningUtils = VersioningUtilsImpl(it)
+        }
     }
 
     @Test
-    fun verifyProvidedThemeUtils() {
-        assertNotNull(module.providesThemeUtils())
+    fun verifyProvidedVersionName() {
+        assertNull(versioningUtils.versionName())
     }
 
     @Test
-    fun verifyProvidedVersioningUtils() {
-        assertNotNull(module.providesVersioningUtils(context))
+    fun verifyProvidedVersionCode() {
+        assertNotNull(versioningUtils.versionCode())
     }
 }
