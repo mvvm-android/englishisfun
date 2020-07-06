@@ -42,7 +42,7 @@ class AbbreviationsListAdapter @Inject constructor(
     contentsSame = { old, new -> old == new }
 ) {
 
-    private var state: AbbreviationsListAdapterState = AbbreviationsListAdapterState.Added
+    var state: AbbreviationsListAdapterState = AbbreviationsListAdapterState.Added
 
     /**
      * Called when RecyclerView needs a new [RecyclerView.ViewHolder] of the given type to
