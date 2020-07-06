@@ -88,9 +88,7 @@ android {
         ProductFlavorProduction.app(this)
     }
 
-    dynamicFeatures = mutableSetOf(
-        BuildModules.Features.ABBREVIATIONS
-    )
+    dynamicFeatures = mutableSetOf()
 
     buildFeatures {
         compose = true
@@ -154,6 +152,7 @@ dependencies {
             Dependencies.COMPOSE_RUNTIME,
             Dependencies.COMPOSE_TOOLING,
             Dependencies.CONSTRAINT_LAYOUT,
+            Dependencies.COROUTINES_PLAY_SERVICES,
             Dependencies.FIREBASE_ANALYTICS,
             Dependencies.FIREBASE_AUTH,
             Dependencies.FIREBASE_CRASHLYTICS,
@@ -166,7 +165,9 @@ dependencies {
             Dependencies.MATERIAL,
             Dependencies.NAVIGATION_FRAGMENT,
             Dependencies.NAVIGATION_UI,
+            Dependencies.PAGING,
             Dependencies.PLAY_CORE,
+            Dependencies.RECYCLER_VIEW,
             Dependencies.TIMBER
         )
     )

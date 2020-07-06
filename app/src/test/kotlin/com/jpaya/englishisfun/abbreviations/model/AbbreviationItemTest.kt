@@ -14,14 +14,26 @@
  * limitations under the License.
  */
 
-/**
- * Configuration of build modules
- */
-object BuildModules {
-    const val APP = ":app"
-    const val BASE_ANDROID = ":base-android"
+package com.jpaya.englishisfun.abbreviations.model
 
-    object Libraries {
-        const val TEST_UTILS = ":test_utils"
+import org.junit.Assert.assertEquals
+import org.junit.Test
+
+class AbbreviationItemTest {
+
+    @Test
+    fun abbreviationItem_shouldSetAttributesProperly() {
+        val id: Long = 1
+        val abbr = "LOL"
+        val desc = "Laugh out loud"
+        val abbreviation = AbbreviationItem().apply {
+            this.id = id
+            this.abbr = abbr
+            this.desc = desc
+        }
+
+        assertEquals(id, abbreviation.id)
+        assertEquals(abbr, abbreviation.abbr)
+        assertEquals(desc, abbreviation.desc)
     }
 }

@@ -17,7 +17,6 @@
 include(
     ":app",
     ":base-android",
-    ":feature_abbreviations",
     ":test_utils"
 )
 
