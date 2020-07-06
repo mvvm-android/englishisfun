@@ -18,14 +18,11 @@ package com.jpaya.englishisfun.abbreviations.paging
 
 import androidx.paging.PageKeyedDataSource
 import com.jpaya.base.network.NetworkState
-import com.jpaya.englishisfun.MockitoHelper
 import com.jpaya.englishisfun.abbreviations.firestore.FireStoreClient
 import com.jpaya.englishisfun.abbreviations.model.AbbreviationItem
 import com.jpaya.englishisfun.abbreviations.model.AbbreviationsDocument
-import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
