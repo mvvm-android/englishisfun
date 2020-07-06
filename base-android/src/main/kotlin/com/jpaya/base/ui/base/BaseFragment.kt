@@ -45,11 +45,6 @@ abstract class BaseFragment<B : ViewDataBinding, M : ViewModel>(
     lateinit var viewBinding: B
 
     /**
-     * Called to initialize dagger injection dependency graph when fragment is attached.
-     */
-    abstract fun onInitDependencyInjection()
-
-    /**
      * Called to Initialize view data binding variables when fragment view is created.
      */
     abstract fun onInitDataBinding()
@@ -87,7 +82,6 @@ abstract class BaseFragment<B : ViewDataBinding, M : ViewModel>(
      */
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        onInitDependencyInjection()
     }
 
     /**

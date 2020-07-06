@@ -48,13 +48,6 @@ class BaseFragmentTest : TestRobolectric() {
     }
 
     @Test
-    fun initDependencyInjection_OnAttach_ShouldInvoke() {
-        baseFragment.onAttach(context)
-
-        verify(baseFragment).onInitDependencyInjection()
-    }
-
-    @Test
     fun initDataBiding_OnViewCreated_ShouldInvoke() {
         val view = mock<View>()
         val savedInstanceState = mock<Bundle>()
@@ -99,8 +92,6 @@ class BaseFragmentTest : TestRobolectric() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
         ): View? = null
-
-        override fun onInitDependencyInjection() {}
 
         override fun onInitDataBinding() {}
     }

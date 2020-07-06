@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-/**
- * Configuration of build modules
- */
-object BuildModules {
-    const val APP = ":app"
-    const val BASE_ANDROID = ":base-android"
+package com.jpaya.englishisfun.abbreviations.model
 
-    object Libraries {
-        const val TEST_UTILS = ":test_utils"
-    }
+import com.jpaya.englishisfun.abbreviations.AbbreviationsListFragment
+
+/**
+ * Model view to display on the screen [AbbreviationsListFragment].
+ */
+class AbbreviationsDocument {
+    lateinit var abbreviations: List<AbbreviationItem>
 }
