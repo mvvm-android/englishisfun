@@ -102,6 +102,12 @@ class AbbreviationsPageDataSourceTest {
         verify(dataSource.networkState).postValue(NetworkState.Loading())
         verify(callback).onResult(expectedResult.abbreviations, null, null)
         verify(dataSource.networkState).postValue(NetworkState.Success(isAdditional = false, isEmptyResponse = false))
+
+        dataSource.retry() // This retry should do nothing as the operation has succeeded
+
+        verify(dataSource.networkState).postValue(NetworkState.Loading())
+        verify(callback).onResult(expectedResult.abbreviations, null, null)
+        verify(dataSource.networkState).postValue(NetworkState.Success(isAdditional = false, isEmptyResponse = false))
     }
 
     @ExperimentalCoroutinesApi
