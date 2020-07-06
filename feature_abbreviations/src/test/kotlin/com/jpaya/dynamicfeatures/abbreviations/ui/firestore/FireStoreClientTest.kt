@@ -16,9 +16,15 @@
 
 package com.jpaya.dynamicfeatures.abbreviations.ui.firestore
 
+import com.google.android.gms.tasks.Task
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.base.firebase.FireStoreProperties
+import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.whenever
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.assertEquals
@@ -47,22 +53,24 @@ class FireStoreClientTest {
     }
 
     @ExperimentalCoroutinesApi
-    @Test
+    @Test(expected = Exception::class)
     fun abbreviations() = runBlockingTest {
-//        doReturn("").whenever(properties).getAbbreviationCollectionName()
-//        doReturn("").whenever(properties).getAbbreviationDocumentName()
-//
-//        val collection: CollectionReference = mock()
-//        doReturn(collection).whenever(fireStore).collection("")
-//
-//        val document: DocumentReference = mock()
-//        doReturn(document).whenever(collection).document("")
-//
-//        val task: Task<DocumentSnapshot> = mock()
-//        doReturn(task).whenever(document).get()
-//
+        doReturn("").whenever(properties).getAbbreviationCollectionName()
+        doReturn("").whenever(properties).getAbbreviationDocumentName()
+
+        val collection: CollectionReference = mock()
+        doReturn(collection).whenever(fireStore).collection("")
+
+        val document: DocumentReference = mock()
+        doReturn(document).whenever(collection).document("")
+
+        val task: Task<DocumentSnapshot> = mock()
+        doReturn(task).whenever(document).get()
+
+        doReturn(true).whenever(task).isComplete
 //        val snapshot: DocumentSnapshot = mock()
-//        doReturn(true).whenever(task).isComplete
 //        doReturn(snapshot).whenever(task).await()
+
+        client.abbreviations()
     }
 }
