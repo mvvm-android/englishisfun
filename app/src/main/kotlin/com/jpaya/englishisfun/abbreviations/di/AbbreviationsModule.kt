@@ -25,6 +25,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
+import kotlinx.coroutines.CoroutineScope
 
 /**
  * Class that provides abbreviations-related dependencies to the hilt dependency graph [FragmentComponent].
@@ -41,16 +42,12 @@ class AbbreviationsModule {
      * @see Provides
      */
     @Provides
-    fun providesAbbreviationsPageDataSource(fireStoreClient: FireStoreClient) =
-        AbbreviationsPageDataSource(
-            fireStoreClient = fireStoreClient
-        )
+    fun providesAbbreviationsPageDataSource(fireStoreClient: FireStoreClient, scope: CoroutineScope) =
+        AbbreviationsPageDataSource(fireStoreClient = fireStoreClient, scope = scope)
 
     @Provides
     fun providesAbbreviationsListViewModel(dataSourceFactory: AbbreviationsPageDataSourceFactory) =
-        AbbreviationsListViewModel(
-            dataSourceFactory = dataSourceFactory
-        )
+        AbbreviationsListViewModel(dataSourceFactory = dataSourceFactory)
 
     /**
      * Create a provider method binding for [AbbreviationsListAdapter].
@@ -59,6 +56,5 @@ class AbbreviationsModule {
      * @see Provides
      */
     @Provides
-    fun providesAbbreviationsListAdapter(viewModel: AbbreviationsListViewModel) =
-        AbbreviationsListAdapter(viewModel)
+    fun providesAbbreviationsListAdapter(viewModel: AbbreviationsListViewModel) = AbbreviationsListAdapter(viewModel)
 }

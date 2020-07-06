@@ -24,7 +24,7 @@ import com.jpaya.base.network.NetworkState
 import com.jpaya.englishisfun.abbreviations.firestore.FireStoreClient
 import com.jpaya.englishisfun.abbreviations.model.AbbreviationItem
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -36,7 +36,9 @@ import javax.inject.Inject
  */
 open class AbbreviationsPageDataSource @Inject constructor(
     @VisibleForTesting(otherwise = PRIVATE)
-    val fireStoreClient: FireStoreClient
+    val fireStoreClient: FireStoreClient,
+    @VisibleForTesting(otherwise = PRIVATE)
+    val scope: CoroutineScope
 ) : PageKeyedDataSource<Int, AbbreviationItem>() {
 
     @VisibleForTesting(otherwise = PRIVATE)
@@ -54,7 +56,7 @@ open class AbbreviationsPageDataSource @Inject constructor(
      */
     override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, AbbreviationItem>) {
         networkState.postValue(NetworkState.Loading())
-        MainScope().launch(
+        scope.launch(
             CoroutineExceptionHandler { _, _ ->
                 retry = {
                     loadInitial(params, callback)
