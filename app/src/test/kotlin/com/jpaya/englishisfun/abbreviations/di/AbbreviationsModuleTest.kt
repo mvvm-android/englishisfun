@@ -16,51 +16,49 @@
 
 package com.jpaya.englishisfun.abbreviations.di
 
+import com.jpaya.englishisfun.abbreviations.AbbreviationsListViewModel
+import com.jpaya.englishisfun.abbreviations.firestore.FireStoreClient
+import com.jpaya.englishisfun.abbreviations.paging.AbbreviationsPageDataSourceFactory
+import io.mockk.*
+import kotlinx.coroutines.CoroutineScope
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
+import org.junit.Before
+import org.junit.Test
+
 class AbbreviationsModuleTest {
 
-//    @MockK
-//    lateinit var fragment: AbbreviationsListFragment
-//    private lateinit var module: AbbreviationsModule
-//
-//    @Before
-//    fun setUp() {
-//        MockKAnnotations.init(this)
-//        module = AbbreviationsModule()
-//    }
-//
-//    @Test
-//    fun initializeCharactersListModule_ShouldSetUpCorrectly() {
-//        assertEquals(fragment, module.fragment)
-//    }
-//
-//    @Test
-//    fun verifyProvidedAbbreviationsListViewModel() {
-//        mockkStatic("com.jpaya.base.ui.extensions.FragmentExtensionsKt")
-//
-//        every {
-//            fragment.viewModel(any(), any<() -> ViewModel>())
-//        } returns mockk<AbbreviationsListViewModel>()
-//
-//        val factoryCaptor = slot<() -> AbbreviationsListViewModel>()
-//        val dataFactory = mockk<AbbreviationsPageDataSourceFactory>(relaxed = true)
-//        module.providesAbbreviationsListViewModel(dataFactory)
-//
-//        verify { fragment.viewModel(factory = capture(factoryCaptor)) }
-//
-//        assertEquals(dataFactory, factoryCaptor.captured().dataSourceFactory)
-//    }
-//
-//    @Test
-//    fun verifyProvidedCharactersPageDataSource() {
-//        val fireStoreClient = mockk<FireStoreClient>(relaxed = true)
-//        val dataSource = module.providesAbbreviationsPageDataSource(fireStoreClient = fireStoreClient)
-//        assertEquals(fireStoreClient, dataSource.fireStoreClient)
-//    }
-//
-//    @Test
-//    fun verifyProvidedAbbreviationsListAdapter() {
-//        val viewModel = mockk<AbbreviationsListViewModel>(relaxed = true)
-//        val adapter = module.providesAbbreviationsListAdapter(viewModel)
-//        assertEquals(viewModel, adapter.viewModel)
-//    }
+    private lateinit var module: AbbreviationsModule
+
+    @Before
+    fun setUp() {
+        MockKAnnotations.init(this)
+        module = AbbreviationsModule()
+    }
+
+    @Test
+    fun verifyProvidedAbbreviationsListViewModel() {
+        val dataFactory = mockk<AbbreviationsPageDataSourceFactory>(relaxed = true)
+        val viewModel = module.providesAbbreviationsListViewModel(dataFactory)
+        assertNotNull(viewModel)
+        assertEquals(dataFactory, viewModel.dataSourceFactory)
+    }
+
+    @Test
+    fun verifyProvidedCharactersPageDataSource() {
+        val fireStoreClient = mockk<FireStoreClient>(relaxed = true)
+        val scope = mockk<CoroutineScope>(relaxed = true)
+        val dataSource = module.providesAbbreviationsPageDataSource(fireStoreClient, scope)
+        assertNotNull(dataSource)
+        assertEquals(fireStoreClient, dataSource.fireStoreClient)
+        assertEquals(scope, dataSource.scope)
+    }
+
+    @Test
+    fun verifyProvidedAbbreviationsListAdapter() {
+        val viewModel = mockk<AbbreviationsListViewModel>(relaxed = true)
+        val adapter = module.providesAbbreviationsListAdapter(viewModel)
+        assertNotNull(adapter)
+        assertEquals(viewModel, adapter.viewModel)
+    }
 }
