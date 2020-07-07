@@ -22,5 +22,5 @@ import com.jpaya.englishisfun.abbreviations.AbbreviationsListFragment
  * Model view to display on the screen [AbbreviationsListFragment].
  */
 class AbbreviationsDocument {
-    lateinit var abbreviations: List<AbbreviationItem>
+    var abbreviations: List<AbbreviationItem> = listOf()
 }
