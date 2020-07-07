@@ -74,17 +74,6 @@ abstract class BaseFragment<B : ViewDataBinding, M : ViewModel>(
     }
 
     /**
-     * Called when a fragment is first attached to its context.
-     *
-     * @param context The application context.
-     *
-     * @see Fragment.onAttach
-     */
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-    }
-
-    /**
      * Called to have the fragment instantiate its user interface view.
      *
      * @param view The view returned by onCreateView(LayoutInflater, ViewGroup, Bundle)}.
