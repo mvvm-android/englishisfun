@@ -17,7 +17,7 @@
 package com.jpaya.englishisfun.abbreviations.di
 
 import com.jpaya.englishisfun.abbreviations.AbbreviationsListViewModel
-import com.jpaya.englishisfun.abbreviations.firestore.FireStoreClient
+import com.jpaya.englishisfun.firestore.FireStoreClient
 import com.jpaya.englishisfun.abbreviations.adapter.AbbreviationsListAdapter
 import com.jpaya.englishisfun.abbreviations.paging.AbbreviationsPageDataSource
 import com.jpaya.englishisfun.abbreviations.paging.AbbreviationsPageDataSourceFactory

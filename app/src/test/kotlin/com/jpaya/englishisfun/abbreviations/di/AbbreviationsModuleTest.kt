@@ -17,7 +17,7 @@
 package com.jpaya.englishisfun.abbreviations.di
 
 import com.jpaya.englishisfun.abbreviations.AbbreviationsListViewModel
-import com.jpaya.englishisfun.abbreviations.firestore.FireStoreClient
+import com.jpaya.englishisfun.firestore.FireStoreClient
 import com.jpaya.englishisfun.abbreviations.paging.AbbreviationsPageDataSourceFactory
 import io.mockk.*
 import kotlinx.coroutines.CoroutineScope
