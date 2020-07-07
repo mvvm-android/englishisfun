@@ -17,7 +17,6 @@
 package com.jpaya.englishisfun.di
 
 import com.jpaya.englishisfun.EnglishIsFunApp
-import com.jpaya.englishisfun.di.modules.AppModule
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever

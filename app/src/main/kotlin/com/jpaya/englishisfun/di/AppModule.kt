@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.di.modules
+package com.jpaya.englishisfun.di
 
 import android.content.Context
 import com.jpaya.englishisfun.EnglishIsFunApp
