@@ -23,6 +23,6 @@ import com.jpaya.englishisfun.abbreviations.AbbreviationsListFragment
  */
 class AbbreviationItem {
     var id: Long = 0
-    lateinit var abbr: String
-    lateinit var desc: String
+    var abbr: String = ""
+    var desc: String = ""
 }
