@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.di
+package com.jpaya.englishisfun.firestore
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore

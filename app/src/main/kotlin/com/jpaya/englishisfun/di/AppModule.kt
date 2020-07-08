@@ -14,49 +14,35 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.di
+package com.jpaya.englishisfun.di
 
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import com.jpaya.base.firebase.FireStoreProperties
+import android.content.Context
+import com.jpaya.englishisfun.EnglishIsFunApp
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.MainScope
 
 /**
- * Class that provides Firebase-related dependencies to the hilt dependency graph [ApplicationComponent].
+ * Class that provides the application-level dependencies to the hilt dependency graph [ApplicationComponent].
  * All dependencies provided by this class will be considered as application-level properties.
  */
 @Module
 @InstallIn(ApplicationComponent::class)
-class FirebaseModule {
+class AppModule {
 
     /**
-     * Create a provider method binding for [FirebaseFirestore].
+     * Create a provider method binding for [Context].
      *
-     * @return Instance of FirebaseFirestore.
+     * @param application Sample Application.
+     * @return Instance of context.
      * @see Provides
      */
     @Provides
-    fun provideFirebaseFireStore() = Firebase.firestore
+    fun provideContext(application: EnglishIsFunApp): Context = application.applicationContext
 
-    /**
-     * Create a provider method binding for [FirebaseAuth].
-     *
-     * @return Instance of FirebaseAuth.
-     * @see Provides
-     */
     @Provides
-    fun provideFirebaseAuth() = FirebaseAuth.getInstance()
-
-    /**
-     * Create a provider method binding for [FireStoreProperties].
-     *
-     * @return Instance of FireStoreProperties.
-     * @see Provides
-     */
-    @Provides
-    fun provideFireStoreProperties() = FireStoreProperties()
+    fun providesCoroutinesScope(): CoroutineScope = MainScope()
 }

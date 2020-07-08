@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.abbreviations.firestore
+package com.jpaya.englishisfun.firestore
 
 import androidx.annotation.VisibleForTesting
 import com.google.firebase.firestore.FirebaseFirestore
-import com.jpaya.base.firebase.FireStoreProperties
 import com.jpaya.englishisfun.abbreviations.model.AbbreviationsDocument
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject

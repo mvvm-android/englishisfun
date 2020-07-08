@@ -41,6 +41,7 @@ dependencies {
             Dependencies.FIREBASE_FIRESTORE,
             Dependencies.FIREBASE_AUTH,
             Dependencies.FRAGMENT_KTX,
+            Dependencies.HILT,
             Dependencies.LIFECYCLE_EXTENSIONS,
             Dependencies.LIFECYCLE_VIEWMODEL,
             Dependencies.LOGGING,
@@ -59,6 +60,7 @@ dependencies {
     kapt(
         arrayOf(
             AnnotationProcessorsDependencies.DATABINDING,
+            AnnotationProcessorsDependencies.HILT,
             AnnotationProcessorsDependencies.ROOM
         )
     )

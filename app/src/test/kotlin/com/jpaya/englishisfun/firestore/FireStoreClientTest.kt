@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.abbreviations.firestore
+package com.jpaya.englishisfun.firestore
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import com.jpaya.base.firebase.FireStoreProperties
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever

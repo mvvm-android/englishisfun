@@ -18,7 +18,7 @@ package com.jpaya.englishisfun.abbreviations.paging
 
 import androidx.paging.PageKeyedDataSource
 import com.jpaya.base.network.NetworkState
-import com.jpaya.englishisfun.abbreviations.firestore.FireStoreClient
+import com.jpaya.englishisfun.firestore.FireStoreClient
 import com.jpaya.englishisfun.abbreviations.model.AbbreviationItem
 import com.jpaya.englishisfun.abbreviations.model.AbbreviationsDocument
 import com.nhaarman.mockitokotlin2.doReturn
