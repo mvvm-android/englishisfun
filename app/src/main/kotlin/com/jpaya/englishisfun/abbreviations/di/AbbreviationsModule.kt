@@ -43,11 +43,11 @@ class AbbreviationsModule {
      */
     @Provides
     fun providesAbbreviationsPageDataSource(fireStoreClient: FireStoreClient, scope: CoroutineScope) =
-        AbbreviationsPageDataSource(fireStoreClient = fireStoreClient, scope = scope)
+        AbbreviationsPageDataSource(fireStoreClient, scope)
 
     @Provides
     fun providesAbbreviationsListViewModel(dataSourceFactory: AbbreviationsPageDataSourceFactory) =
-        AbbreviationsListViewModel(dataSourceFactory = dataSourceFactory)
+        AbbreviationsListViewModel(dataSourceFactory)
 
     /**
      * Create a provider method binding for [AbbreviationsListAdapter].
