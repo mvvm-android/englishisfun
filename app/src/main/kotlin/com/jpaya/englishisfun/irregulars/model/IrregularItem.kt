@@ -14,13 +14,15 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.abbreviations.model
+package com.jpaya.englishisfun.irregulars.model
 
 /**
- * Model class to represent a chat abbreviation.
+ * Model class to represent an irregular verb.
  */
-class AbbreviationItem {
+class IrregularItem {
     var id: Long = 0
-    var abbr: String = ""
-    var desc: String = ""
+    var base: String = ""
+    var simple: String = ""
+    var participle: String = ""
+    var definitions: String = ""
 }
