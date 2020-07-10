@@ -16,7 +16,6 @@
 
 package com.jpaya.base.ui.base
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -71,17 +70,6 @@ abstract class BaseFragment<B : ViewDataBinding, M : ViewModel>(
         viewBinding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         viewBinding.lifecycleOwner = viewLifecycleOwner
         return viewBinding.root
-    }
-
-    /**
-     * Called when a fragment is first attached to its context.
-     *
-     * @param context The application context.
-     *
-     * @see Fragment.onAttach
-     */
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
     }
 
     /**
