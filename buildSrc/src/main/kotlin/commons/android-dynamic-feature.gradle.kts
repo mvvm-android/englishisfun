@@ -22,10 +22,10 @@ import BuildProductDimensions
 import ProductFlavorDevelop
 import ProductFlavorProduction
 import ProductFlavorQA
-import dependencies.AnnotationProcessorsDependencies
-import dependencies.Dependencies
-import dependencies.TestAndroidDependencies
-import dependencies.TestDependencies
+import dependencies.AnnotationProcessorsLibraries
+import dependencies.Libraries
+import dependencies.TestAndroidLibraries
+import dependencies.TestLibraries
 import extensions.implementation
 import extensions.kapt
 import extensions.testImplementation
@@ -104,27 +104,27 @@ dependencies {
     implementation(project(BuildModules.APP))
     implementation(project(BuildModules.BASE_ANDROID))
 
-    implementation(Dependencies.KOTLIN)
-    implementation(Dependencies.APPCOMPAT)
-    implementation(Dependencies.COROUTINES)
-    implementation(Dependencies.COROUTINES_ANDROID)
-    implementation(Dependencies.NAVIGATION_FRAGMENT)
-    implementation(Dependencies.NAVIGATION_UI)
-    implementation(Dependencies.LIFECYCLE_EXTENSIONS)
-    implementation(Dependencies.LIFECYCLE_VIEWMODEL)
-    implementation(Dependencies.CORE_KTX)
-    implementation(Dependencies.FRAGMENT_KTX)
-    implementation(Dependencies.CONSTRAINT_LAYOUT)
-    implementation(Dependencies.TIMBER)
-    implementation(Dependencies.LOGGING)
-    implementation(Dependencies.HILT)
-    implementation(Dependencies.HILT_VIEWMODEL)
+    implementation(Libraries.KOTLIN)
+    implementation(Libraries.APPCOMPAT)
+    implementation(Libraries.COROUTINES)
+    implementation(Libraries.COROUTINES_ANDROID)
+    implementation(Libraries.NAVIGATION_FRAGMENT)
+    implementation(Libraries.NAVIGATION_UI)
+    implementation(Libraries.LIFECYCLE_EXTENSIONS)
+    implementation(Libraries.LIFECYCLE_VIEWMODEL)
+    implementation(Libraries.CORE_KTX)
+    implementation(Libraries.FRAGMENT_KTX)
+    implementation(Libraries.CONSTRAINT_LAYOUT)
+    implementation(Libraries.TIMBER)
+    implementation(Libraries.LOGGING)
+    implementation(Libraries.HILT)
+    implementation(Libraries.HILT_VIEWMODEL)
 
-    kapt(AnnotationProcessorsDependencies.HILT)
-    kapt(AnnotationProcessorsDependencies.DATABINDING)
-    kapt(AnnotationProcessorsDependencies.ROOM)
+    kapt(AnnotationProcessorsLibraries.HILT)
+    kapt(AnnotationProcessorsLibraries.DATABINDING)
+    kapt(AnnotationProcessorsLibraries.ROOM)
 
     testImplementation(project(BuildModules.Libraries.TEST_UTILS))
-    testImplementation(TestDependencies.all())
-    androidTestImplementation(TestAndroidDependencies.all())
+    testImplementation(TestLibraries.all())
+    androidTestImplementation(TestAndroidLibraries.all())
 }

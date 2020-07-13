@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import dependencies.AnnotationProcessorsDependencies
-import dependencies.Dependencies
+import dependencies.AnnotationProcessorsLibraries
+import dependencies.Libraries
 import extensions.implementation
 import extensions.kapt
 
@@ -35,33 +35,33 @@ allOpen {
 dependencies {
     implementation(
         arrayOf(
-            Dependencies.COIL,
-            Dependencies.CONSTRAINT_LAYOUT,
-            Dependencies.CORE_KTX,
-            Dependencies.FIREBASE_FIRESTORE,
-            Dependencies.FIREBASE_AUTH,
-            Dependencies.FRAGMENT_KTX,
-            Dependencies.HILT,
-            Dependencies.LIFECYCLE_EXTENSIONS,
-            Dependencies.LIFECYCLE_VIEWMODEL,
-            Dependencies.LOGGING,
-            Dependencies.MOSHI,
-            Dependencies.MOSHI_KTX,
-            Dependencies.NAVIGATION_FRAGMENT,
-            Dependencies.NAVIGATION_UI,
-            Dependencies.PAGING,
-            Dependencies.RECYCLER_VIEW,
-            Dependencies.RETROFIT,
-            Dependencies.RETROFIT_CONVERTER,
-            Dependencies.ROOM,
-            Dependencies.ROOM_KTX
+            Libraries.COIL,
+            Libraries.CONSTRAINT_LAYOUT,
+            Libraries.CORE_KTX,
+            Libraries.FIREBASE_FIRESTORE,
+            Libraries.FIREBASE_AUTH,
+            Libraries.FRAGMENT_KTX,
+            Libraries.HILT,
+            Libraries.LIFECYCLE_EXTENSIONS,
+            Libraries.LIFECYCLE_VIEWMODEL,
+            Libraries.LOGGING,
+            Libraries.MOSHI,
+            Libraries.MOSHI_KTX,
+            Libraries.NAVIGATION_FRAGMENT,
+            Libraries.NAVIGATION_UI,
+            Libraries.PAGING,
+            Libraries.RECYCLER_VIEW,
+            Libraries.RETROFIT,
+            Libraries.RETROFIT_CONVERTER,
+            Libraries.ROOM,
+            Libraries.ROOM_KTX
         )
     )
     kapt(
         arrayOf(
-            AnnotationProcessorsDependencies.DATABINDING,
-            AnnotationProcessorsDependencies.HILT,
-            AnnotationProcessorsDependencies.ROOM
+            AnnotationProcessorsLibraries.DATABINDING,
+            AnnotationProcessorsLibraries.HILT,
+            AnnotationProcessorsLibraries.ROOM
         )
     )
 }
