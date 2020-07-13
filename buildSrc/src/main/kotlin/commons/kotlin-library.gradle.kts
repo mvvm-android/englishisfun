@@ -16,7 +16,7 @@
 
 package commons
 
-import dependencies.Dependencies
+import dependencies.Libraries
 import extensions.implementation
 
 plugins {
@@ -24,5 +24,5 @@ plugins {
 }
 
 dependencies {
-    implementation(Dependencies.KOTLIN)
+    implementation(Libraries.KOTLIN)
 }

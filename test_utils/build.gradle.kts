@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import dependencies.AnnotationProcessorsDependencies
-import dependencies.Dependencies
-import dependencies.TestDependencies
+import dependencies.AnnotationProcessorsLibraries
+import dependencies.Libraries
+import dependencies.TestLibraries
 import extensions.implementation
 
 plugins {
@@ -26,10 +26,10 @@ plugins {
 dependencies {
     implementation(
         arrayOf(
-            Dependencies.NAVIGATION_UI,
-            Dependencies.PAGING
+            Libraries.NAVIGATION_UI,
+            Libraries.PAGING
         )
     )
-    implementation(TestDependencies.all())
-    kapt(AnnotationProcessorsDependencies.AUTO_SERVICE)
+    implementation(TestLibraries.all())
+    kapt(AnnotationProcessorsLibraries.AUTO_SERVICE)
 }

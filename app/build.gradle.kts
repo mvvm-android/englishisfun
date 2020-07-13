@@ -14,9 +14,13 @@
  * limitations under the License.
  */
 
-import dependencies.*
+import dependencies.AnnotationProcessorsLibraries
+import dependencies.Compose
+import dependencies.DebugLibraries
+import dependencies.Libraries
+import dependencies.TestAndroidLibraries
+import dependencies.TestLibraries
 import extensions.*
-import BuildDependenciesVersions
 
 plugins {
     id(BuildPlugins.ANDROID_APPLICATION)
@@ -95,8 +99,8 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = BuildDependenciesVersions.COMPOSE
-        kotlinCompilerVersion = "1.3.70-dev-withExperimentalGoogleExtensions-20200424"
+        kotlinCompilerExtensionVersion = Compose.KOTLIN_COMPILER_EXTENSION_VERSION
+        kotlinCompilerVersion = Compose.KOTLIN_COMPILER_VERSION
     }
 
     androidExtensions {
@@ -147,38 +151,38 @@ dependencies {
     implementation(project(BuildModules.BASE_ANDROID))
     implementation(
         arrayOf(
-            Dependencies.APPCOMPAT,
-            Dependencies.COMPOSE_MATERIAL,
-            Dependencies.COMPOSE_RUNTIME,
-            Dependencies.COMPOSE_TOOLING,
-            Dependencies.CONSTRAINT_LAYOUT,
-            Dependencies.COROUTINES_PLAY_SERVICES,
-            Dependencies.FIREBASE_ANALYTICS,
-            Dependencies.FIREBASE_AUTH,
-            Dependencies.FIREBASE_CRASHLYTICS,
-            Dependencies.FIREBASE_FIRESTORE,
-            Dependencies.FIREBASE_PERFORMANCE,
-            Dependencies.HILT,
-            Dependencies.HILT_VIEWMODEL,
-            Dependencies.KOTLIN,
-            Dependencies.LOGGING,
-            Dependencies.MATERIAL,
-            Dependencies.NAVIGATION_FRAGMENT,
-            Dependencies.NAVIGATION_UI,
-            Dependencies.PAGING,
-            Dependencies.PLAY_CORE,
-            Dependencies.RECYCLER_VIEW,
-            Dependencies.TIMBER
+            Libraries.APPCOMPAT,
+            Libraries.COMPOSE_MATERIAL,
+            Libraries.COMPOSE_RUNTIME,
+            Libraries.COMPOSE_TOOLING,
+            Libraries.CONSTRAINT_LAYOUT,
+            Libraries.COROUTINES_PLAY_SERVICES,
+            Libraries.FIREBASE_ANALYTICS,
+            Libraries.FIREBASE_AUTH,
+            Libraries.FIREBASE_CRASHLYTICS,
+            Libraries.FIREBASE_FIRESTORE,
+            Libraries.FIREBASE_PERFORMANCE,
+            Libraries.HILT,
+            Libraries.HILT_VIEWMODEL,
+            Libraries.KOTLIN,
+            Libraries.LOGGING,
+            Libraries.MATERIAL,
+            Libraries.NAVIGATION_FRAGMENT,
+            Libraries.NAVIGATION_UI,
+            Libraries.PAGING,
+            Libraries.PLAY_CORE,
+            Libraries.RECYCLER_VIEW,
+            Libraries.TIMBER
         )
     )
-    debugImplementation(DebugDependencies.LEAKCANARY)
+    debugImplementation(DebugLibraries.LEAKCANARY)
     kapt(
         arrayOf(
-            AnnotationProcessorsDependencies.HILT,
-            AnnotationProcessorsDependencies.HILT_VIEWMODEL
+            AnnotationProcessorsLibraries.HILT,
+            AnnotationProcessorsLibraries.HILT_VIEWMODEL
         )
     )
     testImplementation(project(BuildModules.Libraries.TEST_UTILS))
-    testImplementation(TestDependencies.all())
-    androidTestImplementation(TestAndroidDependencies.all())
+    testImplementation(TestLibraries.all())
+    androidTestImplementation(TestAndroidLibraries.all())
 }

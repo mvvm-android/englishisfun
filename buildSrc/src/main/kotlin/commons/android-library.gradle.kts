@@ -22,10 +22,10 @@ import BuildProductDimensions
 import ProductFlavorDevelop
 import ProductFlavorProduction
 import ProductFlavorQA
-import dependencies.AnnotationProcessorsDependencies
-import dependencies.Dependencies
-import dependencies.TestAndroidDependencies
-import dependencies.TestDependencies
+import dependencies.AnnotationProcessorsLibraries
+import dependencies.Libraries
+import dependencies.TestAndroidLibraries
+import dependencies.TestLibraries
 import extensions.androidTestImplementation
 import extensions.implementation
 import extensions.kapt
@@ -95,16 +95,16 @@ junitJacoco {
 }
 
 dependencies {
-    implementation(Dependencies.KOTLIN)
-    implementation(Dependencies.COROUTINES)
-    implementation(Dependencies.COROUTINES_ANDROID)
-    implementation(Dependencies.HILT)
-    implementation(Dependencies.HILT_VIEWMODEL)
-    implementation(Dependencies.TIMBER)
+    implementation(Libraries.KOTLIN)
+    implementation(Libraries.COROUTINES)
+    implementation(Libraries.COROUTINES_ANDROID)
+    implementation(Libraries.HILT)
+    implementation(Libraries.HILT_VIEWMODEL)
+    implementation(Libraries.TIMBER)
 
-    kapt(AnnotationProcessorsDependencies.HILT)
+    kapt(AnnotationProcessorsLibraries.HILT)
 
     testImplementation(project(BuildModules.Libraries.TEST_UTILS))
-    testImplementation(TestDependencies.all())
-    androidTestImplementation(TestAndroidDependencies.all())
+    testImplementation(TestLibraries.all())
+    androidTestImplementation(TestAndroidLibraries.all())
 }
