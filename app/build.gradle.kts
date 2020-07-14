@@ -174,7 +174,7 @@ dependencies {
             Libraries.TIMBER
         )
     )
-    debugImplementation(DebugLibraries.LEAKCANARY)
+    debugImplementation(DebugLibraries.all())
     kapt(
         arrayOf(
             AnnotationProcessorsLibraries.HILT,
