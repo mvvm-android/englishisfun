@@ -4,5 +4,4 @@
     <string name="abbreviations_list_empty_text">Empty abbreviations list</string>
     <string name="abbreviations_list_error_text">Ups… an error occurred on obtain abbreviations list, please swipe down to try again</string>
     <string name="abbreviations_list_add_error_text">Error on fetch more abbreviations</string>
-    <string name="abbreviations_list_add_retry_button">Retry</string>
 </resources>
