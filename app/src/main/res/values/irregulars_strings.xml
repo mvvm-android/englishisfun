@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Irregulars list-->
+    <string name="irregulars_list_error_text">Failed to load the latest news.\nPlease check your connection.</string>
+    <string name="irregulars_list_retry">Retry</string>
+    <string name="irregulars_list_view_saved">View saved articles</string>
+</resources>
