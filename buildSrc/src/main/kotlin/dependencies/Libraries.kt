@@ -152,6 +152,7 @@ object TestLibraries {
         const val JUNIT = "4.13"
         const val MOCKITO = "2.2.0"
         const val MOCKK = "1.10.0"
+        const val RAINBOW_CAKE = "1.0.0"
         const val ROBOELECTRIC = "4.3.1"
         const val ROOM = "2.2.5"
         const val TEST = "1.2.0"
@@ -166,6 +167,7 @@ object TestLibraries {
     private const val JUNIT = "junit:junit:${Versions.JUNIT}"
     private const val MOCKITO = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO}"
     private const val MOCKK = "io.mockk:mockk:${Versions.MOCKK}"
+    private const val RAINBOW_CAKE = "co.zsmb:rainbow-cake-test:${Versions.RAINBOW_CAKE}"
     private const val ROBOELECTRIC = "org.robolectric:robolectric:${Versions.ROBOELECTRIC}"
     private const val ROOM = "androidx.room:room-testing:${Versions.ROOM}"
     private const val RULES = "androidx.test:rules:${Versions.TEST}"
@@ -186,6 +188,7 @@ object TestLibraries {
         JUNIT,
         MOCKITO,
         MOCKK,
+        RAINBOW_CAKE,
         ROBOELECTRIC,
         ROOM,
         RULES,
