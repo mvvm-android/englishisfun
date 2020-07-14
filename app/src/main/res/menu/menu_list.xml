@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/action_view_saved"
-        android:title="Saved articles"
+        android:title="@string/irregulars_list_view_saved"
         app:showAsAction="never" />
 
 </menu>
