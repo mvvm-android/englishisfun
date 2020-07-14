@@ -40,7 +40,8 @@ class IrregularsModule {
      * @return Instance of view model.
      */
     @Provides
-    fun providesListViewModel(presenter: IrregularsListPresenter): IrregularsListViewModel = IrregularsListViewModel(presenter)
+    fun providesListViewModel(presenter: IrregularsListPresenter): IrregularsListViewModel =
+        IrregularsListViewModel(presenter)
 
     /**
      * Create a provider method binding for [IrregularsListPresenter].
@@ -48,7 +49,8 @@ class IrregularsModule {
      * @return Instance of presenter.
      */
     @Provides
-    fun providesListPresenter(interactor: IrregularsInteractor): IrregularsListPresenter = IrregularsListPresenter(interactor)
+    fun providesListPresenter(interactor: IrregularsInteractor): IrregularsListPresenter =
+        IrregularsListPresenter(interactor)
 
     /**
      * Create a provider method binding for [IrregularsInteractor].
@@ -56,7 +58,8 @@ class IrregularsModule {
      * @return Instance of interactor.
      */
     @Provides
-    fun providesIrregularsInteractor(dataSource: NetworkDataSource): IrregularsInteractor = IrregularsInteractor(dataSource)
+    fun providesIrregularsInteractor(dataSource: NetworkDataSource): IrregularsInteractor =
+        IrregularsInteractor(dataSource)
 
     /**
      * Create a provider method binding for [NetworkDataSource].

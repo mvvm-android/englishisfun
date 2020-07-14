@@ -35,7 +35,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class IrregularsListFragment : RainbowCakeFragment<ListViewState, IrregularsListViewModel>(), IrregularsAdapter.Listener {
+class IrregularsListFragment :
+    RainbowCakeFragment<ListViewState, IrregularsListViewModel>(), IrregularsAdapter.Listener {
 
     @Inject
     lateinit var customViewModel: IrregularsListViewModel
