@@ -45,14 +45,12 @@ object Libraries {
         const val HILT_VIEWMODEL = "1.0.0-alpha01"
         const val KOTLIN = "1.3.72"
         const val LIFECYCLE = "2.2.0"
-        const val LOGGING = "4.7.2"
         const val MATERIAL = "1.1.0"
         const val MOSHI = "1.9.3"
         const val NAVIGATION = "2.2.2"
         const val PAGING = "2.1.2"
         const val PLAY_CORE = "1.7.3"
         const val RECYCLER_VIEW = "1.1.0"
-        const val RETROFIT = "2.9.0"
         const val ROOM = "2.2.5"
         const val SWIPE_REFRESH_LAYOUT = "1.0.0"
         const val TIMBER = "4.7.1"
@@ -84,7 +82,6 @@ object Libraries {
     const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.KOTLIN}"
     const val LIFECYCLE_EXTENSIONS = "androidx.lifecycle:lifecycle-extensions:${Versions.LIFECYCLE}"
     const val LIFECYCLE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
-    const val LOGGING = "com.squareup.okhttp3:logging-interceptor:${Versions.LOGGING}"
     const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
     const val MOSHI = "com.squareup.moshi:moshi:${Versions.MOSHI}"
     const val MOSHI_KTX = "com.squareup.moshi:moshi-kotlin:${Versions.MOSHI}"
@@ -93,8 +90,6 @@ object Libraries {
     const val PAGING = "androidx.paging:paging-runtime-ktx:${Versions.PAGING}"
     const val PLAY_CORE = "com.google.android.play:core:${Versions.PLAY_CORE}"
     const val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.RECYCLER_VIEW}"
-    const val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT}"
-    const val RETROFIT_CONVERTER = "com.squareup.retrofit2:converter-gson:${Versions.RETROFIT}"
     const val ROOM = "androidx.room:room-runtime:${Versions.ROOM}"
     const val ROOM_KTX = "androidx.room:room-ktx:${Versions.ROOM}"
     const val SWIPE_REFRESH_LAYOUT = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.SWIPE_REFRESH_LAYOUT}"
@@ -129,7 +124,16 @@ object DebugLibraries {
         const val LEAKCANARY = "2.4"
     }
 
-    const val LEAKCANARY = "com.squareup.leakcanary:leakcanary-android:${Versions.LEAKCANARY}"
+    private const val LEAKCANARY = "com.squareup.leakcanary:leakcanary-android:${Versions.LEAKCANARY}"
+
+    /**
+     * Method to obtain all the debug dependencies.
+     *
+     * @return An array with all the debug dependencies.
+     */
+    fun all() = arrayOf(
+        LEAKCANARY
+    )
 }
 
 /**
@@ -145,26 +149,24 @@ object TestLibraries {
         const val JUNIT = "4.13"
         const val MOCKITO = "2.2.0"
         const val MOCKK = "1.10.0"
-        const val MOCK_WEB_SERVER = "4.7.2"
         const val ROBOELECTRIC = "4.3.1"
         const val ROOM = "2.2.5"
         const val TEST = "1.2.0"
     }
 
-    const val ARCH_CORE = "androidx.arch.core:core-testing:${Versions.ARCH_CORE}"
-    const val ASSERTJ = "org.assertj:assertj-core:${Versions.ASSERTJ}"
-    const val CORE = "androidx.test:core:${Versions.TEST}"
-    const val COROUTINES_TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.COROUTINES}"
-    const val EXT = "androidx.test.ext:junit:${Versions.EXT}"
-    const val FRAGMENT_TEST = "androidx.fragment:fragment-testing:${Versions.FRAGMENT}"
-    const val JUNIT = "junit:junit:${Versions.JUNIT}"
-    const val MOCKITO = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO}"
-    const val MOCKK = "io.mockk:mockk:${Versions.MOCKK}"
-    const val MOCK_WEB_SERVER = "com.squareup.okhttp3:mockwebserver:${Versions.MOCK_WEB_SERVER}"
-    const val ROBOELECTRIC = "org.robolectric:robolectric:${Versions.ROBOELECTRIC}"
-    const val ROOM = "androidx.room:room-testing:${Versions.ROOM}"
-    const val RULES = "androidx.test:rules:${Versions.TEST}"
-    const val RUNNER = "androidx.test:runner:${Versions.TEST}"
+    private const val ARCH_CORE = "androidx.arch.core:core-testing:${Versions.ARCH_CORE}"
+    private const val ASSERTJ = "org.assertj:assertj-core:${Versions.ASSERTJ}"
+    private const val CORE = "androidx.test:core:${Versions.TEST}"
+    private const val COROUTINES_TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.COROUTINES}"
+    private const val EXT = "androidx.test.ext:junit:${Versions.EXT}"
+    private const val FRAGMENT_TEST = "androidx.fragment:fragment-testing:${Versions.FRAGMENT}"
+    private const val JUNIT = "junit:junit:${Versions.JUNIT}"
+    private const val MOCKITO = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO}"
+    private const val MOCKK = "io.mockk:mockk:${Versions.MOCKK}"
+    private const val ROBOELECTRIC = "org.robolectric:robolectric:${Versions.ROBOELECTRIC}"
+    private const val ROOM = "androidx.room:room-testing:${Versions.ROOM}"
+    private const val RULES = "androidx.test:rules:${Versions.TEST}"
+    private const val RUNNER = "androidx.test:runner:${Versions.TEST}"
 
     /**
      * Method to obtain all the test dependencies.
@@ -181,7 +183,6 @@ object TestLibraries {
         JUNIT,
         MOCKITO,
         MOCKK,
-        MOCK_WEB_SERVER,
         ROBOELECTRIC,
         ROOM,
         RULES,
@@ -204,16 +205,16 @@ object TestAndroidLibraries {
         const val TEST = "1.2.0"
     }
 
-    const val COMPOSE_CORE = "androidx.ui:ui-core:${Versions.COMPOSE}"
-    const val COMPOSE_TEST = "androidx.ui:ui-test:${Versions.COMPOSE}"
-    const val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO}"
-    const val FRAGMENT_TEST = "androidx.fragment:fragment-testing:${Versions.FRAGMENT}"
-    const val JUNIT = "androidx.test.ext:junit:${Versions.EXT}"
-    const val LEAKCANARY = "com.squareup.leakcanary:leakcanary-android-instrumentation:${Versions.LEAKCANARY}"
-    const val MOCKITO = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO}"
-    const val PLAY_CORE = "com.google.android.play:core:${Versions.PLAY_CORE}"
-    const val RULES = "androidx.test:rules:${Versions.TEST}"
-    const val RUNNER = "androidx.test:runner:${Versions.TEST}"
+    private const val COMPOSE_CORE = "androidx.ui:ui-core:${Versions.COMPOSE}"
+    private const val COMPOSE_TEST = "androidx.ui:ui-test:${Versions.COMPOSE}"
+    private const val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO}"
+    private const val FRAGMENT_TEST = "androidx.fragment:fragment-testing:${Versions.FRAGMENT}"
+    private const val JUNIT = "androidx.test.ext:junit:${Versions.EXT}"
+    private const val LEAKCANARY = "com.squareup.leakcanary:leakcanary-android-instrumentation:${Versions.LEAKCANARY}"
+    private const val MOCKITO = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO}"
+    private const val PLAY_CORE = "com.google.android.play:core:${Versions.PLAY_CORE}"
+    private const val RULES = "androidx.test:rules:${Versions.TEST}"
+    private const val RUNNER = "androidx.test:runner:${Versions.TEST}"
 
     /**
      * Method to obtain all the Android test dependencies.
