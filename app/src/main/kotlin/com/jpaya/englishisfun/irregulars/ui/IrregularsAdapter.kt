@@ -41,6 +41,7 @@ class IrregularsAdapter : ListAdapter<IrregularsItem, IrregularsAdapter.ViewHold
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val base: TextView = itemView.findViewById(R.id.base)
         private val simple: TextView = itemView.findViewById(R.id.simple)
+        private val participle: TextView = itemView.findViewById(R.id.participle)
 
         private var irregularsItem: IrregularsItem? = null
 
@@ -55,6 +56,7 @@ class IrregularsAdapter : ListAdapter<IrregularsItem, IrregularsAdapter.ViewHold
 
             base.text = item.base
             simple.text = item.simple
+            participle.text = item.participle
         }
     }
 
