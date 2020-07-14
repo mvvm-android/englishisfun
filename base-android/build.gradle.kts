@@ -44,15 +44,12 @@ dependencies {
             Libraries.HILT,
             Libraries.LIFECYCLE_EXTENSIONS,
             Libraries.LIFECYCLE_VIEWMODEL,
-            Libraries.LOGGING,
             Libraries.MOSHI,
             Libraries.MOSHI_KTX,
             Libraries.NAVIGATION_FRAGMENT,
             Libraries.NAVIGATION_UI,
             Libraries.PAGING,
             Libraries.RECYCLER_VIEW,
-            Libraries.RETROFIT,
-            Libraries.RETROFIT_CONVERTER,
             Libraries.ROOM,
             Libraries.ROOM_KTX
         )

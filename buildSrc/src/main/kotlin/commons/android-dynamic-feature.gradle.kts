@@ -116,7 +116,6 @@ dependencies {
     implementation(Libraries.FRAGMENT_KTX)
     implementation(Libraries.CONSTRAINT_LAYOUT)
     implementation(Libraries.TIMBER)
-    implementation(Libraries.LOGGING)
     implementation(Libraries.HILT)
     implementation(Libraries.HILT_VIEWMODEL)
 

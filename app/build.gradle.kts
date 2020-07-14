@@ -165,7 +165,6 @@ dependencies {
             Libraries.HILT,
             Libraries.HILT_VIEWMODEL,
             Libraries.KOTLIN,
-            Libraries.LOGGING,
             Libraries.MATERIAL,
             Libraries.NAVIGATION_FRAGMENT,
             Libraries.NAVIGATION_UI,
