@@ -55,7 +55,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     lateinit var viewBinding: FragmentHomeBinding
 
     private val navGraphIds = listOf(
-        R.navigation.navigation_abbreviations_graph
+        R.navigation.navigation_abbreviations_graph,
+        R.navigation.navigation_irregulars_graph
     )
 
     // TODO Duplicated code

@@ -14,15 +14,14 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.irregulars.model
+package com.jpaya.englishisfun.irregulars.ui
 
-/**
- * Model class to represent an irregular verb.
- */
-class IrregularItem {
-    var id: Long = 0
-    var base: String = ""
-    var simple: String = ""
-    var participle: String = ""
-    var definitions: String = ""
-}
+import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter.IrregularsItem
+
+sealed class ListViewState
+
+object Loading : ListViewState()
+
+data class ListReady(val irregulars: List<IrregularsItem>) : ListViewState()
+
+object NetworkError : ListViewState()

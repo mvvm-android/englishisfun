@@ -170,6 +170,7 @@ dependencies {
             Libraries.NAVIGATION_UI,
             Libraries.PAGING,
             Libraries.PLAY_CORE,
+            Libraries.RAINBOW_CAKE,
             Libraries.RECYCLER_VIEW,
             Libraries.TIMBER
         )
