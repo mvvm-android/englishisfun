@@ -95,11 +95,11 @@ junitJacoco {
 }
 
 dependencies {
-    implementation(Libraries.KOTLIN)
-    implementation(Libraries.COROUTINES)
-    implementation(Libraries.COROUTINES_ANDROID)
     implementation(Libraries.HILT)
     implementation(Libraries.HILT_VIEWMODEL)
+    implementation(Libraries.KOTLIN)
+    implementation(Libraries.KOTLIN_COROUTINES)
+    implementation(Libraries.KOTLIN_COROUTINES_ANDROID)
     implementation(Libraries.TIMBER)
 
     kapt(AnnotationProcessorsLibraries.HILT)
