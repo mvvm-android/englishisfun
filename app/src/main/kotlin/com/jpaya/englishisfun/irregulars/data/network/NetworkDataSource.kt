@@ -28,14 +28,14 @@ class NetworkDataSource @Inject constructor(
 
     suspend fun getIrregularsItems(): List<Irregulars> {
         return fireStoreClient
-            .abbreviations()!!.abbreviations
+            .irregulars()!!.irregulars
             .map {
                 Irregulars(
                     id = it.id,
-                    base = "Base",
-                    simple = "Simple",
-                    participle = "Participle",
-                    definitions = "Definitions"
+                    base = it.base,
+                    simple = it.simple,
+                    participle = it.participle,
+                    definitions = it.definitions
                 )
             }
     }
