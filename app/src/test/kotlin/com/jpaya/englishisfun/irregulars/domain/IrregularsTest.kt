@@ -17,7 +17,6 @@
 package com.jpaya.englishisfun.irregulars.domain
 
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotEquals
 import org.junit.Test
 
 class IrregularsTest {
