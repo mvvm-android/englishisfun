@@ -19,7 +19,7 @@ package com.jpaya.englishisfun.irregulars.domain
 /**
  * Model class to represent an irregular verb.
  */
-class Irregulars(
+data class Irregulars(
     var id: Long = 0,
     var base: String = "",
     var simple: String = "",
