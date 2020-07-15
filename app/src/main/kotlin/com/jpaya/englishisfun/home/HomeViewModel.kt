@@ -36,7 +36,8 @@ class HomeViewModel @ViewModelInject constructor() : ViewModel() {
         get() = _state
 
     private val navFragmentsIds = setOf(
-        R.id.abbreviations_list_fragment
+        R.id.abbreviations_list_fragment,
+        R.id.irregulars_list_fragment
     )
 
     /**
