@@ -83,7 +83,16 @@ class NetworkDataSourceTest {
             )
         )
 
-        val result = dataSource.getIrregularsItems()
-        assertEquals(expectedResult, result)
+        assertEquals(expectedResult, dataSource.getIrregularsItems())
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun `Check getIrregularsItems works properly when null`() = runBlockingTest {
+        whenever(fireStoreClient.irregulars()).doReturn(null)
+
+        val expectedResult = listOf<Irregulars>()
+
+        assertEquals(expectedResult, dataSource.getIrregularsItems())
     }
 }

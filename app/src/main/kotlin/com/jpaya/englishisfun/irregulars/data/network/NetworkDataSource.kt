@@ -27,16 +27,15 @@ class NetworkDataSource @Inject constructor(
 ) {
 
     suspend fun getIrregularsItems(): List<Irregulars> {
-        return fireStoreClient
-            .irregulars()!!.irregulars
-            .map {
-                Irregulars(
-                    id = it.id,
-                    base = it.base,
-                    simple = it.simple,
-                    participle = it.participle,
-                    definitions = it.definitions
-                )
-            }
+        val response = fireStoreClient.irregulars()
+        return response?.irregulars?.map {
+            Irregulars(
+                id = it.id,
+                base = it.base,
+                simple = it.simple,
+                participle = it.participle,
+                definitions = it.definitions
+            )
+        } ?: listOf()
     }
 }
