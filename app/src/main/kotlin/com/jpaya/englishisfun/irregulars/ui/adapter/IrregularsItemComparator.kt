@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.irregulars.ui
+package com.jpaya.englishisfun.irregulars.ui.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter.IrregularsItem

@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.irregulars.ui
+package com.jpaya.englishisfun.irregulars.ui.adapter
 
+import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before

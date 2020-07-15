@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.irregulars.ui
+package com.jpaya.englishisfun.irregulars.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View

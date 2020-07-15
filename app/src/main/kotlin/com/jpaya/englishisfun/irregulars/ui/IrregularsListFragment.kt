@@ -31,6 +31,7 @@ import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.extensions.exhaustive
 import com.google.android.material.button.MaterialButton
 import com.jpaya.englishisfun.R
+import com.jpaya.englishisfun.irregulars.ui.adapter.IrregularsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
