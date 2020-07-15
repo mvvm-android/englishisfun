@@ -20,6 +20,7 @@ import com.jpaya.englishisfun.irregulars.data.network.NetworkDataSource
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.*
 import org.junit.Before
@@ -55,6 +56,7 @@ class IrregularsInteractorTest {
         interactor = IrregularsInteractor(dataSource)
     }
 
+    @ExperimentalCoroutinesApi
     @Test
     fun `Check getIrregularsItems works properly`() = runBlockingTest {
         whenever(dataSource.getIrregularsItems()).doReturn(MOCK_IRREGULARS_ITEMS)

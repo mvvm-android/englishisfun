@@ -17,6 +17,7 @@
 package com.jpaya.englishisfun.irregulars.domain
 
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotEquals
 import org.junit.Test
 
 class IrregularsTest {
@@ -28,13 +29,13 @@ class IrregularsTest {
         val simple = "Arose"
         val participle = "Arisen"
         val definitions = "To get up from bed"
-        val irregular = Irregulars().apply {
-            this.id = id
-            this.base = base
-            this.simple = simple
-            this.participle = participle
-            this.definitions = definitions
-        }
+        val irregular = Irregulars(
+            id = id,
+            base = base,
+            simple = simple,
+            participle = participle,
+            definitions = definitions
+        )
 
         assertEquals(id, irregular.id)
         assertEquals(base, irregular.base)
