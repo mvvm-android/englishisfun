@@ -37,7 +37,7 @@ object Libraries {
         const val COROUTINES = "1.3.7"
         const val FIREBASE_ANALYTICS = "17.4.3"
         const val FIREBASE_AUTH = "19.3.1"
-        const val FIREBASE_CRASHLYTICS = "17.1.0"
+        const val FIREBASE_CRASHLYTICS = "17.1.1"
         const val FIREBASE_FIRESTORE = "21.4.3"
         const val FIREBASE_PERFORMANCE = "19.0.7"
         const val FRAGMENT = "1.2.5"
