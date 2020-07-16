@@ -53,6 +53,7 @@ object Libraries {
         const val RAINBOW_CAKE = "1.0.0"
         const val RECYCLER_VIEW = "1.1.0"
         const val ROOM = "2.2.5"
+        const val SHIMMER = "0.5.0"
         const val SWIPE_REFRESH_LAYOUT = "1.0.0"
         const val TIMBER = "4.7.1"
     }
@@ -95,6 +96,7 @@ object Libraries {
     const val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.RECYCLER_VIEW}"
     const val ROOM = "androidx.room:room-runtime:${Versions.ROOM}"
     const val ROOM_KTX = "androidx.room:room-ktx:${Versions.ROOM}"
+    const val SHIMMER = "com.facebook.shimmer:shimmer:${Versions.SHIMMER}"
     const val SWIPE_REFRESH_LAYOUT = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.SWIPE_REFRESH_LAYOUT}"
     const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
 }

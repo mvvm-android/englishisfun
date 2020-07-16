@@ -172,6 +172,7 @@ dependencies {
             Libraries.PLAY_CORE,
             Libraries.RAINBOW_CAKE,
             Libraries.RECYCLER_VIEW,
+            Libraries.SHIMMER,
             Libraries.TIMBER
         )
     )

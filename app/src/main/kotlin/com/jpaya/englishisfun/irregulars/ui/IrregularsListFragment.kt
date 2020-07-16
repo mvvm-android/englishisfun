@@ -29,8 +29,11 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.extensions.exhaustive
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.material.button.MaterialButton
 import com.jpaya.englishisfun.R
+import com.jpaya.englishisfun.extensions.hide
+import com.jpaya.englishisfun.extensions.show
 import com.jpaya.englishisfun.irregulars.ui.adapter.IrregularsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -50,7 +53,7 @@ class IrregularsListFragment :
     // TODO REPLACE FOR KOTLIN AUTOIMPORT
     private lateinit var listFragmentRoot: ConstraintLayout
     private lateinit var toolbar: Toolbar
-    private lateinit var loadingIndicator: ProgressBar
+    private lateinit var shimmerLayout: ShimmerFrameLayout
     private lateinit var irregularsList: RecyclerView
     private lateinit var errorGroup: Group
     private lateinit var errorText: TextView
@@ -88,7 +91,7 @@ class IrregularsListFragment :
     private fun loadUiRefs(view: View) {
         listFragmentRoot = view.findViewById(R.id.listFragmentRoot)
         toolbar = view.findViewById(R.id.toolbar)
-        loadingIndicator = view.findViewById(R.id.loadingIndicator)
+        shimmerLayout = view.findViewById(R.id.shimmerLayout)
         irregularsList = view.findViewById(R.id.irregularsList)
         errorGroup = view.findViewById(R.id.errorGroup)
         errorText = view.findViewById(R.id.errorText)
@@ -100,19 +103,19 @@ class IrregularsListFragment :
         TransitionManager.beginDelayedTransition(listFragmentRoot)
         when (viewState) {
             Loading -> {
-                loadingIndicator.isVisible = true
+                shimmerLayout.show()
                 irregularsList.isVisible = false
                 errorGroup.isVisible = false
             }
             is ListReady -> {
                 irregularsAdapter.submitList(viewState.irregulars)
-                loadingIndicator.isVisible = false
+                shimmerLayout.hide()
                 irregularsList.isVisible = true
                 errorGroup.isVisible = false
             }
             NetworkError -> {
                 irregularsAdapter.submitList(null)
-                loadingIndicator.isVisible = false
+                shimmerLayout.hide()
                 irregularsList.isVisible = false
                 errorGroup.isVisible = true
             }
