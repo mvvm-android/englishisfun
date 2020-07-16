@@ -22,15 +22,45 @@ import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * Defines the data-access object for [RoomIrregularsItem].
+ */
 @Dao
 interface IrregularsDao {
 
+    /**
+     * Returns a list with all the entities.
+     */
     @Query("SELECT * FROM irregulars")
-    fun getAllIrregularsItems(): Flow<List<RoomIrregularsItem>>
+    fun all(): Flow<List<RoomIrregularsItem>>
 
+    /**
+     * Returns the number of entities.
+     */
+    @Query("SELECT count(*) FROM irregulars")
+    fun count(): Int
+
+    /**
+     * Persists an entity.
+     */
     @Insert(onConflict = REPLACE)
-    suspend fun addIrregularsItem(roomIrregularsItem: RoomIrregularsItem)
+    suspend fun save(item: RoomIrregularsItem)
 
+    /**
+     * Persists a list of entities.
+     */
+    @Insert(onConflict = REPLACE)
+    suspend fun save(items: List<RoomIrregularsItem>)
+
+    /**
+     * Deletes an entity by its id.
+     */
     @Query("DELETE FROM irregulars WHERE id = :id")
-    suspend fun removeIrregularsItem(id: Long)
+    suspend fun delete(id: Long)
+
+    /**
+     * Deletes all the entities.
+     */
+    @Query("DELETE FROM irregulars")
+    suspend fun delete()
 }

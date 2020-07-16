@@ -27,7 +27,7 @@ class IrregularsInteractor @Inject constructor(
 
     suspend fun getIrregularsItems(): List<Irregulars> {
         val result = network.getIrregularsItems()
-        database.saveNewsItem(result[0])
+        database.save(result[0])
         return result
     }
 }
