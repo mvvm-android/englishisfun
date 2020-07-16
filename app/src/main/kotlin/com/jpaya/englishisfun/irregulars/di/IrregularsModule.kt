@@ -16,7 +16,9 @@
 
 package com.jpaya.englishisfun.irregulars.di
 
+import android.content.Context
 import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.irregulars.data.db.DatabaseDataSource
 import com.jpaya.englishisfun.irregulars.data.network.NetworkDataSource
 import com.jpaya.englishisfun.irregulars.domain.IrregularsInteractor
 import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter
@@ -24,6 +26,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 
 /**
  * Class that provides irregulars-related dependencies to the hilt dependency graph [FragmentComponent].
@@ -48,8 +51,8 @@ class IrregularsModule {
      * @return Instance of interactor.
      */
     @Provides
-    fun providesIrregularsInteractor(dataSource: NetworkDataSource): IrregularsInteractor =
-        IrregularsInteractor(dataSource)
+    fun providesIrregularsInteractor(network: NetworkDataSource, database: DatabaseDataSource): IrregularsInteractor =
+        IrregularsInteractor(network, database)
 
     /**
      * Create a provider method binding for [NetworkDataSource].
@@ -57,6 +60,14 @@ class IrregularsModule {
      * @return Instance of data source.
      */
     @Provides
-    fun providesNetworkDataSource(fireStoreClient: FireStoreClient): NetworkDataSource =
-        NetworkDataSource(fireStoreClient)
+    fun providesNetworkDataSource(client: FireStoreClient): NetworkDataSource = NetworkDataSource(client)
+
+    /**
+     * Create a provider method binding for [DatabaseDataSource].
+     *
+     * @return Instance of data source.
+     */
+    @Provides
+    fun providesDatabaseDataSource(@ApplicationContext context: Context): DatabaseDataSource =
+        DatabaseDataSource(context)
 }

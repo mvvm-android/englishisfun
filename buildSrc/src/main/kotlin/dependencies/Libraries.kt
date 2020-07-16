@@ -126,9 +126,11 @@ object AnnotationProcessorsLibraries {
  */
 object DebugLibraries {
     private object Versions {
+        const val DEBUG_DB = "1.0.6"
         const val LEAKCANARY = "2.4"
     }
 
+    private const val DEBUG_DB = "com.amitshekhar.android:debug-db:${Versions.DEBUG_DB}"
     private const val LEAKCANARY = "com.squareup.leakcanary:leakcanary-android:${Versions.LEAKCANARY}"
 
     /**
@@ -137,6 +139,7 @@ object DebugLibraries {
      * @return An array with all the debug dependencies.
      */
     fun all() = arrayOf(
+        DEBUG_DB,
         LEAKCANARY
     )
 }

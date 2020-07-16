@@ -14,20 +14,23 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.irregulars.domain
+package com.jpaya.englishisfun.irregulars.data.db
 
-import com.jpaya.englishisfun.irregulars.data.db.DatabaseDataSource
-import com.jpaya.englishisfun.irregulars.data.network.NetworkDataSource
-import javax.inject.Inject
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy.REPLACE
+import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
-class IrregularsInteractor @Inject constructor(
-    private val network: NetworkDataSource,
-    private val database: DatabaseDataSource
-) {
+@Dao
+interface IrregularsDao {
 
-    suspend fun getIrregularsItems(): List<Irregulars> {
-        val result = network.getIrregularsItems()
-        database.saveNewsItem(result[0])
-        return result
-    }
+    @Query("SELECT * FROM irregulars")
+    fun getAllIrregularsItems(): Flow<List<RoomIrregularsItem>>
+
+    @Insert(onConflict = REPLACE)
+    suspend fun addIrregularsItem(roomIrregularsItem: RoomIrregularsItem)
+
+    @Query("DELETE FROM irregulars WHERE id = :id")
+    suspend fun removeIrregularsItem(id: Long)
 }

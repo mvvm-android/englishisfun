@@ -14,20 +14,16 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.irregulars.domain
+package com.jpaya.englishisfun.irregulars.data.db
 
-import com.jpaya.englishisfun.irregulars.data.db.DatabaseDataSource
-import com.jpaya.englishisfun.irregulars.data.network.NetworkDataSource
-import javax.inject.Inject
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-class IrregularsInteractor @Inject constructor(
-    private val network: NetworkDataSource,
-    private val database: DatabaseDataSource
-) {
-
-    suspend fun getIrregularsItems(): List<Irregulars> {
-        val result = network.getIrregularsItems()
-        database.saveNewsItem(result[0])
-        return result
-    }
-}
+@Entity(tableName = "irregulars")
+class RoomIrregularsItem(
+    @PrimaryKey(autoGenerate = true) val id: Long,
+    val base: String,
+    val simple: String,
+    val participle: String,
+    val definitions: String
+)

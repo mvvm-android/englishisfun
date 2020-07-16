@@ -14,20 +14,26 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.irregulars.domain
+package com.jpaya.englishisfun.irregulars.data.db
 
-import com.jpaya.englishisfun.irregulars.data.db.DatabaseDataSource
-import com.jpaya.englishisfun.irregulars.data.network.NetworkDataSource
-import javax.inject.Inject
+import com.jpaya.englishisfun.irregulars.domain.Irregulars
 
-class IrregularsInteractor @Inject constructor(
-    private val network: NetworkDataSource,
-    private val database: DatabaseDataSource
-) {
+fun Irregulars.toRoomItem(): RoomIrregularsItem {
+    return RoomIrregularsItem(
+        id = id,
+        base = base,
+        simple = simple,
+        participle = participle,
+        definitions = definitions
+    )
+}
 
-    suspend fun getIrregularsItems(): List<Irregulars> {
-        val result = network.getIrregularsItems()
-        database.saveNewsItem(result[0])
-        return result
-    }
+fun RoomIrregularsItem.toDomain(): Irregulars {
+    return Irregulars(
+        id = id,
+        base = base,
+        simple = simple,
+        participle = participle,
+        definitions = definitions
+    )
 }

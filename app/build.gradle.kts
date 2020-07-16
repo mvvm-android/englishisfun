@@ -172,6 +172,8 @@ dependencies {
             Libraries.PLAY_CORE,
             Libraries.RAINBOW_CAKE,
             Libraries.RECYCLER_VIEW,
+            Libraries.ROOM,
+            Libraries.ROOM_KTX,
             Libraries.SHIMMER,
             Libraries.TIMBER
         )
@@ -180,7 +182,8 @@ dependencies {
     kapt(
         arrayOf(
             AnnotationProcessorsLibraries.HILT,
-            AnnotationProcessorsLibraries.HILT_VIEWMODEL
+            AnnotationProcessorsLibraries.HILT_VIEWMODEL,
+            AnnotationProcessorsLibraries.ROOM
         )
     )
     testImplementation(project(BuildModules.Libraries.TEST_UTILS))
