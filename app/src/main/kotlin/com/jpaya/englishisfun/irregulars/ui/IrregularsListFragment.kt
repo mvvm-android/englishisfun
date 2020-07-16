@@ -24,6 +24,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.Group
 import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
@@ -35,14 +36,12 @@ import com.jpaya.englishisfun.extensions.hide
 import com.jpaya.englishisfun.extensions.show
 import com.jpaya.englishisfun.irregulars.ui.adapter.IrregularsAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class IrregularsListFragment :
     RainbowCakeFragment<ListViewState, IrregularsListViewModel>(), IrregularsAdapter.Listener {
 
-    @Inject
-    lateinit var customViewModel: IrregularsListViewModel
+    private val customViewModel: IrregularsListViewModel by viewModels()
 
     override fun provideViewModel() = customViewModel
     override fun getViewResource() = R.layout.irregulars_fragment_list

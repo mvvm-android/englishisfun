@@ -20,7 +20,6 @@ import com.jpaya.englishisfun.firestore.FireStoreClient
 import com.jpaya.englishisfun.irregulars.data.network.NetworkDataSource
 import com.jpaya.englishisfun.irregulars.domain.IrregularsInteractor
 import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter
-import com.jpaya.englishisfun.irregulars.ui.IrregularsListViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,15 +32,6 @@ import dagger.hilt.android.components.FragmentComponent
 @Module
 @InstallIn(FragmentComponent::class)
 class IrregularsModule {
-
-    /**
-     * Create a provider method binding for [IrregularsListViewModel].
-     *
-     * @return Instance of view model.
-     */
-    @Provides
-    fun providesListViewModel(presenter: IrregularsListPresenter): IrregularsListViewModel =
-        IrregularsListViewModel(presenter)
 
     /**
      * Create a provider method binding for [IrregularsListPresenter].
