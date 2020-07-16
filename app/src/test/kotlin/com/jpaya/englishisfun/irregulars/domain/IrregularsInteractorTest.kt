@@ -16,6 +16,7 @@
 
 package com.jpaya.englishisfun.irregulars.domain
 
+import com.jpaya.englishisfun.irregulars.data.db.DatabaseDataSource
 import com.jpaya.englishisfun.irregulars.data.network.NetworkDataSource
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
@@ -47,19 +48,21 @@ class IrregularsInteractorTest {
         )
     }
 
-    private lateinit var dataSource: NetworkDataSource
+    private lateinit var network: NetworkDataSource
+    private lateinit var database: DatabaseDataSource
     private lateinit var interactor: IrregularsInteractor
 
     @Before
     fun setUp() {
-        dataSource = mock()
-        interactor = IrregularsInteractor(dataSource)
+        network = mock()
+        database = mock()
+        interactor = IrregularsInteractor(network, database)
     }
 
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getIrregularsItems works properly`() = runBlockingTest {
-        whenever(dataSource.getIrregularsItems()).doReturn(MOCK_IRREGULARS_ITEMS)
+        whenever(network.getIrregularsItems()).doReturn(MOCK_IRREGULARS_ITEMS)
 
         assertEquals(MOCK_IRREGULARS_ITEMS, interactor.getIrregularsItems())
     }

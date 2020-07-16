@@ -17,6 +17,7 @@
 package com.jpaya.englishisfun.irregulars.di
 
 import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.irregulars.data.db.DatabaseDataSource
 import com.jpaya.englishisfun.irregulars.data.network.NetworkDataSource
 import com.jpaya.englishisfun.irregulars.domain.IrregularsInteractor
 import com.nhaarman.mockitokotlin2.mock
@@ -49,8 +50,9 @@ class IrregularsModuleTest {
 
     @Test
     fun `Check provided interactor`() {
-        val dataSource: NetworkDataSource = mock()
-        val interactor = module.providesIrregularsInteractor(dataSource)
+        val network: NetworkDataSource = mock()
+        val database: DatabaseDataSource = mock()
+        val interactor = module.providesIrregularsInteractor(network, database)
         assertNotNull(interactor)
     }
 
