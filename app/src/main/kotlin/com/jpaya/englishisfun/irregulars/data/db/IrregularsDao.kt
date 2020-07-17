@@ -38,7 +38,7 @@ interface IrregularsDao {
      * Returns the number of entities.
      */
     @Query("SELECT count(*) FROM irregulars")
-    fun count(): Int
+    suspend fun count(): Int
 
     /**
      * Persists an entity.

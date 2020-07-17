@@ -37,10 +37,19 @@ class DatabaseDataSource @Inject constructor(
         dao = database.irregulars()
     }
 
-    fun getSavedIrregulars(): Flow<List<Irregulars>> =
-        dao.all().map { news -> news.map(RoomIrregularsItem::toDomain) }
+    fun all(): Flow<List<Irregulars>> = dao.all().map { news -> news.map(RoomIrregularsItem::toDomain) }
+
+    suspend fun count() = dao.count()
 
     suspend fun save(item: Irregulars) = dao.save(item.toRoomItem())
+
+    suspend fun save(items: List<Irregulars>) {
+        val objects = mutableListOf<RoomIrregularsItem>()
+        items.forEach {
+            objects.add(it.toRoomItem())
+        }
+        dao.save(objects)
+    }
 
     suspend fun delete(id: Long) = dao.delete(id)
 
