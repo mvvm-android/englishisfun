@@ -20,7 +20,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "irregulars")
-class RoomIrregularsItem(
+data class RoomIrregularsItem(
     @PrimaryKey(autoGenerate = true) val id: Long,
     val base: String,
     val simple: String,
