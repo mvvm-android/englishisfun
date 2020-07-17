@@ -18,12 +18,12 @@ package com.jpaya.englishisfun.irregulars.data.db
 
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 
-//import com.jpaya.englishisfun.irregulars.domain.Irregulars
-//import com.jpaya.libraries.testutils.robolectric.TestRobolectric
-//import kotlinx.coroutines.runBlocking
-//import org.junit.Assert.assertEquals
-//import org.junit.Before
-//import org.junit.Test
+// import com.jpaya.englishisfun.irregulars.domain.Irregulars
+// import com.jpaya.libraries.testutils.robolectric.TestRobolectric
+// import kotlinx.coroutines.runBlocking
+// import org.junit.Assert.assertEquals
+// import org.junit.Before
+// import org.junit.Test
 
 class DatabaseDataSourceTest : TestRobolectric() {
 
