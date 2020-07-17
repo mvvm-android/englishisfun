@@ -32,7 +32,7 @@ interface IrregularsDao {
      * Returns a list with all the entities.
      */
     @Query("SELECT * FROM irregulars")
-    fun all(): Flow<List<RoomIrregularsItem>>
+    suspend fun all(): List<RoomIrregularsItem>
 
     /**
      * Returns the number of entities.

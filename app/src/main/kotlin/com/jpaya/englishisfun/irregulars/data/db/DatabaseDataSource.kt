@@ -20,8 +20,6 @@ import android.content.Context
 import androidx.room.Room
 import com.jpaya.englishisfun.irregulars.domain.Irregulars
 import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -37,7 +35,7 @@ class DatabaseDataSource @Inject constructor(
         dao = database.irregulars()
     }
 
-    fun all(): Flow<List<Irregulars>> = dao.all().map { news -> news.map(RoomIrregularsItem::toDomain) }
+    suspend fun all(): List<Irregulars> = dao.all().map { news -> news.toDomain() }
 
     suspend fun count() = dao.count()
 
