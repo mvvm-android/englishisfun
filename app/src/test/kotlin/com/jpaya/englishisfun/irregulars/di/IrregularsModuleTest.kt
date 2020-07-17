@@ -16,6 +16,7 @@
 
 package com.jpaya.englishisfun.irregulars.di
 
+import android.content.Context
 import com.jpaya.englishisfun.firestore.FireStoreClient
 import com.jpaya.englishisfun.irregulars.data.db.DatabaseDataSource
 import com.jpaya.englishisfun.irregulars.data.network.NetworkDataSource
@@ -33,13 +34,6 @@ class IrregularsModuleTest {
     fun setUp() {
         module = IrregularsModule()
     }
-
-//    @Test
-//    fun `Check provided list view model`() {
-//        val presenter: IrregularsListPresenter = mock()
-//        val viewModel = module.providesListViewModel(presenter)
-//        assertNotNull(viewModel)
-//    }
 
     @Test
     fun `Check provided list presenter`() {
@@ -60,6 +54,13 @@ class IrregularsModuleTest {
     fun `Check provided network data source`() {
         val fireStoreClient: FireStoreClient = mock()
         val dataSource = module.providesNetworkDataSource(fireStoreClient)
+        assertNotNull(dataSource)
+    }
+
+    @Test
+    fun `Check provided database data source`() {
+        val context: Context = mock()
+        val dataSource = module.providesDatabaseDataSource(context)
         assertNotNull(dataSource)
     }
 }
