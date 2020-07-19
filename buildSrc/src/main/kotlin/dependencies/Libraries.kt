@@ -35,7 +35,7 @@ object Libraries {
         const val CONSTRAINT_LAYOUT = "1.1.3"
         const val CORE_KTX = "1.3.0"
         const val COROUTINES = "1.3.7"
-        const val FIREBASE_ANALYTICS = "17.4.3"
+        const val FIREBASE_ANALYTICS = "17.4.4"
         const val FIREBASE_AUTH = "19.3.1"
         const val FIREBASE_CRASHLYTICS = "17.1.1"
         const val FIREBASE_FIRESTORE = "21.4.3"
