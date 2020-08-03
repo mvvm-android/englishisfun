@@ -18,7 +18,7 @@ package com.jpaya.englishisfun.di
 
 import com.jpaya.englishisfun.EnglishIsFunApp
 import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
-import com.jpaya.englishisfun.irregulars.data.db.IrregularsDatabase
+import com.jpaya.englishisfun.database.EnglishIsFunDatabase
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -53,7 +53,7 @@ class AppModuleTest {
 
     @Test
     fun verifyProvidedIrregularsDao() {
-        val database: IrregularsDatabase = mock()
+        val database: EnglishIsFunDatabase = mock()
         val dao: IrregularsDao = mock()
         doReturn(dao).whenever(database).irregulars()
 

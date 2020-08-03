@@ -14,16 +14,23 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.irregulars.data.db
+package com.jpaya.englishisfun.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
+import com.jpaya.englishisfun.irregulars.data.db.RoomIrregularsItem
 
 @Database(
     entities = [RoomIrregularsItem::class],
     version = 1,
-    exportSchema = false
+    exportSchema = true
 )
-abstract class IrregularsDatabase : RoomDatabase() {
+abstract class EnglishIsFunDatabase : RoomDatabase() {
+
+    companion object {
+        const val DATABASE_NAME = "englishisfun.db"
+    }
+
     abstract fun irregulars(): IrregularsDao
 }
