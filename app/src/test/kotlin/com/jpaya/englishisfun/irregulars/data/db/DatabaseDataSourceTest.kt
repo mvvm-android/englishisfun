@@ -17,6 +17,7 @@
 package com.jpaya.englishisfun.irregulars.data.db
 
 import androidx.room.Room
+import com.jpaya.englishisfun.database.EnglishIsFunDatabase
 import com.jpaya.englishisfun.irregulars.domain.Irregulars
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import kotlinx.coroutines.runBlocking
@@ -54,7 +55,7 @@ class DatabaseDataSourceTest : TestRobolectric() {
 
     @Before
     fun setUp() {
-        val database = Room.inMemoryDatabaseBuilder(context, IrregularsDatabase::class.java).build()
+        val database = Room.inMemoryDatabaseBuilder(context, EnglishIsFunDatabase::class.java).build()
         dataSource = DatabaseDataSource(database.irregulars())
     }
 

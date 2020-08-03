@@ -20,7 +20,7 @@ import android.content.Context
 import androidx.room.Room
 import com.jpaya.englishisfun.EnglishIsFunApp
 import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
-import com.jpaya.englishisfun.irregulars.data.db.IrregularsDatabase
+import com.jpaya.englishisfun.database.EnglishIsFunDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -55,21 +55,21 @@ class AppModule {
     fun providesCoroutinesScope(): CoroutineScope = MainScope()
 
     /**
-     * Create a provider method binding for [IrregularsDatabase].
+     * Create a provider method binding for [EnglishIsFunDatabase].
      *
      * @param context Application context.
      * @return Instance of irregulars database.
      */
     @Provides
-    fun providesIrregularsDatabase(@ApplicationContext context: Context): IrregularsDatabase =
-        Room.databaseBuilder(context, IrregularsDatabase::class.java, "irregulars.db").build()
+    fun providesIrregularsDatabase(@ApplicationContext context: Context): EnglishIsFunDatabase =
+        Room.databaseBuilder(context, EnglishIsFunDatabase::class.java, EnglishIsFunDatabase.DATABASE_NAME).build()
 
     /**
-     * Create a provider method binding for [IrregularsDatabase].
+     * Create a provider method binding for [EnglishIsFunDatabase].
      *
      * @param database Database instance.
      * @return Instance of irregulars dao.
      */
     @Provides
-    fun providesIrregularsDao(database: IrregularsDatabase): IrregularsDao = database.irregulars()
+    fun providesIrregularsDao(database: EnglishIsFunDatabase): IrregularsDao = database.irregulars()
 }
