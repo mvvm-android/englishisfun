@@ -16,11 +16,6 @@
 
 package com.jpaya.englishisfun.irregulars.di
 
-import android.content.Context
-import com.jpaya.englishisfun.firestore.FireStoreClient
-import com.jpaya.englishisfun.irregulars.data.db.DatabaseDataSource
-import com.jpaya.englishisfun.irregulars.data.network.NetworkDataSource
-import com.jpaya.englishisfun.irregulars.domain.IrregularsInteractor
 import com.nhaarman.mockitokotlin2.mock
 import org.junit.Assert.assertNotNull
 import org.junit.Before
@@ -36,31 +31,14 @@ class IrregularsModuleTest {
     }
 
     @Test
-    fun `Check provided list presenter`() {
-        val interactor: IrregularsInteractor = mock()
-        val presenter = module.providesListPresenter(interactor)
-        assertNotNull(presenter)
-    }
+    fun `Check provided list presenter`() = assertNotNull(module.providesListPresenter(mock()))
 
     @Test
-    fun `Check provided interactor`() {
-        val network: NetworkDataSource = mock()
-        val database: DatabaseDataSource = mock()
-        val interactor = module.providesIrregularsInteractor(network, database)
-        assertNotNull(interactor)
-    }
+    fun `Check provided interactor`() = assertNotNull(module.providesIrregularsInteractor(mock(), mock()))
 
     @Test
-    fun `Check provided network data source`() {
-        val fireStoreClient: FireStoreClient = mock()
-        val dataSource = module.providesNetworkDataSource(fireStoreClient)
-        assertNotNull(dataSource)
-    }
+    fun `Check provided network data source`() = assertNotNull(module.providesNetworkDataSource(mock()))
 
     @Test
-    fun `Check provided database data source`() {
-        val context: Context = mock()
-        val dataSource = module.providesDatabaseDataSource(context)
-        assertNotNull(dataSource)
-    }
+    fun `Check provided database data source`() = assertNotNull(module.providesDatabaseDataSource(mock()))
 }

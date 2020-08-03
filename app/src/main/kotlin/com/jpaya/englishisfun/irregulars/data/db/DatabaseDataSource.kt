@@ -16,24 +16,14 @@
 
 package com.jpaya.englishisfun.irregulars.data.db
 
-import android.content.Context
-import androidx.room.Room
 import com.jpaya.englishisfun.irregulars.domain.Irregulars
-import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class DatabaseDataSource @Inject constructor(
-    @ApplicationContext private val context: Context
+    private val dao: IrregularsDao
 ) {
-
-    private var dao: IrregularsDao
-
-    init {
-        val database = Room.databaseBuilder(context, IrregularsDatabase::class.java, "irregulars.db").build()
-        dao = database.irregulars()
-    }
 
     suspend fun all(): List<Irregulars> = dao.all().map { news -> news.toDomain() }
 
