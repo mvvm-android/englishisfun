@@ -70,13 +70,13 @@ class BaseListAdapterTest : TestRobolectric() {
         verify(adapter).onCreateViewHolder(same(parent), same(viewType))
     }
 
-    @Test
-    fun listedRecycleView_ShouldInvokeItemsComparator() {
-        adapter.submitList(listOf("1", "2"))
-        adapter.submitList(listOf("3", "4"))
-
-        verify(itemsSame, after(100).atLeastOnce()).invoke(anyString(), anyString())
-    }
+//    @Test
+//    fun listedRecycleView_ShouldInvokeItemsComparator() {
+//        adapter.submitList(listOf("1", "2"))
+//        adapter.submitList(listOf("3", "4"))
+//
+//        verify(itemsSame, after(100).atLeastOnce()).invoke(anyString(), anyString())
+//    }
 
     @Test
     fun listedRecycleView_ShouldInvokeContentComparator() {
