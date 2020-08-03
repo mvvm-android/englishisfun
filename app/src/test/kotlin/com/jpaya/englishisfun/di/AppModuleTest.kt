@@ -17,6 +17,8 @@
 package com.jpaya.englishisfun.di
 
 import com.jpaya.englishisfun.EnglishIsFunApp
+import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
+import com.jpaya.englishisfun.irregulars.data.db.IrregularsDatabase
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -44,7 +46,18 @@ class AppModuleTest {
     }
 
     @Test
-    fun verifyProvidedCoroutinesScope() {
-        assertNotNull(appModule.providesCoroutinesScope())
+    fun verifyProvidedCoroutinesScope() = assertNotNull(appModule.providesCoroutinesScope())
+
+    @Test
+    fun verifyProvidedIrregularsDatabase() = assertNotNull(appModule.providesIrregularsDatabase(mock()))
+
+    @Test
+    fun verifyProvidedIrregularsDao() {
+        val database: IrregularsDatabase = mock()
+        val dao: IrregularsDao = mock()
+        doReturn(dao).whenever(database).irregulars()
+
+        assertNotNull(appModule.providesIrregularsDao(database))
+        assertEquals(dao, appModule.providesIrregularsDao(database))
     }
 }
