@@ -14,19 +14,26 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.mapper
+package com.jpaya.englishisfun.irregulars.data.db
 
-/**
- * Helper class to transforms a specific input to desired object output, implementing for that
- * all operations required to transform.
- */
-interface Mapper<F, T> {
+import com.jpaya.englishisfun.irregulars.domain.Irregulars
 
-    /**
-     * Mapping object.
-     *
-     * @param from Initial object to from mapping.
-     * @return An Object containing the results of applying the transformation.
-     */
-    suspend fun map(from: F): T
+fun Irregulars.toRoomItem(): RoomIrregularsItem {
+    return RoomIrregularsItem(
+        id = id,
+        base = base,
+        simple = simple,
+        participle = participle,
+        definitions = definitions
+    )
+}
+
+fun RoomIrregularsItem.toDomain(): Irregulars {
+    return Irregulars(
+        id = id,
+        base = base,
+        simple = simple,
+        participle = participle,
+        definitions = definitions
+    )
 }

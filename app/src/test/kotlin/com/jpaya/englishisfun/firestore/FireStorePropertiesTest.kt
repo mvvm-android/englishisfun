@@ -34,7 +34,12 @@ class FireStorePropertiesTest {
     }
 
     @Test
-    fun verifyAbbreviationListField() {
-        assertEquals(fireStoreProperties.getAbbreviationListField(), "abbreviations")
+    fun verifyIrregularCollectionName() {
+        assertEquals(fireStoreProperties.getIrregularCollectionName(), "irregular")
+    }
+
+    @Test
+    fun verifyIrregularDocumentName() {
+        assertEquals(fireStoreProperties.getIrregularDocumentName(), "list")
     }
 }

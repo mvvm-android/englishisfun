@@ -50,8 +50,10 @@ object Libraries {
         const val NAVIGATION = "2.2.2"
         const val PAGING = "2.1.2"
         const val PLAY_CORE = "1.7.3"
+        const val RAINBOW_CAKE = "1.0.0"
         const val RECYCLER_VIEW = "1.1.0"
         const val ROOM = "2.2.5"
+        const val SHIMMER = "0.5.0"
         const val SWIPE_REFRESH_LAYOUT = "1.0.0"
         const val TIMBER = "4.7.1"
     }
@@ -90,9 +92,11 @@ object Libraries {
     const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}"
     const val PAGING = "androidx.paging:paging-runtime-ktx:${Versions.PAGING}"
     const val PLAY_CORE = "com.google.android.play:core:${Versions.PLAY_CORE}"
+    const val RAINBOW_CAKE = "co.zsmb:rainbow-cake-core:${Versions.RAINBOW_CAKE}"
     const val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${Versions.RECYCLER_VIEW}"
     const val ROOM = "androidx.room:room-runtime:${Versions.ROOM}"
     const val ROOM_KTX = "androidx.room:room-ktx:${Versions.ROOM}"
+    const val SHIMMER = "com.facebook.shimmer:shimmer:${Versions.SHIMMER}"
     const val SWIPE_REFRESH_LAYOUT = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.SWIPE_REFRESH_LAYOUT}"
     const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
 }
@@ -122,9 +126,11 @@ object AnnotationProcessorsLibraries {
  */
 object DebugLibraries {
     private object Versions {
+        const val DEBUG_DB = "1.0.6"
         const val LEAKCANARY = "2.4"
     }
 
+    private const val DEBUG_DB = "com.amitshekhar.android:debug-db:${Versions.DEBUG_DB}"
     private const val LEAKCANARY = "com.squareup.leakcanary:leakcanary-android:${Versions.LEAKCANARY}"
 
     /**
@@ -133,6 +139,7 @@ object DebugLibraries {
      * @return An array with all the debug dependencies.
      */
     fun all() = arrayOf(
+        DEBUG_DB,
         LEAKCANARY
     )
 }
@@ -150,6 +157,7 @@ object TestLibraries {
         const val JUNIT = "4.13"
         const val MOCKITO = "2.2.0"
         const val MOCKK = "1.10.0"
+        const val RAINBOW_CAKE = "1.0.0"
         const val ROBOELECTRIC = "4.3.1"
         const val ROOM = "2.2.5"
         const val TEST = "1.2.0"
@@ -164,6 +172,7 @@ object TestLibraries {
     private const val JUNIT = "junit:junit:${Versions.JUNIT}"
     private const val MOCKITO = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO}"
     private const val MOCKK = "io.mockk:mockk:${Versions.MOCKK}"
+    private const val RAINBOW_CAKE = "co.zsmb:rainbow-cake-test:${Versions.RAINBOW_CAKE}"
     private const val ROBOELECTRIC = "org.robolectric:robolectric:${Versions.ROBOELECTRIC}"
     private const val ROOM = "androidx.room:room-testing:${Versions.ROOM}"
     private const val RULES = "androidx.test:rules:${Versions.TEST}"
@@ -184,6 +193,7 @@ object TestLibraries {
         JUNIT,
         MOCKITO,
         MOCKK,
+        RAINBOW_CAKE,
         ROBOELECTRIC,
         ROOM,
         RULES,

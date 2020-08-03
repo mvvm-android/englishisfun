@@ -26,14 +26,20 @@ package com.jpaya.englishisfun.firestore
 class FireStoreProperties {
 
     companion object {
-        private const val COLLECTION_NAME = "abbreviation"
-        private const val DOCUMENT_NAME = "list"
-        private const val LIST_FIELD = "abbreviations"
+        private const val ABBREVIATION_COLLECTION = "abbreviation"
+        private const val ABBREVIATION_DOCUMENT = "list"
+
+        private const val IRREGULAR_COLLECTION = "irregular"
+        private const val IRREGULAR_DOCUMENT = "list"
     }
 
-    fun getAbbreviationCollectionName() = COLLECTION_NAME
+    // Abbreviations
+    fun getAbbreviationCollectionName() = ABBREVIATION_COLLECTION
 
-    fun getAbbreviationDocumentName() = DOCUMENT_NAME
+    fun getAbbreviationDocumentName() = ABBREVIATION_DOCUMENT
 
-    fun getAbbreviationListField() = LIST_FIELD
+    // Irregulars
+    fun getIrregularCollectionName() = IRREGULAR_COLLECTION
+
+    fun getIrregularDocumentName() = IRREGULAR_DOCUMENT
 }
