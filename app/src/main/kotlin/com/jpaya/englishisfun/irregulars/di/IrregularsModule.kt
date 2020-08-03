@@ -16,9 +16,9 @@
 
 package com.jpaya.englishisfun.irregulars.di
 
-import android.content.Context
 import com.jpaya.englishisfun.firestore.FireStoreClient
 import com.jpaya.englishisfun.irregulars.data.db.DatabaseDataSource
+import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
 import com.jpaya.englishisfun.irregulars.data.network.NetworkDataSource
 import com.jpaya.englishisfun.irregulars.domain.IrregularsInteractor
 import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter
@@ -26,7 +26,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
-import dagger.hilt.android.qualifiers.ApplicationContext
 
 /**
  * Class that provides irregulars-related dependencies to the hilt dependency graph [FragmentComponent].
@@ -68,6 +67,5 @@ class IrregularsModule {
      * @return Instance of data source.
      */
     @Provides
-    fun providesDatabaseDataSource(@ApplicationContext context: Context): DatabaseDataSource =
-        DatabaseDataSource(context)
+    fun providesDatabaseDataSource(dao: IrregularsDao): DatabaseDataSource = DatabaseDataSource(dao)
 }
