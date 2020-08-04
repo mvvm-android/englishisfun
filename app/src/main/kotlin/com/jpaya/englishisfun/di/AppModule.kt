@@ -43,7 +43,7 @@ class AppModule {
      * @return Instance of context.
      */
     @Provides
-    fun provideContext(application: EnglishIsFunApp) = application.applicationContext
+    fun provideContext(application: EnglishIsFunApp): Context = application.applicationContext
 
     /**
      * Create a provider method binding for [CoroutineScope].
