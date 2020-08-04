@@ -19,7 +19,6 @@ package com.jpaya.englishisfun.abbreviations
 import android.os.Bundle
 import android.view.View
 import androidx.paging.PagedList
-import androidx.recyclerview.widget.RecyclerView
 import com.jpaya.base.ui.base.BaseFragment
 import com.jpaya.base.ui.extensions.observe
 import com.jpaya.englishisfun.R
@@ -28,6 +27,7 @@ import com.jpaya.englishisfun.abbreviations.adapter.AbbreviationsListAdapterStat
 import com.jpaya.englishisfun.abbreviations.model.AbbreviationItem
 import com.jpaya.englishisfun.databinding.AbbreviationsFragmentListBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.abbreviations_list.*
 import javax.inject.Inject
 
 /**
@@ -62,9 +62,7 @@ class AbbreviationsListFragment : BaseFragment<AbbreviationsFragmentListBinding,
      */
     override fun onInitDataBinding() {
         viewBinding.viewModel = viewModel
-        requireView().findViewById<RecyclerView>(R.id.abbreviations_list).apply {
-            adapter = viewAdapter
-        }
+        abbreviations_list.adapter = viewAdapter
     }
 
     /**

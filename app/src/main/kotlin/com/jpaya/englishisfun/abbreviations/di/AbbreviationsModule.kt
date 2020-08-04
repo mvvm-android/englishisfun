@@ -56,5 +56,5 @@ class AbbreviationsModule {
      * @see Provides
      */
     @Provides
-    fun providesAbbreviationsListAdapter(viewModel: AbbreviationsListViewModel) = AbbreviationsListAdapter(viewModel)
+    fun providesAbbreviationsListAdapter() = AbbreviationsListAdapter()
 }
