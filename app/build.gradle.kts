@@ -148,6 +148,7 @@ android {
 }
 
 junitJacoco {
+    jacocoVersion = "0.8.5"
     includeNoLocationClasses = true
 }
 
