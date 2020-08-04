@@ -102,7 +102,7 @@ android {
     dynamicFeatures = mutableSetOf()
 
     buildFeatures {
-        compose = true
+        compose = false
     }
 
     composeOptions {

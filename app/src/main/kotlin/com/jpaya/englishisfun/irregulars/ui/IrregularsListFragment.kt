@@ -17,26 +17,20 @@
 package com.jpaya.englishisfun.irregulars.ui
 
 import android.os.Bundle
-import android.transition.TransitionManager
 import android.view.View
-import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.Group
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.TransitionManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.extensions.exhaustive
-import com.facebook.shimmer.ShimmerFrameLayout
-import com.google.android.material.button.MaterialButton
 import com.jpaya.englishisfun.R
 import com.jpaya.englishisfun.extensions.hide
 import com.jpaya.englishisfun.extensions.show
 import com.jpaya.englishisfun.irregulars.ui.adapter.IrregularsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import kotlinx.android.synthetic.main.irregulars_fragment_list.*
 
 @AndroidEntryPoint
 class IrregularsListFragment :
@@ -50,20 +44,8 @@ class IrregularsListFragment :
     override fun provideViewModel() = customViewModel
     override fun getViewResource() = R.layout.irregulars_fragment_list
 
-    // TODO REPLACE FOR KOTLIN AUTOIMPORT
-    private lateinit var listFragmentRoot: ConstraintLayout
-    private lateinit var toolbar: Toolbar
-    private lateinit var shimmerLayout: ShimmerFrameLayout
-    private lateinit var irregularsList: RecyclerView
-    private lateinit var errorGroup: Group
-    private lateinit var errorText: TextView
-    private lateinit var retryButton: MaterialButton
-    private lateinit var viewSavedButton: MaterialButton
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        loadUiRefs(view)
 
         irregularsAdapter.listener = this
         irregularsList.adapter = irregularsAdapter
@@ -85,17 +67,6 @@ class IrregularsListFragment :
             }
             true
         }
-    }
-
-    private fun loadUiRefs(view: View) {
-        listFragmentRoot = view.findViewById(R.id.listFragmentRoot)
-        toolbar = view.findViewById(R.id.toolbar)
-        shimmerLayout = view.findViewById(R.id.shimmerLayout)
-        irregularsList = view.findViewById(R.id.irregularsList)
-        errorGroup = view.findViewById(R.id.errorGroup)
-        errorText = view.findViewById(R.id.errorText)
-        retryButton = view.findViewById(R.id.retryButton)
-        viewSavedButton = view.findViewById(R.id.viewSavedButton)
     }
 
     override fun render(viewState: ListViewState) {
