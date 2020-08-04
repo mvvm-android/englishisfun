@@ -44,7 +44,7 @@ class AppModule {
      * @return Instance of context.
      */
     @Provides
-    fun provideContext(application: EnglishIsFunApp): Context = application.applicationContext
+    fun provideContext(application: EnglishIsFunApp) = application.applicationContext
 
     /**
      * Create a provider method binding for [CoroutineScope].
@@ -61,7 +61,7 @@ class AppModule {
      * @return Instance of irregulars database.
      */
     @Provides
-    fun providesIrregularsDatabase(@ApplicationContext context: Context): EnglishIsFunDatabase =
+    fun providesIrregularsDatabase(@ApplicationContext context: Context) =
         Room.databaseBuilder(context, EnglishIsFunDatabase::class.java, EnglishIsFunDatabase.DATABASE_NAME).build()
 
     /**
@@ -71,5 +71,5 @@ class AppModule {
      * @return Instance of irregulars dao.
      */
     @Provides
-    fun providesIrregularsDao(database: EnglishIsFunDatabase): IrregularsDao = database.irregulars()
+    fun providesIrregularsDao(database: EnglishIsFunDatabase) = database.irregulars()
 }

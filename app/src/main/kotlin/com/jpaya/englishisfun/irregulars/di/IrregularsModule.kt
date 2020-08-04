@@ -22,6 +22,7 @@ import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
 import com.jpaya.englishisfun.irregulars.data.network.NetworkDataSource
 import com.jpaya.englishisfun.irregulars.domain.IrregularsInteractor
 import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter
+import com.jpaya.englishisfun.irregulars.ui.adapter.IrregularsAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,8 +42,7 @@ class IrregularsModule {
      * @return Instance of presenter.
      */
     @Provides
-    fun providesListPresenter(interactor: IrregularsInteractor): IrregularsListPresenter =
-        IrregularsListPresenter(interactor)
+    fun providesListPresenter(interactor: IrregularsInteractor) = IrregularsListPresenter(interactor)
 
     /**
      * Create a provider method binding for [IrregularsInteractor].
@@ -50,8 +50,11 @@ class IrregularsModule {
      * @return Instance of interactor.
      */
     @Provides
-    fun providesIrregularsInteractor(network: NetworkDataSource, database: DatabaseDataSource): IrregularsInteractor =
+    fun providesIrregularsInteractor(network: NetworkDataSource, database: DatabaseDataSource) =
         IrregularsInteractor(network, database)
+
+    @Provides
+    fun providesIrregularsAdapter() = IrregularsAdapter()
 
     /**
      * Create a provider method binding for [NetworkDataSource].
@@ -59,7 +62,7 @@ class IrregularsModule {
      * @return Instance of data source.
      */
     @Provides
-    fun providesNetworkDataSource(client: FireStoreClient): NetworkDataSource = NetworkDataSource(client)
+    fun providesNetworkDataSource(client: FireStoreClient) = NetworkDataSource(client)
 
     /**
      * Create a provider method binding for [DatabaseDataSource].
@@ -67,5 +70,5 @@ class IrregularsModule {
      * @return Instance of data source.
      */
     @Provides
-    fun providesDatabaseDataSource(dao: IrregularsDao): DatabaseDataSource = DatabaseDataSource(dao)
+    fun providesDatabaseDataSource(dao: IrregularsDao) = DatabaseDataSource(dao)
 }
