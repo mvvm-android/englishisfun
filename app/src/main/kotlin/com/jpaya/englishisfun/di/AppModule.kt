@@ -19,7 +19,6 @@ package com.jpaya.englishisfun.di
 import android.content.Context
 import androidx.room.Room
 import com.jpaya.englishisfun.EnglishIsFunApp
-import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
 import com.jpaya.englishisfun.database.EnglishIsFunDatabase
 import dagger.Module
 import dagger.Provides
@@ -61,7 +60,7 @@ class AppModule {
      * @return Instance of irregulars database.
      */
     @Provides
-    fun providesIrregularsDatabase(@ApplicationContext context: Context): EnglishIsFunDatabase =
+    fun providesIrregularsDatabase(@ApplicationContext context: Context) =
         Room.databaseBuilder(context, EnglishIsFunDatabase::class.java, EnglishIsFunDatabase.DATABASE_NAME).build()
 
     /**
@@ -71,5 +70,5 @@ class AppModule {
      * @return Instance of irregulars dao.
      */
     @Provides
-    fun providesIrregularsDao(database: EnglishIsFunDatabase): IrregularsDao = database.irregulars()
+    fun providesIrregularsDao(database: EnglishIsFunDatabase) = database.irregulars()
 }
