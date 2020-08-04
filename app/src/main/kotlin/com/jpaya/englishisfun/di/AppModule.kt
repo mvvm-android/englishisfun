@@ -19,7 +19,6 @@ package com.jpaya.englishisfun.di
 import android.content.Context
 import androidx.room.Room
 import com.jpaya.englishisfun.EnglishIsFunApp
-import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
 import com.jpaya.englishisfun.database.EnglishIsFunDatabase
 import dagger.Module
 import dagger.Provides
