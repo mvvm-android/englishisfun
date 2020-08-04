@@ -17,6 +17,9 @@
 package com.jpaya.englishisfun.irregulars.ui
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
@@ -44,6 +47,11 @@ class IrregularsListFragment :
     override fun provideViewModel() = customViewModel
     override fun getViewResource() = R.layout.irregulars_fragment_list
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -57,17 +65,18 @@ class IrregularsListFragment :
         viewSavedButton.setOnClickListener {
 //            navigator?.add(SavedFragment())
         }
-
-        toolbar.inflateMenu(R.menu.menu_list)
-        toolbar.setOnMenuItemClickListener { item ->
-            when (item.itemId) {
-                R.id.action_view_saved -> {
-//                    navigator?.add(SavedFragment())
-                }
-            }
-            true
-        }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_list, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean =
+        when (item.itemId) {
+            R.id.action_view_saved -> true // navigator?.add(SavedFragment())
+            else -> false
+        }
 
     override fun render(viewState: ListViewState) {
         TransitionManager.beginDelayedTransition(listFragmentRoot)
