@@ -7,10 +7,6 @@
         <variable
             name="abbreviation"
             type="com.jpaya.englishisfun.abbreviations.model.AbbreviationItem" />
-
-        <variable
-            name="viewModel"
-            type="com.jpaya.englishisfun.abbreviations.AbbreviationsListViewModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

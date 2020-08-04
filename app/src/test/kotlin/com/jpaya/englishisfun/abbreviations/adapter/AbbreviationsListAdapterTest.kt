@@ -16,7 +16,6 @@
 
 package com.jpaya.englishisfun.abbreviations.adapter
 
-import com.nhaarman.mockitokotlin2.mock
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
@@ -27,7 +26,7 @@ class AbbreviationsListAdapterTest {
 
     @Before
     fun setUp() {
-        adapter = AbbreviationsListAdapter(mock())
+        adapter = AbbreviationsListAdapter()
     }
 
     @Test

@@ -18,15 +18,11 @@ package com.jpaya.englishisfun.abbreviations.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.annotation.VisibleForTesting
-import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.recyclerview.widget.RecyclerView
 import com.jpaya.base.ui.base.BaseListAdapter
 import com.jpaya.base.ui.base.BaseViewHolderListAdapter
-import com.jpaya.englishisfun.abbreviations.AbbreviationsListViewModel
 import com.jpaya.englishisfun.abbreviations.adapter.holders.AbbreviationViewHolder
 import com.jpaya.englishisfun.abbreviations.model.AbbreviationItem
-import javax.inject.Inject
 
 /**
  * Class for presenting abbreviations List data in a [RecyclerView], including computing
@@ -34,10 +30,7 @@ import javax.inject.Inject
  *
  * @see BaseListAdapter
  */
-class AbbreviationsListAdapter @Inject constructor(
-    @VisibleForTesting(otherwise = PRIVATE)
-    val viewModel: AbbreviationsListViewModel
-) : BaseViewHolderListAdapter<AbbreviationItem, AbbreviationViewHolder>(
+class AbbreviationsListAdapter : BaseViewHolderListAdapter<AbbreviationItem, AbbreviationViewHolder>(
     itemsSame = { old, new -> old.id == new.id },
     contentsSame = { old, new -> old == new }
 ) {
@@ -67,7 +60,7 @@ class AbbreviationsListAdapter @Inject constructor(
      */
     override fun onBindViewHolder(holder: AbbreviationViewHolder, position: Int) {
         getItem(position)?.let {
-            holder.bind(viewModel, it)
+            holder.bind(it)
         }
     }
 

@@ -19,7 +19,6 @@ package com.jpaya.englishisfun.abbreviations.adapter.holders
 import android.view.LayoutInflater
 import androidx.recyclerview.widget.RecyclerView
 import com.jpaya.base.ui.base.BaseViewHolder
-import com.jpaya.englishisfun.abbreviations.AbbreviationsListViewModel
 import com.jpaya.englishisfun.abbreviations.model.AbbreviationItem
 import com.jpaya.englishisfun.databinding.AbbreviationsListItemBinding
 
@@ -37,11 +36,9 @@ class AbbreviationViewHolder(
     /**
      * Bind view data binding variables.
      *
-     * @param viewModel Abbreviation list view model.
      * @param item Abbreviation list item.
      */
-    fun bind(viewModel: AbbreviationsListViewModel, item: AbbreviationItem) {
-        binding.viewModel = viewModel
+    fun bind(item: AbbreviationItem) {
         binding.abbreviation = item
         binding.executePendingBindings()
     }

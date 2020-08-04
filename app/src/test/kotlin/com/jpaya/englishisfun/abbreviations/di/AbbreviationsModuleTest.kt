@@ -16,7 +16,6 @@
 
 package com.jpaya.englishisfun.abbreviations.di
 
-import com.jpaya.englishisfun.abbreviations.AbbreviationsListViewModel
 import com.jpaya.englishisfun.firestore.FireStoreClient
 import com.jpaya.englishisfun.abbreviations.paging.AbbreviationsPageDataSourceFactory
 import io.mockk.*
@@ -55,10 +54,5 @@ class AbbreviationsModuleTest {
     }
 
     @Test
-    fun verifyProvidedAbbreviationsListAdapter() {
-        val viewModel = mockk<AbbreviationsListViewModel>(relaxed = true)
-        val adapter = module.providesAbbreviationsListAdapter(viewModel)
-        assertNotNull(adapter)
-        assertEquals(viewModel, adapter.viewModel)
-    }
+    fun verifyProvidedAbbreviationsListAdapter() = assertNotNull(module.providesAbbreviationsListAdapter())
 }
