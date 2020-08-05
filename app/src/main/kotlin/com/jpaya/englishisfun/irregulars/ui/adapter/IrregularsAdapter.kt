@@ -29,14 +29,11 @@ class IrregularsAdapter : ListAdapter<IrregularsItem, IrregularsAdapter.ViewHold
 
     var listener: Listener? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.irregulars_list_item, parent, false)
-        return ViewHolder(view)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
+        LayoutInflater.from(parent.context).inflate(R.layout.irregulars_list_item, parent, false)
+    )
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
-    }
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(getItem(position))
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val base: TextView = itemView.findViewById(R.id.base)
