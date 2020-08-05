@@ -1,7 +1,7 @@
 ## :guardsman: English Is Fun :guardsman:
 ![CI](https://github.com/jpaya17/englishisfun/workflows/CI/badge.svg)
 [![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.72-blue.svg)](http://kotlinlang.org/)
-[![API](https://img.shields.io/badge/API-21%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=21)
+[![API](https://img.shields.io/badge/Android-5.0%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=21)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jpaya17_englishisfun&metric=alert_status)](https://sonarcloud.io/dashboard?id=jpaya17_englishisfun)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=jpaya17_englishisfun&metric=coverage)](https://sonarcloud.io/dashboard?id=jpaya17_englishisfun)
