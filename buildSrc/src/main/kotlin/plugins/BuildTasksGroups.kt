@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+package plugins
+
 object BuildTasksGroups {
     const val ANDROID = "android"
     const val BUILD = "build"
