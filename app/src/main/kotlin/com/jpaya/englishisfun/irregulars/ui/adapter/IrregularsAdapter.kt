@@ -26,7 +26,8 @@ import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter.IrregularsIt
 import com.jpaya.englishisfun.R
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
 
-class IrregularsAdapter : ListAdapter<IrregularsItem, IrregularsAdapter.ViewHolder>(IrregularsItemComparator),
+class IrregularsAdapter :
+    ListAdapter<IrregularsItem, IrregularsAdapter.ViewHolder>(IrregularsItemComparator),
     FastScrollRecyclerView.SectionedAdapter {
 
     var listener: Listener? = null
