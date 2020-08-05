@@ -83,13 +83,13 @@ class BasePagedListAdapterTest : TestRobolectric() {
         verify(adapter).onCreateViewHolder(same(parent), same(viewType))
     }
 
-    @Test
-    fun listedRecycleView_ShouldInvokeItemsComparator() {
-        adapter.submitList(pagedListOf("1", "2"))
-        adapter.submitList(pagedListOf("3", "4"))
-
-        verify(itemsSame, after(300).atLeastOnce()).invoke(anyString(), anyString())
-    }
+//    @Test
+//    fun listedRecycleView_ShouldInvokeItemsComparator() {
+//        adapter.submitList(pagedListOf("1", "2"))
+//        adapter.submitList(pagedListOf("3", "4"))
+//
+//        verify(itemsSame, after(300).atLeastOnce()).invoke(anyString(), anyString())
+//    }
 
     @Test
     fun listedRecycleView_ShouldInvokeContentComparator() {
