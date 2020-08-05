@@ -180,6 +180,7 @@ dependencies {
             Libraries.PLAY_CORE,
             Libraries.RAINBOW_CAKE,
             Libraries.RECYCLER_VIEW,
+            Libraries.RECYCLER_VIEW_SCROLL,
             Libraries.ROOM,
             Libraries.ROOM_KTX,
             Libraries.SHIMMER,

@@ -24,8 +24,10 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter.IrregularsItem
 import com.jpaya.englishisfun.R
+import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
 
-class IrregularsAdapter : ListAdapter<IrregularsItem, IrregularsAdapter.ViewHolder>(IrregularsItemComparator) {
+class IrregularsAdapter : ListAdapter<IrregularsItem, IrregularsAdapter.ViewHolder>(IrregularsItemComparator),
+    FastScrollRecyclerView.SectionedAdapter {
 
     var listener: Listener? = null
 
@@ -34,6 +36,8 @@ class IrregularsAdapter : ListAdapter<IrregularsItem, IrregularsAdapter.ViewHold
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(getItem(position))
+
+    override fun getSectionName(position: Int): String = getItem(position).base.first().toString()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val base: TextView = itemView.findViewById(R.id.base)
