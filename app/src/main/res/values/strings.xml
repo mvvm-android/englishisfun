@@ -5,4 +5,5 @@
 
     <!--Generics-->
     <string name="retry">Retry</string>
+    <string name="search">Search</string>
 </resources>

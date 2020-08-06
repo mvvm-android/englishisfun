@@ -36,6 +36,18 @@ class IrregularsListPresenter @Inject constructor(
         }
     }
 
+    suspend fun searchIrregulars(filter: String): List<IrregularsItem> = withIOContext {
+        interactor.searchIrregulars(filter).map {
+            IrregularsItem(
+                id = it.id,
+                base = it.base,
+                simple = it.simple,
+                participle = it.participle,
+                definitions = it.definitions
+            )
+        }
+    }
+
     data class IrregularsItem(
         val id: Long,
         val base: String,

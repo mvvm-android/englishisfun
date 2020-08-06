@@ -19,8 +19,8 @@ package com.jpaya.englishisfun.irregulars.ui
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -28,6 +28,7 @@ import androidx.transition.TransitionManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.extensions.exhaustive
 import com.jpaya.englishisfun.R
+import com.jpaya.englishisfun.extensions.DebouncingQueryTextListener
 import com.jpaya.englishisfun.extensions.hide
 import com.jpaya.englishisfun.extensions.show
 import com.jpaya.englishisfun.irregulars.ui.adapter.IrregularsAdapter
@@ -68,15 +69,24 @@ class IrregularsListFragment :
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_list, menu)
         super.onCreateOptionsMenu(menu, inflater)
-    }
+        inflater.inflate(R.menu.irregulars_list, menu)
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean =
-        when (item.itemId) {
-            R.id.action_view_saved -> true // navigator?.add(SavedFragment())
-            else -> false
+        (menu.findItem(R.id.action_search).actionView as SearchView).apply {
+            queryHint = getString(R.string.search)
+            setIconifiedByDefault(false)
+            setOnQueryTextListener(
+                DebouncingQueryTextListener(this@IrregularsListFragment) {
+                    if (it == null || it.isEmpty()) {
+                        viewModel.resetSearch()
+                    } else {
+                        viewModel.search(it)
+                    }
+                }
+            )
+            clearFocus()
         }
+    }
 
     override fun render(viewState: ListViewState) {
         TransitionManager.beginDelayedTransition(listFragmentRoot)

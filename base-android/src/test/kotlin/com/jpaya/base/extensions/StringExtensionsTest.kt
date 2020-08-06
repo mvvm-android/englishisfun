@@ -49,4 +49,11 @@ class StringExtensionsTest {
         val expectedHexadecimal = "457870656374656420737472696e67"
         assertNotEquals(expectedHexadecimal, originalText.toMD5())
     }
+
+    @Test
+    fun encloseToLikeQueryFromText() {
+        val originalText = "original"
+        val expectedResult = "%original%"
+        assertEquals(expectedResult, originalText.encloseToLikeQuery())
+    }
 }
