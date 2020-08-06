@@ -17,13 +17,11 @@
 package com.jpaya.englishisfun.irregulars.ui.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.jpaya.englishisfun.databinding.IrregularsListItemBinding
 import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter.IrregularsItem
-import com.jpaya.englishisfun.R
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
 
 class IrregularsAdapter :
@@ -32,33 +30,21 @@ class IrregularsAdapter :
 
     var listener: Listener? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
-        LayoutInflater.from(parent.context).inflate(R.layout.irregulars_list_item, parent, false)
-    )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        ViewHolder(IrregularsListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(getItem(position))
 
     override fun getSectionName(position: Int): String = getItem(position).base.first().toString()
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val base: TextView = itemView.findViewById(R.id.base)
-        private val simple: TextView = itemView.findViewById(R.id.simple)
-        private val participle: TextView = itemView.findViewById(R.id.participle)
-
-        private var irregularsItem: IrregularsItem? = null
-
-        init {
-            itemView.setOnClickListener {
-                irregularsItem?.let { listener?.onItemSelected(it.id) }
-            }
-        }
+    inner class ViewHolder(private var binding: IrregularsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: IrregularsItem) {
-            irregularsItem = item
-
-            base.text = item.base
-            simple.text = item.simple
-            participle.text = item.participle
+            itemView.setOnClickListener {
+                binding.irregular?.let { listener?.onItemSelected(it.id) }
+            }
+            binding.irregular = item
+            binding.executePendingBindings()
         }
     }
 
