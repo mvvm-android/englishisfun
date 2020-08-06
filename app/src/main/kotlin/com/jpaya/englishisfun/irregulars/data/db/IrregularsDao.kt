@@ -52,6 +52,12 @@ interface IrregularsDao {
     suspend fun save(items: List<RoomIrregularsItem>)
 
     /**
+     * Searches entities with the specified filter.
+     */
+    @Query("SELECT * FROM irregulars WHERE base LIKE :filter")
+    suspend fun search(filter: String): List<RoomIrregularsItem>
+
+    /**
      * Deletes an entity by its id.
      */
     @Query("DELETE FROM irregulars WHERE id = :id")

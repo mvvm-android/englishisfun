@@ -32,11 +32,27 @@ class IrregularsListViewModel @ViewModelInject constructor(
         execute { loadIrregulars() }
     }
 
+    fun search(filter: String) {
+        execute { searchIrregulars(filter) }
+    }
+
+    fun resetSearch() {
+        execute { loadIrregulars() }
+    }
+
     private suspend fun loadIrregulars() {
         viewState = Loading
         viewState = try {
-            val items = presenter.getIrregularsItems()
-            ListReady(items)
+            ListReady(presenter.getIrregularsItems())
+        } catch (e: IOException) {
+            NetworkError
+        }
+    }
+
+    private suspend fun searchIrregulars(filter: String) {
+        viewState = Loading
+        viewState = try {
+            ListReady(presenter.searchIrregulars(filter))
         } catch (e: IOException) {
             NetworkError
         }

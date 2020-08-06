@@ -16,6 +16,7 @@
 
 package com.jpaya.englishisfun.irregulars.data.db
 
+import com.jpaya.base.extensions.encloseToLikeQuery
 import com.jpaya.englishisfun.irregulars.domain.Irregulars
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -37,6 +38,18 @@ class DatabaseDataSource @Inject constructor(
             objects.add(it.toRoomItem())
         }
         dao.save(objects)
+    }
+
+    suspend fun search(filter: String): List<Irregulars> {
+        return dao.search(filter.encloseToLikeQuery()).map {
+            Irregulars(
+                id = it.id,
+                base = it.base,
+                simple = it.simple,
+                participle = it.participle,
+                definitions = it.definitions
+            )
+        }
     }
 
     suspend fun delete(id: Long) = dao.delete(id)

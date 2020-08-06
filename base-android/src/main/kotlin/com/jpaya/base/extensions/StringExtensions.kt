@@ -23,8 +23,6 @@ import java.security.MessageDigest
  *
  *  @return MD5 string.
  */
-fun String.toMD5() =
-    MessageDigest
-        .getInstance("MD5")
-        .digest(toByteArray())
-        .toHex()
+fun String.toMD5() = MessageDigest.getInstance("MD5").digest(toByteArray()).toHex()
+
+fun String.encloseToLikeQuery() = "%$this%"

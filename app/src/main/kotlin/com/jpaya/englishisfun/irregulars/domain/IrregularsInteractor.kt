@@ -30,4 +30,6 @@ class IrregularsInteractor @Inject constructor(
         database.save(result)
         return result
     }
+
+    suspend fun searchIrregulars(filter: String): List<Irregulars> = database.search(filter)
 }
