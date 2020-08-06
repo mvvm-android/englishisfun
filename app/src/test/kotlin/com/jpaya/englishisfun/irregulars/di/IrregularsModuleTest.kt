@@ -37,9 +37,6 @@ class IrregularsModuleTest {
     fun `Check provided interactor`() = assertNotNull(module.providesIrregularsInteractor(mock(), mock()))
 
     @Test
-    fun `Check provided adapter`() = assertNotNull(module.providesIrregularsAdapter())
-
-    @Test
     fun `Check provided network data source`() = assertNotNull(module.providesNetworkDataSource(mock()))
 
     @Test

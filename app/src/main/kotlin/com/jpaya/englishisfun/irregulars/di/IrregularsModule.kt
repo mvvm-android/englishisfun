@@ -22,7 +22,6 @@ import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
 import com.jpaya.englishisfun.irregulars.data.network.NetworkDataSource
 import com.jpaya.englishisfun.irregulars.domain.IrregularsInteractor
 import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter
-import com.jpaya.englishisfun.irregulars.ui.adapter.IrregularsAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -52,9 +51,6 @@ class IrregularsModule {
     @Provides
     fun providesIrregularsInteractor(network: NetworkDataSource, database: DatabaseDataSource) =
         IrregularsInteractor(network, database)
-
-    @Provides
-    fun providesIrregularsAdapter() = IrregularsAdapter()
 
     /**
      * Create a provider method binding for [NetworkDataSource].

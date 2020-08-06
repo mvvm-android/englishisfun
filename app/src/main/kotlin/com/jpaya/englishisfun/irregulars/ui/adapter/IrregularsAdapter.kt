@@ -24,11 +24,9 @@ import com.jpaya.englishisfun.databinding.IrregularsListItemBinding
 import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter.IrregularsItem
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
 
-class IrregularsAdapter :
+class IrregularsAdapter(private val listener: Listener) :
     ListAdapter<IrregularsItem, IrregularsAdapter.ViewHolder>(IrregularsItemComparator),
     FastScrollRecyclerView.SectionedAdapter {
-
-    var listener: Listener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(IrregularsListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
@@ -41,7 +39,7 @@ class IrregularsAdapter :
 
         fun bind(item: IrregularsItem) {
             itemView.setOnClickListener {
-                binding.irregular?.let { listener?.onItemSelected(it.id) }
+                binding.irregular?.let { listener.onItemSelected(it.id) }
             }
             binding.irregular = item
             binding.executePendingBindings()
