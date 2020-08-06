@@ -32,17 +32,14 @@ import com.jpaya.englishisfun.extensions.hide
 import com.jpaya.englishisfun.extensions.show
 import com.jpaya.englishisfun.irregulars.ui.adapter.IrregularsAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 import kotlinx.android.synthetic.main.irregulars_fragment_list.*
 
 @AndroidEntryPoint
 class IrregularsListFragment :
     RainbowCakeFragment<ListViewState, IrregularsListViewModel>(), IrregularsAdapter.Listener {
 
-    @Inject
-    lateinit var irregularsAdapter: IrregularsAdapter
-
     private val customViewModel: IrregularsListViewModel by viewModels()
+    private lateinit var irregularsAdapter: IrregularsAdapter
 
     override fun provideViewModel() = customViewModel
     override fun getViewResource() = R.layout.irregulars_fragment_list
@@ -55,7 +52,7 @@ class IrregularsListFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        irregularsAdapter.listener = this
+        irregularsAdapter = IrregularsAdapter(this)
         irregularsList.adapter = irregularsAdapter
         irregularsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
