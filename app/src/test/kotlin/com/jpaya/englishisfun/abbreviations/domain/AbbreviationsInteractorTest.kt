@@ -57,7 +57,7 @@ class AbbreviationsInteractorTest {
 
     @ExperimentalCoroutinesApi
     @Test
-    fun `Check getIrregularsItems works properly`() = runBlockingTest {
+    fun `Check getAbbreviationsItems works properly`() = runBlockingTest {
         whenever(network.getAbbreviationItems()).doReturn(MOCK_ABBREVIATIONS_ITEMS)
 
         assertEquals(2, interactor.getAbbreviationItems().size)
@@ -66,7 +66,7 @@ class AbbreviationsInteractorTest {
 
     @ExperimentalCoroutinesApi
     @Test
-    fun `Check searchIrregulars works properly`() = runBlockingTest {
+    fun `Check searchAbbreviations works properly`() = runBlockingTest {
         val filter = "filter"
         whenever(database.search(filter)).doReturn(MOCK_ABBREVIATIONS_ITEMS)
 

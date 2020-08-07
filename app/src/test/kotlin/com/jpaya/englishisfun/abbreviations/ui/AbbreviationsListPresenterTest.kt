@@ -55,7 +55,7 @@ class AbbreviationsListPresenterTest {
 
     @ExperimentalCoroutinesApi
     @Test
-    fun `Check getIrregularsItems works properly`() = runBlocking {
+    fun `Check getAbbreviationsItems works properly`() = runBlocking {
         whenever(interactor.getAbbreviationItems()).doReturn(MOCK_ABBREVIATIONS_LIST)
 
         val expectedResult = listOf(

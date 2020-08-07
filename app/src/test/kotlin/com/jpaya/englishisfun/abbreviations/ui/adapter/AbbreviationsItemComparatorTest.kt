@@ -32,7 +32,7 @@ class AbbreviationsItemComparatorTest {
     }
 
     @Test
-    fun `Check that IrregularsItemComparator works properly`() {
+    fun `Check that AbbreviationsItemComparator works properly`() {
         // Different data
         val item1 = AbbreviationsListPresenter.AbbreviationsItem(
             1, "Abbreviation 1", "Description 1"

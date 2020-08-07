@@ -26,14 +26,14 @@ class AbbreviationsTest {
         val id: Long = 1
         val abbr = "Abbreviation"
         val desc = "Description"
-        val irregular = Abbreviations(
+        val abbreviation = Abbreviations(
             id = id,
             abbr = abbr,
             desc = desc
         )
 
-        assertEquals(id, irregular.id)
-        assertEquals(abbr, irregular.abbr)
-        assertEquals(desc, irregular.desc)
+        assertEquals(id, abbreviation.id)
+        assertEquals(abbr, abbreviation.abbr)
+        assertEquals(desc, abbreviation.desc)
     }
 }
