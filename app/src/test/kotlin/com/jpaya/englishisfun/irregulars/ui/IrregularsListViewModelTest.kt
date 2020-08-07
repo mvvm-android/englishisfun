@@ -24,6 +24,7 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
+import org.junit.Before
 
 import org.junit.Test
 import java.io.IOException
@@ -48,14 +49,30 @@ class IrregularsListViewModelTest : ViewModelTest() {
                 definitions = "Definitions 2"
             )
         )
+
+        private val MOCK_NEWS_ITEMS_FILTERED = listOf(
+            IrregularsListPresenter.IrregularsItem(
+                id = 1,
+                base = "Base 1",
+                simple = "Simple 1",
+                participle = "Participle 1",
+                definitions = "Definitions 1"
+            )
+        )
+    }
+
+    private lateinit var presenter: IrregularsListPresenter
+
+    @Before
+    fun setUp() {
+        presenter = mock()
     }
 
     @Test
-    fun `Irregular items are loaded correctly from presenter upon creation`() = runBlockingTest {
-        val listPresenter: IrregularsListPresenter = mock()
-        whenever(listPresenter.getIrregularsItems()).doReturn(MOCK_NEWS_ITEMS)
+    fun `Irregular items are loaded properly from presenter upon creation`() = runBlockingTest {
+        whenever(presenter.getIrregularsItems()).doReturn(MOCK_NEWS_ITEMS)
 
-        val vm = IrregularsListViewModel(listPresenter)
+        val vm = IrregularsListViewModel(presenter)
 
         vm.observeStateAndEvents { stateObserver, eventsObserver ->
             stateObserver.assertObserved(
@@ -66,12 +83,11 @@ class IrregularsListViewModelTest : ViewModelTest() {
 
     @Test
     fun `Presenter error leads to error state upon creation`() = runBlockingTest {
-        val listPresenter: IrregularsListPresenter = mock()
-        whenever(listPresenter.getIrregularsItems()).thenAnswer {
+        whenever(presenter.getIrregularsItems()).thenAnswer {
             throw IOException("No internet available")
         }
 
-        val vm = IrregularsListViewModel(listPresenter)
+        val vm = IrregularsListViewModel(presenter)
 
         vm.observeStateAndEvents { stateObserver, eventsObserver ->
             stateObserver.assertObserved(
@@ -81,17 +97,16 @@ class IrregularsListViewModelTest : ViewModelTest() {
     }
 
     @Test
-    fun `Reload after error can load items correctly`() = runBlockingTest {
-        val listPresenter: IrregularsListPresenter = mock()
+    fun `Reload after error can load items properly`() = runBlockingTest {
         var invocations = 0
-        whenever(listPresenter.getIrregularsItems()).thenAnswer {
+        whenever(presenter.getIrregularsItems()).thenAnswer {
             when (invocations++) {
                 0 -> throw IOException("Network error")
                 else -> MOCK_NEWS_ITEMS
             }
         }
 
-        val vm = IrregularsListViewModel(listPresenter)
+        val vm = IrregularsListViewModel(presenter)
 
         vm.observeStateAndEvents { stateObserver, eventsObserver ->
             vm.reload()
@@ -100,6 +115,28 @@ class IrregularsListViewModelTest : ViewModelTest() {
                 NetworkError,
                 Loading,
                 ListReady(MOCK_NEWS_ITEMS)
+            )
+        }
+    }
+
+    @Test
+    fun `Search feature loads items properly`() = runBlockingTest {
+        val filter = "Base 1"
+        whenever(presenter.searchIrregulars(filter)).doReturn(MOCK_NEWS_ITEMS_FILTERED)
+
+        val vm = IrregularsListViewModel(presenter)
+
+        vm.search(filter)
+        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+            stateObserver.assertObserved(
+                ListReady(MOCK_NEWS_ITEMS_FILTERED)
+            )
+        }
+
+        vm.resetSearch()
+        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+            stateObserver.assertObserved(
+                Loading
             )
         }
     }
