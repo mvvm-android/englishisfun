@@ -17,7 +17,6 @@
 package com.jpaya.englishisfun.irregulars.data.db
 
 import androidx.room.Room
-import com.jpaya.base.extensions.encloseToLikeQuery
 import com.jpaya.englishisfun.database.EnglishIsFunDatabase
 import com.jpaya.englishisfun.irregulars.domain.Irregulars
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
