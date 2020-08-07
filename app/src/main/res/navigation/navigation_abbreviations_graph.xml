@@ -7,6 +7,6 @@
     tools:ignore="UnusedNavigation,UnusedIds">
     <fragment
         android:id="@+id/abbreviations_list_fragment"
-        android:name="com.jpaya.englishisfun.abbreviations.AbbreviationsListFragment"
+        android:name="com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListFragment"
         android:label="Abbreviations" />
 </navigation>

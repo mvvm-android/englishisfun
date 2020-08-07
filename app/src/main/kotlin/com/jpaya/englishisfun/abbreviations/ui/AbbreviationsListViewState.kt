@@ -14,26 +14,14 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.abbreviations.model
+package com.jpaya.englishisfun.abbreviations.ui
 
-import org.junit.Assert.assertEquals
-import org.junit.Test
+import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListPresenter.AbbreviationsItem
 
-class AbbreviationItemTest {
+sealed class AbbreviationsListViewState
 
-    @Test
-    fun abbreviationItem_shouldSetAttributesProperly() {
-        val id: Long = 1
-        val abbr = "LOL"
-        val desc = "Laugh out loud"
-        val abbreviation = AbbreviationItem().apply {
-            this.id = id
-            this.abbr = abbr
-            this.desc = desc
-        }
+object Loading : AbbreviationsListViewState()
 
-        assertEquals(id, abbreviation.id)
-        assertEquals(abbr, abbreviation.abbr)
-        assertEquals(desc, abbreviation.desc)
-    }
-}
+data class ListReady(val abbreviations: List<AbbreviationsItem>) : AbbreviationsListViewState()
+
+object NetworkError : AbbreviationsListViewState()

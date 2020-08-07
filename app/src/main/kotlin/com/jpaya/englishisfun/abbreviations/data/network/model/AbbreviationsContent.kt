@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.abbreviations.model
-
-import com.jpaya.englishisfun.abbreviations.AbbreviationsListFragment
+package com.jpaya.englishisfun.abbreviations.data.network.model
 
 /**
- * Model view to display on the screen [AbbreviationsListFragment].
+ * Class to map the abbreviations' FireStore response.
  */
-class AbbreviationsDocument {
-    var abbreviations: List<AbbreviationItem> = listOf()
+class AbbreviationsContent {
+    var id: Long = 0
+    var abbr: String = ""
+    var desc: String = ""
 }
