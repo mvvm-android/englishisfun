@@ -121,10 +121,23 @@ class IrregularsListViewModelTest : ViewModelTest() {
 
     @Test
     fun `Search feature loads items properly`() = runBlockingTest {
+        var invocations = 0
         val filter = "Base 1"
-        whenever(presenter.searchIrregulars(filter)).doReturn(MOCK_NEWS_ITEMS_FILTERED)
+        whenever(presenter.searchIrregulars(filter)).thenAnswer {
+            when (invocations++) {
+                0 -> throw IOException("Network error")
+                else -> MOCK_NEWS_ITEMS_FILTERED
+            }
+        }
 
         val vm = IrregularsListViewModel(presenter)
+
+        vm.search(filter)
+        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+            stateObserver.assertObserved(
+                NetworkError
+            )
+        }
 
         vm.search(filter)
         vm.observeStateAndEvents { stateObserver, eventsObserver ->
