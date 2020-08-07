@@ -25,6 +25,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 
 /**
  * Class that provides dependencies to the hilt dependency graph [ApplicationComponent].
@@ -44,5 +45,5 @@ class UtilsModule {
     fun providesThemeUtils(): ThemeUtils = ThemeUtilsImpl()
 
     @Provides
-    fun providesVersioningUtils(context: Context): VersioningUtils = VersioningUtilsImpl(context)
+    fun providesVersioningUtils(@ApplicationContext context: Context): VersioningUtils = VersioningUtilsImpl(context)
 }
