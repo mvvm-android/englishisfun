@@ -23,7 +23,7 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
@@ -64,6 +64,17 @@ class IrregularsInteractorTest {
     fun `Check getIrregularsItems works properly`() = runBlockingTest {
         whenever(network.getIrregularsItems()).doReturn(MOCK_IRREGULARS_ITEMS)
 
+        assertEquals(2, interactor.getIrregularsItems().size)
         assertEquals(MOCK_IRREGULARS_ITEMS, interactor.getIrregularsItems())
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun `Check searchIrregulars works properly`() = runBlockingTest {
+        val filter = "filter"
+        whenever(database.search(filter)).doReturn(MOCK_IRREGULARS_ITEMS)
+
+        assertEquals(2, database.search(filter).size)
+        assertEquals(MOCK_IRREGULARS_ITEMS, interactor.searchIrregulars(filter))
     }
 }
