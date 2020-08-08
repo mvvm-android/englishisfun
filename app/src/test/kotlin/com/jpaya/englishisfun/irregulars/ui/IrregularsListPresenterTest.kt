@@ -81,4 +81,30 @@ class IrregularsListPresenterTest {
 
         assertEquals(expectedResult, presenter.getIrregularsItems())
     }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun `Check searchIrregulars works properly`() = runBlocking {
+        val filter = "Base"
+        whenever(interactor.searchIrregulars(filter)).doReturn(MOCK_IRREGULARS_LIST)
+
+        val expectedResult = listOf(
+            IrregularsListPresenter.IrregularsItem(
+                id = 1,
+                base = "Base 1",
+                simple = "Simple 1",
+                participle = "Participle 1",
+                definitions = "Definitions 1"
+            ),
+            IrregularsListPresenter.IrregularsItem(
+                id = 2,
+                base = "Base 2",
+                simple = "Simple 2",
+                participle = "Participle 2",
+                definitions = "Definitions 2"
+            )
+        )
+
+        assertEquals(expectedResult, presenter.searchIrregulars(filter))
+    }
 }

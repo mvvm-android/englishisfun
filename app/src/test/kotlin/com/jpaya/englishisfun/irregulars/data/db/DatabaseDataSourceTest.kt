@@ -31,26 +31,26 @@ class DatabaseDataSourceTest : TestRobolectric() {
 
     private val item1 = Irregulars(
         id = 1,
-        base = "Base",
-        simple = "Simple",
-        participle = "Participle",
-        definitions = "Definitions"
+        base = "Base 1",
+        simple = "Simple 1",
+        participle = "Participle 1",
+        definitions = "Definitions 1"
     )
 
     private val item2 = Irregulars(
         id = 2,
-        base = "Base",
-        simple = "Simple",
-        participle = "Participle",
-        definitions = "Definitions"
+        base = "Base 2",
+        simple = "Simple 2",
+        participle = "Participle 2",
+        definitions = "Definitions 2"
     )
 
     private val item3 = Irregulars(
         id = 3,
-        base = "Base",
-        simple = "Simple",
-        participle = "Participle",
-        definitions = "Definitions"
+        base = "Base 3",
+        simple = "Simple 3",
+        participle = "Participle 3",
+        definitions = "Definitions 3"
     )
 
     @Before
@@ -61,17 +61,22 @@ class DatabaseDataSourceTest : TestRobolectric() {
 
     @Test
     fun `Check irregulars works properly`() = runBlocking {
+        val filter = "Base 1"
         assertEquals(0, dataSource.count())
+        assertEquals(0, dataSource.search(filter).size)
 
         dataSource.save(item1)
         assertEquals(1, dataSource.count())
+        assertEquals(1, dataSource.search(filter).size)
 
         dataSource.save(listOf(item2, item3))
         assertEquals(3, dataSource.count())
+        assertEquals(1, dataSource.search(filter).size)
 
         // Save duplicated item
         dataSource.save(item2)
         assertEquals(3, dataSource.count())
+        assertEquals(1, dataSource.search(filter).size)
 
         val list = dataSource.all()
         assertEquals(3, list.size)
@@ -80,11 +85,14 @@ class DatabaseDataSourceTest : TestRobolectric() {
         // Delete unexisting element
         dataSource.delete(4)
         assertEquals(3, dataSource.count())
+        assertEquals(1, dataSource.search(filter).size)
 
         dataSource.delete(3)
         assertEquals(2, dataSource.count())
+        assertEquals(1, dataSource.search(filter).size)
 
         dataSource.delete()
         assertEquals(0, dataSource.count())
+        assertEquals(0, dataSource.search(filter).size)
     }
 }
