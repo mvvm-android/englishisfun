@@ -33,7 +33,7 @@ import java.io.IOException
 class IrregularsListViewModelTest : ViewModelTest() {
 
     companion object {
-        private val MOCK_NEWS_ITEMS = listOf(
+        private val MOCK_ITEMS = listOf(
             IrregularsListPresenter.IrregularsItem(
                 id = 1,
                 base = "Base 1",
@@ -50,7 +50,7 @@ class IrregularsListViewModelTest : ViewModelTest() {
             )
         )
 
-        private val MOCK_NEWS_ITEMS_FILTERED = listOf(
+        private val MOCK_ITEMS_FILTERED = listOf(
             IrregularsListPresenter.IrregularsItem(
                 id = 1,
                 base = "Base 1",
@@ -70,13 +70,13 @@ class IrregularsListViewModelTest : ViewModelTest() {
 
     @Test
     fun `Irregular items are loaded properly from presenter upon creation`() = runBlockingTest {
-        whenever(presenter.getIrregularsItems()).doReturn(MOCK_NEWS_ITEMS)
+        whenever(presenter.getIrregularsItems()).doReturn(MOCK_ITEMS)
 
         val vm = IrregularsListViewModel(presenter)
 
         vm.observeStateAndEvents { stateObserver, eventsObserver ->
             stateObserver.assertObserved(
-                ListReady(MOCK_NEWS_ITEMS)
+                ListReady(MOCK_ITEMS)
             )
         }
     }
@@ -102,7 +102,7 @@ class IrregularsListViewModelTest : ViewModelTest() {
         whenever(presenter.getIrregularsItems()).thenAnswer {
             when (invocations++) {
                 0 -> throw IOException("Network error")
-                else -> MOCK_NEWS_ITEMS
+                else -> MOCK_ITEMS
             }
         }
 
@@ -114,7 +114,7 @@ class IrregularsListViewModelTest : ViewModelTest() {
             stateObserver.assertObserved(
                 NetworkError,
                 Loading,
-                ListReady(MOCK_NEWS_ITEMS)
+                ListReady(MOCK_ITEMS)
             )
         }
     }
@@ -126,7 +126,7 @@ class IrregularsListViewModelTest : ViewModelTest() {
         whenever(presenter.searchIrregulars(filter)).thenAnswer {
             when (invocations++) {
                 0 -> throw IOException("Network error")
-                else -> MOCK_NEWS_ITEMS_FILTERED
+                else -> MOCK_ITEMS_FILTERED
             }
         }
 
@@ -142,7 +142,7 @@ class IrregularsListViewModelTest : ViewModelTest() {
         vm.search(filter)
         vm.observeStateAndEvents { stateObserver, eventsObserver ->
             stateObserver.assertObserved(
-                ListReady(MOCK_NEWS_ITEMS_FILTERED)
+                ListReady(MOCK_ITEMS_FILTERED)
             )
         }
 

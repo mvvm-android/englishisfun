@@ -24,6 +24,7 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
+import org.junit.Before
 import org.junit.Test
 import java.io.IOException
 
@@ -43,14 +44,28 @@ class AbbreviationsListViewModelTest : ViewModelTest() {
                 desc = "Description 2"
             )
         )
+
+        private val MOCK_ITEMS_FILTERED = listOf(
+            AbbreviationsListPresenter.AbbreviationsItem(
+                id = 1,
+                abbr = "Abbreviation 1",
+                desc = "Description 1"
+            )
+        )
+    }
+
+    private lateinit var presenter: AbbreviationsListPresenter
+
+    @Before
+    fun setUp() {
+        presenter = mock()
     }
 
     @Test
     fun `Abbreviation items are loaded correctly from presenter upon creation`() = runBlockingTest {
-        val listPresenter: AbbreviationsListPresenter = mock()
-        whenever(listPresenter.getAbbreviationItems()).doReturn(MOCK_ITEMS)
+        whenever(presenter.getAbbreviationItems()).doReturn(MOCK_ITEMS)
 
-        val vm = AbbreviationsListViewModel(listPresenter)
+        val vm = AbbreviationsListViewModel(presenter)
 
         vm.observeStateAndEvents { stateObserver, eventsObserver ->
             stateObserver.assertObserved(
@@ -61,12 +76,11 @@ class AbbreviationsListViewModelTest : ViewModelTest() {
 
     @Test
     fun `Presenter error leads to error state upon creation`() = runBlockingTest {
-        val listPresenter: AbbreviationsListPresenter = mock()
-        whenever(listPresenter.getAbbreviationItems()).thenAnswer {
+        whenever(presenter.getAbbreviationItems()).thenAnswer {
             throw IOException("No internet available")
         }
 
-        val vm = AbbreviationsListViewModel(listPresenter)
+        val vm = AbbreviationsListViewModel(presenter)
 
         vm.observeStateAndEvents { stateObserver, eventsObserver ->
             stateObserver.assertObserved(
@@ -77,16 +91,15 @@ class AbbreviationsListViewModelTest : ViewModelTest() {
 
     @Test
     fun `Reload after error can load items correctly`() = runBlockingTest {
-        val listPresenter: AbbreviationsListPresenter = mock()
         var invocations = 0
-        whenever(listPresenter.getAbbreviationItems()).thenAnswer {
+        whenever(presenter.getAbbreviationItems()).thenAnswer {
             when (invocations++) {
                 0 -> throw IOException("Network error")
                 else -> MOCK_ITEMS
             }
         }
 
-        val vm = AbbreviationsListViewModel(listPresenter)
+        val vm = AbbreviationsListViewModel(presenter)
 
         vm.observeStateAndEvents { stateObserver, eventsObserver ->
             vm.reload()
@@ -95,6 +108,41 @@ class AbbreviationsListViewModelTest : ViewModelTest() {
                 NetworkError,
                 Loading,
                 ListReady(MOCK_ITEMS)
+            )
+        }
+    }
+
+    @Test
+    fun `Search feature loads items properly`() = runBlockingTest {
+        var invocations = 0
+        val filter = "Abbreviation 1"
+        whenever(presenter.searchAbbreviations(filter)).thenAnswer {
+            when (invocations++) {
+                0 -> throw IOException("Network error")
+                else -> MOCK_ITEMS_FILTERED
+            }
+        }
+
+        val vm = AbbreviationsListViewModel(presenter)
+
+        vm.search(filter)
+        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+            stateObserver.assertObserved(
+                NetworkError
+            )
+        }
+
+        vm.search(filter)
+        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+            stateObserver.assertObserved(
+                ListReady(MOCK_ITEMS_FILTERED)
+            )
+        }
+
+        vm.resetSearch()
+        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+            stateObserver.assertObserved(
+                Loading
             )
         }
     }
