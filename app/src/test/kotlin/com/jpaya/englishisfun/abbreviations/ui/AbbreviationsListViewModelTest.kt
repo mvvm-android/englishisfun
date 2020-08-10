@@ -67,7 +67,7 @@ class AbbreviationsListViewModelTest : ViewModelTest() {
 
         val vm = AbbreviationsListViewModel(presenter)
 
-        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+        vm.observeStateAndEvents { stateObserver, _ ->
             stateObserver.assertObserved(
                 ListReady(MOCK_ITEMS)
             )
@@ -82,7 +82,7 @@ class AbbreviationsListViewModelTest : ViewModelTest() {
 
         val vm = AbbreviationsListViewModel(presenter)
 
-        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+        vm.observeStateAndEvents { stateObserver, _ ->
             stateObserver.assertObserved(
                 NetworkError
             )
@@ -101,7 +101,7 @@ class AbbreviationsListViewModelTest : ViewModelTest() {
 
         val vm = AbbreviationsListViewModel(presenter)
 
-        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+        vm.observeStateAndEvents { stateObserver, _ ->
             vm.reload()
 
             stateObserver.assertObserved(
@@ -126,21 +126,21 @@ class AbbreviationsListViewModelTest : ViewModelTest() {
         val vm = AbbreviationsListViewModel(presenter)
 
         vm.search(filter)
-        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+        vm.observeStateAndEvents { stateObserver, _ ->
             stateObserver.assertObserved(
                 NetworkError
             )
         }
 
         vm.search(filter)
-        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+        vm.observeStateAndEvents { stateObserver, _ ->
             stateObserver.assertObserved(
                 ListReady(MOCK_ITEMS_FILTERED)
             )
         }
 
         vm.resetSearch()
-        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+        vm.observeStateAndEvents { stateObserver, _ ->
             stateObserver.assertObserved(
                 Loading
             )

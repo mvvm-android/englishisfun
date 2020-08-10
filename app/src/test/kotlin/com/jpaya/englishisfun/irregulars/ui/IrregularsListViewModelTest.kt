@@ -74,7 +74,7 @@ class IrregularsListViewModelTest : ViewModelTest() {
 
         val vm = IrregularsListViewModel(presenter)
 
-        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+        vm.observeStateAndEvents { stateObserver, _ ->
             stateObserver.assertObserved(
                 ListReady(MOCK_ITEMS)
             )
@@ -89,7 +89,7 @@ class IrregularsListViewModelTest : ViewModelTest() {
 
         val vm = IrregularsListViewModel(presenter)
 
-        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+        vm.observeStateAndEvents { stateObserver, _ ->
             stateObserver.assertObserved(
                 NetworkError
             )
@@ -108,7 +108,7 @@ class IrregularsListViewModelTest : ViewModelTest() {
 
         val vm = IrregularsListViewModel(presenter)
 
-        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+        vm.observeStateAndEvents { stateObserver, _ ->
             vm.reload()
 
             stateObserver.assertObserved(
@@ -133,21 +133,21 @@ class IrregularsListViewModelTest : ViewModelTest() {
         val vm = IrregularsListViewModel(presenter)
 
         vm.search(filter)
-        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+        vm.observeStateAndEvents { stateObserver, _ ->
             stateObserver.assertObserved(
                 NetworkError
             )
         }
 
         vm.search(filter)
-        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+        vm.observeStateAndEvents { stateObserver, _ ->
             stateObserver.assertObserved(
                 ListReady(MOCK_ITEMS_FILTERED)
             )
         }
 
         vm.resetSearch()
-        vm.observeStateAndEvents { stateObserver, eventsObserver ->
+        vm.observeStateAndEvents { stateObserver, _ ->
             stateObserver.assertObserved(
                 Loading
             )
