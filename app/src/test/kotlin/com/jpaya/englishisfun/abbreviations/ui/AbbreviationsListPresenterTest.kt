@@ -73,4 +73,26 @@ class AbbreviationsListPresenterTest {
 
         assertEquals(expectedResult, presenter.getAbbreviationItems())
     }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun `Check searchAbbreviations works properly`() = runBlocking {
+        val filter = "Abbreviation"
+        whenever(interactor.searchAbbreviations(filter)).doReturn(MOCK_ABBREVIATIONS_LIST)
+
+        val expectedResult = listOf(
+            AbbreviationsListPresenter.AbbreviationsItem(
+                id = 1,
+                abbr = "Abbreviation 1",
+                desc = "Description 1"
+            ),
+            AbbreviationsListPresenter.AbbreviationsItem(
+                id = 2,
+                abbr = "Abbreviation 2",
+                desc = "Description 2"
+            )
+        )
+
+        assertEquals(expectedResult, presenter.searchAbbreviations(filter))
+    }
 }
