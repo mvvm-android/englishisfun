@@ -16,16 +16,16 @@
 
 package com.jpaya.englishisfun.abbreviations.di
 
-import com.jpaya.englishisfun.abbreviations.AbbreviationsListViewModel
+import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationsDao
+import com.jpaya.englishisfun.abbreviations.data.db.DatabaseDataSource
+import com.jpaya.englishisfun.abbreviations.data.network.NetworkDataSource
+import com.jpaya.englishisfun.abbreviations.domain.AbbreviationsInteractor
+import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListPresenter
 import com.jpaya.englishisfun.firestore.FireStoreClient
-import com.jpaya.englishisfun.abbreviations.adapter.AbbreviationsListAdapter
-import com.jpaya.englishisfun.abbreviations.paging.AbbreviationsPageDataSource
-import com.jpaya.englishisfun.abbreviations.paging.AbbreviationsPageDataSourceFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
-import kotlinx.coroutines.CoroutineScope
 
 /**
  * Class that provides abbreviations-related dependencies to the hilt dependency graph [FragmentComponent].
@@ -36,25 +36,35 @@ import kotlinx.coroutines.CoroutineScope
 class AbbreviationsModule {
 
     /**
-     * Create a provider method binding for [AbbreviationsPageDataSource].
+     * Create a provider method binding for [AbbreviationsListPresenter].
      *
-     * @return Instance of data source.
-     * @see Provides
+     * @return Instance of presenter.
      */
     @Provides
-    fun providesAbbreviationsPageDataSource(fireStoreClient: FireStoreClient, scope: CoroutineScope) =
-        AbbreviationsPageDataSource(fireStoreClient, scope)
-
-    @Provides
-    fun providesAbbreviationsListViewModel(dataSourceFactory: AbbreviationsPageDataSourceFactory) =
-        AbbreviationsListViewModel(dataSourceFactory)
+    fun providesPresenter(interactor: AbbreviationsInteractor) = AbbreviationsListPresenter(interactor)
 
     /**
-     * Create a provider method binding for [AbbreviationsListAdapter].
+     * Create a provider method binding for [AbbreviationsInteractor].
      *
-     * @return Instance of adapter.
-     * @see Provides
+     * @return Instance of interactor.
      */
     @Provides
-    fun providesAbbreviationsListAdapter() = AbbreviationsListAdapter()
+    fun providesInteractor(network: NetworkDataSource, database: DatabaseDataSource) =
+        AbbreviationsInteractor(network, database)
+
+    /**
+     * Create a provider method binding for [NetworkDataSource].
+     *
+     * @return Instance of data source.
+     */
+    @Provides
+    fun providesNetworkDataSource(client: FireStoreClient) = NetworkDataSource(client)
+
+    /**
+     * Create a provider method binding for [DatabaseDataSource].
+     *
+     * @return Instance of data source.
+     */
+    @Provides
+    fun providesDatabaseDataSource(dao: AbbreviationsDao) = DatabaseDataSource(dao)
 }

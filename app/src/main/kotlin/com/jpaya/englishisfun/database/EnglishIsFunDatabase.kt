@@ -16,21 +16,30 @@
 
 package com.jpaya.englishisfun.database
 
+import android.content.Context
 import androidx.room.Database
+import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationsDao
+import com.jpaya.englishisfun.abbreviations.data.db.RoomAbbreviationsItem
 import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
 import com.jpaya.englishisfun.irregulars.data.db.RoomIrregularsItem
 
 @Database(
-    entities = [RoomIrregularsItem::class],
+    entities = [RoomIrregularsItem::class, RoomAbbreviationsItem::class],
     version = 1,
     exportSchema = true
 )
 abstract class EnglishIsFunDatabase : RoomDatabase() {
 
     companion object {
-        const val DATABASE_NAME = "englishisfun.db"
+        private const val DATABASE_NAME = "englishisfun.db"
+
+        fun create(context: Context) =
+            Room.databaseBuilder(context, EnglishIsFunDatabase::class.java, DATABASE_NAME).build()
     }
 
     abstract fun irregulars(): IrregularsDao
+
+    abstract fun abbreviations(): AbbreviationsDao
 }

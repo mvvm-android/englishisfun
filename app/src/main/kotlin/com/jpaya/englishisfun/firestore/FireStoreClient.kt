@@ -18,7 +18,7 @@ package com.jpaya.englishisfun.firestore
 
 import androidx.annotation.VisibleForTesting
 import com.google.firebase.firestore.FirebaseFirestore
-import com.jpaya.englishisfun.abbreviations.model.AbbreviationsDocument
+import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationsResponse
 import com.jpaya.englishisfun.irregulars.data.network.model.IrregularsResponse
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
@@ -41,7 +41,7 @@ class FireStoreClient @Inject constructor(
         .document(properties.getAbbreviationDocumentName())
         .get()
         .await()
-        .toObject(AbbreviationsDocument::class.java)
+        .toObject(AbbreviationsResponse::class.java)
 
     /**
      * Function to obtain all irregulars.

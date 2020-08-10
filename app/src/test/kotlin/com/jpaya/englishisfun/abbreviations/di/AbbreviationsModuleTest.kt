@@ -16,11 +16,7 @@
 
 package com.jpaya.englishisfun.abbreviations.di
 
-import com.jpaya.englishisfun.firestore.FireStoreClient
-import com.jpaya.englishisfun.abbreviations.paging.AbbreviationsPageDataSourceFactory
-import io.mockk.*
-import kotlinx.coroutines.CoroutineScope
-import org.junit.Assert.assertEquals
+import com.nhaarman.mockitokotlin2.mock
 import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
@@ -31,28 +27,18 @@ class AbbreviationsModuleTest {
 
     @Before
     fun setUp() {
-        MockKAnnotations.init(this)
         module = AbbreviationsModule()
     }
 
     @Test
-    fun verifyProvidedAbbreviationsListViewModel() {
-        val dataFactory = mockk<AbbreviationsPageDataSourceFactory>(relaxed = true)
-        val viewModel = module.providesAbbreviationsListViewModel(dataFactory)
-        assertNotNull(viewModel)
-        assertEquals(dataFactory, viewModel.dataSourceFactory)
-    }
+    fun `Check provided list presenter`() = assertNotNull(module.providesPresenter(mock()))
 
     @Test
-    fun verifyProvidedCharactersPageDataSource() {
-        val fireStoreClient = mockk<FireStoreClient>(relaxed = true)
-        val scope = mockk<CoroutineScope>(relaxed = true)
-        val dataSource = module.providesAbbreviationsPageDataSource(fireStoreClient, scope)
-        assertNotNull(dataSource)
-        assertEquals(fireStoreClient, dataSource.fireStoreClient)
-        assertEquals(scope, dataSource.scope)
-    }
+    fun `Check provided interactor`() = assertNotNull(module.providesInteractor(mock(), mock()))
 
     @Test
-    fun verifyProvidedAbbreviationsListAdapter() = assertNotNull(module.providesAbbreviationsListAdapter())
+    fun `Check provided network data source`() = assertNotNull(module.providesNetworkDataSource(mock()))
+
+    @Test
+    fun `Check provided database data source`() = assertNotNull(module.providesDatabaseDataSource(mock()))
 }
