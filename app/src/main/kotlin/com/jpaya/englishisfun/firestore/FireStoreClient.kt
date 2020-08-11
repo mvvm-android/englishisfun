@@ -18,7 +18,6 @@ package com.jpaya.englishisfun.firestore
 
 import androidx.annotation.VisibleForTesting
 import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationsResponse
 import com.jpaya.englishisfun.idioms.data.network.model.IdiomsResponse
