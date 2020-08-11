@@ -19,6 +19,7 @@ package com.jpaya.englishisfun.firestore
 import androidx.annotation.VisibleForTesting
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationsResponse
+import com.jpaya.englishisfun.idioms.data.network.model.IdiomsResponse
 import com.jpaya.englishisfun.irregulars.data.network.model.IrregularsResponse
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
@@ -42,6 +43,16 @@ class FireStoreClient @Inject constructor(
         .get()
         .await()
         .toObject(AbbreviationsResponse::class.java)
+
+    /**
+     * Function to obtain all idioms.
+     */
+    suspend fun idioms() = fireStore
+        .collection(properties.getIdiomCollectionName())
+        .document(properties.getIdiomDocumentName())
+        .get()
+        .await()
+        .toObject(IdiomsResponse::class.java)
 
     /**
      * Function to obtain all irregulars.

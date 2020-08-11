@@ -11,4 +11,9 @@
         android:id="@+id/navigation_irregulars_graph"
         android:icon="@drawable/ic_favorites"
         android:title="@string/home_tab_irregulars" />
+
+    <item
+        android:id="@+id/navigation_idioms_graph"
+        android:icon="@drawable/ic_favorites"
+        android:title="@string/home_tab_idioms" />
 </menu>

@@ -29,6 +29,9 @@ class FireStoreProperties {
         private const val ABBREVIATION_COLLECTION = "abbreviation"
         private const val ABBREVIATION_DOCUMENT = "list"
 
+        private const val IDIOM_COLLECTION = "idiom"
+        private const val IDIOM_DOCUMENT = "list"
+
         private const val IRREGULAR_COLLECTION = "irregular"
         private const val IRREGULAR_DOCUMENT = "list"
     }
@@ -37,6 +40,11 @@ class FireStoreProperties {
     fun getAbbreviationCollectionName() = ABBREVIATION_COLLECTION
 
     fun getAbbreviationDocumentName() = ABBREVIATION_DOCUMENT
+
+    // Idiom
+    fun getIdiomCollectionName() = IDIOM_COLLECTION
+
+    fun getIdiomDocumentName() = IDIOM_DOCUMENT
 
     // Irregulars
     fun getIrregularCollectionName() = IRREGULAR_COLLECTION
