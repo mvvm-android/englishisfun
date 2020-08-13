@@ -16,14 +16,12 @@
 
 package com.jpaya.englishisfun.home
 
-import com.jpaya.base.ui.base.BaseViewState
-
 /**
  * Different states for [HomeFragment].
  *
  * @see BaseViewState
  */
-sealed class HomeViewState : BaseViewState {
+sealed class HomeViewState {
 
     /**
      * Full screen mode.
