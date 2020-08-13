@@ -33,7 +33,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         findPreference<ListPreference>(getString(R.string.setting_appearance_key))
             ?.setOnPreferenceChangeListener { _, newValue ->
-                viewModel.setAppearance(requireContext(), newValue as String)
+                viewModel.setAppearance(newValue as String)
                 true
             }
     }

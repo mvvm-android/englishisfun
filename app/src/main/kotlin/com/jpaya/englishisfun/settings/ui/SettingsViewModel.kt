@@ -16,22 +16,15 @@
 
 package com.jpaya.englishisfun.settings.ui
 
-import android.content.Context
 import androidx.hilt.lifecycle.ViewModelInject
 import co.zsmb.rainbowcake.base.RainbowCakeViewModel
 import com.jpaya.base.utils.ThemeUtils
-import com.jpaya.englishisfun.R
 
 class SettingsViewModel @ViewModelInject constructor(
     private val themeUtils: ThemeUtils
 ) : RainbowCakeViewModel<SettingsViewState>(Loaded) {
 
-    fun setAppearance(context: Context, appearance: String) {
-        when (appearance) {
-            context.getString(R.string.setting_appearance_option_auto_value) ->
-                themeUtils.setNightMode(themeUtils.isNightTime())
-            context.getString(R.string.setting_appearance_option_dark_value) -> themeUtils.setNightMode(true)
-            context.getString(R.string.setting_appearance_option_light_value) -> themeUtils.setNightMode(false)
-        }
+    fun setAppearance(appearance: String) {
+        themeUtils.setAppearance(appearance)
     }
 }

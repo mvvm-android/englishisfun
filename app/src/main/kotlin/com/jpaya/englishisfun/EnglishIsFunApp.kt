@@ -31,6 +31,10 @@ import kotlin.random.Random
 @HiltAndroidApp
 class EnglishIsFunApp : SplitCompatApplication() {
 
+    companion object {
+        private const val DEFAULT_APPEARANCE = "auto"
+    }
+
     @Inject
     lateinit var themeUtils: ThemeUtils
 
@@ -59,8 +63,6 @@ class EnglishIsFunApp : SplitCompatApplication() {
      * Initialize random nightMode to make developer aware of day/night themes.
      */
     private fun initRandomNightMode() {
-        if (BuildConfig.DEBUG) {
-            themeUtils.setNightMode(Random.nextBoolean())
-        }
+        themeUtils.setAppearance(DEFAULT_APPEARANCE)
     }
 }

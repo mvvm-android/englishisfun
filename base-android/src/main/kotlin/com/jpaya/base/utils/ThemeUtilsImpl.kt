@@ -30,21 +30,37 @@ import javax.inject.Inject
 class ThemeUtilsImpl @Inject constructor() : ThemeUtils {
 
     companion object {
+        private const val DELAY_TO_APPLY_THEME = 1000L
         private const val NIGHT_TIME_START_HOUR = 18
         private const val NIGHT_TIME_END_HOUR = 6
     }
 
-    override fun isDarkTheme(context: Context) = context.resources.configuration.uiMode and
+    /**
+     * Whether the current configuration is a dark theme i.e. in Night configuration.
+     */
+    private fun isDarkTheme(context: Context) = context.resources.configuration.uiMode and
         Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
 
-    override fun isLightTheme(context: Context) = !isDarkTheme(context)
+    /**
+     * Whether the current configuration is a light theme i.e. in Day configuration.
+     */
+    private fun isLightTheme(context: Context) = !isDarkTheme(context)
 
-    override fun isNightTime(): Boolean {
+    /**
+     * Checks the time and determines night time.
+     */
+    private fun isNightTime(): Boolean {
         val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
         return hour < NIGHT_TIME_END_HOUR || hour > NIGHT_TIME_START_HOUR
     }
 
-    override fun setNightMode(forceNight: Boolean, delay: Long) {
+    /**
+     * Force [AppCompatDelegate] Mode to night/notnight.
+     *
+     * @param forceNight Boolean that force night mode otherwise notnight is configured.
+     * @param delay Delay to apply mode changes.
+     */
+    private fun setNightMode(forceNight: Boolean, delay: Long = DELAY_TO_APPLY_THEME) {
         Handler().postDelayed(
             {
                 AppCompatDelegate.setDefaultNightMode(
@@ -57,5 +73,13 @@ class ThemeUtilsImpl @Inject constructor() : ThemeUtils {
             },
             delay
         )
+    }
+
+    override fun setAppearance(appearance: String) {
+        when (appearance) {
+            "auto" -> setNightMode(isNightTime())
+            "dark" -> setNightMode(true)
+            "light" -> setNightMode(false)
+        }
     }
 }
