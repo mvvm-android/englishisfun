@@ -44,10 +44,6 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    companion object {
-        private const val DELAY_TO_APPLY_THEME = 1000L
-    }
-
     @Inject
     lateinit var themeUtils: ThemeUtils
 
@@ -56,7 +52,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val navGraphIds = listOf(
         R.navigation.navigation_abbreviations_graph,
-        R.navigation.navigation_irregulars_graph
+        R.navigation.navigation_irregulars_graph,
+        R.navigation.navigation_settings_graph
     )
 
     // TODO Duplicated code
@@ -116,7 +113,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             if (actionView is ToggleThemeCheckBox) {
                 actionView.isChecked = themeUtils.isDarkTheme(requireContext())
                 actionView.setOnCheckedChangeListener { _, isChecked ->
-                    themeUtils.setNightMode(isChecked, DELAY_TO_APPLY_THEME)
+                    themeUtils.setNightMode(isChecked)
                 }
             }
         }

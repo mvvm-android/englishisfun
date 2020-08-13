@@ -24,6 +24,10 @@ import androidx.appcompat.app.AppCompatDelegate
  */
 interface ThemeUtils {
 
+    companion object {
+        private const val DELAY_TO_APPLY_THEME = 1000L
+    }
+
     /**
      * Whether the current configuration is a dark theme i.e. in Night configuration.
      */
@@ -40,5 +44,5 @@ interface ThemeUtils {
      * @param forceNight Boolean that force night mode otherwise notnight is configured.
      * @param delay Delay to apply mode changes.
      */
-    fun setNightMode(forceNight: Boolean, delay: Long = 0L)
+    fun setNightMode(forceNight: Boolean, delay: Long = DELAY_TO_APPLY_THEME)
 }
