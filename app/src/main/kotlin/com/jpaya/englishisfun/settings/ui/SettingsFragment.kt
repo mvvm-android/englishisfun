@@ -17,31 +17,23 @@
 package com.jpaya.englishisfun.settings.ui
 
 import android.os.Bundle
+import androidx.fragment.app.viewModels
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceFragmentCompat
-import com.jpaya.base.utils.ThemeUtils
 import com.jpaya.englishisfun.R
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class SettingsFragment : PreferenceFragmentCompat() {
 
-    @Inject
-    lateinit var themeUtils: ThemeUtils
+    private val viewModel: SettingsViewModel by viewModels()
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.settings_fragment, rootKey)
 
-        findPreference<ListPreference>(getString(R.string.setting_appearance_key))
-            ?.setOnPreferenceChangeListener { _, newValue ->
-                when (newValue) {
-                    // TODO DETECT
-                    getString(R.string.setting_appearance_option_auto_value) -> themeUtils.setNightMode(true)
-                    getString(R.string.setting_appearance_option_dark_value) -> themeUtils.setNightMode(true)
-                    getString(R.string.setting_appearance_option_light_value) -> themeUtils.setNightMode(false)
-                }
-                true
-            }
+        findPreference<ListPreference>(getString(R.string.setting_appearance_key))?.setOnPreferenceChangeListener { _, newValue ->
+            viewModel.setAppearance(requireContext(), newValue as String)
+            true
+        }
     }
 }
