@@ -21,7 +21,6 @@ import com.jpaya.base.utils.ThemeUtils
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import javax.inject.Inject
-import kotlin.random.Random
 
 /**
  * Base class for maintaining global application state.
