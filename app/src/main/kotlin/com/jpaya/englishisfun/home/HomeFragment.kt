@@ -18,8 +18,6 @@ package com.jpaya.englishisfun.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -32,7 +30,6 @@ import com.jpaya.base.ui.extensions.setupWithNavController
 import com.jpaya.base.utils.ThemeUtils
 import com.jpaya.englishisfun.R
 import com.jpaya.englishisfun.databinding.FragmentHomeBinding
-import com.jpaya.englishisfun.home.menu.ToggleThemeCheckBox
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

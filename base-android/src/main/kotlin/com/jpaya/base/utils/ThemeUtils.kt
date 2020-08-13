@@ -39,6 +39,11 @@ interface ThemeUtils {
     fun isLightTheme(context: Context): Boolean
 
     /**
+     * Checks the time and determines night time.
+     */
+    fun isNightTime(): Boolean
+
+    /**
      * Force [AppCompatDelegate] Mode to night/notnight.
      *
      * @param forceNight Boolean that force night mode otherwise notnight is configured.

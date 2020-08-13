@@ -28,8 +28,8 @@ class SettingsViewModel @ViewModelInject constructor(
 
     fun setAppearance(context: Context, appearance: String) {
         when (appearance) {
-            // TODO DETECT
-            context.getString(R.string.setting_appearance_option_auto_value) -> themeUtils.setNightMode(true)
+            context.getString(R.string.setting_appearance_option_auto_value) ->
+                themeUtils.setNightMode(themeUtils.isNightTime())
             context.getString(R.string.setting_appearance_option_dark_value) -> themeUtils.setNightMode(true)
             context.getString(R.string.setting_appearance_option_light_value) -> themeUtils.setNightMode(false)
         }
