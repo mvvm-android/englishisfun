@@ -98,32 +98,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     /**
-     * Initialize the contents of the Fragment host's standard options menu.
-     *
-     * @param menu The options menu in which you place your items.
-     * @param inflater Inflater to instantiate menu XML files into Menu objects.
-     * @see Fragment.onCreateOptionsMenu
-     */
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.toolbar_menu, menu)
-
-        menu.findItem(R.id.menu_toggle_theme).apply {
-            val actionView = this.actionView
-            if (actionView is ToggleThemeCheckBox) {
-                actionView.isChecked = themeUtils.isDarkTheme(requireContext())
-                actionView.setOnCheckedChangeListener { _, isChecked ->
-                    themeUtils.setNightMode(isChecked)
-                }
-            }
-        }
-    }
-
-    /**
      * Configure app custom support action bar.
      */
     private fun setupToolbar() {
-        setHasOptionsMenu(true)
         (requireActivity() as AppCompatActivity).setSupportActionBar(viewBinding.toolbar)
     }
 
