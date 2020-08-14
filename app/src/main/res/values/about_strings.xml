@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="version">Version %s</string>
+    <string name="third_party_libraries">Open source libraries</string>
 </resources>

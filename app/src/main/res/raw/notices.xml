@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<notices>
+    <notice>
+        <name>Cool Project with BSD License</name>
+        <url>http://example.com</url>
+        <copyright>Author of Cool Project with BSD License</copyright>
+        <license>BSD 3-Clause License</license>
+    </notice>
+</notices>

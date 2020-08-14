@@ -5,7 +5,7 @@
         app:title="@string/setting_appearance_title">
 
         <ListPreference
-            app:defaultValue="auto"
+            app:defaultValue="@string/setting_appearance_option_auto_value"
             app:entries="@array/setting_appearance_options"
             app:entryValues="@array/setting_appearance_options_values"
             app:key="@string/setting_appearance_key"

@@ -44,6 +44,7 @@ object Libraries {
         const val HILT = "2.28-alpha"
         const val HILT_VIEWMODEL = "1.0.0-alpha01"
         const val KOTLIN = "1.3.72"
+        const val LICENSES_DIALOG = "2.1.0"
         const val LIFECYCLE = "2.2.0"
         const val MATERIAL = "1.1.0"
         const val MOSHI = "1.9.3"
@@ -85,6 +86,7 @@ object Libraries {
     const val KOTLIN_COROUTINES_ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES}"
     const val KOTLIN_COROUTINES_PLAY_SERVICES =
         "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.COROUTINES}"
+    const val LICENSES_DIALOG = "de.psdev.licensesdialog:licensesdialog:${Versions.LICENSES_DIALOG}"
     const val LIFECYCLE_EXTENSIONS = "androidx.lifecycle:lifecycle-extensions:${Versions.LIFECYCLE}"
     const val LIFECYCLE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
     const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
