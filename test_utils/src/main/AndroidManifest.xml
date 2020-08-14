@@ -5,13 +5,7 @@ package="com.jpaya.libraries.testutils">
 <application
     android:theme="@style/Theme.AppCompat">
 
-    <activity android:name="com.jpaya.libraries.testutils.TestFragmentActivity" />
-
     <activity android:name="com.jpaya.libraries.testutils.TestCompatActivity" />
-
-    <activity
-        android:name=".TestCompactActivityNoActionBar"
-        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
 </application>
 </manifest>
