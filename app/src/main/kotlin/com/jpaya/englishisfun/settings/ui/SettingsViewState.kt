@@ -14,17 +14,8 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.utils
+package com.jpaya.englishisfun.settings.ui
 
-/**
- * Utils interface for application theme configuration.
- */
-interface ThemeUtils {
+sealed class SettingsViewState
 
-    /**
-     * Changes the appearance of the application.
-     *
-     * @param appearance String with the chosen appearance. Accepted values: auto, dark and light.
-     */
-    fun setAppearance(appearance: String)
-}
+object Loaded : SettingsViewState()

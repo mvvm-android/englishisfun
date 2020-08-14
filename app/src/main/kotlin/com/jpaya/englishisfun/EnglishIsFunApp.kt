@@ -21,7 +21,6 @@ import com.jpaya.base.utils.ThemeUtils
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import javax.inject.Inject
-import kotlin.random.Random
 
 /**
  * Base class for maintaining global application state.
@@ -30,6 +29,10 @@ import kotlin.random.Random
  */
 @HiltAndroidApp
 class EnglishIsFunApp : SplitCompatApplication() {
+
+    companion object {
+        private const val DEFAULT_APPEARANCE = "auto"
+    }
 
     @Inject
     lateinit var themeUtils: ThemeUtils
@@ -59,8 +62,6 @@ class EnglishIsFunApp : SplitCompatApplication() {
      * Initialize random nightMode to make developer aware of day/night themes.
      */
     private fun initRandomNightMode() {
-        if (BuildConfig.DEBUG) {
-            themeUtils.setNightMode(Random.nextBoolean())
-        }
+        themeUtils.setAppearance(DEFAULT_APPEARANCE)
     }
 }

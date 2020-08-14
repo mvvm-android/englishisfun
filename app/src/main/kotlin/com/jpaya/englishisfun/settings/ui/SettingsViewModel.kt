@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.utils
+package com.jpaya.englishisfun.settings.ui
 
-/**
- * Utils interface for application theme configuration.
- */
-interface ThemeUtils {
+import androidx.hilt.lifecycle.ViewModelInject
+import co.zsmb.rainbowcake.base.RainbowCakeViewModel
+import com.jpaya.base.utils.ThemeUtils
 
-    /**
-     * Changes the appearance of the application.
-     *
-     * @param appearance String with the chosen appearance. Accepted values: auto, dark and light.
-     */
-    fun setAppearance(appearance: String)
+class SettingsViewModel @ViewModelInject constructor(
+    private val themeUtils: ThemeUtils
+) : RainbowCakeViewModel<SettingsViewState>(Loaded) {
+
+    fun setAppearance(appearance: String) {
+        themeUtils.setAppearance(appearance)
+    }
 }
