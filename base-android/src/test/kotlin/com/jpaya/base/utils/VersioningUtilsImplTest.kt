@@ -16,39 +16,29 @@
 
 package com.jpaya.base.utils
 
-import androidx.appcompat.app.AppCompatActivity
-import androidx.test.core.app.ActivityScenario
-import androidx.test.ext.junit.rules.ActivityScenarioRule
-import com.jpaya.libraries.testutils.robolectric.TestRobolectric
-import org.junit.Assert.assertNotNull
-import org.junit.Assert.assertNull
-import org.junit.Before
-import org.junit.Rule
-import org.junit.Test
-
-class VersioningUtilsImplTest : TestRobolectric() {
-
-    @get:Rule
-    val rule = ActivityScenarioRule(AppCompatActivity::class.java)
-    private lateinit var scenario: ActivityScenario<AppCompatActivity>
-
-    private lateinit var versioningUtils: VersioningUtils
-
-    @Before
-    fun setUp() {
-        scenario = rule.scenario
-        scenario.onActivity {
-            versioningUtils = VersioningUtilsImpl(it)
-        }
-    }
-
-    @Test
-    fun verifyProvidedVersionName() {
-        assertNull(versioningUtils.versionName())
-    }
-
-    @Test
-    fun verifyProvidedVersionCode() {
-        assertNotNull(versioningUtils.versionCode())
-    }
-}
+// class VersioningUtilsImplTest : TestRobolectric() {
+//
+//    @get:Rule
+//    val rule = ActivityScenarioRule(AppCompatActivity::class.java)
+//    private lateinit var scenario: ActivityScenario<AppCompatActivity>
+//
+//    private lateinit var versioningUtils: VersioningUtils
+//
+//    @Before
+//    fun setUp() {
+//        scenario = rule.scenario
+//        scenario.onActivity {
+//            versioningUtils = VersioningUtilsImpl(it)
+//        }
+//    }
+//
+//    @Test
+//    fun verifyProvidedVersionName() {
+//        assertNull(versioningUtils.versionName())
+//    }
+//
+//    @Test
+//    fun verifyProvidedVersionCode() {
+//        assertNotNull(versioningUtils.versionCode())
+//    }
+// }
