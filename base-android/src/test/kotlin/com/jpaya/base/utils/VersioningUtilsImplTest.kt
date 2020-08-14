@@ -16,9 +16,9 @@
 
 package com.jpaya.base.utils
 
+import androidx.appcompat.app.AppCompatActivity
 import androidx.test.core.app.ActivityScenario
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import com.jpaya.libraries.testutils.TestCompatActivity
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
@@ -29,8 +29,8 @@ import org.junit.Test
 class VersioningUtilsImplTest : TestRobolectric() {
 
     @get:Rule
-    val rule = ActivityScenarioRule(TestCompatActivity::class.java)
-    private lateinit var scenario: ActivityScenario<TestCompatActivity>
+    val rule = ActivityScenarioRule(AppCompatActivity::class.java)
+    private lateinit var scenario: ActivityScenario<AppCompatActivity>
 
     private lateinit var versioningUtils: VersioningUtils
 

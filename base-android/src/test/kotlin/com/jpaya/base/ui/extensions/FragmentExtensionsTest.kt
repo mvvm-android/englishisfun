@@ -16,11 +16,11 @@
 
 package com.jpaya.base.ui.extensions
 
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.jpaya.libraries.testutils.TestFragment
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.instanceOf
@@ -31,7 +31,7 @@ class FragmentExtensionsTest : TestRobolectric() {
 
     @Test
     fun providedViewModelByNothing_ShouldObtainWithStateSaved() {
-        val scenario = launchFragmentInContainer<TestFragment>()
+        val scenario = launchFragmentInContainer<Fragment>()
         scenario.onFragment {
             val expectedState = Lifecycle.State.INITIALIZED
             val createdViewModel = it.viewModel {
@@ -44,7 +44,7 @@ class FragmentExtensionsTest : TestRobolectric() {
 
     @Test
     fun providedViewModelByIdentifier_ShouldObtainWithStateSaved() {
-        val scenario = launchFragmentInContainer<TestFragment>()
+        val scenario = launchFragmentInContainer<Fragment>()
         scenario.onFragment {
             val identifier = "TestViewModel"
             val expectedState = Lifecycle.State.INITIALIZED
@@ -58,7 +58,7 @@ class FragmentExtensionsTest : TestRobolectric() {
 
     @Test
     fun providedViewModelByFactory_ShouldObtainWithStateSaved() {
-        val scenario = launchFragmentInContainer<TestFragment>()
+        val scenario = launchFragmentInContainer<Fragment>()
         scenario.onFragment {
             val expectedState = Lifecycle.State.INITIALIZED
             val createdViewModel = it.viewModel {
