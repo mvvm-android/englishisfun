@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="setting_appearance_title">Appearance</string>
+    <string name="setting_appearance_key">settings_appearance</string>
+
+    <string name="setting_appearance_option_auto">Automatic</string>
+    <string name="setting_appearance_option_dark">Dark</string>
+    <string name="setting_appearance_option_light">Light</string>
+    <string-array name="setting_appearance_options">
+        <item>@string/setting_appearance_option_auto</item>
+        <item>@string/setting_appearance_option_dark</item>
+        <item>@string/setting_appearance_option_light</item>
+    </string-array>
+
+    <string name="setting_appearance_option_auto_value" translatable="false">auto</string>
+    <string name="setting_appearance_option_dark_value" translatable="false">dark</string>
+    <string name="setting_appearance_option_light_value" translatable="false">light</string>
+    <string-array name="setting_appearance_options_values">
+        <item>@string/setting_appearance_option_auto_value</item>
+        <item>@string/setting_appearance_option_dark_value</item>
+        <item>@string/setting_appearance_option_light_value</item>
+    </string-array>
+</resources>

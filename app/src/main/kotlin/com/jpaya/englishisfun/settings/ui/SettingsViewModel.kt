@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.ui.base
+package com.jpaya.englishisfun.settings.ui
 
-import androidx.databinding.ViewDataBinding
-import androidx.recyclerview.widget.RecyclerView
+import androidx.hilt.lifecycle.ViewModelInject
+import co.zsmb.rainbowcake.base.RainbowCakeViewModel
+import com.jpaya.base.utils.ThemeUtils
 
-/**
- * Base view holder to standardize and simplify initialization for this component.
- *
- * @param binding View data binding generated class instance.
- * @see RecyclerView.ViewHolder
- */
-abstract class BaseViewHolder<T : ViewDataBinding>(
-    val binding: T
-) : RecyclerView.ViewHolder(binding.root)
+class SettingsViewModel @ViewModelInject constructor(
+    private val themeUtils: ThemeUtils
+) : RainbowCakeViewModel<SettingsViewState>(Loaded) {
+
+    fun setAppearance(appearance: String) {
+        themeUtils.setAppearance(appearance)
+    }
+}

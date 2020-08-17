@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-package com.jpaya.libraries.testutils
+package com.jpaya.englishisfun.settings.ui
 
-import androidx.appcompat.app.AppCompatActivity
+sealed class SettingsViewState
 
-class TestCompactActivityNoActionBar : AppCompatActivity()
+object Loaded : SettingsViewState()
