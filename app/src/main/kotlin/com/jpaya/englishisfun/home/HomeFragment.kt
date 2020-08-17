@@ -102,10 +102,13 @@ class HomeFragment : RainbowCakeFragment<HomeViewState, HomeViewModel>() {
             intent = requireActivity().intent
         )
 
-        navController.observe(viewLifecycleOwner, Observer {
-            viewModel.navigationControllerChanged(it)
-            setupActionBarWithNavController(requireActivity() as AppCompatActivity, it)
-        })
+        navController.observe(
+            viewLifecycleOwner,
+            Observer {
+                viewModel.navigationControllerChanged(it)
+                setupActionBarWithNavController(requireActivity() as AppCompatActivity, it)
+            }
+        )
     }
 
     override fun render(viewState: HomeViewState) {
