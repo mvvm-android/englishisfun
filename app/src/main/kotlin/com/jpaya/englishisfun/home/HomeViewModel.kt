@@ -18,22 +18,15 @@ package com.jpaya.englishisfun.home
 
 import android.app.Activity
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
+import co.zsmb.rainbowcake.base.RainbowCakeViewModel
+import com.google.firebase.auth.FirebaseAuth
 import com.jpaya.englishisfun.R
 
-/**
- * View model responsible for preparing and managing the data for [HomeFragment].
- *
- * @see ViewModel
- */
-class HomeViewModel @ViewModelInject constructor() : ViewModel() {
-
-    private val _state = MutableLiveData<HomeViewState>()
-    val state: LiveData<HomeViewState>
-        get() = _state
+class HomeViewModel @ViewModelInject constructor(
+    private val firebaseAuth: FirebaseAuth
+) :
+    RainbowCakeViewModel<HomeViewState>(HomeViewState.NavigationScreen) {
 
     private val navFragmentsIds = setOf(
         R.id.abbreviations_list_fragment,
@@ -49,27 +42,19 @@ class HomeViewModel @ViewModelInject constructor() : ViewModel() {
      */
     fun navigationControllerChanged(navController: NavController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (navFragmentsIds.contains(destination.id)) {
-                _state.postValue(HomeViewState.NavigationScreen)
+            viewState = if (navFragmentsIds.contains(destination.id)) {
+                HomeViewState.NavigationScreen
             } else {
-                _state.postValue(HomeViewState.FullScreen)
+                HomeViewState.FullScreen
             }
         }
     }
 
     fun authenticate(activity: Activity) {
-/*        firebaseAuth.signInAnonymously().addOnCompleteListener(activity) { task ->
-            if (task.isSuccessful) {
-                // Sign in success, update UI showing the different application menus
-                _state.postValue(HomeViewState.NavigationScreen)
-            } else {
-                // If sign in fails, display a message to the user.
-                // Log.w(TAG, "signInAnonymously:failure", task.exception)
-                // Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
-                // updateUI(null)
+        firebaseAuth.signInAnonymously().addOnCompleteListener(activity) {
+            if (it.isSuccessful) {
+                viewState = HomeViewState.NavigationScreen
             }
         }
-    }
- */
     }
 }
