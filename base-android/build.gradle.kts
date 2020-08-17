@@ -44,8 +44,6 @@ dependencies {
             Libraries.HILT,
             Libraries.LIFECYCLE_EXTENSIONS,
             Libraries.LIFECYCLE_VIEWMODEL,
-            Libraries.MOSHI,
-            Libraries.MOSHI_KTX,
             Libraries.NAVIGATION_FRAGMENT,
             Libraries.NAVIGATION_UI,
             Libraries.PAGING,
