@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<notices>
+    <notice>
+        <name>Coil</name>
+        <url>https://github.com/coil-kt/coil</url>
+        <copyright>Copyright 2020 Coil Contributors</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+
+    <notice>
+        <name>kotlinx.coroutines</name>
+        <url>https://github.com/Kotlin/kotlinx.coroutines</url>
+        <copyright>Copyright 2016-2019 JetBrains s.r.o and respective authors and developers
+        </copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+
+    <notice>
+        <name>RainbowCake</name>
+        <url>https://github.com/rainbowcake/rainbowcake</url>
+        <copyright>Copyright 2020 Marton Braun</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+
+    <notice>
+        <name>RecyclerView-FastScroll</name>
+        <url>https://github.com/timusus/RecyclerView-FastScroll</url>
+        <copyright>Copyright (C) 2016 Tim Malseed</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+
+    <notice>
+        <name>RecyclerView-FastScroll</name>
+        <url>https://github.com/facebook/Shimmer</url>
+        <copyright>Copyright (c) 2014, Facebook, Inc.</copyright>
+        <license>BSD 3-Clause License</license>
+    </notice>
+
+    <notice>
+        <name>Timber</name>
+        <url>https://github.com/JakeWharton/timber</url>
+        <copyright>Copyright 2013 Jake Wharton</copyright>
+        <license>Apache Software License 2.0</license>
+    </notice>
+</notices>

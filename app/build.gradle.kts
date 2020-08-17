@@ -170,6 +170,7 @@ dependencies {
             Libraries.HILT_VIEWMODEL,
             Libraries.KOTLIN,
             Libraries.KOTLIN_COROUTINES_PLAY_SERVICES,
+            Libraries.LICENSES_DIALOG,
             Libraries.MATERIAL,
             Libraries.NAVIGATION_FRAGMENT,
             Libraries.NAVIGATION_UI,

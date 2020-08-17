@@ -16,11 +16,16 @@
 
 package com.jpaya.englishisfun.about.ui
 
+import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.fragment.app.viewModels
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.extensions.exhaustive
 import com.jpaya.englishisfun.R
 import dagger.hilt.android.AndroidEntryPoint
+import de.psdev.licensesdialog.LicensesDialog
 import kotlinx.android.synthetic.main.about_fragment.*
 
 @AndroidEntryPoint
@@ -30,6 +35,35 @@ class AboutFragment : RainbowCakeFragment<AboutViewState, AboutViewModel>() {
 
     override fun provideViewModel() = customViewModel
     override fun getViewResource() = R.layout.about_fragment
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.about_fragment, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_libraries -> {
+                showLicensesDialog()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun showLicensesDialog() {
+        LicensesDialog.Builder(requireContext())
+            .setTitle(getString(R.string.third_party_libraries))
+            .setNotices(R.raw.notices)
+            .setIncludeOwnLicense(true)
+            .build()
+            .show()
+    }
 
     override fun render(viewState: AboutViewState) {
         when (viewState) {
