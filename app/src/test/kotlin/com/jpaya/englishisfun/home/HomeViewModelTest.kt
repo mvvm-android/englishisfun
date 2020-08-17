@@ -16,22 +16,25 @@
 
 package com.jpaya.englishisfun.home
 
+import co.zsmb.rainbowcake.test.base.ViewModelTest
+import com.nhaarman.mockitokotlin2.mock
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
 
-class HomeViewModelTest {
+@ExperimentalCoroutinesApi
+class HomeViewModelTest : ViewModelTest() {
 
     private lateinit var viewModel: HomeViewModel
 
     @Before
     fun setUp() {
-        viewModel = HomeViewModel()
+        viewModel = HomeViewModel(mock())
     }
 
     @Test
     fun shouldInitialiseProperly() {
         assertNotNull(viewModel)
-        assertNotNull(viewModel.state)
     }
 }
