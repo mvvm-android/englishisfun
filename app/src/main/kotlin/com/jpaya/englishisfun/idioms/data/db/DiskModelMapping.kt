@@ -14,21 +14,22 @@
  * limitations under the License.
  */
 
-import dependencies.AnnotationProcessorsLibraries
-import dependencies.Libraries
-import dependencies.TestLibraries
-import extensions.implementation
+package com.jpaya.englishisfun.idioms.data.db
 
-plugins {
-    id("commons.android-library")
+import com.jpaya.englishisfun.idioms.domain.Idioms
+
+fun Idioms.toRoomItem(): RoomIdiomsItem {
+    return RoomIdiomsItem(
+        id = id,
+        idiom = idiom,
+        description = description
+    )
 }
 
-dependencies {
-    implementation(
-        arrayOf(
-            Libraries.NAVIGATION_UI
-        )
+fun RoomIdiomsItem.toDomain(): Idioms {
+    return Idioms(
+        id = id,
+        idiom = idiom,
+        description = description
     )
-    implementation(TestLibraries.all())
-    kapt(AnnotationProcessorsLibraries.AUTO_SERVICE)
 }

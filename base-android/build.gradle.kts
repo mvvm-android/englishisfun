@@ -46,7 +46,6 @@ dependencies {
             Libraries.LIFECYCLE_VIEWMODEL,
             Libraries.NAVIGATION_FRAGMENT,
             Libraries.NAVIGATION_UI,
-            Libraries.PAGING,
             Libraries.RECYCLER_VIEW,
             Libraries.ROOM,
             Libraries.ROOM_KTX

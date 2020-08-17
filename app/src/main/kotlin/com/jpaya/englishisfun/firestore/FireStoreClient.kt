@@ -17,8 +17,10 @@
 package com.jpaya.englishisfun.firestore
 
 import androidx.annotation.VisibleForTesting
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationsResponse
+import com.jpaya.englishisfun.idioms.data.network.model.IdiomsResponse
 import com.jpaya.englishisfun.irregulars.data.network.model.IrregularsResponse
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
@@ -36,20 +38,28 @@ class FireStoreClient @Inject constructor(
     /**
      * Function to obtain all abbreviations.
      */
-    suspend fun abbreviations() = fireStore
-        .collection(properties.getAbbreviationCollectionName())
-        .document(properties.getAbbreviationDocumentName())
-        .get()
-        .await()
-        .toObject(AbbreviationsResponse::class.java)
+    suspend fun abbreviations() = execute(
+        fireStore.collection(properties.getAbbreviationCollectionName())
+            .document(properties.getAbbreviationDocumentName()),
+        AbbreviationsResponse::class.java
+    )
+
+    /**
+     * Function to obtain all idioms.
+     */
+    suspend fun idioms() = execute(
+        fireStore.collection(properties.getIdiomCollectionName()).document(properties.getIdiomDocumentName()),
+        IdiomsResponse::class.java
+    )
 
     /**
      * Function to obtain all irregulars.
      */
-    suspend fun irregulars() = fireStore
-        .collection(properties.getIrregularCollectionName())
-        .document(properties.getIrregularDocumentName())
-        .get()
-        .await()
-        .toObject(IrregularsResponse::class.java)
+    suspend fun irregulars() = execute(
+        fireStore.collection(properties.getIrregularCollectionName()).document(properties.getIrregularDocumentName()),
+        IrregularsResponse::class.java
+    )
+
+    private suspend fun <T> execute(reference: DocumentReference, valueType: Class<T>): T? =
+        reference.get().await().toObject(valueType)
 }

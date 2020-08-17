@@ -14,8 +14,22 @@
  * limitations under the License.
  */
 
-package com.jpaya.libraries.testutils
+package com.jpaya.englishisfun.idioms.domain
 
-import androidx.appcompat.app.AppCompatActivity
+import com.jpaya.englishisfun.idioms.data.db.DatabaseDataSource
+import com.jpaya.englishisfun.idioms.data.network.NetworkDataSource
+import javax.inject.Inject
 
-class TestCompatActivity : AppCompatActivity()
+class IdiomsInteractor @Inject constructor(
+    private val network: NetworkDataSource,
+    private val database: DatabaseDataSource
+) {
+
+    suspend fun getIdiomsItems(): List<Idioms> {
+        val result = network.getIdiomsItems()
+        database.save(result)
+        return result
+    }
+
+    suspend fun searchIdioms(filter: String): List<Idioms> = database.search(filter)
+}

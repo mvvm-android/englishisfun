@@ -14,21 +14,13 @@
  * limitations under the License.
  */
 
-import dependencies.AnnotationProcessorsLibraries
-import dependencies.Libraries
-import dependencies.TestLibraries
-import extensions.implementation
+package com.jpaya.englishisfun.idioms.data.network.model
 
-plugins {
-    id("commons.android-library")
-}
-
-dependencies {
-    implementation(
-        arrayOf(
-            Libraries.NAVIGATION_UI
-        )
-    )
-    implementation(TestLibraries.all())
-    kapt(AnnotationProcessorsLibraries.AUTO_SERVICE)
+/**
+ * Class to map the idioms' FireStore response.
+ */
+class IdiomsContent {
+    var id: Long = 0
+    var idiom: String = ""
+    var description: String = ""
 }

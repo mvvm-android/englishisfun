@@ -16,7 +16,7 @@
 
 package com.jpaya.englishisfun
 
-import com.google.android.play.core.splitcompat.SplitCompatApplication
+import android.app.Application
 import com.jpaya.base.utils.ThemeUtils
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
@@ -24,11 +24,9 @@ import javax.inject.Inject
 
 /**
  * Base class for maintaining global application state.
- *
- * @see SplitCompatApplication
  */
 @HiltAndroidApp
-class EnglishIsFunApp : SplitCompatApplication() {
+class EnglishIsFunApp : Application() {
 
     companion object {
         private const val DEFAULT_APPEARANCE = "auto"
@@ -40,8 +38,6 @@ class EnglishIsFunApp : SplitCompatApplication() {
     /**
      * Called when the application is starting, before any activity, service, or receiver objects
      * (excluding content providers) have been created.
-     *
-     * @see SplitCompatApplication.onCreate
      */
     override fun onCreate() {
         super.onCreate()

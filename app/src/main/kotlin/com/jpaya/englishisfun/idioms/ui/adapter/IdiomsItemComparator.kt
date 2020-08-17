@@ -14,21 +14,17 @@
  * limitations under the License.
  */
 
-import dependencies.AnnotationProcessorsLibraries
-import dependencies.Libraries
-import dependencies.TestLibraries
-import extensions.implementation
+package com.jpaya.englishisfun.idioms.ui.adapter
 
-plugins {
-    id("commons.android-library")
-}
+import androidx.recyclerview.widget.DiffUtil
+import com.jpaya.englishisfun.idioms.ui.IdiomsListPresenter.IdiomsItem
 
-dependencies {
-    implementation(
-        arrayOf(
-            Libraries.NAVIGATION_UI
-        )
-    )
-    implementation(TestLibraries.all())
-    kapt(AnnotationProcessorsLibraries.AUTO_SERVICE)
+object IdiomsItemComparator : DiffUtil.ItemCallback<IdiomsItem>() {
+    override fun areItemsTheSame(oldItem: IdiomsItem, newItem: IdiomsItem): Boolean {
+        return oldItem.id == newItem.id
+    }
+
+    override fun areContentsTheSame(oldItem: IdiomsItem, newItem: IdiomsItem): Boolean {
+        return oldItem == newItem
+    }
 }

@@ -160,9 +160,6 @@ dependencies {
     implementation(
         arrayOf(
             Libraries.APPCOMPAT,
-            Libraries.COMPOSE_MATERIAL,
-            Libraries.COMPOSE_RUNTIME,
-            Libraries.COMPOSE_TOOLING,
             Libraries.CONSTRAINT_LAYOUT,
             Libraries.FIREBASE_ANALYTICS,
             Libraries.FIREBASE_AUTH,
@@ -177,8 +174,6 @@ dependencies {
             Libraries.MATERIAL,
             Libraries.NAVIGATION_FRAGMENT,
             Libraries.NAVIGATION_UI,
-            Libraries.PAGING,
-            Libraries.PLAY_CORE,
             Libraries.PREFERNCES,
             Libraries.RAINBOW_CAKE,
             Libraries.RECYCLER_VIEW,

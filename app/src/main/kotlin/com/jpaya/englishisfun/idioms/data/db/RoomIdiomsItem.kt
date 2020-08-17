@@ -14,21 +14,14 @@
  * limitations under the License.
  */
 
-import dependencies.AnnotationProcessorsLibraries
-import dependencies.Libraries
-import dependencies.TestLibraries
-import extensions.implementation
+package com.jpaya.englishisfun.idioms.data.db
 
-plugins {
-    id("commons.android-library")
-}
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-dependencies {
-    implementation(
-        arrayOf(
-            Libraries.NAVIGATION_UI
-        )
-    )
-    implementation(TestLibraries.all())
-    kapt(AnnotationProcessorsLibraries.AUTO_SERVICE)
-}
+@Entity(tableName = "idioms")
+data class RoomIdiomsItem(
+    @PrimaryKey(autoGenerate = true) val id: Long,
+    val idiom: String,
+    val description: String
+)

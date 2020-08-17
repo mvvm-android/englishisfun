@@ -2,6 +2,7 @@
     <!--Home tab items-->
     <string name="home_tab_abbreviations">Abbreviations</string>
     <string name="home_tab_irregulars">Irregulars</string>
+    <string name="home_tab_idioms">Idioms</string>
     <string name="home_tab_settings">Settings</string>
     <string name="home_tab_about">About</string>
 

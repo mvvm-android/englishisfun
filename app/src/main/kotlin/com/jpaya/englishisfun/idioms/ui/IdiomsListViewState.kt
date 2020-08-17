@@ -14,8 +14,14 @@
  * limitations under the License.
  */
 
-package com.jpaya.libraries.testutils
+package com.jpaya.englishisfun.idioms.ui
 
-import androidx.fragment.app.FragmentActivity
+import com.jpaya.englishisfun.idioms.ui.IdiomsListPresenter.IdiomsItem
 
-class TestFragmentActivity : FragmentActivity()
+sealed class ListViewState
+
+object Loading : ListViewState()
+
+data class ListReady(val idioms: List<IdiomsItem>) : ListViewState()
+
+object NetworkError : ListViewState()

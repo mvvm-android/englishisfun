@@ -14,8 +14,13 @@
  * limitations under the License.
  */
 
-package com.jpaya.libraries.testutils
+package com.jpaya.englishisfun.idioms.domain
 
-import androidx.fragment.app.Fragment
-
-class TestFragment : Fragment()
+/**
+ * Model class to represent an idiom.
+ */
+data class Idioms(
+    val id: Long,
+    val idiom: String,
+    val description: String
+)

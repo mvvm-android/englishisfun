@@ -14,8 +14,26 @@
  * limitations under the License.
  */
 
-package com.jpaya.libraries.testutils
+package com.jpaya.englishisfun.idioms.domain
 
-import androidx.appcompat.app.AppCompatActivity
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
-class TestCompactActivityNoActionBar : AppCompatActivity()
+class IdiomsTest {
+
+    @Test
+    fun initShouldInitialiseProperly() {
+        val id: Long = 1
+        val idiom = "Idiom"
+        val description = "Description"
+        val idioms = Idioms(
+            id = id,
+            idiom = idiom,
+            description = description
+        )
+
+        assertEquals(id, idioms.id)
+        assertEquals(idiom, idioms.idiom)
+        assertEquals(description, idioms.description)
+    }
+}

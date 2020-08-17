@@ -20,6 +20,7 @@ import android.content.Context
 import com.jpaya.englishisfun.EnglishIsFunApp
 import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationsDao
 import com.jpaya.englishisfun.database.EnglishIsFunDatabase
+import com.jpaya.englishisfun.idioms.data.db.IdiomsDao
 import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
 import dagger.Module
 import dagger.Provides
@@ -80,4 +81,13 @@ class AppModule {
      */
     @Provides
     fun providesAbbreviationsDao(database: EnglishIsFunDatabase): AbbreviationsDao = database.abbreviations()
+
+    /**
+     * Create a provider method binding for [IdiomsDao].
+     *
+     * @param database Database instance.
+     * @return Instance of idioms dao.
+     */
+    @Provides
+    fun providesIdiomsDao(database: EnglishIsFunDatabase): IdiomsDao = database.idioms()
 }
