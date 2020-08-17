@@ -30,7 +30,7 @@ import com.jpaya.base.ui.extensions.setupWithNavController
 import com.jpaya.base.utils.ThemeUtils
 import com.jpaya.englishisfun.R
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.home_fragment.*
 import javax.inject.Inject
 
 /**
@@ -42,7 +42,7 @@ class HomeFragment : RainbowCakeFragment<HomeViewState, HomeViewModel>() {
     private val customViewModel: HomeViewModel by viewModels()
 
     override fun provideViewModel() = customViewModel
-    override fun getViewResource() = R.layout.fragment_home
+    override fun getViewResource() = R.layout.home_fragment
 
     @Inject
     lateinit var themeUtils: ThemeUtils
