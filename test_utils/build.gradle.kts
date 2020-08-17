@@ -26,8 +26,7 @@ plugins {
 dependencies {
     implementation(
         arrayOf(
-            Libraries.NAVIGATION_UI,
-            Libraries.PAGING
+            Libraries.NAVIGATION_UI
         )
     )
     implementation(TestLibraries.all())
