@@ -87,9 +87,7 @@ class HomeFragment : RainbowCakeFragment<HomeViewState, HomeViewModel>() {
     /**
      * Configure app custom support action bar.
      */
-    private fun setupToolbar() {
-        (requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)
-    }
+    private fun setupToolbar() = (requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)
 
     /**
      * Configure app bottom bar via navigation graph.
