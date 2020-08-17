@@ -17,35 +17,35 @@
 package com.jpaya.englishisfun.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
+import co.zsmb.rainbowcake.base.RainbowCakeFragment
+import com.jpaya.base.ui.bindings.gone
+import com.jpaya.base.ui.bindings.visible
 import com.jpaya.base.ui.extensions.setupWithNavController
 import com.jpaya.base.utils.ThemeUtils
 import com.jpaya.englishisfun.R
-import com.jpaya.englishisfun.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
 /**
  * Home principal view containing bottom navigation bar with different tabs.
- *
- * @see Fragment
  */
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : RainbowCakeFragment<HomeViewState, HomeViewModel>() {
+
+    private val customViewModel: HomeViewModel by viewModels()
+
+    override fun provideViewModel() = customViewModel
+    override fun getViewResource() = R.layout.fragment_home
 
     @Inject
     lateinit var themeUtils: ThemeUtils
-
-    private val viewModel: HomeViewModel by viewModels()
-    lateinit var viewBinding: FragmentHomeBinding
 
     private val navGraphIds = listOf(
         R.navigation.navigation_abbreviations_graph,
@@ -54,17 +54,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         R.navigation.navigation_about_graph,
         R.navigation.navigation_settings_graph
     )
-
-    // TODO Duplicated code
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        viewBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-        viewBinding.lifecycleOwner = viewLifecycleOwner
-        return viewBinding.root
-    }
 
     /**
      * Called to have the fragment instantiate its user interface view.
@@ -76,7 +65,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewBinding.viewModel = viewModel
         setupToolbar()
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
@@ -100,26 +88,36 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
      * Configure app custom support action bar.
      */
     private fun setupToolbar() {
-        (requireActivity() as AppCompatActivity).setSupportActionBar(viewBinding.toolbar)
+        (requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)
     }
 
     /**
      * Configure app bottom bar via navigation graph.
      */
     private fun setupBottomNavigationBar() {
-        val navController = viewBinding.bottomNavigation.setupWithNavController(
+        val navController = bottom_navigation.setupWithNavController(
             navGraphIds = navGraphIds,
             fragmentManager = childFragmentManager,
             containerId = R.id.nav_host_container,
             intent = requireActivity().intent
         )
 
-        navController.observe(
-            viewLifecycleOwner,
-            Observer {
-                viewModel.navigationControllerChanged(it)
-                setupActionBarWithNavController(requireActivity() as AppCompatActivity, it)
+        navController.observe(viewLifecycleOwner, Observer {
+            viewModel.navigationControllerChanged(it)
+            setupActionBarWithNavController(requireActivity() as AppCompatActivity, it)
+        })
+    }
+
+    override fun render(viewState: HomeViewState) {
+        when (viewState) {
+            HomeViewState.NavigationScreen -> {
+                app_bar_layout.visible
+                bottom_navigation.visible
             }
-        )
+            HomeViewState.FullScreen -> {
+                app_bar_layout.gone
+                bottom_navigation.gone
+            }
+        }
     }
 }
