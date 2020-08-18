@@ -19,6 +19,7 @@ package com.jpaya.englishisfun.di
 import android.content.Context
 import com.jpaya.englishisfun.EnglishIsFunApp
 import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationsDao
+import com.jpaya.englishisfun.conditionals.data.db.ConditionalsDao
 import com.jpaya.englishisfun.database.EnglishIsFunDatabase
 import com.jpaya.englishisfun.idioms.data.db.IdiomsDao
 import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
@@ -90,4 +91,13 @@ class AppModule {
      */
     @Provides
     fun providesIdiomsDao(database: EnglishIsFunDatabase): IdiomsDao = database.idioms()
+
+    /**
+     * Create a provider method binding for [ConditionalsDao].
+     *
+     * @param database Database instance.
+     * @return Instance of conditionals dao.
+     */
+    @Provides
+    fun providesConditionalsDao(database: EnglishIsFunDatabase): ConditionalsDao = database.conditionals()
 }

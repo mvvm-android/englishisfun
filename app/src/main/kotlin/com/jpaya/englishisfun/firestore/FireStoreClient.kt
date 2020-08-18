@@ -21,6 +21,7 @@ import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationsResponse
 import com.jpaya.englishisfun.idioms.data.network.model.IdiomsResponse
+import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsResponse
 import com.jpaya.englishisfun.irregulars.data.network.model.IrregularsResponse
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
@@ -58,6 +59,15 @@ class FireStoreClient @Inject constructor(
     suspend fun irregulars() = execute(
         fireStore.collection(properties.getIrregularCollectionName()).document(properties.getIrregularDocumentName()),
         IrregularsResponse::class.java
+    )
+
+    /**
+     * Function to obtain all conditionals.
+     */
+    suspend fun conditionals() = execute(
+        fireStore.collection(properties.getConditionalCollectionName())
+            .document(properties.getConditionalDocumentName()),
+        ConditionalsResponse::class.java
     )
 
     private suspend fun <T> execute(reference: DocumentReference, valueType: Class<T>): T? =
