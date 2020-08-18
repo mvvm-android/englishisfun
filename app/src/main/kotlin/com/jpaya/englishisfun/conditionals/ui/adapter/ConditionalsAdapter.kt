@@ -22,26 +22,22 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jpaya.englishisfun.conditionals.ui.ConditionalsListPresenter.ConditionalsItem
 import com.jpaya.englishisfun.databinding.ConditionalsListItemBinding
-import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
 
 class ConditionalsAdapter(private val listener: Listener) :
-    ListAdapter<ConditionalsItem, ConditionalsAdapter.ViewHolder>(ConditionalsItemComparator),
-    FastScrollRecyclerView.SectionedAdapter {
+    ListAdapter<ConditionalsItem, ConditionalsAdapter.ViewHolder>(ConditionalsItemComparator) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(ConditionalsListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(getItem(position))
 
-    override fun getSectionName(position: Int): String = getItem(position).base.first().toString()
-
     inner class ViewHolder(private var binding: ConditionalsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: ConditionalsItem) {
             itemView.setOnClickListener {
-                binding.irregular?.let { listener.onItemSelected(it.id) }
+                binding.conditional?.let { listener.onItemSelected(it.id) }
             }
-            binding.irregular = item
+            binding.conditional = item
             binding.executePendingBindings()
         }
     }

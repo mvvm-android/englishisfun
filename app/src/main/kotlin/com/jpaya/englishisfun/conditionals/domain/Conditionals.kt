@@ -21,8 +21,9 @@ package com.jpaya.englishisfun.conditionals.domain
  */
 data class Conditionals(
     val id: Long,
-    val base: String,
-    val simple: String,
-    val participle: String,
-    val definitions: String
+    val name: String,
+    val condition: String,
+    val result: String,
+    val uses: MutableList<String>,
+    val examples: MutableList<String>
 )

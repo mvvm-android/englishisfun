@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="irregular"
+            name="conditional"
             type="com.jpaya.englishisfun.conditionals.ui.ConditionalsListPresenter.ConditionalsItem" />
     </data>
 
@@ -19,37 +19,37 @@
             android:id="@+id/base"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{irregular.base}"
+            android:text="@{conditional.name}"
             android:textIsSelectable="true"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Base" />
+            tools:text="Name" />
 
         <TextView
             android:id="@+id/simple"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@{irregular.simple}"
+            android:text="@{conditional.condition}"
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/base"
-            tools:text="Simple" />
+            tools:text="Condition" />
 
         <TextView
             android:id="@+id/participle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@{irregular.participle}"
+            android:text="@{conditional.result}"
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/simple"
-            tools:text="Participle" />
+            tools:text="Result" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

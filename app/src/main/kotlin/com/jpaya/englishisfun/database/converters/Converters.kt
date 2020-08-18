@@ -14,17 +14,19 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.conditionals.data.db
+package com.jpaya.englishisfun.database.converters
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.TypeConverter
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
-@Entity(tableName = "conditionals")
-data class RoomConditionalsItem(
-    @PrimaryKey(autoGenerate = true) val id: Long,
-    val name: String,
-    val condition: String,
-    val result: String,
-    val uses: MutableList<String>,
-    val examples: MutableList<String>
-)
+object Converters {
+    @TypeConverter
+    @JvmStatic
+    fun fromString(value: String): MutableList<String> =
+        Gson().fromJson(value, object : TypeToken<MutableList<String>>() {}.type)
+
+    @TypeConverter
+    @JvmStatic
+    fun fromArrayList(list: MutableList<String>): String = Gson().toJson(list)
+}

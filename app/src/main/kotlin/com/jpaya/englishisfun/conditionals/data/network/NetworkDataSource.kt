@@ -31,10 +31,11 @@ class NetworkDataSource @Inject constructor(
         return response?.conditionals?.map {
             Conditionals(
                 id = it.id,
-                base = it.base,
-                simple = it.simple,
-                participle = it.participle,
-                definitions = it.definitions
+                name = it.name,
+                condition = it.condition,
+                result = it.result,
+                uses = it.uses,
+                examples = it.examples
             )
         } ?: listOf()
     }

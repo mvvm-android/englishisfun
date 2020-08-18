@@ -21,8 +21,9 @@ package com.jpaya.englishisfun.conditionals.data.network.model
  */
 class ConditionalsContent {
     var id: Long = 0
-    var base: String = ""
-    var simple: String = ""
-    var participle: String = ""
-    var definitions: String = ""
+    var name: String = ""
+    var condition: String = ""
+    var result: String = ""
+    var uses: MutableList<String> = mutableListOf()
+    var examples: MutableList<String> = mutableListOf()
 }

@@ -17,23 +17,31 @@
 package com.jpaya.englishisfun.conditionals.data.db
 
 import com.jpaya.englishisfun.conditionals.domain.Conditionals
+import com.jpaya.englishisfun.conditionals.ui.ConditionalsListPresenter
 
-fun Conditionals.toRoomItem(): RoomConditionalsItem {
-    return RoomConditionalsItem(
-        id = id,
-        base = base,
-        simple = simple,
-        participle = participle,
-        definitions = definitions
-    )
-}
+fun Conditionals.toRoomItem() = RoomConditionalsItem(
+    id = id,
+    name = name,
+    condition = condition,
+    result = result,
+    uses = uses,
+    examples = examples
+)
 
-fun RoomConditionalsItem.toDomain(): Conditionals {
-    return Conditionals(
-        id = id,
-        base = base,
-        simple = simple,
-        participle = participle,
-        definitions = definitions
-    )
-}
+fun RoomConditionalsItem.toDomain() = Conditionals(
+    id = id,
+    name = name,
+    condition = condition,
+    result = result,
+    uses = uses,
+    examples = examples
+)
+
+fun Conditionals.toPresentation() = ConditionalsListPresenter.ConditionalsItem(
+    id = id,
+    name = name,
+    condition = condition,
+    result = result,
+    uses = uses,
+    examples = examples
+)

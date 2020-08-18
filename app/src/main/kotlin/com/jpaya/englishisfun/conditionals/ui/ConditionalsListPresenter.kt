@@ -17,6 +17,7 @@
 package com.jpaya.englishisfun.conditionals.ui
 
 import co.zsmb.rainbowcake.withIOContext
+import com.jpaya.englishisfun.conditionals.data.db.toPresentation
 import com.jpaya.englishisfun.conditionals.domain.ConditionalsInteractor
 import javax.inject.Inject
 
@@ -25,34 +26,19 @@ class ConditionalsListPresenter @Inject constructor(
 ) {
 
     suspend fun getConditionalsItems(): List<ConditionalsItem> = withIOContext {
-        interactor.getConditionalsItems().map {
-            ConditionalsItem(
-                id = it.id,
-                base = it.base,
-                simple = it.simple,
-                participle = it.participle,
-                definitions = it.definitions
-            )
-        }
+        interactor.getConditionalsItems().map { it.toPresentation() }
     }
 
     suspend fun searchConditionals(filter: String): List<ConditionalsItem> = withIOContext {
-        interactor.searchConditionals(filter).map {
-            ConditionalsItem(
-                id = it.id,
-                base = it.base,
-                simple = it.simple,
-                participle = it.participle,
-                definitions = it.definitions
-            )
-        }
+        interactor.searchConditionals(filter).map { it.toPresentation() }
     }
 
     data class ConditionalsItem(
         val id: Long,
-        val base: String,
-        val simple: String,
-        val participle: String,
-        val definitions: String
+        val name: String,
+        val condition: String,
+        val result: String,
+        val uses: MutableList<String>,
+        val examples: MutableList<String>
     )
 }
