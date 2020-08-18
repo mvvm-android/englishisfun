@@ -16,9 +16,10 @@
         android:padding="8dp">
 
         <TextView
-            android:id="@+id/base"
+            android:id="@+id/name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:text="@{conditional.name}"
             android:textIsSelectable="true"
             android:textStyle="bold"
@@ -28,28 +29,67 @@
             tools:text="Name" />
 
         <TextView
-            android:id="@+id/simple"
+            android:id="@+id/condition"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center_horizontal"
             android:text="@{conditional.condition}"
             android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/plus"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/base"
+            app:layout_constraintTop_toTopOf="@+id/plus"
             tools:text="Condition" />
 
         <TextView
-            android:id="@+id/participle"
-            android:layout_width="0dp"
+            android:id="@+id/plus"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@{conditional.result}"
-            android:textIsSelectable="true"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/simple"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            tools:text="+" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="center_horizontal"
+            android:text="@{conditional.result}"
+            android:textIsSelectable="true"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/plus"
+            app:layout_constraintTop_toTopOf="@+id/plus"
             tools:text="Result" />
 
+        <TextView
+            android:id="@+id/uses"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:maxLines="3"
+            android:text="@{conditional.uses.toString()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/plus"
+            tools:text="Use 1\nUse 2\nUse 3" />
+
+        <TextView
+            android:id="@+id/examples"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:maxLines="3"
+            android:text="@{conditional.examples.toString()}"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/uses"
+            tools:text="Example 1\nExample 2\nExample 3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
