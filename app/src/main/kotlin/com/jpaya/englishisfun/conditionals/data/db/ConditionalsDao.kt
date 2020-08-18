@@ -54,7 +54,7 @@ interface ConditionalsDao {
     /**
      * Searches entities with the specified filter.
      */
-    @Query("SELECT * FROM conditionals WHERE base LIKE :filter")
+    @Query("SELECT * FROM conditionals WHERE name LIKE :filter")
     suspend fun search(filter: String): List<RoomConditionalsItem>
 
     /**
