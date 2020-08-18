@@ -17,6 +17,7 @@
 package com.jpaya.englishisfun.idioms.ui
 
 import co.zsmb.rainbowcake.withIOContext
+import com.jpaya.englishisfun.idioms.data.db.toPresentation
 import com.jpaya.englishisfun.idioms.domain.IdiomsInteractor
 import javax.inject.Inject
 
@@ -25,23 +26,11 @@ class IdiomsListPresenter @Inject constructor(
 ) {
 
     suspend fun getIdiomsItems(): List<IdiomsItem> = withIOContext {
-        interactor.getIdiomsItems().map {
-            IdiomsItem(
-                id = it.id,
-                idiom = it.idiom,
-                description = it.description
-            )
-        }
+        interactor.getIdiomsItems().map { it.toPresentation() }
     }
 
     suspend fun searchIdioms(filter: String): List<IdiomsItem> = withIOContext {
-        interactor.searchIdioms(filter).map {
-            IdiomsItem(
-                id = it.id,
-                idiom = it.idiom,
-                description = it.description
-            )
-        }
+        interactor.searchIdioms(filter).map { it.toPresentation() }
     }
 
     data class IdiomsItem(

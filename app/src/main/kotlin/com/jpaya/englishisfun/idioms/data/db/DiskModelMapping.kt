@@ -17,19 +17,22 @@
 package com.jpaya.englishisfun.idioms.data.db
 
 import com.jpaya.englishisfun.idioms.domain.Idioms
+import com.jpaya.englishisfun.idioms.ui.IdiomsListPresenter
 
-fun Idioms.toRoomItem(): RoomIdiomsItem {
-    return RoomIdiomsItem(
-        id = id,
-        idiom = idiom,
-        description = description
-    )
-}
+fun Idioms.toRoomItem() = RoomIdiomsItem(
+    id = id,
+    idiom = idiom,
+    description = description
+)
 
-fun RoomIdiomsItem.toDomain(): Idioms {
-    return Idioms(
-        id = id,
-        idiom = idiom,
-        description = description
-    )
-}
+fun RoomIdiomsItem.toDomain() = Idioms(
+    id = id,
+    idiom = idiom,
+    description = description
+)
+
+fun Idioms.toPresentation() = IdiomsListPresenter.IdiomsItem(
+    id = id,
+    idiom = idiom,
+    description = description
+)

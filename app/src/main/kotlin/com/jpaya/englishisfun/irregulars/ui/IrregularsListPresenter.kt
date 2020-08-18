@@ -17,6 +17,7 @@
 package com.jpaya.englishisfun.irregulars.ui
 
 import co.zsmb.rainbowcake.withIOContext
+import com.jpaya.englishisfun.irregulars.data.db.toPresentation
 import com.jpaya.englishisfun.irregulars.domain.IrregularsInteractor
 import javax.inject.Inject
 
@@ -25,27 +26,11 @@ class IrregularsListPresenter @Inject constructor(
 ) {
 
     suspend fun getIrregularsItems(): List<IrregularsItem> = withIOContext {
-        interactor.getIrregularsItems().map {
-            IrregularsItem(
-                id = it.id,
-                base = it.base,
-                simple = it.simple,
-                participle = it.participle,
-                definitions = it.definitions
-            )
-        }
+        interactor.getIrregularsItems().map { it.toPresentation() }
     }
 
     suspend fun searchIrregulars(filter: String): List<IrregularsItem> = withIOContext {
-        interactor.searchIrregulars(filter).map {
-            IrregularsItem(
-                id = it.id,
-                base = it.base,
-                simple = it.simple,
-                participle = it.participle,
-                definitions = it.definitions
-            )
-        }
+        interactor.searchIrregulars(filter).map { it.toPresentation() }
     }
 
     data class IrregularsItem(

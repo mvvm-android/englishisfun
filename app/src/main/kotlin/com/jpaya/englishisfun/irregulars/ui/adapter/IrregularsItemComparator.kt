@@ -20,11 +20,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter.IrregularsItem
 
 object IrregularsItemComparator : DiffUtil.ItemCallback<IrregularsItem>() {
-    override fun areItemsTheSame(oldItem: IrregularsItem, newItem: IrregularsItem): Boolean {
-        return oldItem.id == newItem.id
-    }
+    override fun areItemsTheSame(oldItem: IrregularsItem, newItem: IrregularsItem) = oldItem.id == newItem.id
 
-    override fun areContentsTheSame(oldItem: IrregularsItem, newItem: IrregularsItem): Boolean {
-        return oldItem == newItem
-    }
+    override fun areContentsTheSame(oldItem: IrregularsItem, newItem: IrregularsItem) = oldItem == newItem
 }

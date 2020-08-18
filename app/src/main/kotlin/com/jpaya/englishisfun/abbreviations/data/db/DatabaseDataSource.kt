@@ -26,7 +26,7 @@ class DatabaseDataSource @Inject constructor(
     private val dao: AbbreviationsDao
 ) {
 
-    suspend fun all(): List<Abbreviations> = dao.all().map { abbreviation -> abbreviation.toDomain() }
+    suspend fun all(): List<Abbreviations> = dao.all().map { it.toDomain() }
 
     suspend fun count() = dao.count()
 
@@ -40,15 +40,8 @@ class DatabaseDataSource @Inject constructor(
         dao.save(objects)
     }
 
-    suspend fun search(filter: String): List<Abbreviations> {
-        return dao.search(filter.encloseToLikeQuery()).map {
-            Abbreviations(
-                id = it.id,
-                abbr = it.abbr,
-                desc = it.desc
-            )
-        }
-    }
+    suspend fun search(filter: String): List<Abbreviations> =
+        dao.search(filter.encloseToLikeQuery()).map { it.toDomain() }
 
     suspend fun delete(id: Long) = dao.delete(id)
 

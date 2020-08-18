@@ -26,7 +26,7 @@ class DatabaseDataSource @Inject constructor(
     private val dao: IdiomsDao
 ) {
 
-    suspend fun all(): List<Idioms> = dao.all().map { idiom -> idiom.toDomain() }
+    suspend fun all(): List<Idioms> = dao.all().map { it.toDomain() }
 
     suspend fun count() = dao.count()
 
@@ -40,15 +40,7 @@ class DatabaseDataSource @Inject constructor(
         dao.save(objects)
     }
 
-    suspend fun search(filter: String): List<Idioms> {
-        return dao.search(filter.encloseToLikeQuery()).map {
-            Idioms(
-                id = it.id,
-                idiom = it.idiom,
-                description = it.description
-            )
-        }
-    }
+    suspend fun search(filter: String): List<Idioms> = dao.search(filter.encloseToLikeQuery()).map { it.toDomain() }
 
     suspend fun delete(id: Long) = dao.delete(id)
 

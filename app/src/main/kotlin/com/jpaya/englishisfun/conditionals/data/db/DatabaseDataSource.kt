@@ -26,7 +26,7 @@ class DatabaseDataSource @Inject constructor(
     private val dao: ConditionalsDao
 ) {
 
-    suspend fun all(): List<Conditionals> = dao.all().map { item -> item.toDomain() }
+    suspend fun all(): List<Conditionals> = dao.all().map { it.toDomain() }
 
     suspend fun count() = dao.count()
 
@@ -40,17 +40,8 @@ class DatabaseDataSource @Inject constructor(
         dao.save(objects)
     }
 
-    suspend fun search(filter: String): List<Conditionals> {
-        return dao.search(filter.encloseToLikeQuery()).map {
-            Conditionals(
-                id = it.id,
-                base = it.base,
-                simple = it.simple,
-                participle = it.participle,
-                definitions = it.definitions
-            )
-        }
-    }
+    suspend fun search(filter: String): List<Conditionals> =
+        dao.search(filter.encloseToLikeQuery()).map { it.toDomain() }
 
     suspend fun delete(id: Long) = dao.delete(id)
 

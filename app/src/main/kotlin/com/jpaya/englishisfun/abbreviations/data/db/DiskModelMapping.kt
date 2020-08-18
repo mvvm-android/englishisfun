@@ -17,6 +17,7 @@
 package com.jpaya.englishisfun.abbreviations.data.db
 
 import com.jpaya.englishisfun.abbreviations.domain.Abbreviations
+import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListPresenter
 
 fun Abbreviations.toRoomItem() = RoomAbbreviationsItem(
     id = id,
@@ -25,6 +26,12 @@ fun Abbreviations.toRoomItem() = RoomAbbreviationsItem(
 )
 
 fun RoomAbbreviationsItem.toDomain() = Abbreviations(
+    id = id,
+    abbr = abbr,
+    desc = desc
+)
+
+fun Abbreviations.toPresentation() = AbbreviationsListPresenter.AbbreviationsItem(
     id = id,
     abbr = abbr,
     desc = desc

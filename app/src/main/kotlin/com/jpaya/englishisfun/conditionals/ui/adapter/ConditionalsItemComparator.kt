@@ -17,20 +17,10 @@
 package com.jpaya.englishisfun.conditionals.ui.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.jpaya.englishisfun.conditionals.ui.ConditionalsListPresenter
+import com.jpaya.englishisfun.conditionals.ui.ConditionalsListPresenter.ConditionalsItem
 
-object ConditionalsItemComparator : DiffUtil.ItemCallback<ConditionalsListPresenter.ConditionalsItem>() {
-    override fun areItemsTheSame(
-        oldItem: ConditionalsListPresenter.ConditionalsItem,
-        newItem: ConditionalsListPresenter.ConditionalsItem
-    ): Boolean {
-        return oldItem.id == newItem.id
-    }
+object ConditionalsItemComparator : DiffUtil.ItemCallback<ConditionalsItem>() {
+    override fun areItemsTheSame(oldItem: ConditionalsItem, newItem: ConditionalsItem) = oldItem.id == newItem.id
 
-    override fun areContentsTheSame(
-        oldItem: ConditionalsListPresenter.ConditionalsItem,
-        newItem: ConditionalsListPresenter.ConditionalsItem
-    ): Boolean {
-        return oldItem == newItem
-    }
+    override fun areContentsTheSame(oldItem: ConditionalsItem, newItem: ConditionalsItem) = oldItem == newItem
 }
