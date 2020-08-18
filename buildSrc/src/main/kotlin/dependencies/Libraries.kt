@@ -29,13 +29,13 @@ object Compose {
  */
 object Libraries {
     private object Versions {
-        const val APPCOMPAT = "1.1.0"
+        const val APPCOMPAT = "1.2.0"
         const val COIL = "0.11.0"
         const val COMPOSE = "0.1.0-dev14"
         const val CONSTRAINT_LAYOUT = "1.1.3"
-        const val CORE_KTX = "1.3.0"
-        const val COROUTINES = "1.3.8"
-        const val FIREBASE_ANALYTICS = "17.4.4"
+        const val CORE_KTX = "1.3.1"
+        const val COROUTINES = "1.3.9"
+        const val FIREBASE_ANALYTICS = "17.5.0"
         const val FIREBASE_AUTH = "19.3.2"
         const val FIREBASE_CRASHLYTICS = "17.1.1"
         const val FIREBASE_FIRESTORE = "21.4.3"
@@ -43,10 +43,10 @@ object Libraries {
         const val FRAGMENT = "1.2.5"
         const val HILT = "2.28-alpha"
         const val HILT_VIEWMODEL = "1.0.0-alpha01"
-        const val KOTLIN = "1.3.72"
+        const val KOTLIN = "1.4.0"
         const val LICENSES_DIALOG = "2.1.0"
         const val LIFECYCLE = "2.2.0"
-        const val MATERIAL = "1.1.0"
+        const val MATERIAL = "1.2.0"
         const val MOSHI = "1.9.3"
         const val NAVIGATION = "2.2.2"
         const val PAGING = "2.1.2"
@@ -157,7 +157,7 @@ object TestLibraries {
     private object Versions {
         const val ARCH_CORE = "2.1.0"
         const val ASSERTJ = "3.16.1"
-        const val COROUTINES = "1.3.7"
+        const val COROUTINES = "1.3.9"
         const val EXT = "1.1.1"
         const val FRAGMENT = "1.2.5"
         const val JUNIT = "4.13"
@@ -239,8 +239,6 @@ object TestAndroidLibraries {
      * @return An array with all the Android test dependencies.
      */
     fun all() = arrayOf(
-        COMPOSE_CORE,
-        COMPOSE_TEST,
         ESPRESSO,
         FRAGMENT_TEST,
         JUNIT,

@@ -25,8 +25,7 @@ import com.jpaya.englishisfun.R
 
 class HomeViewModel @ViewModelInject constructor(
     private val firebaseAuth: FirebaseAuth
-) :
-    RainbowCakeViewModel<HomeViewState>(HomeViewState.NavigationScreen) {
+) : RainbowCakeViewModel<HomeViewState>(HomeViewState.NavigationScreen) {
 
     private val navFragmentsIds = setOf(
         R.id.abbreviations_list_fragment,
