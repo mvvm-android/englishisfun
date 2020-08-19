@@ -30,7 +30,7 @@ object Compose {
 object Libraries {
     private object Versions {
         const val APPCOMPAT = "1.2.0"
-        const val COIL = "0.11.0"
+        const val COIL = "0.12.0"
         const val COMPOSE = "0.1.0-dev14"
         const val CONSTRAINT_LAYOUT = "1.1.3"
         const val CORE_KTX = "1.3.1"
