@@ -16,8 +16,9 @@
 
 package com.jpaya.englishisfun.idioms.data.db
 
+import com.jpaya.englishisfun.idioms.data.network.model.IdiomsContent
 import com.jpaya.englishisfun.idioms.domain.Idioms
-import com.jpaya.englishisfun.idioms.ui.IdiomsListPresenter
+import com.jpaya.englishisfun.idioms.ui.IdiomsListPresenter.IdiomsItem
 
 fun Idioms.toRoomItem() = RoomIdiomsItem(
     id = id,
@@ -31,7 +32,13 @@ fun RoomIdiomsItem.toDomain() = Idioms(
     description = description
 )
 
-fun Idioms.toPresentation() = IdiomsListPresenter.IdiomsItem(
+fun IdiomsContent.toDomain() = Idioms(
+    id = id,
+    idiom = idiom,
+    description = description
+)
+
+fun Idioms.toPresentation() = IdiomsItem(
     id = id,
     idiom = idiom,
     description = description

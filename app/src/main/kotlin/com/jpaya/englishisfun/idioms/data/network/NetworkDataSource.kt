@@ -17,6 +17,7 @@
 package com.jpaya.englishisfun.idioms.data.network
 
 import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.idioms.data.db.toDomain
 import com.jpaya.englishisfun.idioms.domain.Idioms
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -26,14 +27,5 @@ class NetworkDataSource @Inject constructor(
     private val fireStoreClient: FireStoreClient
 ) {
 
-    suspend fun getIdiomsItems(): List<Idioms> {
-        val response = fireStoreClient.idioms()
-        return response?.idioms?.map {
-            Idioms(
-                id = it.id,
-                idiom = it.idiom,
-                description = it.description
-            )
-        } ?: listOf()
-    }
+    suspend fun getIdiomsItems(): List<Idioms> = fireStoreClient.idioms()?.idioms?.map { it.toDomain() } ?: listOf()
 }

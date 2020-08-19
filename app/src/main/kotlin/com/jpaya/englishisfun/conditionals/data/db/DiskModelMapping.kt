@@ -16,8 +16,9 @@
 
 package com.jpaya.englishisfun.conditionals.data.db
 
+import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsContent
 import com.jpaya.englishisfun.conditionals.domain.Conditionals
-import com.jpaya.englishisfun.conditionals.ui.ConditionalsListPresenter
+import com.jpaya.englishisfun.conditionals.ui.ConditionalsListPresenter.ConditionalsItem
 
 fun Conditionals.toRoomItem() = RoomConditionalsItem(
     id = id,
@@ -37,7 +38,16 @@ fun RoomConditionalsItem.toDomain() = Conditionals(
     examples = examples
 )
 
-fun Conditionals.toPresentation() = ConditionalsListPresenter.ConditionalsItem(
+fun ConditionalsContent.toDomain() = Conditionals(
+    id = id,
+    name = name,
+    condition = condition,
+    result = result,
+    uses = uses,
+    examples = examples
+)
+
+fun Conditionals.toPresentation() = ConditionalsItem(
     id = id,
     name = name,
     condition = condition,

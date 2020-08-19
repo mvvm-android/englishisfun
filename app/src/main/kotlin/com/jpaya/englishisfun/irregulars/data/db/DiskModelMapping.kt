@@ -16,8 +16,9 @@
 
 package com.jpaya.englishisfun.irregulars.data.db
 
+import com.jpaya.englishisfun.irregulars.data.network.model.IrregularsContent
 import com.jpaya.englishisfun.irregulars.domain.Irregulars
-import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter
+import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter.IrregularsItem
 
 fun Irregulars.toRoomItem() = RoomIrregularsItem(
     id = id,
@@ -35,7 +36,15 @@ fun RoomIrregularsItem.toDomain() = Irregulars(
     definitions = definitions
 )
 
-fun Irregulars.toPresentation() = IrregularsListPresenter.IrregularsItem(
+fun IrregularsContent.toDomain() = Irregulars(
+    id = id,
+    base = base,
+    simple = simple,
+    participle = participle,
+    definitions = definitions
+)
+
+fun Irregulars.toPresentation() = IrregularsItem(
     id = id,
     base = base,
     simple = simple,
