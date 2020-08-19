@@ -38,7 +38,7 @@ class ConditionalsListPresenter @Inject constructor(
         val name: String,
         val condition: String,
         val result: String,
-        val uses: MutableList<String>,
-        val examples: MutableList<String>
+        val uses: String,
+        val examples: String
     )
 }

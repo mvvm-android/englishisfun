@@ -52,6 +52,6 @@ fun Conditionals.toPresentation() = ConditionalsItem(
     name = name,
     condition = condition,
     result = result,
-    uses = uses,
-    examples = examples
+    uses = uses.joinToString(separator = "\n"),
+    examples = examples.joinToString(separator = "\n")
 )
