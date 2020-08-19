@@ -70,16 +70,16 @@ class ConditionalsListPresenterTest {
                 name = "Name 1",
                 condition = "Condition 1",
                 result = "Result 1",
-                uses = mutableListOf("Use 1"),
-                examples = mutableListOf("Example 1")
+                uses = "Use 1",
+                examples = "Example 1"
             ),
             ConditionalsListPresenter.ConditionalsItem(
                 id = 2,
                 name = "Name 2",
                 condition = "Condition 2",
                 result = "Result 2",
-                uses = mutableListOf("Use 1"),
-                examples = mutableListOf("Example 1")
+                uses = "Use 1",
+                examples = "Example 1"
             )
         )
 
@@ -98,16 +98,16 @@ class ConditionalsListPresenterTest {
                 name = "Name 1",
                 condition = "Condition 1",
                 result = "Result 1",
-                uses = mutableListOf("Use 1"),
-                examples = mutableListOf("Example 1")
+                uses = "Use 1",
+                examples = "Example 1"
             ),
             ConditionalsListPresenter.ConditionalsItem(
                 id = 2,
                 name = "Name 2",
                 condition = "Condition 2",
                 result = "Result 2",
-                uses = mutableListOf("Use 1"),
-                examples = mutableListOf("Example 1")
+                uses = "Use 1",
+                examples = "Example 1"
             )
         )
 
