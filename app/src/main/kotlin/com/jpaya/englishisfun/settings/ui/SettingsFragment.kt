@@ -18,7 +18,9 @@ package com.jpaya.englishisfun.settings.ui
 
 import android.os.Bundle
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.preference.ListPreference
+import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.jpaya.englishisfun.R
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,5 +38,10 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 viewModel.setAppearance(newValue as String)
                 true
             }
+
+        findPreference<Preference>(getString(R.string.setting_about_key))?.setOnPreferenceClickListener {
+            findNavController().navigate(R.id.action_settings_fragment_to_aboutFragment)
+            true
+        }
     }
 }

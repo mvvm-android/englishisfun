@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory
         app:key="appearance_category"
         app:title="@string/setting_appearance_title">
@@ -11,5 +12,14 @@
             app:key="@string/setting_appearance_key"
             app:title="@string/setting_appearance_title"
             app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="information_category"
+        app:title="@string/setting_information_title">
+
+        <Preference
+            android:title="@string/setting_about_title"
+            app:key="@string/setting_about_key" />
     </PreferenceCategory>
 </PreferenceScreen>

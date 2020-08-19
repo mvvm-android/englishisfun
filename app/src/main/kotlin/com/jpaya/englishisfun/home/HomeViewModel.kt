@@ -30,8 +30,7 @@ class HomeViewModel @ViewModelInject constructor(
     private val navFragmentsIds = setOf(
         R.id.abbreviations_list_fragment,
         R.id.irregulars_list_fragment,
-        R.id.settings_fragment,
-        R.id.about_fragment
+        R.id.settings_fragment
     )
 
     /**
