@@ -51,7 +51,6 @@ class HomeFragment : RainbowCakeFragment<HomeViewState, HomeViewModel>() {
         R.navigation.navigation_abbreviations_graph,
         R.navigation.navigation_irregulars_graph,
         R.navigation.navigation_idioms_graph,
-        R.navigation.navigation_about_graph,
         R.navigation.navigation_settings_graph
     )
 
