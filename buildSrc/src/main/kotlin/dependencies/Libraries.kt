@@ -30,9 +30,9 @@ object Compose {
 object Libraries {
     private object Versions {
         const val APPCOMPAT = "1.2.0"
-        const val COIL = "0.11.0"
+        const val COIL = "0.12.0"
         const val COMPOSE = "0.1.0-dev14"
-        const val CONSTRAINT_LAYOUT = "1.1.3"
+        const val CONSTRAINT_LAYOUT = "2.0.1"
         const val CORE_KTX = "1.3.1"
         const val COROUTINES = "1.3.9"
         const val FIREBASE_ANALYTICS = "17.5.0"
@@ -158,15 +158,16 @@ object TestLibraries {
         const val ARCH_CORE = "2.1.0"
         const val ASSERTJ = "3.16.1"
         const val COROUTINES = "1.3.9"
-        const val EXT = "1.1.1"
+        const val EXT = "1.1.2"
         const val FRAGMENT = "1.2.5"
+        const val HAMCREST = "2.2"
         const val JUNIT = "4.13"
         const val MOCKITO = "2.2.0"
         const val MOCKK = "1.10.0"
         const val RAINBOW_CAKE = "1.0.0"
-        const val ROBOELECTRIC = "4.3.1"
+        const val ROBOELECTRIC = "4.4"
         const val ROOM = "2.2.5"
-        const val TEST = "1.2.0"
+        const val TEST = "1.3.0"
     }
 
     private const val ARCH_CORE = "androidx.arch.core:core-testing:${Versions.ARCH_CORE}"
@@ -175,6 +176,7 @@ object TestLibraries {
     private const val COROUTINES_TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.COROUTINES}"
     private const val EXT = "androidx.test.ext:junit:${Versions.EXT}"
     private const val FRAGMENT_TEST = "androidx.fragment:fragment-testing:${Versions.FRAGMENT}"
+    private const val HAMCREST = "org.hamcrest:hamcrest:${Versions.HAMCREST}"
     private const val JUNIT = "junit:junit:${Versions.JUNIT}"
     private const val MOCKITO = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO}"
     private const val MOCKK = "io.mockk:mockk:${Versions.MOCKK}"
@@ -191,11 +193,11 @@ object TestLibraries {
      */
     fun all() = arrayOf(
         ARCH_CORE,
-        ASSERTJ,
         CORE,
         COROUTINES_TEST,
         EXT,
         FRAGMENT_TEST,
+        HAMCREST,
         JUNIT,
         MOCKITO,
         MOCKK,
@@ -213,13 +215,13 @@ object TestLibraries {
 object TestAndroidLibraries {
     private object Versions {
         const val COMPOSE = "0.1.0-dev14"
-        const val ESPRESSO = "3.2.0"
-        const val EXT = "1.1.1"
+        const val ESPRESSO = "3.3.0"
+        const val EXT = "1.1.2"
         const val FRAGMENT = "1.2.5"
         const val LEAKCANARY = "2.4"
         const val MOCKITO = "2.2.0"
         const val PLAY_CORE = "1.7.3"
-        const val TEST = "1.2.0"
+        const val TEST = "1.3.0"
     }
 
     private const val COMPOSE_CORE = "androidx.ui:ui-core:${Versions.COMPOSE}"
@@ -244,7 +246,6 @@ object TestAndroidLibraries {
         JUNIT,
         LEAKCANARY,
         MOCKITO,
-        PLAY_CORE,
         RULES,
         RUNNER
     )

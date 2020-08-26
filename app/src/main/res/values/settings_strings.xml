@@ -20,4 +20,7 @@
         <item>@string/setting_appearance_option_dark_value</item>
         <item>@string/setting_appearance_option_light_value</item>
     </string-array>
+
+    <string name="setting_information_title">Information</string>
+    <string name="setting_about_key">settings_about</string>
 </resources>

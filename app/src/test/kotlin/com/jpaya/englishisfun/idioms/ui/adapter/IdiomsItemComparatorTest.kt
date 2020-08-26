@@ -34,26 +34,18 @@ class IdiomsItemComparatorTest {
     @Test
     fun `Check that IdiomsItemComparator works properly`() {
         // Different data
-        val item1 = IdiomsListPresenter.IdiomsItem(
-            1, "Idiom 1", "Description 1"
-        )
-        val item2 = IdiomsListPresenter.IdiomsItem(
-            2, "Idiom 2", "Description 2"
-        )
+        val item1 = IdiomsListPresenter.IdiomsItem(1, "Idiom 1", "Description 1")
+        val item2 = IdiomsListPresenter.IdiomsItem(2, "Idiom 2", "Description 2")
         assertFalse(comparator.areItemsTheSame(item1, item2))
         assertFalse(comparator.areContentsTheSame(item1, item2))
 
         // Same Id
-        val item3 = IdiomsListPresenter.IdiomsItem(
-            1, "Idiom 3", "Description 3"
-        )
+        val item3 = IdiomsListPresenter.IdiomsItem(1, "Idiom 3", "Description 3")
         assertTrue(comparator.areItemsTheSame(item1, item3))
         assertFalse(comparator.areContentsTheSame(item1, item3))
 
         // Same data
-        val item4 = IdiomsListPresenter.IdiomsItem(
-            1, "Idiom 1", "Description 1"
-        )
+        val item4 = IdiomsListPresenter.IdiomsItem(1, "Idiom 1", "Description 1")
         assertTrue(comparator.areItemsTheSame(item1, item4))
         assertTrue(comparator.areContentsTheSame(item1, item4))
     }

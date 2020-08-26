@@ -34,26 +34,18 @@ class IrregularsItemComparatorTest {
     @Test
     fun `Check that IrregularsItemComparator works properly`() {
         // Different data
-        val item1 = IrregularsListPresenter.IrregularsItem(
-            1, "Base 1", "Simple 1", "Participle 1", "Definitions 1"
-        )
-        val item2 = IrregularsListPresenter.IrregularsItem(
-            2, "Base 2", "Simple 2", "Participle 2", "Definitions 2"
-        )
+        val item1 = IrregularsListPresenter.IrregularsItem(1, "Base 1", "Simple 1", "Participle 1", "Definitions 1")
+        val item2 = IrregularsListPresenter.IrregularsItem(2, "Base 2", "Simple 2", "Participle 2", "Definitions 2")
         assertFalse(comparator.areItemsTheSame(item1, item2))
         assertFalse(comparator.areContentsTheSame(item1, item2))
 
         // Same Id
-        val item3 = IrregularsListPresenter.IrregularsItem(
-            1, "Base 3", "Simple 3", "Participle 3", "Definitions 3"
-        )
+        val item3 = IrregularsListPresenter.IrregularsItem(1, "Base 3", "Simple 3", "Participle 3", "Definitions 3")
         assertTrue(comparator.areItemsTheSame(item1, item3))
         assertFalse(comparator.areContentsTheSame(item1, item3))
 
         // Same data
-        val item4 = IrregularsListPresenter.IrregularsItem(
-            1, "Base 1", "Simple 1", "Participle 1", "Definitions 1"
-        )
+        val item4 = IrregularsListPresenter.IrregularsItem(1, "Base 1", "Simple 1", "Participle 1", "Definitions 1")
         assertTrue(comparator.areItemsTheSame(item1, item4))
         assertTrue(comparator.areContentsTheSame(item1, item4))
     }

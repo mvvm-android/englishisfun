@@ -17,24 +17,24 @@ English Is Fun is an Open source English-language-learning application for Andro
 The aim of this project is sharing a well-designed application to help people to learn English. The contents that will be available
 on the application are:
 
-| Content                | Availability             |
-| ---------------------- |------------------------- |
-| Chat Abbreviations     | :hourglass_flowing_sand: |
-| Collocations           | :x:                      |
-| Conditionals           | :x:                      |
-| Dependent Prepositions | :x:                      |
-| Exam Preparation       | :x:                      |
-| Grammar Tenses         | :x:                      |
-| Idioms                 | :x:                      |
-| Irregular Verbs        | :hourglass_flowing_sand: |
-| Modal Verbs            | :x:                      |
-| Participle Clauses     | :x:                      |
-| Passive Voice          | :x:                      |
-| Phrasal Verbs          | :x:                      |
-| Prefixes and suffixes  | :x:                      |
-| Stative Verbs          | :x:                      |
-| Verb Patterns          | :x:                      |
-| Wishes and Regrets     | :x:                      |
+| Content                | Availability             | Screenshot                                                                      |
+| ---------------------- |------------------------- | ------------------------------------------------------------------------------- |
+| Chat Abbreviations     | :hourglass_flowing_sand: | <img src="screenshots/abbreviations.png" width="250" align="right" hspace="20"> |
+| Collocations           | :x:                      |                                                                                 |
+| Conditionals           | :hourglass_flowing_sand: |                                                                                 |
+| Dependent Prepositions | :x:                      |                                                                                 |
+| Exam Preparation       | :x:                      |                                                                                 |
+| Grammar Tenses         | :x:                      |                                                                                 |
+| Idioms                 | :hourglass_flowing_sand: |                                                                                 |
+| Irregular Verbs        | :hourglass_flowing_sand: |                                                                                 |
+| Modal Verbs            | :x:                      |                                                                                 |
+| Participle Clauses     | :x:                      |                                                                                 |
+| Passive Voice          | :x:                      |                                                                                 |
+| Phrasal Verbs          | :x:                      |                                                                                 |
+| Prefixes and suffixes  | :x:                      |                                                                                 |
+| Stative Verbs          | :x:                      |                                                                                 |
+| Verb Patterns          | :x:                      |                                                                                 |
+| Wishes and Regrets     | :x:                      |                                                                                 |
 
 The project is on the first stage, I am defining the application architecture and automating the distribution process.
 

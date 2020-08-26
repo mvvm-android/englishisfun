@@ -32,7 +32,6 @@ class HomeViewModel @ViewModelInject constructor(
         R.id.irregulars_list_fragment,
         R.id.idioms_list_fragment,
         R.id.settings_fragment,
-        R.id.about_fragment,
         R.id.conditionals_list_fragment
     )
 
