@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="suggestions_title_hint">Add a title</string>
+    <string name="suggestions_section">Section</string>
+    <string name="suggestions_description_hint">Add a description</string>
+
+    <string-array name="suggestions_sections">
+        <item>Chat Abbreviations</item>
+        <item>Conditionals</item>
+        <item>Idioms</item>
+        <item>Irregular Verbs</item>
+    </string-array>
+    <string-array name="suggestions_sections_values">
+        <item>chat_abbreviations</item>
+        <item>conditionals</item>
+        <item>idioms</item>
+        <item>irregular_verbs</item>
+    </string-array>
+</resources>

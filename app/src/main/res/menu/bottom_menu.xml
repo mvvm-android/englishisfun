@@ -26,9 +26,4 @@
         android:id="@+id/navigation_conditionals_graph"
         android:icon="@drawable/ic_favorites"
         android:title="@string/home_tab_conditionals" />
-
-<!--    <item-->
-<!--        android:id="@+id/navigation_about_graph"-->
-<!--        android:icon="@drawable/ic_favorites"-->
-<!--        android:title="@string/home_tab_about" />-->
 </menu>

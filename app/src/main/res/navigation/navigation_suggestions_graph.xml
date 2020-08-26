@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_suggestions_graph"
+    app:startDestination="@+id/suggestions_fragment"
+    tools:ignore="UnusedNavigation,UnusedIds">
+    <fragment
+        android:id="@+id/suggestions_fragment"
+        android:name="com.jpaya.englishisfun.suggestions.ui.SuggestionsFragment"
+        android:label="Suggestions" />
+</navigation>
