@@ -19,7 +19,7 @@ package plugins
 val ktlint: Configuration by configurations.creating
 
 dependencies {
-    ktlint("com.pinterest:ktlint:0.37.2")
+    ktlint("com.pinterest:ktlint:0.38.1")
 }
 
 tasks {

@@ -32,7 +32,7 @@ object Libraries {
         const val APPCOMPAT = "1.2.0"
         const val COIL = "0.12.0"
         const val COMPOSE = "0.1.0-dev14"
-        const val CONSTRAINT_LAYOUT = "1.1.3"
+        const val CONSTRAINT_LAYOUT = "2.0.1"
         const val CORE_KTX = "1.3.1"
         const val COROUTINES = "1.3.9"
         const val FIREBASE_ANALYTICS = "17.5.0"
@@ -158,15 +158,15 @@ object TestLibraries {
         const val ARCH_CORE = "2.1.0"
         const val ASSERTJ = "3.16.1"
         const val COROUTINES = "1.3.9"
-        const val EXT = "1.1.1"
+        const val EXT = "1.1.2"
         const val FRAGMENT = "1.2.5"
         const val JUNIT = "4.13"
         const val MOCKITO = "2.2.0"
         const val MOCKK = "1.10.0"
         const val RAINBOW_CAKE = "1.0.0"
-        const val ROBOELECTRIC = "4.3.1"
+        const val ROBOELECTRIC = "4.4"
         const val ROOM = "2.2.5"
-        const val TEST = "1.2.0"
+        const val TEST = "1.3.0"
     }
 
     private const val ARCH_CORE = "androidx.arch.core:core-testing:${Versions.ARCH_CORE}"
@@ -191,7 +191,6 @@ object TestLibraries {
      */
     fun all() = arrayOf(
         ARCH_CORE,
-        ASSERTJ,
         CORE,
         COROUTINES_TEST,
         EXT,
@@ -213,7 +212,7 @@ object TestLibraries {
 object TestAndroidLibraries {
     private object Versions {
         const val COMPOSE = "0.1.0-dev14"
-        const val ESPRESSO = "3.2.0"
+        const val ESPRESSO = "3.3.0"
         const val EXT = "1.1.1"
         const val FRAGMENT = "1.2.5"
         const val LEAKCANARY = "2.4"
@@ -244,7 +243,6 @@ object TestAndroidLibraries {
         JUNIT,
         LEAKCANARY,
         MOCKITO,
-        PLAY_CORE,
         RULES,
         RUNNER
     )
