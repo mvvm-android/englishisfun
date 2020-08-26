@@ -18,4 +18,8 @@ package com.jpaya.englishisfun.suggestions.ui
 
 sealed class SuggestionsViewState
 
-object Initial : SuggestionsViewState()
+object Loaded : SuggestionsViewState()
+
+object Loading : SuggestionsViewState()
+
+object NetworkError : SuggestionsViewState()

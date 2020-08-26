@@ -14,18 +14,26 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.suggestions.ui
+package com.jpaya.englishisfun.suggestions.domain
 
-import androidx.hilt.lifecycle.ViewModelInject
-import co.zsmb.rainbowcake.base.RainbowCakeViewModel
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
-class SuggestionsViewModel @ViewModelInject constructor(
-    private val presenter: SuggestionsPresenter
-) : RainbowCakeViewModel<SuggestionsViewState>(Loaded) {
+class SuggestionsTest {
 
-    fun sendSuggestion(title: String, section: String, description: String) = execute {
-        viewState = Loading
-        presenter.sendSuggestion(SuggestionsPresenter.SuggestionsItem(title, section, description))
-        viewState = Loaded
+    @Test
+    fun initShouldInitialiseProperly() {
+        val title = "Title"
+        val section = "Section"
+        val description = "Description"
+        val suggestion = Suggestions(
+            title = title,
+            section = section,
+            description = description
+        )
+
+        assertEquals(title, suggestion.title)
+        assertEquals(section, suggestion.section)
+        assertEquals(description, suggestion.description)
     }
 }
