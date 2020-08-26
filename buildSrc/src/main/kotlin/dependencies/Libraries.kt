@@ -213,12 +213,12 @@ object TestAndroidLibraries {
     private object Versions {
         const val COMPOSE = "0.1.0-dev14"
         const val ESPRESSO = "3.3.0"
-        const val EXT = "1.1.1"
+        const val EXT = "1.1.2"
         const val FRAGMENT = "1.2.5"
         const val LEAKCANARY = "2.4"
         const val MOCKITO = "2.2.0"
         const val PLAY_CORE = "1.7.3"
-        const val TEST = "1.2.0"
+        const val TEST = "1.3.0"
     }
 
     private const val COMPOSE_CORE = "androidx.ui:ui-core:${Versions.COMPOSE}"
