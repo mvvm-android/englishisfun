@@ -160,6 +160,7 @@ object TestLibraries {
         const val COROUTINES = "1.3.9"
         const val EXT = "1.1.2"
         const val FRAGMENT = "1.2.5"
+        const val HAMCREST = "2.2"
         const val JUNIT = "4.13"
         const val MOCKITO = "2.2.0"
         const val MOCKK = "1.10.0"
@@ -175,6 +176,7 @@ object TestLibraries {
     private const val COROUTINES_TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.COROUTINES}"
     private const val EXT = "androidx.test.ext:junit:${Versions.EXT}"
     private const val FRAGMENT_TEST = "androidx.fragment:fragment-testing:${Versions.FRAGMENT}"
+    private const val HAMCREST = "org.hamcrest:hamcrest:${Versions.HAMCREST}"
     private const val JUNIT = "junit:junit:${Versions.JUNIT}"
     private const val MOCKITO = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO}"
     private const val MOCKK = "io.mockk:mockk:${Versions.MOCKK}"
@@ -195,6 +197,7 @@ object TestLibraries {
         COROUTINES_TEST,
         EXT,
         FRAGMENT_TEST,
+        HAMCREST,
         JUNIT,
         MOCKITO,
         MOCKK,
