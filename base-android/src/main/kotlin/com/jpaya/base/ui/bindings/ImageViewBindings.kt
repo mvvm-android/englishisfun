@@ -22,7 +22,7 @@ import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
-import coil.api.load
+import coil.load
 import com.jpaya.base.R
 import kotlin.random.Random
 
