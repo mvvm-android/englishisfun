@@ -40,17 +40,7 @@ class DatabaseDataSource @Inject constructor(
         dao.save(objects)
     }
 
-    suspend fun search(filter: String): List<Irregulars> {
-        return dao.search(filter.encloseToLikeQuery()).map {
-            Irregulars(
-                id = it.id,
-                base = it.base,
-                simple = it.simple,
-                participle = it.participle,
-                definitions = it.definitions
-            )
-        }
-    }
+    suspend fun search(filter: String): List<Irregulars> = dao.search(filter.encloseToLikeQuery()).map { it.toDomain() }
 
     suspend fun delete(id: Long) = dao.delete(id)
 

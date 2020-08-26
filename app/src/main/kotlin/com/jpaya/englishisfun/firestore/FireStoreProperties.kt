@@ -34,6 +34,9 @@ class FireStoreProperties {
 
         private const val IRREGULAR_COLLECTION = "irregular"
         private const val IRREGULAR_DOCUMENT = "list"
+
+        private const val CONDITIONAL_COLLECTION = "conditional"
+        private const val CONDITIONAL_DOCUMENT = "list"
     }
 
     // Abbreviations
@@ -50,4 +53,9 @@ class FireStoreProperties {
     fun getIrregularCollectionName() = IRREGULAR_COLLECTION
 
     fun getIrregularDocumentName() = IRREGULAR_DOCUMENT
+
+    // Conditionals
+    fun getConditionalCollectionName() = CONDITIONAL_COLLECTION
+
+    fun getConditionalDocumentName() = CONDITIONAL_DOCUMENT
 }

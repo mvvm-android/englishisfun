@@ -27,11 +27,9 @@ import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import com.jpaya.base.ui.bindings.gone
 import com.jpaya.base.ui.bindings.visible
 import com.jpaya.base.ui.extensions.setupWithNavController
-import com.jpaya.base.utils.ThemeUtils
 import com.jpaya.englishisfun.R
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.home_fragment.*
-import javax.inject.Inject
 
 /**
  * Home principal view containing bottom navigation bar with different tabs.
@@ -44,14 +42,12 @@ class HomeFragment : RainbowCakeFragment<HomeViewState, HomeViewModel>() {
     override fun provideViewModel() = customViewModel
     override fun getViewResource() = R.layout.home_fragment
 
-    @Inject
-    lateinit var themeUtils: ThemeUtils
-
     private val navGraphIds = listOf(
         R.navigation.navigation_abbreviations_graph,
         R.navigation.navigation_irregulars_graph,
         R.navigation.navigation_idioms_graph,
-        R.navigation.navigation_settings_graph
+        R.navigation.navigation_settings_graph,
+        R.navigation.navigation_conditionals_graph
     )
 
     /**

@@ -17,6 +17,7 @@
 package com.jpaya.englishisfun.abbreviations.ui
 
 import co.zsmb.rainbowcake.withIOContext
+import com.jpaya.englishisfun.abbreviations.data.db.toPresentation
 import com.jpaya.englishisfun.abbreviations.domain.AbbreviationsInteractor
 import javax.inject.Inject
 
@@ -25,23 +26,11 @@ class AbbreviationsListPresenter @Inject constructor(
 ) {
 
     suspend fun getAbbreviationItems(): List<AbbreviationsItem> = withIOContext {
-        interactor.getAbbreviationItems().map {
-            AbbreviationsItem(
-                id = it.id,
-                abbr = it.abbr,
-                desc = it.desc
-            )
-        }
+        interactor.getAbbreviationItems().map { it.toPresentation() }
     }
 
     suspend fun searchAbbreviations(filter: String): List<AbbreviationsItem> = withIOContext {
-        interactor.searchAbbreviations(filter).map {
-            AbbreviationsItem(
-                id = it.id,
-                abbr = it.abbr,
-                desc = it.desc
-            )
-        }
+        interactor.searchAbbreviations(filter).map { it.toPresentation() }
     }
 
     data class AbbreviationsItem(

@@ -18,15 +18,10 @@ package com.jpaya.englishisfun.di
 
 import android.content.Context
 import com.jpaya.englishisfun.EnglishIsFunApp
-import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationsDao
-import com.jpaya.englishisfun.database.EnglishIsFunDatabase
-import com.jpaya.englishisfun.idioms.data.db.IdiomsDao
-import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 
@@ -54,40 +49,4 @@ class AppModule {
      */
     @Provides
     fun providesCoroutinesScope(): CoroutineScope = MainScope()
-
-    /**
-     * Create a provider method binding for [EnglishIsFunDatabase].
-     *
-     * @param context Application context.
-     * @return Instance of irregulars database.
-     */
-    @Provides
-    fun providesIrregularsDatabase(@ApplicationContext context: Context) = EnglishIsFunDatabase.create(context)
-
-    /**
-     * Create a provider method binding for [IrregularsDao].
-     *
-     * @param database Database instance.
-     * @return Instance of irregulars dao.
-     */
-    @Provides
-    fun providesIrregularsDao(database: EnglishIsFunDatabase): IrregularsDao = database.irregulars()
-
-    /**
-     * Create a provider method binding for [AbbreviationsDao].
-     *
-     * @param database Database instance.
-     * @return Instance of abbreviations dao.
-     */
-    @Provides
-    fun providesAbbreviationsDao(database: EnglishIsFunDatabase): AbbreviationsDao = database.abbreviations()
-
-    /**
-     * Create a provider method binding for [IdiomsDao].
-     *
-     * @param database Database instance.
-     * @return Instance of idioms dao.
-     */
-    @Provides
-    fun providesIdiomsDao(database: EnglishIsFunDatabase): IdiomsDao = database.idioms()
 }

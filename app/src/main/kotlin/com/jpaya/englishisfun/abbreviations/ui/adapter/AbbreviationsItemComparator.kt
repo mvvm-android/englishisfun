@@ -20,11 +20,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListPresenter.AbbreviationsItem
 
 object AbbreviationsItemComparator : DiffUtil.ItemCallback<AbbreviationsItem>() {
-    override fun areItemsTheSame(oldItem: AbbreviationsItem, newItem: AbbreviationsItem): Boolean {
-        return oldItem.id == newItem.id
-    }
+    override fun areItemsTheSame(oldItem: AbbreviationsItem, newItem: AbbreviationsItem) = oldItem.id == newItem.id
 
-    override fun areContentsTheSame(oldItem: AbbreviationsItem, newItem: AbbreviationsItem): Boolean {
-        return oldItem == newItem
-    }
+    override fun areContentsTheSame(oldItem: AbbreviationsItem, newItem: AbbreviationsItem) = oldItem == newItem
 }

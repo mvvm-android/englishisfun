@@ -20,11 +20,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.jpaya.englishisfun.idioms.ui.IdiomsListPresenter.IdiomsItem
 
 object IdiomsItemComparator : DiffUtil.ItemCallback<IdiomsItem>() {
-    override fun areItemsTheSame(oldItem: IdiomsItem, newItem: IdiomsItem): Boolean {
-        return oldItem.id == newItem.id
-    }
+    override fun areItemsTheSame(oldItem: IdiomsItem, newItem: IdiomsItem) = oldItem.id == newItem.id
 
-    override fun areContentsTheSame(oldItem: IdiomsItem, newItem: IdiomsItem): Boolean {
-        return oldItem == newItem
-    }
+    override fun areContentsTheSame(oldItem: IdiomsItem, newItem: IdiomsItem) = oldItem == newItem
 }
