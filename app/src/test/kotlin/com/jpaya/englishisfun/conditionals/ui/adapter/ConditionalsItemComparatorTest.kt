@@ -16,7 +16,7 @@
 
 package com.jpaya.englishisfun.conditionals.ui.adapter
 
-import com.jpaya.englishisfun.conditionals.ui.ConditionalsListPresenter
+import com.jpaya.englishisfun.conditionals.ui.ConditionalsListPresenter.ConditionalsItem
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -34,26 +34,18 @@ class ConditionalsItemComparatorTest {
     @Test
     fun `Check that ConditionalsItemComparator works properly`() {
         // Different data
-        val item1 = ConditionalsListPresenter.ConditionalsItem(
-            1, "Name 1", "Condition 1", "Result 1", "Use 1", "Example 1"
-        )
-        val item2 = ConditionalsListPresenter.ConditionalsItem(
-            2, "Name 2", "Condition 2", "Result 2", "Use 1", "Example 1"
-        )
+        val item1 = ConditionalsItem(1, "Name 1", "Condition 1", "Result 1", "Use 1", "Example 1")
+        val item2 = ConditionalsItem(2, "Name 2", "Condition 2", "Result 2", "Use 1", "Example 1")
         assertFalse(comparator.areItemsTheSame(item1, item2))
         assertFalse(comparator.areContentsTheSame(item1, item2))
 
         // Same Id
-        val item3 = ConditionalsListPresenter.ConditionalsItem(
-            1, "Name 3", "Condition 3", "Result 3", "Use 1", "Example 1"
-        )
+        val item3 = ConditionalsItem(1, "Name 3", "Condition 3", "Result 3", "Use 1", "Example 1")
         assertTrue(comparator.areItemsTheSame(item1, item3))
         assertFalse(comparator.areContentsTheSame(item1, item3))
 
         // Same data
-        val item4 = ConditionalsListPresenter.ConditionalsItem(
-            1, "Name 1", "Condition 1", "Result 1", "Use 1", "Example 1"
-        )
+        val item4 = ConditionalsItem(1, "Name 1", "Condition 1", "Result 1", "Use 1", "Example 1")
         assertTrue(comparator.areItemsTheSame(item1, item4))
         assertTrue(comparator.areContentsTheSame(item1, item4))
     }
