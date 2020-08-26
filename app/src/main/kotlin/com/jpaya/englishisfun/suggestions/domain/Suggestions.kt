@@ -14,21 +14,13 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.suggestions.ui
+package com.jpaya.englishisfun.suggestions.domain
 
-import com.jpaya.englishisfun.suggestions.domain.SuggestionsInteractor
-import com.jpaya.englishisfun.suggestions.mapper.toDomain
-import javax.inject.Inject
-
-class SuggestionsPresenter @Inject constructor(
-    private val interactor: SuggestionsInteractor
-) {
-
-    suspend fun sendSuggestion(suggestion: SuggestionsItem) = interactor.sendSuggestion(suggestion.toDomain())
-
-    data class SuggestionsItem(
-        val title: String,
-        val section: String,
-        val description: String
-    )
-}
+/**
+ * Model class to represent a suggestion.
+ */
+data class Suggestions(
+    val title: String,
+    val section: String,
+    val description: String,
+)

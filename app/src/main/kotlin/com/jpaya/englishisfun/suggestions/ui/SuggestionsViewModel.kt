@@ -21,4 +21,9 @@ import co.zsmb.rainbowcake.base.RainbowCakeViewModel
 
 class SuggestionsViewModel @ViewModelInject constructor(
     private val presenter: SuggestionsPresenter
-) : RainbowCakeViewModel<SuggestionsViewState>(Initial)
+) : RainbowCakeViewModel<SuggestionsViewState>(Initial) {
+
+    fun sendSuggestion(title: String, section: String, description: String) = execute {
+        presenter.sendSuggestion(SuggestionsPresenter.SuggestionsItem(title, section, description))
+    }
+}

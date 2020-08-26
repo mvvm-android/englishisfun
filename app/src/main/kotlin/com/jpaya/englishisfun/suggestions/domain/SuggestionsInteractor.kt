@@ -16,21 +16,12 @@
 
 package com.jpaya.englishisfun.suggestions.domain
 
-import com.jpaya.englishisfun.irregulars.data.db.DatabaseDataSource
-import com.jpaya.englishisfun.irregulars.data.network.NetworkDataSource
-import com.jpaya.englishisfun.irregulars.domain.Irregulars
+import com.jpaya.englishisfun.suggestions.data.network.NetworkDataSource
 import javax.inject.Inject
 
 class SuggestionsInteractor @Inject constructor(
     private val network: NetworkDataSource,
-    private val database: DatabaseDataSource
 ) {
 
-    suspend fun getIrregularsItems(): List<Irregulars> {
-        val result = network.getIrregularsItems()
-        database.save(result)
-        return result
-    }
-
-    suspend fun searchIrregulars(filter: String): List<Irregulars> = database.search(filter)
+    suspend fun sendSuggestion(suggestion: Suggestions) = network.sendSuggestion(suggestion)
 }

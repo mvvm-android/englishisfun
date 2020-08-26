@@ -23,7 +23,9 @@ import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationsResp
 import com.jpaya.englishisfun.idioms.data.network.model.IdiomsResponse
 import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsResponse
 import com.jpaya.englishisfun.irregulars.data.network.model.IrregularsResponse
+import com.jpaya.englishisfun.suggestions.data.network.model.SuggestionsContent
 import kotlinx.coroutines.tasks.await
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -69,6 +71,21 @@ class FireStoreClient @Inject constructor(
             .document(properties.getConditionalDocumentName()),
         ConditionalsResponse::class.java
     )
+
+    /**
+     * Function to save a suggestion.
+     */
+    suspend fun sendSuggestion(data: SuggestionsContent) {
+        fireStore.collection(properties.getSuggestionsCollectionName())
+            .add(data)
+            .addOnSuccessListener {
+                Timber.d("DocumentSnapshot written with ID: ${it.id}")
+            }
+            .addOnFailureListener {
+                Timber.d("Error adding document")
+            }
+            .await()
+    }
 
     private suspend fun <T> execute(reference: DocumentReference, valueType: Class<T>): T? =
         reference.get().await().toObject(valueType)

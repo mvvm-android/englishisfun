@@ -17,9 +17,7 @@
 package com.jpaya.englishisfun.suggestions.di
 
 import com.jpaya.englishisfun.firestore.FireStoreClient
-import com.jpaya.englishisfun.irregulars.data.db.DatabaseDataSource
-import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
-import com.jpaya.englishisfun.irregulars.data.network.NetworkDataSource
+import com.jpaya.englishisfun.suggestions.data.network.NetworkDataSource
 import com.jpaya.englishisfun.suggestions.domain.SuggestionsInteractor
 import com.jpaya.englishisfun.suggestions.ui.SuggestionsPresenter
 import dagger.Module
@@ -49,8 +47,7 @@ class SuggestionsModule {
      * @return Instance of interactor.
      */
     @Provides
-    fun providesInteractor(network: NetworkDataSource, database: DatabaseDataSource) =
-        SuggestionsInteractor(network, database)
+    fun providesInteractor(network: NetworkDataSource) = SuggestionsInteractor(network)
 
     /**
      * Create a provider method binding for [NetworkDataSource].
@@ -59,12 +56,4 @@ class SuggestionsModule {
      */
     @Provides
     fun providesNetworkDataSource(client: FireStoreClient) = NetworkDataSource(client)
-
-    /**
-     * Create a provider method binding for [DatabaseDataSource].
-     *
-     * @return Instance of data source.
-     */
-    @Provides
-    fun providesDatabaseDataSource(dao: IrregularsDao) = DatabaseDataSource(dao)
 }

@@ -14,21 +14,18 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.suggestions.ui
+package com.jpaya.englishisfun.suggestions.data.network
 
-import com.jpaya.englishisfun.suggestions.domain.SuggestionsInteractor
-import com.jpaya.englishisfun.suggestions.mapper.toDomain
+import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.suggestions.domain.Suggestions
+import com.jpaya.englishisfun.suggestions.mapper.toNetwork
 import javax.inject.Inject
+import javax.inject.Singleton
 
-class SuggestionsPresenter @Inject constructor(
-    private val interactor: SuggestionsInteractor
+@Singleton
+class NetworkDataSource @Inject constructor(
+    private val fireStoreClient: FireStoreClient
 ) {
 
-    suspend fun sendSuggestion(suggestion: SuggestionsItem) = interactor.sendSuggestion(suggestion.toDomain())
-
-    data class SuggestionsItem(
-        val title: String,
-        val section: String,
-        val description: String
-    )
+    suspend fun sendSuggestion(suggestion: Suggestions) = fireStoreClient.sendSuggestion(suggestion.toNetwork())
 }

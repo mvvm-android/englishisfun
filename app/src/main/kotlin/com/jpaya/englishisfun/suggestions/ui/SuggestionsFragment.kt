@@ -16,10 +16,13 @@
 
 package com.jpaya.englishisfun.suggestions.ui
 
+import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.viewModels
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import com.jpaya.englishisfun.R
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.suggestions_fragment.*
 
 @AndroidEntryPoint
 class SuggestionsFragment : RainbowCakeFragment<SuggestionsViewState, SuggestionsViewModel>() {
@@ -28,6 +31,18 @@ class SuggestionsFragment : RainbowCakeFragment<SuggestionsViewState, Suggestion
 
     override fun provideViewModel() = customViewModel
     override fun getViewResource() = R.layout.suggestions_fragment
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        bt_send.setOnClickListener {
+            viewModel.sendSuggestion(
+                et_title.text.toString(),
+                resources.getStringArray(R.array.suggestions_sections_values)[section.selectedItemId.toInt()],
+                et_description.text.toString()
+            )
+        }
+    }
 
     override fun render(viewState: SuggestionsViewState) {
         // TODO
