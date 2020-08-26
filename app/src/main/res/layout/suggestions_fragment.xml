@@ -13,6 +13,7 @@
         android:background="@null"
         android:ems="10"
         android:hint="@string/suggestions_title_hint"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:maxLines="1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +42,6 @@
         app:layout_constraintTop_toTopOf="@+id/tv_section" />
 
     <EditText
-        android:id="@+id/et_description"
         style="@android:style/TextAppearance.Medium"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -50,6 +50,7 @@
         android:ems="10"
         android:gravity="start"
         android:hint="@string/suggestions_description_hint"
+        android:importantForAutofill="no"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
