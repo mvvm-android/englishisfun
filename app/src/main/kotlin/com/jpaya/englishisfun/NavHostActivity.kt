@@ -52,6 +52,7 @@ class NavHostActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun setupNavigationController() {
+        setSupportActionBar(toolbar)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         nav_view.setupWithNavController(navController)
@@ -70,6 +71,6 @@ class NavHostActivity : AppCompatActivity(R.layout.activity_main) {
         )
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean =
+    override fun onOptionsItemSelected(item: MenuItem) =
         item.onNavDestinationSelected(findNavController(R.id.nav_host_fragment)) || super.onOptionsItemSelected(item)
 }
