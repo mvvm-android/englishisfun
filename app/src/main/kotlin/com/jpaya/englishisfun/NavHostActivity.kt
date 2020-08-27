@@ -64,7 +64,8 @@ class NavHostActivity : AppCompatActivity(R.layout.activity_main) {
                     R.id.idioms_list_fragment,
                     R.id.irregulars_list_fragment,
                     R.id.settings_fragment
-                )
+                ),
+                drawer_layout
             )
         )
     }
