@@ -16,13 +16,59 @@
 
 package com.jpaya.englishisfun
 
+import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.onNavDestinationSelected
+import androidx.navigation.ui.setupWithNavController
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 /**
  * Base activity class that use the support library action bar features.
- *
- * @see AppCompatActivity
+ * Link: https://developer.android.com/guide/navigation/navigation-ui
  */
 @AndroidEntryPoint
-class NavHostActivity : AppCompatActivity(R.layout.activity_main)
+class NavHostActivity : AppCompatActivity(R.layout.activity_main) {
+
+    @Inject
+    lateinit var firebaseAuth: FirebaseAuth
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        firebaseAuth.signInAnonymously().addOnCompleteListener(this) {
+//            if (it.isSuccessful) {
+//                viewState = HomeViewState.NavigationScreen
+//            }
+        }
+
+        setupNavigationController()
+    }
+
+    private fun setupNavigationController() {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        nav_view.setupWithNavController(navController)
+        toolbar.setupWithNavController(
+            navController,
+            AppBarConfiguration(
+                setOf(
+                    R.id.abbreviations_list_fragment,
+                    R.id.conditionals_list_fragment,
+                    R.id.idioms_list_fragment,
+                    R.id.irregulars_list_fragment,
+                    R.id.settings_fragment
+                )
+            )
+        )
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean =
+        item.onNavDestinationSelected(findNavController(R.id.nav_host_fragment)) || super.onOptionsItemSelected(item)
+}
