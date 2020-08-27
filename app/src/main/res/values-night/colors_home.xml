@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="itemMenuChecked">#aaaaaa</color>
-    <color name="itemMenuUnchecked">#ffffff</color>
+    <!-- NavigationView -->
+    <color name="navigation_view_item">#000000</color>
+    <color name="navigation_view_item_selected">#AFB42B</color>
 </resources>
