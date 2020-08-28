@@ -37,6 +37,8 @@ class FireStoreProperties {
 
         private const val CONDITIONAL_COLLECTION = "conditional"
         private const val CONDITIONAL_DOCUMENT = "list"
+
+        private const val SUGGESTION_COLLECTION = "suggestion"
     }
 
     // Abbreviations
@@ -58,4 +60,7 @@ class FireStoreProperties {
     fun getConditionalCollectionName() = CONDITIONAL_COLLECTION
 
     fun getConditionalDocumentName() = CONDITIONAL_DOCUMENT
+
+    // Suggestions
+    fun getSuggestionsCollectionName() = SUGGESTION_COLLECTION
 }

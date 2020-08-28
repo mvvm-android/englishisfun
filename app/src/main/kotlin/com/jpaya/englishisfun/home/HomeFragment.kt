@@ -21,7 +21,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import com.jpaya.base.ui.bindings.gone
@@ -44,6 +43,7 @@ class HomeFragment : RainbowCakeFragment<HomeViewState, HomeViewModel>() {
 
     private val navGraphIds = listOf(
         R.navigation.navigation_abbreviations_graph,
+        R.navigation.navigation_suggestions_graph,
         R.navigation.navigation_irregulars_graph,
         R.navigation.navigation_idioms_graph,
         R.navigation.navigation_settings_graph,
@@ -97,7 +97,7 @@ class HomeFragment : RainbowCakeFragment<HomeViewState, HomeViewModel>() {
 
         navController.observe(
             viewLifecycleOwner,
-            Observer {
+            {
                 viewModel.navigationControllerChanged(it)
                 setupActionBarWithNavController(requireActivity() as AppCompatActivity, it)
             }
