@@ -16,30 +16,30 @@
 
 package com.jpaya.englishisfun.abbreviations.mapper
 
-import com.jpaya.englishisfun.abbreviations.data.db.RoomAbbreviationsItem
-import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationsContent
-import com.jpaya.englishisfun.abbreviations.domain.Abbreviations
-import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListPresenter.AbbreviationsItem
+import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationRoomItem
+import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationNetworkItem
+import com.jpaya.englishisfun.abbreviations.domain.Abbreviation
+import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
 
-fun Abbreviations.toRoomItem() = RoomAbbreviationsItem(
+fun Abbreviation.toRoomItem() = AbbreviationRoomItem(
     id = id,
     abbr = abbr,
     desc = desc
 )
 
-fun RoomAbbreviationsItem.toDomain() = Abbreviations(
+fun AbbreviationRoomItem.toDomain() = Abbreviation(
     id = id,
     abbr = abbr,
     desc = desc
 )
 
-fun AbbreviationsContent.toDomain() = Abbreviations(
+fun AbbreviationNetworkItem.toDomain() = Abbreviation(
     id = id,
     abbr = abbr,
     desc = desc
 )
 
-fun Abbreviations.toPresentation() = AbbreviationsItem(
+fun Abbreviation.toPresentation() = AbbreviationItem(
     id = id,
     abbr = abbr,
     desc = desc

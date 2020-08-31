@@ -16,12 +16,12 @@
 
 package com.jpaya.englishisfun.abbreviations.ui
 
-import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListPresenter.AbbreviationsItem
+import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
 
 sealed class AbbreviationsListViewState
 
 object Loading : AbbreviationsListViewState()
 
-data class ListReady(val abbreviations: List<AbbreviationsItem>) : AbbreviationsListViewState()
+data class ListReady(val abbreviations: List<AbbreviationItem>) : AbbreviationsListViewState()
 
 object NetworkError : AbbreviationsListViewState()

@@ -14,14 +14,26 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.abbreviations.data.db
+package com.jpaya.englishisfun.abbreviations.domain
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
-@Entity(tableName = "abbreviations")
-data class RoomAbbreviationsItem(
-    @PrimaryKey(autoGenerate = true) val id: Long,
-    val abbr: String,
-    val desc: String
-)
+class AbbreviationTest {
+
+    @Test
+    fun initShouldInitialiseProperly() {
+        val id: Long = 1
+        val abbr = "Abbreviation"
+        val desc = "Description"
+        val abbreviation = Abbreviation(
+            id = id,
+            abbr = abbr,
+            desc = desc
+        )
+
+        assertEquals(id, abbreviation.id)
+        assertEquals(abbr, abbreviation.abbr)
+        assertEquals(desc, abbreviation.desc)
+    }
+}

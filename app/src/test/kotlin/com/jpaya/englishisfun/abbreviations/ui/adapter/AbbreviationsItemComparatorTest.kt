@@ -16,7 +16,7 @@
 
 package com.jpaya.englishisfun.abbreviations.ui.adapter
 
-import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListPresenter
+import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -34,18 +34,18 @@ class AbbreviationsItemComparatorTest {
     @Test
     fun `Check that AbbreviationsItemComparator works properly`() {
         // Different data
-        val item1 = AbbreviationsListPresenter.AbbreviationsItem(1, "Abbreviation 1", "Description 1")
-        val item2 = AbbreviationsListPresenter.AbbreviationsItem(2, "Abbreviation 2", "Description 2")
+        val item1 = AbbreviationItem(1, "Abbreviation 1", "Description 1")
+        val item2 = AbbreviationItem(2, "Abbreviation 2", "Description 2")
         assertFalse(comparator.areItemsTheSame(item1, item2))
         assertFalse(comparator.areContentsTheSame(item1, item2))
 
         // Same Id
-        val item3 = AbbreviationsListPresenter.AbbreviationsItem(1, "Abbreviation 3", "Description 3")
+        val item3 = AbbreviationItem(1, "Abbreviation 3", "Description 3")
         assertTrue(comparator.areItemsTheSame(item1, item3))
         assertFalse(comparator.areContentsTheSame(item1, item3))
 
         // Same data
-        val item4 = AbbreviationsListPresenter.AbbreviationsItem(1, "Abbreviation 1", "Description 1")
+        val item4 = AbbreviationItem(1, "Abbreviation 1", "Description 1")
         assertTrue(comparator.areItemsTheSame(item1, item4))
         assertTrue(comparator.areContentsTheSame(item1, item4))
     }

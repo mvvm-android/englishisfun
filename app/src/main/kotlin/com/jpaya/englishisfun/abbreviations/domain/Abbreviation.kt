@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.abbreviations.data.network.model
+package com.jpaya.englishisfun.abbreviations.domain
 
 /**
- * Class to map the abbreviations' FireStore response.
+ * Model class to represent a chat abbreviation.
  */
-class AbbreviationsContent {
-    var id: Long = 0
-    var abbr: String = ""
-    var desc: String = ""
-}
+data class Abbreviation(
+    val id: Long,
+    val abbr: String,
+    val desc: String
+)

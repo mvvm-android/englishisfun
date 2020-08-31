@@ -17,10 +17,10 @@
 package com.jpaya.englishisfun.abbreviations.ui.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListPresenter.AbbreviationsItem
+import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
 
-object AbbreviationsItemComparator : DiffUtil.ItemCallback<AbbreviationsItem>() {
-    override fun areItemsTheSame(oldItem: AbbreviationsItem, newItem: AbbreviationsItem) = oldItem.id == newItem.id
+object AbbreviationsItemComparator : DiffUtil.ItemCallback<AbbreviationItem>() {
+    override fun areItemsTheSame(oldItem: AbbreviationItem, newItem: AbbreviationItem) = oldItem.id == newItem.id
 
-    override fun areContentsTheSame(oldItem: AbbreviationsItem, newItem: AbbreviationsItem) = oldItem == newItem
+    override fun areContentsTheSame(oldItem: AbbreviationItem, newItem: AbbreviationItem) = oldItem == newItem
 }

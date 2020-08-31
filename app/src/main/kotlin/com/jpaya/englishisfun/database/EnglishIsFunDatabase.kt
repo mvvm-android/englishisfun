@@ -22,7 +22,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationsDao
-import com.jpaya.englishisfun.abbreviations.data.db.RoomAbbreviationsItem
+import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationRoomItem
 import com.jpaya.englishisfun.conditionals.data.db.ConditionalsDao
 import com.jpaya.englishisfun.conditionals.data.db.RoomConditionalsItem
 import com.jpaya.englishisfun.database.converters.Converters
@@ -34,7 +34,7 @@ import com.jpaya.englishisfun.irregulars.data.db.RoomIrregularsItem
 @Database(
     entities = [
         RoomIrregularsItem::class,
-        RoomAbbreviationsItem::class,
+        AbbreviationRoomItem::class,
         RoomIdiomsItem::class,
         RoomConditionalsItem::class
     ],
