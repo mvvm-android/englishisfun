@@ -24,7 +24,8 @@ import com.jpaya.englishisfun.databinding.StativeListItemBinding
 import com.jpaya.englishisfun.stative.ui.StativePresenter.StativeItem
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
 
-class StativeAdapter : ListAdapter<StativeItem, StativeAdapter.ViewHolder>(StativeItemComparator),
+class StativeAdapter :
+    ListAdapter<StativeItem, StativeAdapter.ViewHolder>(StativeItemComparator),
     FastScrollRecyclerView.SectionedAdapter {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
