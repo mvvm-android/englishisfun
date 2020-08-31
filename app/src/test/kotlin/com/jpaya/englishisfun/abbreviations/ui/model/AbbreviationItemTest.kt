@@ -16,11 +16,23 @@
 
 package com.jpaya.englishisfun.abbreviations.ui.model
 
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import org.junit.Assert.*
 import org.junit.Test
 
 class AbbreviationItemTest {
+
+    @Test
+    fun `Init should initialise properly`() {
+        val id: Long = 1
+        val abbr = "Abbreviation"
+        val desc = "Description"
+
+        val item = AbbreviationItem(id, abbr, desc)
+
+        assertEquals(id, item.id)
+        assertEquals(abbr, item.abbr)
+        assertEquals(desc, item.desc)
+    }
 
     @Test
     fun `Check that comparator works properly`() {
