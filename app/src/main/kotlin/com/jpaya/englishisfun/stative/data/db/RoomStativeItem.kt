@@ -22,8 +22,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "statives")
 data class RoomStativeItem(
     @PrimaryKey(autoGenerate = true) val id: Long,
-    val base: String,
-    val simple: String,
-    val participle: String,
-    val definitions: String
+    val category: String,
+    val verbs: MutableList<String>
 )

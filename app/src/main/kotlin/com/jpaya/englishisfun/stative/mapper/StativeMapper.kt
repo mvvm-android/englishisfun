@@ -23,32 +23,24 @@ import com.jpaya.englishisfun.stative.ui.StativePresenter.StativeItem
 
 fun Stative.toRoomItem() = RoomStativeItem(
     id = id,
-    base = base,
-    simple = simple,
-    participle = participle,
-    definitions = definitions
+    category = category,
+    verbs = verbs
 )
 
 fun RoomStativeItem.toDomain() = Stative(
     id = id,
-    base = base,
-    simple = simple,
-    participle = participle,
-    definitions = definitions
+    category = category,
+    verbs = verbs
 )
 
 fun StativeContent.toDomain() = Stative(
     id = id,
-    base = base,
-    simple = simple,
-    participle = participle,
-    definitions = definitions
+    category = category,
+    verbs = verbs
 )
 
 fun Stative.toPresentation() = StativeItem(
     id = id,
-    base = base,
-    simple = simple,
-    participle = participle,
-    definitions = definitions
+    category = category,
+    verbs = verbs
 )

@@ -21,8 +21,6 @@ package com.jpaya.englishisfun.stative.data.network.model
  */
 class StativeContent {
     var id: Long = 0
-    var base: String = ""
-    var simple: String = ""
-    var participle: String = ""
-    var definitions: String = ""
+    var category: String = ""
+    var verbs: MutableList<String> = mutableListOf()
 }

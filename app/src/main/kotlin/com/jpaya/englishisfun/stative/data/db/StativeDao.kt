@@ -54,7 +54,7 @@ interface StativeDao {
     /**
      * Searches entities with the specified filter.
      */
-    @Query("SELECT * FROM statives WHERE base LIKE :filter")
+    @Query("SELECT * FROM statives WHERE category LIKE :filter")
     suspend fun search(filter: String): List<RoomStativeItem>
 
     /**

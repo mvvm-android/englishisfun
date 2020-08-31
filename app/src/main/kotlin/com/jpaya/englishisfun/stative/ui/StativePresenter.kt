@@ -35,9 +35,7 @@ class StativePresenter @Inject constructor(
 
     data class StativeItem(
         val id: Long,
-        val base: String,
-        val simple: String,
-        val participle: String,
-        val definitions: String
+        val category: String,
+        val verbs: MutableList<String>
     )
 }

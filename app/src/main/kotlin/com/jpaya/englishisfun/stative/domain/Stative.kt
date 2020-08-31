@@ -21,8 +21,6 @@ package com.jpaya.englishisfun.stative.domain
  */
 data class Stative(
     val id: Long,
-    val base: String,
-    val simple: String,
-    val participle: String,
-    val definitions: String
+    val category: String,
+    val verbs: MutableList<String>
 )
