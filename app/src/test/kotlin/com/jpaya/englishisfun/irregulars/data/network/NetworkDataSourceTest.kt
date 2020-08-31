@@ -17,9 +17,9 @@
 package com.jpaya.englishisfun.irregulars.data.network
 
 import com.jpaya.englishisfun.firestore.FireStoreClient
-import com.jpaya.englishisfun.irregulars.data.network.model.IrregularsContent
+import com.jpaya.englishisfun.irregulars.data.network.model.IrregularNetworkItem
 import com.jpaya.englishisfun.irregulars.data.network.model.IrregularsResponse
-import com.jpaya.englishisfun.irregulars.domain.Irregulars
+import com.jpaya.englishisfun.irregulars.domain.Irregular
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -34,14 +34,14 @@ class NetworkDataSourceTest {
     companion object {
         private val MOCK_IRREGULARS_DOCUMENT = IrregularsResponse().apply {
             irregulars = listOf(
-                IrregularsContent().apply {
+                IrregularNetworkItem().apply {
                     id = 1
                     base = "Base 1"
                     simple = "Simple 1"
                     participle = "Participle 1"
                     definitions = "Definitions 1"
                 },
-                IrregularsContent().apply {
+                IrregularNetworkItem().apply {
                     id = 2
                     base = "Base 2"
                     simple = "Simple 2"
@@ -67,14 +67,14 @@ class NetworkDataSourceTest {
         whenever(fireStoreClient.irregulars()).doReturn(MOCK_IRREGULARS_DOCUMENT)
 
         val expectedResult = listOf(
-            Irregulars(
+            Irregular(
                 id = 1,
                 base = "Base 1",
                 simple = "Simple 1",
                 participle = "Participle 1",
                 definitions = "Definitions 1"
             ),
-            Irregulars(
+            Irregular(
                 id = 2,
                 base = "Base 2",
                 simple = "Simple 2",
@@ -91,7 +91,7 @@ class NetworkDataSourceTest {
     fun `Check getIrregularsItems works properly when null`() = runBlockingTest {
         whenever(fireStoreClient.irregulars()).doReturn(null)
 
-        val expectedResult = listOf<Irregulars>()
+        val expectedResult = listOf<Irregular>()
 
         assertEquals(expectedResult, dataSource.getIrregularsItems())
     }

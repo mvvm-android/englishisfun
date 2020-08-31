@@ -20,12 +20,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.jpaya.base.adapter.ListAdapterComparator
 import com.jpaya.englishisfun.databinding.IrregularsListItemBinding
-import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter.IrregularsItem
+import com.jpaya.englishisfun.irregulars.ui.model.IrregularItem
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
 
 class IrregularsAdapter(private val listener: Listener) :
-    ListAdapter<IrregularsItem, IrregularsAdapter.ViewHolder>(IrregularsItemComparator),
+    ListAdapter<IrregularItem, IrregularsAdapter.ViewHolder>(ListAdapterComparator<IrregularItem>()),
     FastScrollRecyclerView.SectionedAdapter {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -37,7 +38,7 @@ class IrregularsAdapter(private val listener: Listener) :
 
     inner class ViewHolder(private var binding: IrregularsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: IrregularsItem) {
+        fun bind(item: IrregularItem) {
             itemView.setOnClickListener {
                 binding.irregular?.let { listener.onItemSelected(it.id) }
             }

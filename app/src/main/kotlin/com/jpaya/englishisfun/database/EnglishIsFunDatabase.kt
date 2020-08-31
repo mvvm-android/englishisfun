@@ -29,11 +29,11 @@ import com.jpaya.englishisfun.database.converters.Converters
 import com.jpaya.englishisfun.idioms.data.db.IdiomsDao
 import com.jpaya.englishisfun.idioms.data.db.IdiomRoomItem
 import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
-import com.jpaya.englishisfun.irregulars.data.db.RoomIrregularsItem
+import com.jpaya.englishisfun.irregulars.data.db.IrregularRoomItem
 
 @Database(
     entities = [
-        RoomIrregularsItem::class,
+        IrregularRoomItem::class,
         AbbreviationRoomItem::class,
         IdiomRoomItem::class,
         ConditionalRoomItem::class

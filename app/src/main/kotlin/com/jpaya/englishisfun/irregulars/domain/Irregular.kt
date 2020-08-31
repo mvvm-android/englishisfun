@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.irregulars.data.db
+package com.jpaya.englishisfun.irregulars.domain
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity(tableName = "irregulars")
-data class RoomIrregularsItem(
-    @PrimaryKey(autoGenerate = true) val id: Long,
+/**
+ * Model class to represent an irregular verb.
+ */
+data class Irregular(
+    val id: Long,
     val base: String,
     val simple: String,
     val participle: String,

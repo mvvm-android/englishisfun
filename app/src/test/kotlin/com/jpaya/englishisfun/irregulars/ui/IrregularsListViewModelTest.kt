@@ -19,13 +19,13 @@ package com.jpaya.englishisfun.irregulars.ui
 import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import co.zsmb.rainbowcake.test.observeStateAndEvents
+import com.jpaya.englishisfun.irregulars.ui.model.IrregularItem
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
-
 import org.junit.Test
 import java.io.IOException
 
@@ -34,14 +34,14 @@ class IrregularsListViewModelTest : ViewModelTest() {
 
     companion object {
         private val MOCK_ITEMS = listOf(
-            IrregularsListPresenter.IrregularsItem(
+            IrregularItem(
                 id = 1,
                 base = "Base 1",
                 simple = "Simple 1",
                 participle = "Participle 1",
                 definitions = "Definitions 1"
             ),
-            IrregularsListPresenter.IrregularsItem(
+            IrregularItem(
                 id = 2,
                 base = "Base 2",
                 simple = "Simple 2",
@@ -51,7 +51,7 @@ class IrregularsListViewModelTest : ViewModelTest() {
         )
 
         private val MOCK_ITEMS_FILTERED = listOf(
-            IrregularsListPresenter.IrregularsItem(
+            IrregularItem(
                 id = 1,
                 base = "Base 1",
                 simple = "Simple 1",

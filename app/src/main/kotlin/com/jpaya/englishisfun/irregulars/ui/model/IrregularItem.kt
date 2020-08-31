@@ -14,15 +14,19 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.irregulars.domain
+package com.jpaya.englishisfun.irregulars.ui.model
 
-/**
- * Model class to represent an irregular verb.
- */
-data class Irregulars(
+import com.jpaya.base.adapter.GenericAdapterComparator
+
+data class IrregularItem(
     val id: Long,
     val base: String,
     val simple: String,
     val participle: String,
     val definitions: String
-)
+) : GenericAdapterComparator<IrregularItem> {
+
+    override fun isSameItemAs(item: IrregularItem) = id == item.id
+
+    override fun hasSameContentsAs(item: IrregularItem) = this == item
+}

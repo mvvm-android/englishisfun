@@ -33,6 +33,4 @@ class IdiomsListPresenter @Inject constructor(
     suspend fun searchIdioms(filter: String): List<IdiomItem> = withIOContext {
         interactor.searchIdioms(filter).map { it.toPresentation() }
     }
-
-
 }

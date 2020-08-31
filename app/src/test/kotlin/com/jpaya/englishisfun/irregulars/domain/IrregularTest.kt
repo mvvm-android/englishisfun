@@ -19,7 +19,7 @@ package com.jpaya.englishisfun.irregulars.domain
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class IrregularsTest {
+class IrregularTest {
 
     @Test
     fun initShouldInitialiseProperly() {
@@ -28,7 +28,7 @@ class IrregularsTest {
         val simple = "Arose"
         val participle = "Arisen"
         val definitions = "To get up from bed"
-        val irregular = Irregulars(
+        val irregular = Irregular(
             id = id,
             base = base,
             simple = simple,

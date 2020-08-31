@@ -16,8 +16,9 @@
 
 package com.jpaya.englishisfun.irregulars.ui
 
-import com.jpaya.englishisfun.irregulars.domain.Irregulars
+import com.jpaya.englishisfun.irregulars.domain.Irregular
 import com.jpaya.englishisfun.irregulars.domain.IrregularsInteractor
+import com.jpaya.englishisfun.irregulars.ui.model.IrregularItem
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -31,14 +32,14 @@ class IrregularsListPresenterTest {
 
     companion object {
         private val MOCK_IRREGULARS_LIST = listOf(
-            Irregulars(
+            Irregular(
                 id = 1,
                 base = "Base 1",
                 simple = "Simple 1",
                 participle = "Participle 1",
                 definitions = "Definitions 1"
             ),
-            Irregulars(
+            Irregular(
                 id = 2,
                 base = "Base 2",
                 simple = "Simple 2",
@@ -63,14 +64,14 @@ class IrregularsListPresenterTest {
         whenever(interactor.getIrregularsItems()).doReturn(MOCK_IRREGULARS_LIST)
 
         val expectedResult = listOf(
-            IrregularsListPresenter.IrregularsItem(
+            IrregularItem(
                 id = 1,
                 base = "Base 1",
                 simple = "Simple 1",
                 participle = "Participle 1",
                 definitions = "Definitions 1"
             ),
-            IrregularsListPresenter.IrregularsItem(
+            IrregularItem(
                 id = 2,
                 base = "Base 2",
                 simple = "Simple 2",
@@ -89,14 +90,14 @@ class IrregularsListPresenterTest {
         whenever(interactor.searchIrregulars(filter)).doReturn(MOCK_IRREGULARS_LIST)
 
         val expectedResult = listOf(
-            IrregularsListPresenter.IrregularsItem(
+            IrregularItem(
                 id = 1,
                 base = "Base 1",
                 simple = "Simple 1",
                 participle = "Participle 1",
                 definitions = "Definitions 1"
             ),
-            IrregularsListPresenter.IrregularsItem(
+            IrregularItem(
                 id = 2,
                 base = "Base 2",
                 simple = "Simple 2",

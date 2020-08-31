@@ -14,13 +14,16 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.irregulars.ui.adapter
+package com.jpaya.englishisfun.irregulars.data.db
 
-import androidx.recyclerview.widget.DiffUtil
-import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter.IrregularsItem
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-object IrregularsItemComparator : DiffUtil.ItemCallback<IrregularsItem>() {
-    override fun areItemsTheSame(oldItem: IrregularsItem, newItem: IrregularsItem) = oldItem.id == newItem.id
-
-    override fun areContentsTheSame(oldItem: IrregularsItem, newItem: IrregularsItem) = oldItem == newItem
-}
+@Entity(tableName = "irregulars")
+data class IrregularRoomItem(
+    @PrimaryKey(autoGenerate = true) val id: Long,
+    val base: String,
+    val simple: String,
+    val participle: String,
+    val definitions: String
+)
