@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@+id/abbreviations_list_fragment">
+
+    <fragment
+        android:id="@+id/abbreviations_list_fragment"
+        android:name="com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListFragment"
+        android:label="@string/home_tab_abbreviations" />
+
+    <fragment
+        android:id="@+id/conditionals_list_fragment"
+        android:name="com.jpaya.englishisfun.conditionals.ui.ConditionalsListFragment"
+        android:label="@string/home_tab_conditionals" />
+
+    <fragment
+        android:id="@+id/idioms_list_fragment"
+        android:name="com.jpaya.englishisfun.idioms.ui.IdiomsListFragment"
+        android:label="@string/home_tab_idioms" />
+
+    <fragment
+        android:id="@+id/irregulars_list_fragment"
+        android:name="com.jpaya.englishisfun.irregulars.ui.IrregularsListFragment"
+        android:label="@string/home_tab_irregulars" />
+
+    <fragment
+        android:id="@+id/settings_fragment"
+        android:name="com.jpaya.englishisfun.settings.ui.SettingsFragment"
+        android:label="@string/home_tab_settings">
+        <action
+            android:id="@+id/action_settings_fragment_to_aboutFragment"
+            app:destination="@id/aboutFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.jpaya.englishisfun.about.ui.AboutFragment"
+        android:label="@string/home_tab_about" />
+</navigation>
