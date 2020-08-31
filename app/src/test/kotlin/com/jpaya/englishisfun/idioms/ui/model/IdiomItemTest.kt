@@ -16,11 +16,23 @@
 
 package com.jpaya.englishisfun.idioms.ui.model
 
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import org.junit.Assert.*
 import org.junit.Test
 
 class IdiomItemTest {
+
+    @Test
+    fun `Init should initialise properly`() {
+        val id: Long = 1
+        val idiom = "Idiom"
+        val description = "Description"
+
+        val item = IdiomItem(id, idiom, description)
+
+        assertEquals(id, item.id)
+        assertEquals(idiom, item.idiom)
+        assertEquals(description, item.description)
+    }
 
     @Test
     fun `Check that comparator works properly`() {

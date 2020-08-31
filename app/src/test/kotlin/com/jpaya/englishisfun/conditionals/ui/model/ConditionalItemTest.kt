@@ -16,11 +16,29 @@
 
 package com.jpaya.englishisfun.conditionals.ui.model
 
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import org.junit.Assert.*
 import org.junit.Test
 
 class ConditionalItemTest {
+
+    @Test
+    fun `Init should initialise properly`() {
+        val id: Long = 1
+        val name = "Name"
+        val condition = "Condition"
+        val result = "Result"
+        val uses = "Use 1"
+        val examples = "Example 1"
+
+        val item = ConditionalItem(id, name, condition, result, uses, examples)
+
+        assertEquals(id, item.id)
+        assertEquals(name, item.name)
+        assertEquals(condition, item.condition)
+        assertEquals(result, item.result)
+        assertEquals(uses, item.uses)
+        assertEquals(examples, item.examples)
+    }
 
     @Test
     fun `Check that comparator works properly`() {

@@ -16,11 +16,27 @@
 
 package com.jpaya.englishisfun.irregulars.ui.model
 
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import org.junit.Assert.*
 import org.junit.Test
 
 class IrregularItemTest {
+
+    @Test
+    fun `Init should initialise properly`() {
+        val id: Long = 1
+        val base = "Base"
+        val simple = "Simple"
+        val participle = "Participle"
+        val definitions = "Definitions"
+
+        val item = IrregularItem(id, base, simple, participle, definitions)
+
+        assertEquals(id, item.id)
+        assertEquals(base, item.base)
+        assertEquals(simple, item.simple)
+        assertEquals(participle, item.participle)
+        assertEquals(definitions, item.definitions)
+    }
 
     @Test
     fun `Check that comparator works properly`() {
