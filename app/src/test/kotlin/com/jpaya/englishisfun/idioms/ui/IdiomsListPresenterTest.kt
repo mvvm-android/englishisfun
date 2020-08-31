@@ -18,6 +18,7 @@ package com.jpaya.englishisfun.idioms.ui
 
 import com.jpaya.englishisfun.idioms.domain.Idioms
 import com.jpaya.englishisfun.idioms.domain.IdiomsInteractor
+import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -59,12 +60,12 @@ class IdiomsListPresenterTest {
         whenever(interactor.getIdiomsItems()).doReturn(MOCK_IDIOMS_LIST)
 
         val expectedResult = listOf(
-            IdiomsListPresenter.IdiomsItem(
+            IdiomItem(
                 id = 1,
                 idiom = "Idiom 1",
                 description = "Description 1"
             ),
-            IdiomsListPresenter.IdiomsItem(
+            IdiomItem(
                 id = 2,
                 idiom = "Idiom 2",
                 description = "Description 2"
@@ -81,12 +82,12 @@ class IdiomsListPresenterTest {
         whenever(interactor.searchIdioms(filter)).doReturn(MOCK_IDIOMS_LIST)
 
         val expectedResult = listOf(
-            IdiomsListPresenter.IdiomsItem(
+            IdiomItem(
                 id = 1,
                 idiom = "Idiom 1",
                 description = "Description 1"
             ),
-            IdiomsListPresenter.IdiomsItem(
+            IdiomItem(
                 id = 2,
                 idiom = "Idiom 2",
                 description = "Description 2"

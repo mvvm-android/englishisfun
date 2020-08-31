@@ -19,7 +19,7 @@ package com.jpaya.englishisfun.idioms.mapper
 import com.jpaya.englishisfun.idioms.data.db.RoomIdiomsItem
 import com.jpaya.englishisfun.idioms.data.network.model.IdiomsContent
 import com.jpaya.englishisfun.idioms.domain.Idioms
-import com.jpaya.englishisfun.idioms.ui.IdiomsListPresenter.IdiomsItem
+import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 
 fun Idioms.toRoomItem() = RoomIdiomsItem(
     id = id,
@@ -39,7 +39,7 @@ fun IdiomsContent.toDomain() = Idioms(
     description = description
 )
 
-fun Idioms.toPresentation() = IdiomsItem(
+fun Idioms.toPresentation() = IdiomItem(
     id = id,
     idiom = idiom,
     description = description

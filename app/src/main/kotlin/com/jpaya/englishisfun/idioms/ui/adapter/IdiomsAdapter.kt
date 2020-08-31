@@ -20,12 +20,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.jpaya.base.adapter.ListAdapterComparator
 import com.jpaya.englishisfun.databinding.IdiomsListItemBinding
-import com.jpaya.englishisfun.idioms.ui.IdiomsListPresenter.IdiomsItem
+import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
 
 class IdiomsAdapter(private val listener: Listener) :
-    ListAdapter<IdiomsItem, IdiomsAdapter.ViewHolder>(IdiomsItemComparator),
+    ListAdapter<IdiomItem, IdiomsAdapter.ViewHolder>(ListAdapterComparator<IdiomItem>()),
     FastScrollRecyclerView.SectionedAdapter {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -37,7 +38,7 @@ class IdiomsAdapter(private val listener: Listener) :
 
     inner class ViewHolder(private var binding: IdiomsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: IdiomsItem) {
+        fun bind(item: IdiomItem) {
             itemView.setOnClickListener {
                 binding.item?.let { listener.onItemSelected(it.id) }
             }
