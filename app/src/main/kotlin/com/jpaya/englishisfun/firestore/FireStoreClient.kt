@@ -23,6 +23,7 @@ import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationsResp
 import com.jpaya.englishisfun.idioms.data.network.model.IdiomsResponse
 import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsResponse
 import com.jpaya.englishisfun.irregulars.data.network.model.IrregularsResponse
+import com.jpaya.englishisfun.stative.data.network.model.StativeResponse
 import com.jpaya.englishisfun.suggestions.data.network.model.SuggestionsContent
 import kotlinx.coroutines.tasks.await
 import timber.log.Timber
@@ -70,6 +71,14 @@ class FireStoreClient @Inject constructor(
         fireStore.collection(properties.getConditionalCollectionName())
             .document(properties.getConditionalDocumentName()),
         ConditionalsResponse::class.java
+    )
+
+    /**
+     * Function to obtain all stative verbs.
+     */
+    suspend fun statives() = execute(
+        fireStore.collection(properties.getIrregularCollectionName()).document(properties.getIrregularDocumentName()),
+        StativeResponse::class.java
     )
 
     /**

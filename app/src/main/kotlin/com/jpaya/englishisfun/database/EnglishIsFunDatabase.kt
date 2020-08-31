@@ -30,13 +30,16 @@ import com.jpaya.englishisfun.idioms.data.db.IdiomsDao
 import com.jpaya.englishisfun.idioms.data.db.RoomIdiomsItem
 import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
 import com.jpaya.englishisfun.irregulars.data.db.RoomIrregularsItem
+import com.jpaya.englishisfun.stative.data.db.RoomStativeItem
+import com.jpaya.englishisfun.stative.data.db.StativeDao
 
 @Database(
     entities = [
         RoomIrregularsItem::class,
         RoomAbbreviationsItem::class,
         RoomIdiomsItem::class,
-        RoomConditionalsItem::class
+        RoomConditionalsItem::class,
+        RoomStativeItem::class
     ],
     version = 1,
     exportSchema = true
@@ -58,4 +61,6 @@ abstract class EnglishIsFunDatabase : RoomDatabase() {
     abstract fun idioms(): IdiomsDao
 
     abstract fun conditionals(): ConditionalsDao
+
+    abstract fun stative(): StativeDao
 }
