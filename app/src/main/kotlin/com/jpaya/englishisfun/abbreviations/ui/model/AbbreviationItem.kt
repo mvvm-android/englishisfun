@@ -16,20 +16,15 @@
 
 package com.jpaya.englishisfun.abbreviations.ui.model
 
-import androidx.recyclerview.widget.DiffUtil
+import com.jpaya.base.adapter.GenericAdapterComparator
 
 data class AbbreviationItem(
     val id: Long,
     val abbr: String,
     val desc: String
-) {
+) : GenericAdapterComparator<AbbreviationItem> {
 
-    companion object {
-        object COMPARATOR : DiffUtil.ItemCallback<AbbreviationItem>() {
-            override fun areItemsTheSame(oldItem: AbbreviationItem, newItem: AbbreviationItem) =
-                oldItem.id == newItem.id
+    override fun isSameItemAs(item: AbbreviationItem) = id == item.id
 
-            override fun areContentsTheSame(oldItem: AbbreviationItem, newItem: AbbreviationItem) = oldItem == newItem
-        }
-    }
+    override fun hasSameContentsAs(item: AbbreviationItem) = this == item
 }
