@@ -14,13 +14,19 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.conditionals.ui.adapter
+package com.jpaya.englishisfun.conditionals.ui.model
 
-import androidx.recyclerview.widget.DiffUtil
-import com.jpaya.englishisfun.conditionals.ui.ConditionalsListPresenter.ConditionalsItem
+import com.jpaya.base.adapter.GenericAdapterComparator
 
-object ConditionalsItemComparator : DiffUtil.ItemCallback<ConditionalsItem>() {
-    override fun areItemsTheSame(oldItem: ConditionalsItem, newItem: ConditionalsItem) = oldItem.id == newItem.id
+data class ConditionalItem(
+    val id: Long,
+    val name: String,
+    val condition: String,
+    val result: String,
+    val uses: String,
+    val examples: String
+) : GenericAdapterComparator<ConditionalItem> {
+    override fun isSameItemAs(item: ConditionalItem) = id == item.id
 
-    override fun areContentsTheSame(oldItem: ConditionalsItem, newItem: ConditionalsItem) = oldItem == newItem
+    override fun hasSameContentsAs(item: ConditionalItem) = this == item
 }

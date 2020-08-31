@@ -19,7 +19,7 @@ package com.jpaya.englishisfun.conditionals.mapper
 import com.jpaya.englishisfun.conditionals.data.db.RoomConditionalsItem
 import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsContent
 import com.jpaya.englishisfun.conditionals.domain.Conditionals
-import com.jpaya.englishisfun.conditionals.ui.ConditionalsListPresenter.ConditionalsItem
+import com.jpaya.englishisfun.conditionals.ui.model.ConditionalItem
 
 fun Conditionals.toRoomItem() = RoomConditionalsItem(
     id = id,
@@ -48,7 +48,7 @@ fun ConditionalsContent.toDomain() = Conditionals(
     examples = examples
 )
 
-fun Conditionals.toPresentation() = ConditionalsItem(
+fun Conditionals.toPresentation() = ConditionalItem(
     id = id,
     name = name,
     condition = condition,
