@@ -16,7 +16,7 @@
 
 package com.jpaya.englishisfun.conditionals.data.network
 
-import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsNetworkItem
+import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalNetworkItem
 import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsResponse
 import com.jpaya.englishisfun.conditionals.domain.Conditional
 import com.jpaya.englishisfun.firestore.FireStoreClient
@@ -34,7 +34,7 @@ class NetworkDataSourceTest {
     companion object {
         private val MOCK_CONDITIONALS_DOCUMENT = ConditionalsResponse().apply {
             conditionals = mutableListOf(
-                ConditionalsNetworkItem().apply {
+                ConditionalNetworkItem().apply {
                     id = 1
                     name = "Name 1"
                     condition = "Condition 1"
@@ -42,7 +42,7 @@ class NetworkDataSourceTest {
                     uses = mutableListOf("Use 1")
                     examples = mutableListOf("Example 1")
                 },
-                ConditionalsNetworkItem().apply {
+                ConditionalNetworkItem().apply {
                     id = 2
                     name = "Name 2"
                     condition = "Condition 2"

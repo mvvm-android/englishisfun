@@ -17,7 +17,7 @@
 package com.jpaya.englishisfun.conditionals.mapper
 
 import com.jpaya.englishisfun.conditionals.data.db.ConditionalRoomItem
-import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsNetworkItem
+import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalNetworkItem
 import com.jpaya.englishisfun.conditionals.domain.Conditional
 import com.jpaya.englishisfun.conditionals.ui.model.ConditionalItem
 
@@ -39,7 +39,7 @@ fun ConditionalRoomItem.toDomain() = Conditional(
     examples = examples
 )
 
-fun ConditionalsNetworkItem.toDomain() = Conditional(
+fun ConditionalNetworkItem.toDomain() = Conditional(
     id = id,
     name = name,
     condition = condition,

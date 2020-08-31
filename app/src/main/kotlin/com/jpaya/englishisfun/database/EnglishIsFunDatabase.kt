@@ -27,7 +27,7 @@ import com.jpaya.englishisfun.conditionals.data.db.ConditionalsDao
 import com.jpaya.englishisfun.conditionals.data.db.ConditionalRoomItem
 import com.jpaya.englishisfun.database.converters.Converters
 import com.jpaya.englishisfun.idioms.data.db.IdiomsDao
-import com.jpaya.englishisfun.idioms.data.db.RoomIdiomsItem
+import com.jpaya.englishisfun.idioms.data.db.IdiomRoomItem
 import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
 import com.jpaya.englishisfun.irregulars.data.db.RoomIrregularsItem
 
@@ -35,7 +35,7 @@ import com.jpaya.englishisfun.irregulars.data.db.RoomIrregularsItem
     entities = [
         RoomIrregularsItem::class,
         AbbreviationRoomItem::class,
-        RoomIdiomsItem::class,
+        IdiomRoomItem::class,
         ConditionalRoomItem::class
     ],
     version = 1,
