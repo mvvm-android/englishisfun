@@ -18,6 +18,8 @@ package com.jpaya.englishisfun.idioms.data.db
 
 import com.jpaya.base.extensions.encloseToLikeQuery
 import com.jpaya.englishisfun.idioms.domain.Idioms
+import com.jpaya.englishisfun.idioms.mapper.toDomain
+import com.jpaya.englishisfun.idioms.mapper.toRoomItem
 import javax.inject.Inject
 import javax.inject.Singleton
 

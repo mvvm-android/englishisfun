@@ -18,6 +18,8 @@ package com.jpaya.englishisfun.conditionals.data.db
 
 import com.jpaya.base.extensions.encloseToLikeQuery
 import com.jpaya.englishisfun.conditionals.domain.Conditionals
+import com.jpaya.englishisfun.conditionals.mapper.toDomain
+import com.jpaya.englishisfun.conditionals.mapper.toRoomItem
 import javax.inject.Inject
 import javax.inject.Singleton
 

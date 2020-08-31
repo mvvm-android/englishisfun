@@ -16,7 +16,7 @@
 
 package com.jpaya.englishisfun.abbreviations.data.network
 
-import com.jpaya.englishisfun.abbreviations.data.db.toDomain
+import com.jpaya.englishisfun.abbreviations.mapper.toDomain
 import com.jpaya.englishisfun.abbreviations.domain.Abbreviations
 import com.jpaya.englishisfun.firestore.FireStoreClient
 import javax.inject.Inject

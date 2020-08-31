@@ -17,7 +17,7 @@
 package com.jpaya.englishisfun.irregulars.ui
 
 import co.zsmb.rainbowcake.withIOContext
-import com.jpaya.englishisfun.irregulars.data.db.toPresentation
+import com.jpaya.englishisfun.irregulars.mapper.toPresentation
 import com.jpaya.englishisfun.irregulars.domain.IrregularsInteractor
 import javax.inject.Inject
 

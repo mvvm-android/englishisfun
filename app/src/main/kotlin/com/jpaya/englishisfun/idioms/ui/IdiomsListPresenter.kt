@@ -17,7 +17,7 @@
 package com.jpaya.englishisfun.idioms.ui
 
 import co.zsmb.rainbowcake.withIOContext
-import com.jpaya.englishisfun.idioms.data.db.toPresentation
+import com.jpaya.englishisfun.idioms.mapper.toPresentation
 import com.jpaya.englishisfun.idioms.domain.IdiomsInteractor
 import javax.inject.Inject
 

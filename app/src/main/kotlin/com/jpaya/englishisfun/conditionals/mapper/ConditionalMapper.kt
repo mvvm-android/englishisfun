@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.conditionals.data.db
+package com.jpaya.englishisfun.conditionals.mapper
 
+import com.jpaya.englishisfun.conditionals.data.db.RoomConditionalsItem
 import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsContent
 import com.jpaya.englishisfun.conditionals.domain.Conditionals
 import com.jpaya.englishisfun.conditionals.ui.ConditionalsListPresenter.ConditionalsItem
