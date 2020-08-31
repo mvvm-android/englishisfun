@@ -16,12 +16,12 @@
 
 package com.jpaya.englishisfun.conditionals.mapper
 
-import com.jpaya.englishisfun.conditionals.data.db.RoomConditionalsItem
-import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsContent
-import com.jpaya.englishisfun.conditionals.domain.Conditionals
+import com.jpaya.englishisfun.conditionals.data.db.ConditionalRoomItem
+import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsNetworkItem
+import com.jpaya.englishisfun.conditionals.domain.Conditional
 import com.jpaya.englishisfun.conditionals.ui.model.ConditionalItem
 
-fun Conditionals.toRoomItem() = RoomConditionalsItem(
+fun Conditional.toRoomItem() = ConditionalRoomItem(
     id = id,
     name = name,
     condition = condition,
@@ -30,7 +30,7 @@ fun Conditionals.toRoomItem() = RoomConditionalsItem(
     examples = examples
 )
 
-fun RoomConditionalsItem.toDomain() = Conditionals(
+fun ConditionalRoomItem.toDomain() = Conditional(
     id = id,
     name = name,
     condition = condition,
@@ -39,7 +39,7 @@ fun RoomConditionalsItem.toDomain() = Conditionals(
     examples = examples
 )
 
-fun ConditionalsContent.toDomain() = Conditionals(
+fun ConditionalsNetworkItem.toDomain() = Conditional(
     id = id,
     name = name,
     condition = condition,
@@ -48,7 +48,7 @@ fun ConditionalsContent.toDomain() = Conditionals(
     examples = examples
 )
 
-fun Conditionals.toPresentation() = ConditionalItem(
+fun Conditional.toPresentation() = ConditionalItem(
     id = id,
     name = name,
     condition = condition,

@@ -24,7 +24,7 @@ import androidx.room.TypeConverters
 import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationsDao
 import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationRoomItem
 import com.jpaya.englishisfun.conditionals.data.db.ConditionalsDao
-import com.jpaya.englishisfun.conditionals.data.db.RoomConditionalsItem
+import com.jpaya.englishisfun.conditionals.data.db.ConditionalRoomItem
 import com.jpaya.englishisfun.database.converters.Converters
 import com.jpaya.englishisfun.idioms.data.db.IdiomsDao
 import com.jpaya.englishisfun.idioms.data.db.RoomIdiomsItem
@@ -36,7 +36,7 @@ import com.jpaya.englishisfun.irregulars.data.db.RoomIrregularsItem
         RoomIrregularsItem::class,
         AbbreviationRoomItem::class,
         RoomIdiomsItem::class,
-        RoomConditionalsItem::class
+        ConditionalRoomItem::class
     ],
     version = 1,
     exportSchema = true

@@ -16,7 +16,7 @@
 
 package com.jpaya.englishisfun.conditionals.ui
 
-import com.jpaya.englishisfun.conditionals.domain.Conditionals
+import com.jpaya.englishisfun.conditionals.domain.Conditional
 import com.jpaya.englishisfun.conditionals.domain.ConditionalsInteractor
 import com.jpaya.englishisfun.conditionals.ui.model.ConditionalItem
 import com.nhaarman.mockitokotlin2.doReturn
@@ -32,7 +32,7 @@ class ConditionalsListPresenterTest {
 
     companion object {
         private val MOCK_CONDITIONALS_LIST = listOf(
-            Conditionals(
+            Conditional(
                 id = 1,
                 name = "Name 1",
                 condition = "Condition 1",
@@ -40,7 +40,7 @@ class ConditionalsListPresenterTest {
                 uses = mutableListOf("Use 1"),
                 examples = mutableListOf("Example 1")
             ),
-            Conditionals(
+            Conditional(
                 id = 2,
                 name = "Name 2",
                 condition = "Condition 2",

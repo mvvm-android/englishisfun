@@ -20,5 +20,5 @@ package com.jpaya.englishisfun.conditionals.data.network.model
  * Class to map the conditionals' FireStore response.
  */
 class ConditionalsResponse {
-    var conditionals: MutableList<ConditionalsContent> = mutableListOf()
+    var conditionals: MutableList<ConditionalsNetworkItem> = mutableListOf()
 }

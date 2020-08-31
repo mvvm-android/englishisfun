@@ -19,7 +19,7 @@ package com.jpaya.englishisfun.conditionals.domain
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class ConditionalsTest {
+class ConditionalTest {
 
     @Test
     fun initShouldInitialiseProperly() {
@@ -29,7 +29,7 @@ class ConditionalsTest {
         val result = "Result"
         val uses = mutableListOf("Use 1")
         val examples = mutableListOf("Example 1")
-        val conditionals = Conditionals(
+        val conditionals = Conditional(
             id = id,
             name = name,
             condition = condition,

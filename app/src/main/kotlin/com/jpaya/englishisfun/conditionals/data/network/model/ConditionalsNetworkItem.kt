@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.conditionals.domain
+package com.jpaya.englishisfun.conditionals.data.network.model
 
 /**
- * Model class to represent a conditional.
+ * Class to map the conditionals' FireStore response.
  */
-data class Conditionals(
-    val id: Long,
-    val name: String,
-    val condition: String,
-    val result: String,
-    val uses: MutableList<String>,
-    val examples: MutableList<String>
-)
+class ConditionalsNetworkItem {
+    var id: Long = 0
+    var name: String = ""
+    var condition: String = ""
+    var result: String = ""
+    var uses: MutableList<String> = mutableListOf()
+    var examples: MutableList<String> = mutableListOf()
+}
