@@ -18,6 +18,8 @@ package com.jpaya.englishisfun.irregulars.data.db
 
 import com.jpaya.base.extensions.encloseToLikeQuery
 import com.jpaya.englishisfun.irregulars.domain.Irregulars
+import com.jpaya.englishisfun.irregulars.mapper.toDomain
+import com.jpaya.englishisfun.irregulars.mapper.toRoomItem
 import javax.inject.Inject
 import javax.inject.Singleton
 

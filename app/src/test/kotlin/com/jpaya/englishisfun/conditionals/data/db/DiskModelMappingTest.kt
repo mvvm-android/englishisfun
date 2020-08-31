@@ -17,6 +17,8 @@
 package com.jpaya.englishisfun.conditionals.data.db
 
 import com.jpaya.englishisfun.conditionals.domain.Conditionals
+import com.jpaya.englishisfun.conditionals.mapper.toDomain
+import com.jpaya.englishisfun.conditionals.mapper.toRoomItem
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

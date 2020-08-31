@@ -17,6 +17,8 @@
 package com.jpaya.englishisfun.abbreviations.data.db
 
 import com.jpaya.englishisfun.abbreviations.domain.Abbreviations
+import com.jpaya.englishisfun.abbreviations.mapper.toDomain
+import com.jpaya.englishisfun.abbreviations.mapper.toRoomItem
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

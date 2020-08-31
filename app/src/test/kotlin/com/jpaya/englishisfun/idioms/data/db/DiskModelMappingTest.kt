@@ -17,6 +17,8 @@
 package com.jpaya.englishisfun.idioms.data.db
 
 import com.jpaya.englishisfun.idioms.domain.Idioms
+import com.jpaya.englishisfun.idioms.mapper.toDomain
+import com.jpaya.englishisfun.idioms.mapper.toRoomItem
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

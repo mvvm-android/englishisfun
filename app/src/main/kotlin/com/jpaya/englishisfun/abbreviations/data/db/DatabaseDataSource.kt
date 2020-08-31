@@ -18,6 +18,8 @@ package com.jpaya.englishisfun.abbreviations.data.db
 
 import com.jpaya.base.extensions.encloseToLikeQuery
 import com.jpaya.englishisfun.abbreviations.domain.Abbreviations
+import com.jpaya.englishisfun.abbreviations.mapper.toDomain
+import com.jpaya.englishisfun.abbreviations.mapper.toRoomItem
 import javax.inject.Inject
 import javax.inject.Singleton
 

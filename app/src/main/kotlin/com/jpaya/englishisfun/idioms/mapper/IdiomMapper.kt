@@ -14,32 +14,33 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.abbreviations.data.db
+package com.jpaya.englishisfun.idioms.mapper
 
-import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationsContent
-import com.jpaya.englishisfun.abbreviations.domain.Abbreviations
-import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListPresenter.AbbreviationsItem
+import com.jpaya.englishisfun.idioms.data.db.RoomIdiomsItem
+import com.jpaya.englishisfun.idioms.data.network.model.IdiomsContent
+import com.jpaya.englishisfun.idioms.domain.Idioms
+import com.jpaya.englishisfun.idioms.ui.IdiomsListPresenter.IdiomsItem
 
-fun Abbreviations.toRoomItem() = RoomAbbreviationsItem(
+fun Idioms.toRoomItem() = RoomIdiomsItem(
     id = id,
-    abbr = abbr,
-    desc = desc
+    idiom = idiom,
+    description = description
 )
 
-fun RoomAbbreviationsItem.toDomain() = Abbreviations(
+fun RoomIdiomsItem.toDomain() = Idioms(
     id = id,
-    abbr = abbr,
-    desc = desc
+    idiom = idiom,
+    description = description
 )
 
-fun AbbreviationsContent.toDomain() = Abbreviations(
+fun IdiomsContent.toDomain() = Idioms(
     id = id,
-    abbr = abbr,
-    desc = desc
+    idiom = idiom,
+    description = description
 )
 
-fun Abbreviations.toPresentation() = AbbreviationsItem(
+fun Idioms.toPresentation() = IdiomsItem(
     id = id,
-    abbr = abbr,
-    desc = desc
+    idiom = idiom,
+    description = description
 )

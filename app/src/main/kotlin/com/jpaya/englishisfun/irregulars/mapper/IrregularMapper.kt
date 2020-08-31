@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.irregulars.data.db
+package com.jpaya.englishisfun.irregulars.mapper
 
+import com.jpaya.englishisfun.irregulars.data.db.RoomIrregularsItem
 import com.jpaya.englishisfun.irregulars.data.network.model.IrregularsContent
 import com.jpaya.englishisfun.irregulars.domain.Irregulars
 import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter.IrregularsItem

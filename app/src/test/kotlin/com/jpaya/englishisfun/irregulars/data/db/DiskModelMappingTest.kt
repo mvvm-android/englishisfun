@@ -17,6 +17,8 @@
 package com.jpaya.englishisfun.irregulars.data.db
 
 import com.jpaya.englishisfun.irregulars.domain.Irregulars
+import com.jpaya.englishisfun.irregulars.mapper.toDomain
+import com.jpaya.englishisfun.irregulars.mapper.toRoomItem
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

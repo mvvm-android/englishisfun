@@ -17,7 +17,7 @@
 package com.jpaya.englishisfun.conditionals.ui
 
 import co.zsmb.rainbowcake.withIOContext
-import com.jpaya.englishisfun.conditionals.data.db.toPresentation
+import com.jpaya.englishisfun.conditionals.mapper.toPresentation
 import com.jpaya.englishisfun.conditionals.domain.ConditionalsInteractor
 import javax.inject.Inject
 

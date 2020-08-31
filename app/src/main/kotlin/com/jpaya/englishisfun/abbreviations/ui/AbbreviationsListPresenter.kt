@@ -17,7 +17,7 @@
 package com.jpaya.englishisfun.abbreviations.ui
 
 import co.zsmb.rainbowcake.withIOContext
-import com.jpaya.englishisfun.abbreviations.data.db.toPresentation
+import com.jpaya.englishisfun.abbreviations.mapper.toPresentation
 import com.jpaya.englishisfun.abbreviations.domain.AbbreviationsInteractor
 import javax.inject.Inject
 
