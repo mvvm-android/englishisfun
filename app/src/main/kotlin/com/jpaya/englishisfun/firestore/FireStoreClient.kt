@@ -49,6 +49,9 @@ class FireStoreClient @Inject constructor(
 
         private const val CONDITIONAL_COLLECTION = "conditional"
         private const val CONDITIONAL_DOCUMENT = "list"
+        
+        private const val STATIVE_COLLECTION = "stative"
+        private const val STATIVE_DOCUMENT = "list"
 
         private const val SUGGESTION_COLLECTION = "suggestion"
     }
@@ -89,7 +92,7 @@ class FireStoreClient @Inject constructor(
      * Function to obtain all stative verbs.
      */
     suspend fun statives() = execute(
-        fireStore.collection(properties.getIrregularCollectionName()).document(properties.getIrregularDocumentName()),
+        fireStore.collection(STATIVE_COLLECTION).document(STATIVE_DOCUMENT),
         StativeResponse::class.java
     )
 
