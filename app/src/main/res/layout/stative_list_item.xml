@@ -7,7 +7,7 @@
 
         <variable
             name="stative"
-            type="com.jpaya.englishisfun.stative.ui.StativePresenter.StativeItem" />
+            type="com.jpaya.englishisfun.statives.ui.model.StativeItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

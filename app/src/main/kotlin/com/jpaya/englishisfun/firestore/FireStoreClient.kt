@@ -24,7 +24,7 @@ import com.jpaya.englishisfun.idioms.data.network.model.IdiomsResponse
 import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsResponse
 import com.jpaya.englishisfun.irregulars.data.network.model.IrregularsResponse
 import com.jpaya.englishisfun.phrasals.data.network.model.PhrasalsResponse
-import com.jpaya.englishisfun.stative.data.network.model.StativeResponse
+import com.jpaya.englishisfun.statives.data.network.model.StativesResponse
 import com.jpaya.englishisfun.suggestions.data.network.model.SuggestionsContent
 import kotlinx.coroutines.tasks.await
 import timber.log.Timber
@@ -94,7 +94,7 @@ class FireStoreClient @Inject constructor(
      */
     suspend fun statives() = execute(
         fireStore.collection(STATIVE_COLLECTION).document(STATIVE_DOCUMENT),
-        StativeResponse::class.java
+        StativesResponse::class.java
     )
 
     /**

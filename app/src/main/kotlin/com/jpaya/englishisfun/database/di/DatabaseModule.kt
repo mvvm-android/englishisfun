@@ -23,7 +23,7 @@ import com.jpaya.englishisfun.database.EnglishIsFunDatabase
 import com.jpaya.englishisfun.idioms.data.db.IdiomsDao
 import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
 import com.jpaya.englishisfun.phrasals.data.db.PhrasalsDao
-import com.jpaya.englishisfun.stative.data.db.StativeDao
+import com.jpaya.englishisfun.statives.data.db.StativeDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
