@@ -21,22 +21,25 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationsDao
 import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationRoomItem
-import com.jpaya.englishisfun.conditionals.data.db.ConditionalsDao
+import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationsDao
 import com.jpaya.englishisfun.conditionals.data.db.ConditionalRoomItem
+import com.jpaya.englishisfun.conditionals.data.db.ConditionalsDao
 import com.jpaya.englishisfun.database.converters.Converters
-import com.jpaya.englishisfun.idioms.data.db.IdiomsDao
 import com.jpaya.englishisfun.idioms.data.db.IdiomRoomItem
-import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
+import com.jpaya.englishisfun.idioms.data.db.IdiomsDao
 import com.jpaya.englishisfun.irregulars.data.db.IrregularRoomItem
+import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
+import com.jpaya.englishisfun.stative.data.db.StativeRoomItem
+import com.jpaya.englishisfun.stative.data.db.StativeDao
 
 @Database(
     entities = [
         IrregularRoomItem::class,
         AbbreviationRoomItem::class,
         IdiomRoomItem::class,
-        ConditionalRoomItem::class
+        ConditionalRoomItem::class,
+        StativeRoomItem::class
     ],
     version = 1,
     exportSchema = true
@@ -58,4 +61,6 @@ abstract class EnglishIsFunDatabase : RoomDatabase() {
     abstract fun idioms(): IdiomsDao
 
     abstract fun conditionals(): ConditionalsDao
+
+    abstract fun stative(): StativeDao
 }

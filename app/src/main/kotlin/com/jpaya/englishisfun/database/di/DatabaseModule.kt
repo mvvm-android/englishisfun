@@ -22,6 +22,7 @@ import com.jpaya.englishisfun.conditionals.data.db.ConditionalsDao
 import com.jpaya.englishisfun.database.EnglishIsFunDatabase
 import com.jpaya.englishisfun.idioms.data.db.IdiomsDao
 import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
+import com.jpaya.englishisfun.stative.data.db.StativeDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -80,4 +81,13 @@ class DatabaseModule {
      */
     @Provides
     fun providesConditionalsDao(database: EnglishIsFunDatabase): ConditionalsDao = database.conditionals()
+
+    /**
+     * Create a provider method binding for [StativeDao].
+     *
+     * @param database Database instance.
+     * @return Instance of stative dao.
+     */
+    @Provides
+    fun providesStativeDao(database: EnglishIsFunDatabase): StativeDao = database.stative()
 }

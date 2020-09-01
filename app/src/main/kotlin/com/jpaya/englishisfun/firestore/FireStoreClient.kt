@@ -23,6 +23,7 @@ import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationsResp
 import com.jpaya.englishisfun.idioms.data.network.model.IdiomsResponse
 import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsResponse
 import com.jpaya.englishisfun.irregulars.data.network.model.IrregularsResponse
+import com.jpaya.englishisfun.stative.data.network.model.StativeResponse
 import com.jpaya.englishisfun.suggestions.data.network.model.SuggestionsContent
 import kotlinx.coroutines.tasks.await
 import timber.log.Timber
@@ -48,6 +49,9 @@ class FireStoreClient @Inject constructor(
 
         private const val CONDITIONAL_COLLECTION = "conditional"
         private const val CONDITIONAL_DOCUMENT = "list"
+
+        private const val STATIVE_COLLECTION = "stative"
+        private const val STATIVE_DOCUMENT = "list"
 
         private const val SUGGESTION_COLLECTION = "suggestion"
     }
@@ -82,6 +86,14 @@ class FireStoreClient @Inject constructor(
     suspend fun conditionals() = execute(
         fireStore.collection(CONDITIONAL_COLLECTION).document(CONDITIONAL_DOCUMENT),
         ConditionalsResponse::class.java
+    )
+
+    /**
+     * Function to obtain all stative verbs.
+     */
+    suspend fun statives() = execute(
+        fireStore.collection(STATIVE_COLLECTION).document(STATIVE_DOCUMENT),
+        StativeResponse::class.java
     )
 
     /**

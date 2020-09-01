@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/listFragmentRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".stative.ui.StativeFragment">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shimmer_duration="1000">
+
+        <!-- Adding 10 rows of placeholders -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/stative_list_item_shimmer" />
+
+            <include layout="@layout/stative_list_item_shimmer" />
+
+            <include layout="@layout/stative_list_item_shimmer" />
+
+            <include layout="@layout/stative_list_item_shimmer" />
+
+            <include layout="@layout/stative_list_item_shimmer" />
+
+            <include layout="@layout/stative_list_item_shimmer" />
+
+            <include layout="@layout/stative_list_item_shimmer" />
+
+            <include layout="@layout/stative_list_item_shimmer" />
+
+            <include layout="@layout/stative_list_item_shimmer" />
+
+            <include layout="@layout/stative_list_item_shimmer" />
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
+        android:id="@+id/list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:fastScrollAutoHide="true"
+        app:fastScrollAutoHideDelay="1500"
+        app:fastScrollEnableThumbInactiveColor="true"
+        app:fastScrollPopupBackgroundSize="62dp"
+        app:fastScrollPopupBgColor="@color/accent"
+        app:fastScrollPopupPosition="adjacent"
+        app:fastScrollPopupTextColor="@android:color/primary_text_light"
+        app:fastScrollPopupTextSize="32dp"
+        app:fastScrollPopupTextVerticalAlignmentMode="font_metrics"
+        app:fastScrollThumbColor="@color/accent"
+        app:fastScrollThumbEnabled="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/stative_list_item" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/errorGroup"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="errorText,retryButton,viewSavedButton" />
+
+    <TextView
+        android:id="@+id/errorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/irregulars_list_error_text"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/retryButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/retryButton"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/retry"
+        app:layout_constraintBottom_toTopOf="@+id/viewSavedButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/errorText" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/viewSavedButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="@string/irregulars_list_view_saved"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/retryButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
