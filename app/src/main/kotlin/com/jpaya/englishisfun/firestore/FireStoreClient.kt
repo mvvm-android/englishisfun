@@ -33,50 +33,58 @@ import javax.inject.Inject
  */
 class FireStoreClient @Inject constructor(
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    val fireStore: FirebaseFirestore,
-    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    val properties: FireStoreProperties
+    val fireStore: FirebaseFirestore
 ) {
+
+    companion object {
+        private const val ABBREVIATION_COLLECTION = "abbreviation"
+        private const val ABBREVIATION_DOCUMENT = "list"
+
+        private const val IDIOM_COLLECTION = "idiom"
+        private const val IDIOM_DOCUMENT = "list"
+
+        private const val IRREGULAR_COLLECTION = "irregular"
+        private const val IRREGULAR_DOCUMENT = "list"
+
+        private const val CONDITIONAL_COLLECTION = "conditional"
+        private const val CONDITIONAL_DOCUMENT = "list"
+
+        private const val SUGGESTION_COLLECTION = "suggestion"
+    }
 
     /**
      * Function to obtain all abbreviations.
      */
     suspend fun abbreviations() = execute(
-        fireStore.collection(properties.getAbbreviationCollectionName())
-            .document(properties.getAbbreviationDocumentName()),
-        AbbreviationsResponse::class.java
+        fireStore.collection(ABBREVIATION_COLLECTION).document(ABBREVIATION_DOCUMENT), AbbreviationsResponse::class.java
     )
 
     /**
      * Function to obtain all idioms.
      */
     suspend fun idioms() = execute(
-        fireStore.collection(properties.getIdiomCollectionName()).document(properties.getIdiomDocumentName()),
-        IdiomsResponse::class.java
+        fireStore.collection(IDIOM_COLLECTION).document(IDIOM_DOCUMENT), IdiomsResponse::class.java
     )
 
     /**
      * Function to obtain all irregulars.
      */
     suspend fun irregulars() = execute(
-        fireStore.collection(properties.getIrregularCollectionName()).document(properties.getIrregularDocumentName()),
-        IrregularsResponse::class.java
+        fireStore.collection(IRREGULAR_COLLECTION).document(IRREGULAR_DOCUMENT), IrregularsResponse::class.java
     )
 
     /**
      * Function to obtain all conditionals.
      */
     suspend fun conditionals() = execute(
-        fireStore.collection(properties.getConditionalCollectionName())
-            .document(properties.getConditionalDocumentName()),
-        ConditionalsResponse::class.java
+        fireStore.collection(CONDITIONAL_COLLECTION).document(CONDITIONAL_DOCUMENT), ConditionalsResponse::class.java
     )
 
     /**
      * Function to save a suggestion.
      */
     suspend fun sendSuggestion(data: SuggestionsContent) {
-        fireStore.collection(properties.getSuggestionsCollectionName())
+        fireStore.collection(SUGGESTION_COLLECTION)
             .add(data)
             .addOnSuccessListener {
                 Timber.d("DocumentSnapshot written with ID: ${it.id}")
