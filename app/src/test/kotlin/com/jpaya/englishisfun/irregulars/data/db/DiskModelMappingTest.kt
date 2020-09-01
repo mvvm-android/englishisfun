@@ -16,7 +16,9 @@
 
 package com.jpaya.englishisfun.irregulars.data.db
 
-import com.jpaya.englishisfun.irregulars.domain.Irregulars
+import com.jpaya.englishisfun.irregulars.domain.Irregular
+import com.jpaya.englishisfun.irregulars.mapper.toDomain
+import com.jpaya.englishisfun.irregulars.mapper.toRoomItem
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -24,7 +26,7 @@ class DiskModelMappingTest {
 
     @Test
     fun `Check domain to room works properly`() {
-        val domain = Irregulars(
+        val domain = Irregular(
             id = 1,
             base = "Base",
             simple = "Simple",
@@ -32,7 +34,7 @@ class DiskModelMappingTest {
             definitions = "Definitions"
         )
 
-        val expectedResult = RoomIrregularsItem(
+        val expectedResult = IrregularRoomItem(
             id = 1,
             base = "Base",
             simple = "Simple",
@@ -45,7 +47,7 @@ class DiskModelMappingTest {
 
     @Test
     fun `Check room to domain works properly`() {
-        val room = RoomIrregularsItem(
+        val room = IrregularRoomItem(
             id = 1,
             base = "Base",
             simple = "Simple",
@@ -53,7 +55,7 @@ class DiskModelMappingTest {
             definitions = "Definitions"
         )
 
-        val expectedResult = Irregulars(
+        val expectedResult = Irregular(
             id = 1,
             base = "Base",
             simple = "Simple",

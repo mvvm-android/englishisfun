@@ -17,7 +17,7 @@
 package com.jpaya.englishisfun.abbreviations.data.db
 
 import androidx.room.Room
-import com.jpaya.englishisfun.abbreviations.domain.Abbreviations
+import com.jpaya.englishisfun.abbreviations.domain.Abbreviation
 import com.jpaya.englishisfun.database.EnglishIsFunDatabase
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import kotlinx.coroutines.runBlocking
@@ -29,19 +29,19 @@ class DatabaseDataSourceTest : TestRobolectric() {
 
     private lateinit var dataSource: DatabaseDataSource
 
-    private val item1 = Abbreviations(
+    private val item1 = Abbreviation(
         id = 1,
         abbr = "Abbreviation 1",
         desc = "Description 1"
     )
 
-    private val item2 = Abbreviations(
+    private val item2 = Abbreviation(
         id = 2,
         abbr = "Abbreviation 2",
         desc = "Description 2"
     )
 
-    private val item3 = Abbreviations(
+    private val item3 = Abbreviation(
         id = 3,
         abbr = "Abbreviation 3",
         desc = "Description 3"

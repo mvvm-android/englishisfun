@@ -7,7 +7,4 @@
     <string name="home_tab_conditionals">Conditionals</string>
     <string name="home_tab_suggestions">Suggestions</string>
     <string name="home_tab_about">About</string>
-
-    <!--Home toolbar items-->
-    <string name="home_toolbar_theme">Toggle Theme</string>
 </resources>

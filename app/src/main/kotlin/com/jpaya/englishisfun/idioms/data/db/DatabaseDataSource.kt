@@ -18,6 +18,8 @@ package com.jpaya.englishisfun.idioms.data.db
 
 import com.jpaya.base.extensions.encloseToLikeQuery
 import com.jpaya.englishisfun.idioms.domain.Idioms
+import com.jpaya.englishisfun.idioms.mapper.toDomain
+import com.jpaya.englishisfun.idioms.mapper.toRoomItem
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -33,7 +35,7 @@ class DatabaseDataSource @Inject constructor(
     suspend fun save(item: Idioms) = dao.save(item.toRoomItem())
 
     suspend fun save(items: List<Idioms>) {
-        val objects = mutableListOf<RoomIdiomsItem>()
+        val objects = mutableListOf<IdiomRoomItem>()
         items.forEach {
             objects.add(it.toRoomItem())
         }

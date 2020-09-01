@@ -22,8 +22,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.MainScope
 
 /**
  * Class that provides the application-level dependencies to the hilt dependency graph [ApplicationComponent].
@@ -41,12 +39,4 @@ class AppModule {
      */
     @Provides
     fun provideContext(application: EnglishIsFunApp): Context = application.applicationContext
-
-    /**
-     * Create a provider method binding for [CoroutineScope].
-     *
-     * @return Instance of coroutine scope.
-     */
-    @Provides
-    fun providesCoroutinesScope(): CoroutineScope = MainScope()
 }

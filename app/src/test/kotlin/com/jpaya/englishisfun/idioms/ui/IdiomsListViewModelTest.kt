@@ -19,6 +19,7 @@ package com.jpaya.englishisfun.idioms.ui
 import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import co.zsmb.rainbowcake.test.observeStateAndEvents
+import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -33,12 +34,12 @@ class IdiomsListViewModelTest : ViewModelTest() {
 
     companion object {
         private val MOCK_ITEMS = listOf(
-            IdiomsListPresenter.IdiomsItem(
+            IdiomItem(
                 id = 1,
                 idiom = "Idiom 1",
                 description = "Description 1"
             ),
-            IdiomsListPresenter.IdiomsItem(
+            IdiomItem(
                 id = 2,
                 idiom = "Idiom 2",
                 description = "Description 2"
@@ -46,7 +47,7 @@ class IdiomsListViewModelTest : ViewModelTest() {
         )
 
         private val MOCK_ITEMS_FILTERED = listOf(
-            IdiomsListPresenter.IdiomsItem(
+            IdiomItem(
                 id = 1,
                 idiom = "Idiom 1",
                 description = "Description 1"

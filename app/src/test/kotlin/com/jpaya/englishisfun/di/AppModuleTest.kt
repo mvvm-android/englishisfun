@@ -42,7 +42,4 @@ class AppModuleTest {
         assertNotNull(appModule.provideContext(application))
         assertEquals(application, appModule.provideContext(application))
     }
-
-    @Test
-    fun verifyProvidedCoroutinesScope() = assertNotNull(appModule.providesCoroutinesScope())
 }

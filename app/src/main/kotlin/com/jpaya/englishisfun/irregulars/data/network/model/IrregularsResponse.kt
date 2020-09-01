@@ -20,5 +20,5 @@ package com.jpaya.englishisfun.irregulars.data.network.model
  * Class to map the irregulars' FireStore response.
  */
 class IrregularsResponse {
-    var irregulars: List<IrregularsContent> = listOf()
+    var irregulars: List<IrregularNetworkItem> = listOf()
 }

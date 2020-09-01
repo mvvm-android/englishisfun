@@ -17,28 +17,20 @@
 package com.jpaya.englishisfun.conditionals.ui
 
 import co.zsmb.rainbowcake.withIOContext
-import com.jpaya.englishisfun.conditionals.data.db.toPresentation
+import com.jpaya.englishisfun.conditionals.mapper.toPresentation
 import com.jpaya.englishisfun.conditionals.domain.ConditionalsInteractor
+import com.jpaya.englishisfun.conditionals.ui.model.ConditionalItem
 import javax.inject.Inject
 
 class ConditionalsListPresenter @Inject constructor(
     private val interactor: ConditionalsInteractor
 ) {
 
-    suspend fun getConditionalsItems(): List<ConditionalsItem> = withIOContext {
+    suspend fun getConditionalsItems(): List<ConditionalItem> = withIOContext {
         interactor.getConditionalsItems().map { it.toPresentation() }
     }
 
-    suspend fun searchConditionals(filter: String): List<ConditionalsItem> = withIOContext {
+    suspend fun searchConditionals(filter: String): List<ConditionalItem> = withIOContext {
         interactor.searchConditionals(filter).map { it.toPresentation() }
     }
-
-    data class ConditionalsItem(
-        val id: Long,
-        val name: String,
-        val condition: String,
-        val result: String,
-        val uses: String,
-        val examples: String
-    )
 }

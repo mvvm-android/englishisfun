@@ -25,11 +25,11 @@ class ConditionalsInteractor @Inject constructor(
     private val database: DatabaseDataSource
 ) {
 
-    suspend fun getConditionalsItems(): List<Conditionals> {
+    suspend fun getConditionalsItems(): List<Conditional> {
         val result = network.getConditionalsItems()
         database.save(result)
         return result
     }
 
-    suspend fun searchConditionals(filter: String): List<Conditionals> = database.search(filter)
+    suspend fun searchConditionals(filter: String): List<Conditional> = database.search(filter)
 }
