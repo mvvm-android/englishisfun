@@ -78,7 +78,7 @@ class StativeMapperTest {
 
     @Test
     fun `Check domain to presentation works properly`() {
-        val network = Stative(
+        val domain = Stative(
             id = 1,
             category = "Category 1",
             verbs = mutableListOf("Verb 1")
@@ -90,6 +90,6 @@ class StativeMapperTest {
             verbs = mutableListOf("Verb 1")
         )
 
-        assertEquals(expectedResult, network.toPresentation())
+        assertEquals(expectedResult, domain.toPresentation())
     }
 }
