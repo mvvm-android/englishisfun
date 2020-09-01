@@ -56,28 +56,32 @@ class FireStoreClient @Inject constructor(
      * Function to obtain all abbreviations.
      */
     suspend fun abbreviations() = execute(
-        fireStore.collection(ABBREVIATION_COLLECTION).document(ABBREVIATION_DOCUMENT), AbbreviationsResponse::class.java
+        fireStore.collection(ABBREVIATION_COLLECTION).document(ABBREVIATION_DOCUMENT),
+        AbbreviationsResponse::class.java
     )
 
     /**
      * Function to obtain all idioms.
      */
     suspend fun idioms() = execute(
-        fireStore.collection(IDIOM_COLLECTION).document(IDIOM_DOCUMENT), IdiomsResponse::class.java
+        fireStore.collection(IDIOM_COLLECTION).document(IDIOM_DOCUMENT),
+        IdiomsResponse::class.java
     )
 
     /**
      * Function to obtain all irregulars.
      */
     suspend fun irregulars() = execute(
-        fireStore.collection(IRREGULAR_COLLECTION).document(IRREGULAR_DOCUMENT), IrregularsResponse::class.java
+        fireStore.collection(IRREGULAR_COLLECTION).document(IRREGULAR_DOCUMENT),
+        IrregularsResponse::class.java
     )
 
     /**
      * Function to obtain all conditionals.
      */
     suspend fun conditionals() = execute(
-        fireStore.collection(CONDITIONAL_COLLECTION).document(CONDITIONAL_DOCUMENT), ConditionalsResponse::class.java
+        fireStore.collection(CONDITIONAL_COLLECTION).document(CONDITIONAL_DOCUMENT),
+        ConditionalsResponse::class.java
     )
 
     /**
