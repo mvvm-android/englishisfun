@@ -17,12 +17,9 @@
 package com.jpaya.englishisfun.data.preferences
 
 import android.content.Context
-import androidx.security.crypto.EncryptedSharedPreferences
-import androidx.security.crypto.EncryptedSharedPreferences.PrefKeyEncryptionScheme
-import androidx.security.crypto.EncryptedSharedPreferences.PrefValueEncryptionScheme
-import androidx.security.crypto.MasterKeys
+import android.content.Context.MODE_PRIVATE
 
-object EncryptedPreferences {
+object Preferences {
 
     const val FILE_NAME = "secret_preferences"
 
@@ -39,11 +36,5 @@ object EncryptedPreferences {
         getPreferences(applicationContext).getString(APPEARANCE_PREF_KEY, DEFAULT_APPERANCE)!!
 
     private fun getPreferences(applicationContext: Context) =
-        EncryptedSharedPreferences.create(
-            FILE_NAME,
-            MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC),
-            applicationContext,
-            PrefKeyEncryptionScheme.AES256_SIV,
-            PrefValueEncryptionScheme.AES256_GCM
-        )
+        applicationContext.getSharedPreferences(FILE_NAME, MODE_PRIVATE)
 }
