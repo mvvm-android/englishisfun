@@ -14,15 +14,16 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.irregulars.data.db
+package com.jpaya.englishisfun.irregulars.mapper
 
+import com.jpaya.englishisfun.irregulars.data.db.IrregularRoomItem
+import com.jpaya.englishisfun.irregulars.data.network.model.IrregularNetworkItem
 import com.jpaya.englishisfun.irregulars.domain.Irregular
-import com.jpaya.englishisfun.irregulars.mapper.toDomain
-import com.jpaya.englishisfun.irregulars.mapper.toRoomItem
+import com.jpaya.englishisfun.irregulars.ui.model.IrregularItem
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class DiskModelMappingTest {
+class IrregularMapperTest {
 
     @Test
     fun `Check domain to room works properly`() {
@@ -64,5 +65,47 @@ class DiskModelMappingTest {
         )
 
         assertEquals(expectedResult, room.toDomain())
+    }
+
+    @Test
+    fun `Check network to domain works properly`() {
+        val network = IrregularNetworkItem().apply {
+            id = 1
+            base = "Base"
+            simple = "Simple"
+            participle = "Participle"
+            definitions = "Definitions"
+        }
+
+        val expectedResult = Irregular(
+            id = 1,
+            base = "Base",
+            simple = "Simple",
+            participle = "Participle",
+            definitions = "Definitions"
+        )
+
+        assertEquals(expectedResult, network.toDomain())
+    }
+
+    @Test
+    fun `Check domain to presentation works properly`() {
+        val domain = Irregular(
+            id = 1,
+            base = "Base",
+            simple = "Simple",
+            participle = "Participle",
+            definitions = "Definitions"
+        )
+
+        val expectedResult = IrregularItem(
+            id = 1,
+            base = "Base",
+            simple = "Simple",
+            participle = "Participle",
+            definitions = "Definitions"
+        )
+
+        assertEquals(expectedResult, domain.toPresentation())
     }
 }
