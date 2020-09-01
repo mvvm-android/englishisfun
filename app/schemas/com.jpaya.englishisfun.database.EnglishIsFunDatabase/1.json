@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "1fbc22812719a97830c20ac94acd76b3",
+    "identityHash": "84a17ed6d12f5f7194ce0be63369cd89",
     "entities": [
       {
         "tableName": "irregulars",
@@ -164,6 +164,38 @@
       },
       {
         "tableName": "statives",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `category` TEXT NOT NULL, `verbs` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "verbs",
+            "columnName": "verbs",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "phrasals",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `base` TEXT NOT NULL, `simple` TEXT NOT NULL, `participle` TEXT NOT NULL, `definitions` TEXT NOT NULL)",
         "fields": [
           {
@@ -210,7 +242,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1fbc22812719a97830c20ac94acd76b3')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '84a17ed6d12f5f7194ce0be63369cd89')"
     ]
   }
 }

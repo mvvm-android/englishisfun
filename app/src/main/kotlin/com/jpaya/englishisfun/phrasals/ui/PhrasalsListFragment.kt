@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.idioms.ui
+package com.jpaya.englishisfun.phrasals.ui
 
 import android.os.Bundle
 import android.view.Menu
@@ -31,18 +31,18 @@ import com.jpaya.englishisfun.R
 import com.jpaya.englishisfun.extensions.DebouncingQueryTextListener
 import com.jpaya.englishisfun.extensions.hide
 import com.jpaya.englishisfun.extensions.show
-import com.jpaya.englishisfun.idioms.ui.adapter.IdiomsAdapter
+import com.jpaya.englishisfun.phrasals.ui.adapter.PhrasalsAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.idioms_fragment_list.*
+import kotlinx.android.synthetic.main.phrasals_fragment_list.*
 
 @AndroidEntryPoint
-class IdiomsListFragment : RainbowCakeFragment<ListViewState, IdiomsListViewModel>(), IdiomsAdapter.Listener {
+class PhrasalsListFragment : RainbowCakeFragment<ListViewState, PhrasalsListViewModel>() {
 
-    private val customViewModel: IdiomsListViewModel by viewModels()
-    private lateinit var idiomsAdapter: IdiomsAdapter
+    private val customViewModel: PhrasalsListViewModel by viewModels()
+    private lateinit var adapter: PhrasalsAdapter
 
     override fun provideViewModel() = customViewModel
-    override fun getViewResource() = R.layout.idioms_fragment_list
+    override fun getViewResource() = R.layout.phrasals_fragment_list
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,12 +52,15 @@ class IdiomsListFragment : RainbowCakeFragment<ListViewState, IdiomsListViewMode
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        idiomsAdapter = IdiomsAdapter(this)
-        idiomsList.adapter = idiomsAdapter
-        idiomsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        adapter = PhrasalsAdapter()
+        phrasalsList.adapter = adapter
+        phrasalsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
         retryButton.setOnClickListener {
             viewModel.reload()
+        }
+        viewSavedButton.setOnClickListener {
+//            navigator?.add(SavedFragment())
         }
     }
 
@@ -69,7 +72,7 @@ class IdiomsListFragment : RainbowCakeFragment<ListViewState, IdiomsListViewMode
             queryHint = getString(R.string.search)
             setIconifiedByDefault(false)
             setOnQueryTextListener(
-                DebouncingQueryTextListener(this@IdiomsListFragment) {
+                DebouncingQueryTextListener(this@PhrasalsListFragment) {
                     if (it == null || it.isEmpty()) {
                         viewModel.resetSearch()
                     } else {
@@ -86,25 +89,21 @@ class IdiomsListFragment : RainbowCakeFragment<ListViewState, IdiomsListViewMode
         when (viewState) {
             Loading -> {
                 shimmerLayout.show()
-                idiomsList.isVisible = false
+                phrasalsList.isVisible = false
                 errorGroup.isVisible = false
             }
             is ListReady -> {
-                idiomsAdapter.submitList(viewState.idioms)
+                adapter.submitList(viewState.phrasals)
                 shimmerLayout.hide()
-                idiomsList.isVisible = true
+                phrasalsList.isVisible = true
                 errorGroup.isVisible = false
             }
             NetworkError -> {
-                idiomsAdapter.submitList(null)
+                adapter.submitList(null)
                 shimmerLayout.hide()
-                idiomsList.isVisible = false
+                phrasalsList.isVisible = false
                 errorGroup.isVisible = true
             }
         }.exhaustive
-    }
-
-    override fun onItemSelected(id: Long) {
-//        navigator?.add(DetailFragment.newInstance(id))
     }
 }

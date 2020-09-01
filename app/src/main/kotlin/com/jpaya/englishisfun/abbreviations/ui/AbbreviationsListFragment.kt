@@ -64,7 +64,7 @@ class AbbreviationsListFragment :
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.irregulars_list, menu)
+        inflater.inflate(R.menu.search, menu)
 
         (menu.findItem(R.id.action_search).actionView as SearchView).apply {
             queryHint = getString(R.string.search)
