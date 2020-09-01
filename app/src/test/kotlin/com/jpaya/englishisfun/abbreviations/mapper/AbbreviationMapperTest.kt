@@ -14,15 +14,16 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.abbreviations.data.db
+package com.jpaya.englishisfun.abbreviations.mapper
 
+import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationRoomItem
+import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationNetworkItem
 import com.jpaya.englishisfun.abbreviations.domain.Abbreviation
-import com.jpaya.englishisfun.abbreviations.mapper.toDomain
-import com.jpaya.englishisfun.abbreviations.mapper.toRoomItem
+import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class DiskModelMappingTest {
+class AbbreviationMapperTest {
 
     @Test
     fun `Check domain to room works properly`() {
@@ -56,5 +57,39 @@ class DiskModelMappingTest {
         )
 
         assertEquals(expectedResult, room.toDomain())
+    }
+
+    @Test
+    fun `Check network to domain works properly`() {
+        val network = AbbreviationNetworkItem().apply {
+            id = 1
+            abbr = "Abbreviation"
+            desc = "Description"
+        }
+
+        val expectedResult = Abbreviation(
+            id = 1,
+            abbr = "Abbreviation",
+            desc = "Description"
+        )
+
+        assertEquals(expectedResult, network.toDomain())
+    }
+
+    @Test
+    fun `Check domain to presentation works properly`() {
+        val domain = Abbreviation(
+            id = 1,
+            abbr = "Abbreviation",
+            desc = "Description"
+        )
+
+        val expectedResult = AbbreviationItem(
+            id = 1,
+            abbr = "Abbreviation",
+            desc = "Description"
+        )
+
+        assertEquals(expectedResult, domain.toPresentation())
     }
 }
