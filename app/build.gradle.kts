@@ -180,6 +180,7 @@ dependencies {
             Libraries.RECYCLER_VIEW_SCROLL,
             Libraries.ROOM,
             Libraries.ROOM_KTX,
+            Libraries.SECURITY,
             Libraries.SHIMMER,
             Libraries.TIMBER
         )

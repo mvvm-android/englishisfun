@@ -18,6 +18,7 @@ package com.jpaya.englishisfun
 
 import android.app.Application
 import com.jpaya.base.utils.ThemeUtils
+import com.jpaya.englishisfun.data.preferences.EncryptedPreferences
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import javax.inject.Inject
@@ -27,10 +28,6 @@ import javax.inject.Inject
  */
 @HiltAndroidApp
 class EnglishIsFunApp : Application() {
-
-    companion object {
-        private const val DEFAULT_APPEARANCE = "auto"
-    }
 
     @Inject
     lateinit var themeUtils: ThemeUtils
@@ -58,6 +55,6 @@ class EnglishIsFunApp : Application() {
      * Initialize random nightMode to make developer aware of day/night themes.
      */
     private fun initRandomNightMode() {
-        themeUtils.setAppearance(DEFAULT_APPEARANCE)
+        themeUtils.setAppearance(EncryptedPreferences.getAppearance(applicationContext))
     }
 }
