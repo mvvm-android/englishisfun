@@ -17,8 +17,8 @@
 package com.jpaya.englishisfun.irregulars.data.network
 
 import com.jpaya.englishisfun.firestore.FireStoreClient
-import com.jpaya.englishisfun.irregulars.data.db.toDomain
-import com.jpaya.englishisfun.irregulars.domain.Irregulars
+import com.jpaya.englishisfun.irregulars.mapper.toDomain
+import com.jpaya.englishisfun.irregulars.domain.Irregular
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -27,6 +27,6 @@ class NetworkDataSource @Inject constructor(
     private val fireStoreClient: FireStoreClient
 ) {
 
-    suspend fun getIrregularsItems(): List<Irregulars> =
+    suspend fun getIrregularsItems(): List<Irregular> =
         fireStoreClient.irregulars()?.irregulars?.map { it.toDomain() } ?: listOf()
 }

@@ -17,6 +17,8 @@
 package com.jpaya.englishisfun.idioms.data.db
 
 import com.jpaya.englishisfun.idioms.domain.Idioms
+import com.jpaya.englishisfun.idioms.mapper.toDomain
+import com.jpaya.englishisfun.idioms.mapper.toRoomItem
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -30,7 +32,7 @@ class DiskModelMappingTest {
             description = "Description"
         )
 
-        val expectedResult = RoomIdiomsItem(
+        val expectedResult = IdiomRoomItem(
             id = 1,
             idiom = "Idiom",
             description = "Description"
@@ -41,7 +43,7 @@ class DiskModelMappingTest {
 
     @Test
     fun `Check room to domain works properly`() {
-        val room = RoomIdiomsItem(
+        val room = IdiomRoomItem(
             id = 1,
             idiom = "Idiom",
             description = "Description"

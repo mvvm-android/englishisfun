@@ -31,14 +31,14 @@ class IrregularsInteractorTest {
 
     companion object {
         private val MOCK_IRREGULARS_ITEMS = listOf(
-            Irregulars(
+            Irregular(
                 id = 1,
                 base = "Base 1",
                 simple = "Simple 1",
                 participle = "Participle 1",
                 definitions = "Definitions 1"
             ),
-            Irregulars(
+            Irregular(
                 id = 2,
                 base = "Base 2",
                 simple = "Simple 2",

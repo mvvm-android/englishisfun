@@ -16,7 +16,9 @@
 
 package com.jpaya.englishisfun.conditionals.data.db
 
-import com.jpaya.englishisfun.conditionals.domain.Conditionals
+import com.jpaya.englishisfun.conditionals.domain.Conditional
+import com.jpaya.englishisfun.conditionals.mapper.toDomain
+import com.jpaya.englishisfun.conditionals.mapper.toRoomItem
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -24,7 +26,7 @@ class DiskModelMappingTest {
 
     @Test
     fun `Check domain to room works properly`() {
-        val domain = Conditionals(
+        val domain = Conditional(
             id = 1,
             name = "Name",
             condition = "Condition",
@@ -33,7 +35,7 @@ class DiskModelMappingTest {
             examples = mutableListOf("Example 1")
         )
 
-        val expectedResult = RoomConditionalsItem(
+        val expectedResult = ConditionalRoomItem(
             id = 1,
             name = "Name",
             condition = "Condition",
@@ -47,7 +49,7 @@ class DiskModelMappingTest {
 
     @Test
     fun `Check room to domain works properly`() {
-        val room = RoomConditionalsItem(
+        val room = ConditionalRoomItem(
             id = 1,
             name = "Name",
             condition = "Condition",
@@ -56,7 +58,7 @@ class DiskModelMappingTest {
             examples = mutableListOf("Example 1")
         )
 
-        val expectedResult = Conditionals(
+        val expectedResult = Conditional(
             id = 1,
             name = "Name",
             condition = "Condition",

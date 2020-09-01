@@ -32,34 +32,23 @@ import org.junit.Test
 
 class FireStoreClientTest {
 
-    private lateinit var client: FireStoreClient
-
     private lateinit var fireStore: FirebaseFirestore
-    private lateinit var properties: FireStoreProperties
+    private lateinit var client: FireStoreClient
 
     @Before
     fun setUp() {
         fireStore = mock()
-        properties = mock()
-
-        client = FireStoreClient(
-            fireStore,
-            properties
-        )
+        client = FireStoreClient(fireStore)
     }
 
     @Test
     fun initShouldInitialiseProperly() {
         assertEquals(fireStore, client.fireStore)
-        assertEquals(properties, client.properties)
     }
 
     @ExperimentalCoroutinesApi
     @Test(expected = Exception::class)
     fun abbreviations() = runBlockingTest {
-        doReturn("").whenever(properties).getAbbreviationCollectionName()
-        doReturn("").whenever(properties).getAbbreviationDocumentName()
-
         val collection: CollectionReference = mock()
         doReturn(collection).whenever(fireStore).collection("")
 

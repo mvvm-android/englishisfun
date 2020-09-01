@@ -19,6 +19,7 @@ package com.jpaya.englishisfun.abbreviations.ui
 import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import co.zsmb.rainbowcake.test.observeStateAndEvents
+import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -33,12 +34,12 @@ class AbbreviationsListViewModelTest : ViewModelTest() {
 
     companion object {
         private val MOCK_ITEMS = listOf(
-            AbbreviationsListPresenter.AbbreviationsItem(
+            AbbreviationItem(
                 id = 1,
                 abbr = "Abbreviation 1",
                 desc = "Description 1"
             ),
-            AbbreviationsListPresenter.AbbreviationsItem(
+            AbbreviationItem(
                 id = 2,
                 abbr = "Abbreviation 2",
                 desc = "Description 2"
@@ -46,7 +47,7 @@ class AbbreviationsListViewModelTest : ViewModelTest() {
         )
 
         private val MOCK_ITEMS_FILTERED = listOf(
-            AbbreviationsListPresenter.AbbreviationsItem(
+            AbbreviationItem(
                 id = 1,
                 abbr = "Abbreviation 1",
                 desc = "Description 1"

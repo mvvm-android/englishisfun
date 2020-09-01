@@ -7,7 +7,7 @@
 
         <variable
             name="conditional"
-            type="com.jpaya.englishisfun.conditionals.ui.ConditionalsListPresenter.ConditionalsItem" />
+            type="com.jpaya.englishisfun.conditionals.ui.model.ConditionalItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

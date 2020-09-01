@@ -31,12 +31,12 @@ class AbbreviationsInteractorTest {
 
     companion object {
         private val MOCK_ABBREVIATIONS_ITEMS = listOf(
-            Abbreviations(
+            Abbreviation(
                 id = 1,
                 abbr = "Abbreviation 1",
                 desc = "Description 1"
             ),
-            Abbreviations(
+            Abbreviation(
                 id = 2,
                 abbr = "Abbreviation 2",
                 desc = "Description 2"
@@ -58,10 +58,10 @@ class AbbreviationsInteractorTest {
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getAbbreviationsItems works properly`() = runBlockingTest {
-        whenever(network.getAbbreviationItems()).doReturn(MOCK_ABBREVIATIONS_ITEMS)
+        whenever(network.getAbbreviations()).doReturn(MOCK_ABBREVIATIONS_ITEMS)
 
-        assertEquals(2, interactor.getAbbreviationItems().size)
-        assertEquals(MOCK_ABBREVIATIONS_ITEMS, interactor.getAbbreviationItems())
+        assertEquals(2, interactor.getAbbreviations().size)
+        assertEquals(MOCK_ABBREVIATIONS_ITEMS, interactor.getAbbreviations())
     }
 
     @ExperimentalCoroutinesApi

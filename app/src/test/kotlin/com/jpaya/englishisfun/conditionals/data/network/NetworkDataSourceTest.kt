@@ -16,9 +16,9 @@
 
 package com.jpaya.englishisfun.conditionals.data.network
 
-import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsContent
+import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalNetworkItem
 import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsResponse
-import com.jpaya.englishisfun.conditionals.domain.Conditionals
+import com.jpaya.englishisfun.conditionals.domain.Conditional
 import com.jpaya.englishisfun.firestore.FireStoreClient
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
@@ -34,7 +34,7 @@ class NetworkDataSourceTest {
     companion object {
         private val MOCK_CONDITIONALS_DOCUMENT = ConditionalsResponse().apply {
             conditionals = mutableListOf(
-                ConditionalsContent().apply {
+                ConditionalNetworkItem().apply {
                     id = 1
                     name = "Name 1"
                     condition = "Condition 1"
@@ -42,7 +42,7 @@ class NetworkDataSourceTest {
                     uses = mutableListOf("Use 1")
                     examples = mutableListOf("Example 1")
                 },
-                ConditionalsContent().apply {
+                ConditionalNetworkItem().apply {
                     id = 2
                     name = "Name 2"
                     condition = "Condition 2"
@@ -69,7 +69,7 @@ class NetworkDataSourceTest {
         whenever(fireStoreClient.conditionals()).doReturn(MOCK_CONDITIONALS_DOCUMENT)
 
         val expectedResult = listOf(
-            Conditionals(
+            Conditional(
                 id = 1,
                 name = "Name 1",
                 condition = "Condition 1",
@@ -77,7 +77,7 @@ class NetworkDataSourceTest {
                 uses = mutableListOf("Use 1"),
                 examples = mutableListOf("Example 1")
             ),
-            Conditionals(
+            Conditional(
                 id = 2,
                 name = "Name 2",
                 condition = "Condition 2",
@@ -95,7 +95,7 @@ class NetworkDataSourceTest {
     fun `Check getConditionalsItems works properly when null`() = runBlockingTest {
         whenever(fireStoreClient.conditionals()).doReturn(null)
 
-        val expectedResult = listOf<Conditionals>()
+        val expectedResult = listOf<Conditional>()
 
         assertEquals(expectedResult, dataSource.getConditionalsItems())
     }

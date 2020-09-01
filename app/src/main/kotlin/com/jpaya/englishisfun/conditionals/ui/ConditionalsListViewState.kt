@@ -16,10 +16,12 @@
 
 package com.jpaya.englishisfun.conditionals.ui
 
+import com.jpaya.englishisfun.conditionals.ui.model.ConditionalItem
+
 sealed class ListViewState
 
 object Loading : ListViewState()
 
-data class ListReady(val conditionals: List<ConditionalsListPresenter.ConditionalsItem>) : ListViewState()
+data class ListReady(val conditionals: List<ConditionalItem>) : ListViewState()
 
 object NetworkError : ListViewState()

@@ -16,8 +16,8 @@
 
 package com.jpaya.englishisfun.conditionals.data.network
 
-import com.jpaya.englishisfun.conditionals.data.db.toDomain
-import com.jpaya.englishisfun.conditionals.domain.Conditionals
+import com.jpaya.englishisfun.conditionals.mapper.toDomain
+import com.jpaya.englishisfun.conditionals.domain.Conditional
 import com.jpaya.englishisfun.firestore.FireStoreClient
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -27,6 +27,6 @@ class NetworkDataSource @Inject constructor(
     private val fireStoreClient: FireStoreClient
 ) {
 
-    suspend fun getConditionalsItems(): List<Conditionals> =
+    suspend fun getConditionalsItems(): List<Conditional> =
         fireStoreClient.conditionals()?.conditionals?.map { it.toDomain() } ?: listOf()
 }

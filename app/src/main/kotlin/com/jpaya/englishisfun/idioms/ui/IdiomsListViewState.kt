@@ -16,12 +16,12 @@
 
 package com.jpaya.englishisfun.idioms.ui
 
-import com.jpaya.englishisfun.idioms.ui.IdiomsListPresenter.IdiomsItem
+import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 
 sealed class ListViewState
 
 object Loading : ListViewState()
 
-data class ListReady(val idioms: List<IdiomsItem>) : ListViewState()
+data class ListReady(val idioms: List<IdiomItem>) : ListViewState()
 
 object NetworkError : ListViewState()

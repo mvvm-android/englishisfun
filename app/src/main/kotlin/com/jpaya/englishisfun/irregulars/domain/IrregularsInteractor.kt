@@ -25,11 +25,11 @@ class IrregularsInteractor @Inject constructor(
     private val database: DatabaseDataSource
 ) {
 
-    suspend fun getIrregularsItems(): List<Irregulars> {
+    suspend fun getIrregularsItems(): List<Irregular> {
         val result = network.getIrregularsItems()
         database.save(result)
         return result
     }
 
-    suspend fun searchIrregulars(filter: String): List<Irregulars> = database.search(filter)
+    suspend fun searchIrregulars(filter: String): List<Irregular> = database.search(filter)
 }

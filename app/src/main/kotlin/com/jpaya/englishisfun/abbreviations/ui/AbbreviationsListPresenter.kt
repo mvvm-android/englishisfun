@@ -17,25 +17,20 @@
 package com.jpaya.englishisfun.abbreviations.ui
 
 import co.zsmb.rainbowcake.withIOContext
-import com.jpaya.englishisfun.abbreviations.data.db.toPresentation
+import com.jpaya.englishisfun.abbreviations.mapper.toPresentation
 import com.jpaya.englishisfun.abbreviations.domain.AbbreviationsInteractor
+import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
 import javax.inject.Inject
 
 class AbbreviationsListPresenter @Inject constructor(
     private val interactor: AbbreviationsInteractor
 ) {
 
-    suspend fun getAbbreviationItems(): List<AbbreviationsItem> = withIOContext {
-        interactor.getAbbreviationItems().map { it.toPresentation() }
+    suspend fun getAbbreviationItems(): List<AbbreviationItem> = withIOContext {
+        interactor.getAbbreviations().map { it.toPresentation() }
     }
 
-    suspend fun searchAbbreviations(filter: String): List<AbbreviationsItem> = withIOContext {
+    suspend fun searchAbbreviations(filter: String): List<AbbreviationItem> = withIOContext {
         interactor.searchAbbreviations(filter).map { it.toPresentation() }
     }
-
-    data class AbbreviationsItem(
-        val id: Long,
-        val abbr: String,
-        val desc: String
-    )
 }

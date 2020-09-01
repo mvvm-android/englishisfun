@@ -17,7 +17,9 @@
 package com.jpaya.englishisfun.abbreviations.data.db
 
 import com.jpaya.base.extensions.encloseToLikeQuery
-import com.jpaya.englishisfun.abbreviations.domain.Abbreviations
+import com.jpaya.englishisfun.abbreviations.domain.Abbreviation
+import com.jpaya.englishisfun.abbreviations.mapper.toDomain
+import com.jpaya.englishisfun.abbreviations.mapper.toRoomItem
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -26,21 +28,21 @@ class DatabaseDataSource @Inject constructor(
     private val dao: AbbreviationsDao
 ) {
 
-    suspend fun all(): List<Abbreviations> = dao.all().map { it.toDomain() }
+    suspend fun all(): List<Abbreviation> = dao.all().map { it.toDomain() }
 
     suspend fun count() = dao.count()
 
-    suspend fun save(item: Abbreviations) = dao.save(item.toRoomItem())
+    suspend fun save(item: Abbreviation) = dao.save(item.toRoomItem())
 
-    suspend fun save(items: List<Abbreviations>) {
-        val objects = mutableListOf<RoomAbbreviationsItem>()
+    suspend fun save(items: List<Abbreviation>) {
+        val objects = mutableListOf<AbbreviationRoomItem>()
         items.forEach {
             objects.add(it.toRoomItem())
         }
         dao.save(objects)
     }
 
-    suspend fun search(filter: String): List<Abbreviations> =
+    suspend fun search(filter: String): List<Abbreviation> =
         dao.search(filter.encloseToLikeQuery()).map { it.toDomain() }
 
     suspend fun delete(id: Long) = dao.delete(id)

@@ -17,7 +17,7 @@
 package com.jpaya.englishisfun.idioms.data.network
 
 import com.jpaya.englishisfun.firestore.FireStoreClient
-import com.jpaya.englishisfun.idioms.data.db.toDomain
+import com.jpaya.englishisfun.idioms.mapper.toDomain
 import com.jpaya.englishisfun.idioms.domain.Idioms
 import javax.inject.Inject
 import javax.inject.Singleton

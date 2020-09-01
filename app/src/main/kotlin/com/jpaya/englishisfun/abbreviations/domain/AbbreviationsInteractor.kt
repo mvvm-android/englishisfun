@@ -25,11 +25,11 @@ class AbbreviationsInteractor @Inject constructor(
     private val database: DatabaseDataSource
 ) {
 
-    suspend fun getAbbreviationItems(): List<Abbreviations> {
-        val result = network.getAbbreviationItems()
+    suspend fun getAbbreviations(): List<Abbreviation> {
+        val result = network.getAbbreviations()
         database.save(result)
         return result
     }
 
-    suspend fun searchAbbreviations(filter: String): List<Abbreviations> = database.search(filter)
+    suspend fun searchAbbreviations(filter: String): List<Abbreviation> = database.search(filter)
 }
