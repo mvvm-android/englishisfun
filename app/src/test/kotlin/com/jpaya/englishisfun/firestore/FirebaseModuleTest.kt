@@ -47,9 +47,4 @@ class FirebaseModuleTest {
         every { FirebaseAuth.getInstance() } returns mockk()
         assertNotNull(module.provideFirebaseAuth())
     }
-
-    @Test
-    fun verifyProvidedFireStoreProperties() {
-        assertNotNull(module.provideFireStoreProperties())
-    }
 }

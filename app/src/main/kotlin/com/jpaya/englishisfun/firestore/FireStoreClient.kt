@@ -33,17 +33,30 @@ import javax.inject.Inject
  */
 class FireStoreClient @Inject constructor(
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    val fireStore: FirebaseFirestore,
-    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    val properties: FireStoreProperties
+    val fireStore: FirebaseFirestore
 ) {
+
+    companion object {
+        private const val ABBREVIATION_COLLECTION = "abbreviation"
+        private const val ABBREVIATION_DOCUMENT = "list"
+
+        private const val IDIOM_COLLECTION = "idiom"
+        private const val IDIOM_DOCUMENT = "list"
+
+        private const val IRREGULAR_COLLECTION = "irregular"
+        private const val IRREGULAR_DOCUMENT = "list"
+
+        private const val CONDITIONAL_COLLECTION = "conditional"
+        private const val CONDITIONAL_DOCUMENT = "list"
+
+        private const val SUGGESTION_COLLECTION = "suggestion"
+    }
 
     /**
      * Function to obtain all abbreviations.
      */
     suspend fun abbreviations() = execute(
-        fireStore.collection(properties.getAbbreviationCollectionName())
-            .document(properties.getAbbreviationDocumentName()),
+        fireStore.collection(ABBREVIATION_COLLECTION).document(ABBREVIATION_DOCUMENT),
         AbbreviationsResponse::class.java
     )
 
@@ -51,7 +64,7 @@ class FireStoreClient @Inject constructor(
      * Function to obtain all idioms.
      */
     suspend fun idioms() = execute(
-        fireStore.collection(properties.getIdiomCollectionName()).document(properties.getIdiomDocumentName()),
+        fireStore.collection(IDIOM_COLLECTION).document(IDIOM_DOCUMENT),
         IdiomsResponse::class.java
     )
 
@@ -59,7 +72,7 @@ class FireStoreClient @Inject constructor(
      * Function to obtain all irregulars.
      */
     suspend fun irregulars() = execute(
-        fireStore.collection(properties.getIrregularCollectionName()).document(properties.getIrregularDocumentName()),
+        fireStore.collection(IRREGULAR_COLLECTION).document(IRREGULAR_DOCUMENT),
         IrregularsResponse::class.java
     )
 
@@ -67,8 +80,7 @@ class FireStoreClient @Inject constructor(
      * Function to obtain all conditionals.
      */
     suspend fun conditionals() = execute(
-        fireStore.collection(properties.getConditionalCollectionName())
-            .document(properties.getConditionalDocumentName()),
+        fireStore.collection(CONDITIONAL_COLLECTION).document(CONDITIONAL_DOCUMENT),
         ConditionalsResponse::class.java
     )
 
@@ -76,7 +88,7 @@ class FireStoreClient @Inject constructor(
      * Function to save a suggestion.
      */
     suspend fun sendSuggestion(data: SuggestionsContent) {
-        fireStore.collection(properties.getSuggestionsCollectionName())
+        fireStore.collection(SUGGESTION_COLLECTION)
             .add(data)
             .addOnSuccessListener {
                 Timber.d("DocumentSnapshot written with ID: ${it.id}")

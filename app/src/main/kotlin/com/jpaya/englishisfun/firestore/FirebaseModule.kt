@@ -49,13 +49,4 @@ class FirebaseModule {
      */
     @Provides
     fun provideFirebaseAuth() = FirebaseAuth.getInstance()
-
-    /**
-     * Create a provider method binding for [FireStoreProperties].
-     *
-     * @return Instance of FireStoreProperties.
-     * @see Provides
-     */
-    @Provides
-    fun provideFireStoreProperties() = FireStoreProperties()
 }
