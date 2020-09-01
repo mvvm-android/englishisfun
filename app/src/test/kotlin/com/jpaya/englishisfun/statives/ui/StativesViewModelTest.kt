@@ -19,6 +19,7 @@ package com.jpaya.englishisfun.statives.ui
 import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import co.zsmb.rainbowcake.test.observeStateAndEvents
+import com.jpaya.englishisfun.statives.ui.model.StativeItem
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -33,12 +34,12 @@ class StativesViewModelTest : ViewModelTest() {
 
     companion object {
         private val MOCK_ITEMS = listOf(
-            StativesPresenter.StativeItem(
+            StativeItem(
                 id = 1,
                 category = "Category 1",
                 verbs = mutableListOf("Verb 1")
             ),
-            StativesPresenter.StativeItem(
+            StativeItem(
                 id = 2,
                 category = "Category 2",
                 verbs = mutableListOf("Verb 2")
@@ -46,7 +47,7 @@ class StativesViewModelTest : ViewModelTest() {
         )
 
         private val MOCK_ITEMS_FILTERED = listOf(
-            StativesPresenter.StativeItem(
+            StativeItem(
                 id = 1,
                 category = "Category 1",
                 verbs = mutableListOf("Verb 1")
