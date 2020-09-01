@@ -17,29 +17,29 @@
 package com.jpaya.englishisfun.idioms.mapper
 
 import com.jpaya.englishisfun.idioms.data.db.IdiomRoomItem
-import com.jpaya.englishisfun.idioms.data.network.model.IdiomsContent
-import com.jpaya.englishisfun.idioms.domain.Idioms
+import com.jpaya.englishisfun.idioms.data.network.model.IdiomNetworkItem
+import com.jpaya.englishisfun.idioms.domain.Idiom
 import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 
-fun Idioms.toRoomItem() = IdiomRoomItem(
+fun Idiom.toRoomItem() = IdiomRoomItem(
     id = id,
     idiom = idiom,
     description = description
 )
 
-fun IdiomRoomItem.toDomain() = Idioms(
+fun IdiomRoomItem.toDomain() = Idiom(
     id = id,
     idiom = idiom,
     description = description
 )
 
-fun IdiomsContent.toDomain() = Idioms(
+fun IdiomNetworkItem.toDomain() = Idiom(
     id = id,
     idiom = idiom,
     description = description
 )
 
-fun Idioms.toPresentation() = IdiomItem(
+fun Idiom.toPresentation() = IdiomItem(
     id = id,
     idiom = idiom,
     description = description

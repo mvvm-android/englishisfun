@@ -19,7 +19,7 @@ package com.jpaya.englishisfun.idioms.domain
 /**
  * Model class to represent an idiom.
  */
-data class Idioms(
+data class Idiom(
     val id: Long,
     val idiom: String,
     val description: String

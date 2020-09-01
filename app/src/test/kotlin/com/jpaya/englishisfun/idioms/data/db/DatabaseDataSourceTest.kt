@@ -18,7 +18,7 @@ package com.jpaya.englishisfun.idioms.data.db
 
 import androidx.room.Room
 import com.jpaya.englishisfun.database.EnglishIsFunDatabase
-import com.jpaya.englishisfun.idioms.domain.Idioms
+import com.jpaya.englishisfun.idioms.domain.Idiom
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
@@ -29,19 +29,19 @@ class DatabaseDataSourceTest : TestRobolectric() {
 
     private lateinit var dataSource: DatabaseDataSource
 
-    private val item1 = Idioms(
+    private val item1 = Idiom(
         id = 1,
         idiom = "Idiom 1",
         description = "Description 1"
     )
 
-    private val item2 = Idioms(
+    private val item2 = Idiom(
         id = 2,
         idiom = "Idiom 2",
         description = "Description 2"
     )
 
-    private val item3 = Idioms(
+    private val item3 = Idiom(
         id = 3,
         idiom = "Idiom 3",
         description = "Description 3"

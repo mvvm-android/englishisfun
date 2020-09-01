@@ -17,9 +17,9 @@
 package com.jpaya.englishisfun.idioms.data.network
 
 import com.jpaya.englishisfun.firestore.FireStoreClient
-import com.jpaya.englishisfun.idioms.data.network.model.IdiomsContent
+import com.jpaya.englishisfun.idioms.data.network.model.IdiomNetworkItem
 import com.jpaya.englishisfun.idioms.data.network.model.IdiomsResponse
-import com.jpaya.englishisfun.idioms.domain.Idioms
+import com.jpaya.englishisfun.idioms.domain.Idiom
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -34,12 +34,12 @@ class NetworkDataSourceTest {
     companion object {
         private val MOCK_IDIOMS_DOCUMENT = IdiomsResponse().apply {
             idioms = listOf(
-                IdiomsContent().apply {
+                IdiomNetworkItem().apply {
                     id = 1
                     idiom = "Idiom 1"
                     description = "Description 1"
                 },
-                IdiomsContent().apply {
+                IdiomNetworkItem().apply {
                     id = 2
                     idiom = "Idiom 2"
                     description = "Description 2"
@@ -63,12 +63,12 @@ class NetworkDataSourceTest {
         whenever(fireStoreClient.idioms()).doReturn(MOCK_IDIOMS_DOCUMENT)
 
         val expectedResult = listOf(
-            Idioms(
+            Idiom(
                 id = 1,
                 idiom = "Idiom 1",
                 description = "Description 1"
             ),
-            Idioms(
+            Idiom(
                 id = 2,
                 idiom = "Idiom 2",
                 description = "Description 2"
@@ -83,7 +83,7 @@ class NetworkDataSourceTest {
     fun `Check getIdiomsItems works properly when null`() = runBlockingTest {
         whenever(fireStoreClient.idioms()).doReturn(null)
 
-        val expectedResult = listOf<Idioms>()
+        val expectedResult = listOf<Idiom>()
 
         assertEquals(expectedResult, dataSource.getIdiomsItems())
     }

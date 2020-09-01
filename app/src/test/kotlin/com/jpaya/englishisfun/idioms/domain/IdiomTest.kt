@@ -14,13 +14,26 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.idioms.data.network.model
+package com.jpaya.englishisfun.idioms.domain
 
-/**
- * Class to map the idioms' FireStore response.
- */
-class IdiomsContent {
-    var id: Long = 0
-    var idiom: String = ""
-    var description: String = ""
+import org.junit.Assert.assertEquals
+import org.junit.Test
+
+class IdiomTest {
+
+    @Test
+    fun initShouldInitialiseProperly() {
+        val id: Long = 1
+        val idiom = "Idiom"
+        val description = "Description"
+        val idioms = Idiom(
+            id = id,
+            idiom = idiom,
+            description = description
+        )
+
+        assertEquals(id, idioms.id)
+        assertEquals(idiom, idioms.idiom)
+        assertEquals(description, idioms.description)
+    }
 }

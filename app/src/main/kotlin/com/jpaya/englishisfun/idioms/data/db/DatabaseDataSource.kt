@@ -17,7 +17,7 @@
 package com.jpaya.englishisfun.idioms.data.db
 
 import com.jpaya.base.extensions.encloseToLikeQuery
-import com.jpaya.englishisfun.idioms.domain.Idioms
+import com.jpaya.englishisfun.idioms.domain.Idiom
 import com.jpaya.englishisfun.idioms.mapper.toDomain
 import com.jpaya.englishisfun.idioms.mapper.toRoomItem
 import javax.inject.Inject
@@ -28,13 +28,13 @@ class DatabaseDataSource @Inject constructor(
     private val dao: IdiomsDao
 ) {
 
-    suspend fun all(): List<Idioms> = dao.all().map { it.toDomain() }
+    suspend fun all(): List<Idiom> = dao.all().map { it.toDomain() }
 
     suspend fun count() = dao.count()
 
-    suspend fun save(item: Idioms) = dao.save(item.toRoomItem())
+    suspend fun save(item: Idiom) = dao.save(item.toRoomItem())
 
-    suspend fun save(items: List<Idioms>) {
+    suspend fun save(items: List<Idiom>) {
         val objects = mutableListOf<IdiomRoomItem>()
         items.forEach {
             objects.add(it.toRoomItem())
@@ -42,7 +42,7 @@ class DatabaseDataSource @Inject constructor(
         dao.save(objects)
     }
 
-    suspend fun search(filter: String): List<Idioms> = dao.search(filter.encloseToLikeQuery()).map { it.toDomain() }
+    suspend fun search(filter: String): List<Idiom> = dao.search(filter.encloseToLikeQuery()).map { it.toDomain() }
 
     suspend fun delete(id: Long) = dao.delete(id)
 

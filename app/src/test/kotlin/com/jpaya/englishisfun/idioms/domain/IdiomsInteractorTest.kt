@@ -31,12 +31,12 @@ class IdiomsInteractorTest {
 
     companion object {
         private val MOCK_IDIOMS_ITEMS = listOf(
-            Idioms(
+            Idiom(
                 id = 1,
                 idiom = "Idiom 1",
                 description = "Description 1"
             ),
-            Idioms(
+            Idiom(
                 id = 2,
                 idiom = "Idiom 2",
                 description = "Description 2"

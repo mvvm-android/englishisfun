@@ -14,19 +14,20 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.idioms.data.db
+package com.jpaya.englishisfun.idioms.mapper
 
-import com.jpaya.englishisfun.idioms.domain.Idioms
-import com.jpaya.englishisfun.idioms.mapper.toDomain
-import com.jpaya.englishisfun.idioms.mapper.toRoomItem
+import com.jpaya.englishisfun.idioms.data.db.IdiomRoomItem
+import com.jpaya.englishisfun.idioms.data.network.model.IdiomNetworkItem
+import com.jpaya.englishisfun.idioms.domain.Idiom
+import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class DiskModelMappingTest {
+class IdiomMapperTest {
 
     @Test
     fun `Check domain to room works properly`() {
-        val domain = Idioms(
+        val domain = Idiom(
             id = 1,
             idiom = "Idiom",
             description = "Description"
@@ -49,12 +50,46 @@ class DiskModelMappingTest {
             description = "Description"
         )
 
-        val expectedResult = Idioms(
+        val expectedResult = Idiom(
             id = 1,
             idiom = "Idiom",
             description = "Description"
         )
 
         assertEquals(expectedResult, room.toDomain())
+    }
+
+    @Test
+    fun `Check network to domain works properly`() {
+        val network = IdiomNetworkItem().apply {
+            id = 1
+            idiom = "Idiom"
+            description = "Description"
+        }
+
+        val expectedResult = Idiom(
+            id = 1,
+            idiom = "Idiom",
+            description = "Description"
+        )
+
+        assertEquals(expectedResult, network.toDomain())
+    }
+
+    @Test
+    fun `Check domain to presentation works properly`() {
+        val domain = Idiom(
+            id = 1,
+            idiom = "Idiom",
+            description = "Description"
+        )
+
+        val expectedResult = IdiomItem(
+            id = 1,
+            idiom = "Idiom",
+            description = "Description"
+        )
+
+        assertEquals(expectedResult, domain.toPresentation())
     }
 }
