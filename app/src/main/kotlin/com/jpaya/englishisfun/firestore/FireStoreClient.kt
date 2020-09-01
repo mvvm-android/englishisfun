@@ -49,7 +49,7 @@ class FireStoreClient @Inject constructor(
 
         private const val CONDITIONAL_COLLECTION = "conditional"
         private const val CONDITIONAL_DOCUMENT = "list"
-        
+
         private const val STATIVE_COLLECTION = "stative"
         private const val STATIVE_DOCUMENT = "list"
 
