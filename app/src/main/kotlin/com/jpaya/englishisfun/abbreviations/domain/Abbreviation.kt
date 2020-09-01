@@ -14,16 +14,13 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.irregulars.data.db
+package com.jpaya.englishisfun.abbreviations.domain
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity(tableName = "irregulars")
-data class RoomIrregularsItem(
-    @PrimaryKey(autoGenerate = true) val id: Long,
-    val base: String,
-    val simple: String,
-    val participle: String,
-    val definitions: String
+/**
+ * Model class to represent a chat abbreviation.
+ */
+data class Abbreviation(
+    val id: Long,
+    val abbr: String,
+    val desc: String
 )

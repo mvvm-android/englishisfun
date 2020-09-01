@@ -20,11 +20,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.jpaya.englishisfun.conditionals.ui.ConditionalsListPresenter.ConditionalsItem
+import com.jpaya.base.adapter.ListAdapterComparator
+import com.jpaya.englishisfun.conditionals.ui.model.ConditionalItem
 import com.jpaya.englishisfun.databinding.ConditionalsListItemBinding
 
 class ConditionalsAdapter(private val listener: Listener) :
-    ListAdapter<ConditionalsItem, ConditionalsAdapter.ViewHolder>(ConditionalsItemComparator) {
+    ListAdapter<ConditionalItem, ConditionalsAdapter.ViewHolder>(ListAdapterComparator<ConditionalItem>()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(ConditionalsListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
@@ -33,7 +34,7 @@ class ConditionalsAdapter(private val listener: Listener) :
 
     inner class ViewHolder(private var binding: ConditionalsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: ConditionalsItem) {
+        fun bind(item: ConditionalItem) {
             itemView.setOnClickListener {
                 binding.conditional?.let { listener.onItemSelected(it.id) }
             }

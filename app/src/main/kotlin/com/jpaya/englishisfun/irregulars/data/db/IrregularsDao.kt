@@ -22,7 +22,7 @@ import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 
 /**
- * Defines the data-access object for [RoomIrregularsItem].
+ * Defines the data-access object for [IrregularRoomItem].
  */
 @Dao
 interface IrregularsDao {
@@ -31,7 +31,7 @@ interface IrregularsDao {
      * Returns a list with all the entities.
      */
     @Query("SELECT * FROM irregulars")
-    suspend fun all(): List<RoomIrregularsItem>
+    suspend fun all(): List<IrregularRoomItem>
 
     /**
      * Returns the number of entities.
@@ -43,19 +43,19 @@ interface IrregularsDao {
      * Persists an entity.
      */
     @Insert(onConflict = REPLACE)
-    suspend fun save(item: RoomIrregularsItem)
+    suspend fun save(item: IrregularRoomItem)
 
     /**
      * Persists a list of entities.
      */
     @Insert(onConflict = REPLACE)
-    suspend fun save(items: List<RoomIrregularsItem>)
+    suspend fun save(items: List<IrregularRoomItem>)
 
     /**
      * Searches entities with the specified filter.
      */
     @Query("SELECT * FROM irregulars WHERE base LIKE :filter")
-    suspend fun search(filter: String): List<RoomIrregularsItem>
+    suspend fun search(filter: String): List<IrregularRoomItem>
 
     /**
      * Deletes an entity by its id.

@@ -32,7 +32,7 @@ class DiskModelMappingTest {
             description = "Description"
         )
 
-        val expectedResult = RoomIdiomsItem(
+        val expectedResult = IdiomRoomItem(
             id = 1,
             idiom = "Idiom",
             description = "Description"
@@ -43,7 +43,7 @@ class DiskModelMappingTest {
 
     @Test
     fun `Check room to domain works properly`() {
-        val room = RoomIdiomsItem(
+        val room = IdiomRoomItem(
             id = 1,
             idiom = "Idiom",
             description = "Description"

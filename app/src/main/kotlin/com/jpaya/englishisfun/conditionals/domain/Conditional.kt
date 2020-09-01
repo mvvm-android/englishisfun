@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.conditionals.data.db
+package com.jpaya.englishisfun.conditionals.domain
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity(tableName = "conditionals")
-data class RoomConditionalsItem(
-    @PrimaryKey(autoGenerate = true) val id: Long,
+/**
+ * Model class to represent a conditional.
+ */
+data class Conditional(
+    val id: Long,
     val name: String,
     val condition: String,
     val result: String,

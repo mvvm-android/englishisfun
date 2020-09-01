@@ -19,6 +19,7 @@ package com.jpaya.englishisfun.conditionals.ui
 import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import co.zsmb.rainbowcake.test.observeStateAndEvents
+import com.jpaya.englishisfun.conditionals.ui.model.ConditionalItem
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -33,7 +34,7 @@ class ConditionalsListViewModelTest : ViewModelTest() {
 
     companion object {
         private val MOCK_ITEMS = listOf(
-            ConditionalsListPresenter.ConditionalsItem(
+            ConditionalItem(
                 id = 1,
                 name = "Name 1",
                 condition = "Condition 1",
@@ -41,7 +42,7 @@ class ConditionalsListViewModelTest : ViewModelTest() {
                 uses = "Use 1",
                 examples = "Example 1"
             ),
-            ConditionalsListPresenter.ConditionalsItem(
+            ConditionalItem(
                 id = 2,
                 name = "Name 2",
                 condition = "Condition 2",
@@ -52,7 +53,7 @@ class ConditionalsListViewModelTest : ViewModelTest() {
         )
 
         private val MOCK_ITEMS_FILTERED = listOf(
-            ConditionalsListPresenter.ConditionalsItem(
+            ConditionalItem(
                 id = 1,
                 name = "Name 1",
                 condition = "Condition 1",

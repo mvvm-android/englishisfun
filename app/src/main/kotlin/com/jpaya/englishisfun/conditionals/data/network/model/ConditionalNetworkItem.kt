@@ -14,14 +14,16 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.abbreviations.data.db
+package com.jpaya.englishisfun.conditionals.data.network.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity(tableName = "abbreviations")
-data class RoomAbbreviationsItem(
-    @PrimaryKey(autoGenerate = true) val id: Long,
-    val abbr: String,
-    val desc: String
-)
+/**
+ * Class to map the conditionals' FireStore response.
+ */
+class ConditionalNetworkItem {
+    var id: Long = 0
+    var name: String = ""
+    var condition: String = ""
+    var result: String = ""
+    var uses: MutableList<String> = mutableListOf()
+    var examples: MutableList<String> = mutableListOf()
+}

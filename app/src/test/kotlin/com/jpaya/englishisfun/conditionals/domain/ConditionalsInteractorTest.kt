@@ -31,7 +31,7 @@ class ConditionalsInteractorTest {
 
     companion object {
         private val MOCK_CONDITIONALS_ITEMS = listOf(
-            Conditionals(
+            Conditional(
                 id = 1,
                 name = "Name 1",
                 condition = "Condition 1",
@@ -39,7 +39,7 @@ class ConditionalsInteractorTest {
                 uses = mutableListOf("Use 1"),
                 examples = mutableListOf("Example 1")
             ),
-            Conditionals(
+            Conditional(
                 id = 2,
                 name = "Name 2",
                 condition = "Condition 2",

@@ -19,23 +19,18 @@ package com.jpaya.englishisfun.idioms.ui
 import co.zsmb.rainbowcake.withIOContext
 import com.jpaya.englishisfun.idioms.mapper.toPresentation
 import com.jpaya.englishisfun.idioms.domain.IdiomsInteractor
+import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 import javax.inject.Inject
 
 class IdiomsListPresenter @Inject constructor(
     private val interactor: IdiomsInteractor
 ) {
 
-    suspend fun getIdiomsItems(): List<IdiomsItem> = withIOContext {
+    suspend fun getIdiomsItems(): List<IdiomItem> = withIOContext {
         interactor.getIdiomsItems().map { it.toPresentation() }
     }
 
-    suspend fun searchIdioms(filter: String): List<IdiomsItem> = withIOContext {
+    suspend fun searchIdioms(filter: String): List<IdiomItem> = withIOContext {
         interactor.searchIdioms(filter).map { it.toPresentation() }
     }
-
-    data class IdiomsItem(
-        val id: Long,
-        val idiom: String,
-        val description: String
-    )
 }

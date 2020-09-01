@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.abbreviations.domain
+package com.jpaya.englishisfun.abbreviations.data.db
 
-/**
- * Model class to represent a chat abbreviation.
- */
-data class Abbreviations(
-    val id: Long,
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "abbreviations")
+data class AbbreviationRoomItem(
+    @PrimaryKey(autoGenerate = true) val id: Long,
     val abbr: String,
     val desc: String
 )

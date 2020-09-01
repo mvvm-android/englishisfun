@@ -22,7 +22,7 @@ import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 
 /**
- * Defines the data-access object for [RoomConditionalsItem].
+ * Defines the data-access object for [ConditionalRoomItem].
  */
 @Dao
 interface ConditionalsDao {
@@ -31,7 +31,7 @@ interface ConditionalsDao {
      * Returns a list with all the entities.
      */
     @Query("SELECT * FROM conditionals")
-    suspend fun all(): List<RoomConditionalsItem>
+    suspend fun all(): List<ConditionalRoomItem>
 
     /**
      * Returns the number of entities.
@@ -43,19 +43,19 @@ interface ConditionalsDao {
      * Persists an entity.
      */
     @Insert(onConflict = REPLACE)
-    suspend fun save(item: RoomConditionalsItem)
+    suspend fun save(item: ConditionalRoomItem)
 
     /**
      * Persists a list of entities.
      */
     @Insert(onConflict = REPLACE)
-    suspend fun save(items: List<RoomConditionalsItem>)
+    suspend fun save(items: List<ConditionalRoomItem>)
 
     /**
      * Searches entities with the specified filter.
      */
     @Query("SELECT * FROM conditionals WHERE name LIKE :filter")
-    suspend fun search(filter: String): List<RoomConditionalsItem>
+    suspend fun search(filter: String): List<ConditionalRoomItem>
 
     /**
      * Deletes an entity by its id.

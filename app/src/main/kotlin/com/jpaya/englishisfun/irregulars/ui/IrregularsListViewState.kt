@@ -16,12 +16,12 @@
 
 package com.jpaya.englishisfun.irregulars.ui
 
-import com.jpaya.englishisfun.irregulars.ui.IrregularsListPresenter.IrregularsItem
+import com.jpaya.englishisfun.irregulars.ui.model.IrregularItem
 
 sealed class ListViewState
 
 object Loading : ListViewState()
 
-data class ListReady(val irregulars: List<IrregularsItem>) : ListViewState()
+data class ListReady(val irregulars: List<IrregularItem>) : ListViewState()
 
 object NetworkError : ListViewState()

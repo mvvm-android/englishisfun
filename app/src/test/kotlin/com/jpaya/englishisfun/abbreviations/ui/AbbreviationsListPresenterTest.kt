@@ -16,8 +16,9 @@
 
 package com.jpaya.englishisfun.abbreviations.ui
 
-import com.jpaya.englishisfun.abbreviations.domain.Abbreviations
+import com.jpaya.englishisfun.abbreviations.domain.Abbreviation
 import com.jpaya.englishisfun.abbreviations.domain.AbbreviationsInteractor
+import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -31,12 +32,12 @@ class AbbreviationsListPresenterTest {
 
     companion object {
         private val MOCK_ABBREVIATIONS_LIST = listOf(
-            Abbreviations(
+            Abbreviation(
                 id = 1,
                 abbr = "Abbreviation 1",
                 desc = "Description 1"
             ),
-            Abbreviations(
+            Abbreviation(
                 id = 2,
                 abbr = "Abbreviation 2",
                 desc = "Description 2"
@@ -56,15 +57,15 @@ class AbbreviationsListPresenterTest {
     @ExperimentalCoroutinesApi
     @Test
     fun `Check getAbbreviationsItems works properly`() = runBlocking {
-        whenever(interactor.getAbbreviationItems()).doReturn(MOCK_ABBREVIATIONS_LIST)
+        whenever(interactor.getAbbreviations()).doReturn(MOCK_ABBREVIATIONS_LIST)
 
         val expectedResult = listOf(
-            AbbreviationsListPresenter.AbbreviationsItem(
+            AbbreviationItem(
                 id = 1,
                 abbr = "Abbreviation 1",
                 desc = "Description 1"
             ),
-            AbbreviationsListPresenter.AbbreviationsItem(
+            AbbreviationItem(
                 id = 2,
                 abbr = "Abbreviation 2",
                 desc = "Description 2"
@@ -81,12 +82,12 @@ class AbbreviationsListPresenterTest {
         whenever(interactor.searchAbbreviations(filter)).doReturn(MOCK_ABBREVIATIONS_LIST)
 
         val expectedResult = listOf(
-            AbbreviationsListPresenter.AbbreviationsItem(
+            AbbreviationItem(
                 id = 1,
                 abbr = "Abbreviation 1",
                 desc = "Description 1"
             ),
-            AbbreviationsListPresenter.AbbreviationsItem(
+            AbbreviationItem(
                 id = 2,
                 abbr = "Abbreviation 2",
                 desc = "Description 2"

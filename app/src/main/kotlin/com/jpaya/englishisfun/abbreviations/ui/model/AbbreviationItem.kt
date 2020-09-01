@@ -14,14 +14,17 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.idioms.data.db
+package com.jpaya.englishisfun.abbreviations.ui.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import com.jpaya.base.adapter.GenericAdapterComparator
 
-@Entity(tableName = "idioms")
-data class RoomIdiomsItem(
-    @PrimaryKey(autoGenerate = true) val id: Long,
-    val idiom: String,
-    val description: String
-)
+data class AbbreviationItem(
+    val id: Long,
+    val abbr: String,
+    val desc: String
+) : GenericAdapterComparator<AbbreviationItem> {
+
+    override fun isSameItemAs(item: AbbreviationItem) = id == item.id
+
+    override fun hasSameContentsAs(item: AbbreviationItem) = this == item
+}

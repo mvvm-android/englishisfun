@@ -14,35 +14,32 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.conditionals.domain
+package com.jpaya.englishisfun.irregulars.domain
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class ConditionalsTest {
+class IrregularTest {
 
     @Test
     fun initShouldInitialiseProperly() {
         val id: Long = 1
-        val name = "Name"
-        val condition = "Condition"
-        val result = "Result"
-        val uses = mutableListOf("Use 1")
-        val examples = mutableListOf("Example 1")
-        val conditionals = Conditionals(
+        val base = "Arise"
+        val simple = "Arose"
+        val participle = "Arisen"
+        val definitions = "To get up from bed"
+        val irregular = Irregular(
             id = id,
-            name = name,
-            condition = condition,
-            result = result,
-            uses = uses,
-            examples = examples
+            base = base,
+            simple = simple,
+            participle = participle,
+            definitions = definitions
         )
 
-        assertEquals(id, conditionals.id)
-        assertEquals(name, conditionals.name)
-        assertEquals(condition, conditionals.condition)
-        assertEquals(result, conditionals.result)
-        assertEquals(uses, conditionals.uses)
-        assertEquals(examples, conditionals.examples)
+        assertEquals(id, irregular.id)
+        assertEquals(base, irregular.base)
+        assertEquals(simple, irregular.simple)
+        assertEquals(participle, irregular.participle)
+        assertEquals(definitions, irregular.definitions)
     }
 }

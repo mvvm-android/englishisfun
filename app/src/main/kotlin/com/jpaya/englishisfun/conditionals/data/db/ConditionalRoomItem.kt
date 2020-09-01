@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.conditionals.data.network.model
+package com.jpaya.englishisfun.conditionals.data.db
 
-/**
- * Class to map the conditionals' FireStore response.
- */
-class ConditionalsContent {
-    var id: Long = 0
-    var name: String = ""
-    var condition: String = ""
-    var result: String = ""
-    var uses: MutableList<String> = mutableListOf()
-    var examples: MutableList<String> = mutableListOf()
-}
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "conditionals")
+data class ConditionalRoomItem(
+    @PrimaryKey(autoGenerate = true) val id: Long,
+    val name: String,
+    val condition: String,
+    val result: String,
+    val uses: MutableList<String>,
+    val examples: MutableList<String>
+)

@@ -16,7 +16,7 @@
 
 package com.jpaya.englishisfun.abbreviations.data.db
 
-import com.jpaya.englishisfun.abbreviations.domain.Abbreviations
+import com.jpaya.englishisfun.abbreviations.domain.Abbreviation
 import com.jpaya.englishisfun.abbreviations.mapper.toDomain
 import com.jpaya.englishisfun.abbreviations.mapper.toRoomItem
 import org.junit.Assert.assertEquals
@@ -26,13 +26,13 @@ class DiskModelMappingTest {
 
     @Test
     fun `Check domain to room works properly`() {
-        val domain = Abbreviations(
+        val domain = Abbreviation(
             id = 1,
             abbr = "Abbreviation",
             desc = "Description"
         )
 
-        val expectedResult = RoomAbbreviationsItem(
+        val expectedResult = AbbreviationRoomItem(
             id = 1,
             abbr = "Abbreviation",
             desc = "Description"
@@ -43,13 +43,13 @@ class DiskModelMappingTest {
 
     @Test
     fun `Check room to domain works properly`() {
-        val room = RoomAbbreviationsItem(
+        val room = AbbreviationRoomItem(
             id = 1,
             abbr = "Abbreviation",
             desc = "Description"
         )
 
-        val expectedResult = Abbreviations(
+        val expectedResult = Abbreviation(
             id = 1,
             abbr = "Abbreviation",
             desc = "Description"

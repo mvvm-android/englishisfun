@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.abbreviations.ui.adapter
+package com.jpaya.base.adapter
 
-import androidx.recyclerview.widget.DiffUtil
-import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListPresenter.AbbreviationsItem
+interface GenericAdapterComparator<T> {
 
-object AbbreviationsItemComparator : DiffUtil.ItemCallback<AbbreviationsItem>() {
-    override fun areItemsTheSame(oldItem: AbbreviationsItem, newItem: AbbreviationsItem) = oldItem.id == newItem.id
+    fun isSameItemAs(item: T): Boolean
 
-    override fun areContentsTheSame(oldItem: AbbreviationsItem, newItem: AbbreviationsItem) = oldItem == newItem
+    fun hasSameContentsAs(item: T): Boolean
 }

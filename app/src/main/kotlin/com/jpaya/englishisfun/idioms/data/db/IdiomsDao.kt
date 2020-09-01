@@ -22,7 +22,7 @@ import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 
 /**
- * Defines the data-access object for [RoomIdiomsItem].
+ * Defines the data-access object for [IdiomRoomItem].
  */
 @Dao
 interface IdiomsDao {
@@ -31,7 +31,7 @@ interface IdiomsDao {
      * Returns a list with all the entities.
      */
     @Query("SELECT * FROM idioms")
-    suspend fun all(): List<RoomIdiomsItem>
+    suspend fun all(): List<IdiomRoomItem>
 
     /**
      * Returns the number of entities.
@@ -43,19 +43,19 @@ interface IdiomsDao {
      * Persists an entity.
      */
     @Insert(onConflict = REPLACE)
-    suspend fun save(item: RoomIdiomsItem)
+    suspend fun save(item: IdiomRoomItem)
 
     /**
      * Persists a list of entities.
      */
     @Insert(onConflict = REPLACE)
-    suspend fun save(items: List<RoomIdiomsItem>)
+    suspend fun save(items: List<IdiomRoomItem>)
 
     /**
      * Searches entities with the specified filter.
      */
     @Query("SELECT * FROM idioms WHERE idiom LIKE :filter")
-    suspend fun search(filter: String): List<RoomIdiomsItem>
+    suspend fun search(filter: String): List<IdiomRoomItem>
 
     /**
      * Deletes an entity by its id.

@@ -17,7 +17,7 @@
 package com.jpaya.englishisfun.conditionals.data.db
 
 import androidx.room.Room
-import com.jpaya.englishisfun.conditionals.domain.Conditionals
+import com.jpaya.englishisfun.conditionals.domain.Conditional
 import com.jpaya.englishisfun.database.EnglishIsFunDatabase
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import kotlinx.coroutines.runBlocking
@@ -29,7 +29,7 @@ class DatabaseDataSourceTest : TestRobolectric() {
 
     private lateinit var dataSource: DatabaseDataSource
 
-    private val item1 = Conditionals(
+    private val item1 = Conditional(
         id = 1,
         name = "Name 1",
         condition = "Condition 1",
@@ -38,7 +38,7 @@ class DatabaseDataSourceTest : TestRobolectric() {
         examples = mutableListOf("Example 1")
     )
 
-    private val item2 = Conditionals(
+    private val item2 = Conditional(
         id = 2,
         name = "Name 2",
         condition = "Condition 2",
@@ -47,7 +47,7 @@ class DatabaseDataSourceTest : TestRobolectric() {
         examples = mutableListOf("Example 1")
     )
 
-    private val item3 = Conditionals(
+    private val item3 = Conditional(
         id = 3,
         name = "Name 3",
         condition = "Condition 3",

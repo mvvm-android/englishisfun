@@ -17,7 +17,7 @@
 package com.jpaya.englishisfun.irregulars.data.db
 
 import com.jpaya.base.extensions.encloseToLikeQuery
-import com.jpaya.englishisfun.irregulars.domain.Irregulars
+import com.jpaya.englishisfun.irregulars.domain.Irregular
 import com.jpaya.englishisfun.irregulars.mapper.toDomain
 import com.jpaya.englishisfun.irregulars.mapper.toRoomItem
 import javax.inject.Inject
@@ -28,21 +28,21 @@ class DatabaseDataSource @Inject constructor(
     private val dao: IrregularsDao
 ) {
 
-    suspend fun all(): List<Irregulars> = dao.all().map { news -> news.toDomain() }
+    suspend fun all(): List<Irregular> = dao.all().map { news -> news.toDomain() }
 
     suspend fun count() = dao.count()
 
-    suspend fun save(item: Irregulars) = dao.save(item.toRoomItem())
+    suspend fun save(item: Irregular) = dao.save(item.toRoomItem())
 
-    suspend fun save(items: List<Irregulars>) {
-        val objects = mutableListOf<RoomIrregularsItem>()
+    suspend fun save(items: List<Irregular>) {
+        val objects = mutableListOf<IrregularRoomItem>()
         items.forEach {
             objects.add(it.toRoomItem())
         }
         dao.save(objects)
     }
 
-    suspend fun search(filter: String): List<Irregulars> = dao.search(filter.encloseToLikeQuery()).map { it.toDomain() }
+    suspend fun search(filter: String): List<Irregular> = dao.search(filter.encloseToLikeQuery()).map { it.toDomain() }
 
     suspend fun delete(id: Long) = dao.delete(id)
 

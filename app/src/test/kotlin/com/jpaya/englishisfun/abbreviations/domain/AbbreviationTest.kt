@@ -16,20 +16,24 @@
 
 package com.jpaya.englishisfun.abbreviations.domain
 
-import com.jpaya.englishisfun.abbreviations.data.db.DatabaseDataSource
-import com.jpaya.englishisfun.abbreviations.data.network.NetworkDataSource
-import javax.inject.Inject
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
-class AbbreviationsInteractor @Inject constructor(
-    private val network: NetworkDataSource,
-    private val database: DatabaseDataSource
-) {
+class AbbreviationTest {
 
-    suspend fun getAbbreviations(): List<Abbreviation> {
-        val result = network.getAbbreviations()
-        database.save(result)
-        return result
+    @Test
+    fun initShouldInitialiseProperly() {
+        val id: Long = 1
+        val abbr = "Abbreviation"
+        val desc = "Description"
+        val abbreviation = Abbreviation(
+            id = id,
+            abbr = abbr,
+            desc = desc
+        )
+
+        assertEquals(id, abbreviation.id)
+        assertEquals(abbr, abbreviation.abbr)
+        assertEquals(desc, abbreviation.desc)
     }
-
-    suspend fun searchAbbreviations(filter: String): List<Abbreviation> = database.search(filter)
 }

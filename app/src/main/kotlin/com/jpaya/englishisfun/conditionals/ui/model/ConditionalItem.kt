@@ -14,13 +14,19 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.idioms.ui.adapter
+package com.jpaya.englishisfun.conditionals.ui.model
 
-import androidx.recyclerview.widget.DiffUtil
-import com.jpaya.englishisfun.idioms.ui.IdiomsListPresenter.IdiomsItem
+import com.jpaya.base.adapter.GenericAdapterComparator
 
-object IdiomsItemComparator : DiffUtil.ItemCallback<IdiomsItem>() {
-    override fun areItemsTheSame(oldItem: IdiomsItem, newItem: IdiomsItem) = oldItem.id == newItem.id
+data class ConditionalItem(
+    val id: Long,
+    val name: String,
+    val condition: String,
+    val result: String,
+    val uses: String,
+    val examples: String
+) : GenericAdapterComparator<ConditionalItem> {
+    override fun isSameItemAs(item: ConditionalItem) = id == item.id
 
-    override fun areContentsTheSame(oldItem: IdiomsItem, newItem: IdiomsItem) = oldItem == newItem
+    override fun hasSameContentsAs(item: ConditionalItem) = this == item
 }

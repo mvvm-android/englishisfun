@@ -18,7 +18,7 @@ package com.jpaya.englishisfun.irregulars.data.db
 
 import androidx.room.Room
 import com.jpaya.englishisfun.database.EnglishIsFunDatabase
-import com.jpaya.englishisfun.irregulars.domain.Irregulars
+import com.jpaya.englishisfun.irregulars.domain.Irregular
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
@@ -29,7 +29,7 @@ class DatabaseDataSourceTest : TestRobolectric() {
 
     private lateinit var dataSource: DatabaseDataSource
 
-    private val item1 = Irregulars(
+    private val item1 = Irregular(
         id = 1,
         base = "Base 1",
         simple = "Simple 1",
@@ -37,7 +37,7 @@ class DatabaseDataSourceTest : TestRobolectric() {
         definitions = "Definitions 1"
     )
 
-    private val item2 = Irregulars(
+    private val item2 = Irregular(
         id = 2,
         base = "Base 2",
         simple = "Simple 2",
@@ -45,7 +45,7 @@ class DatabaseDataSourceTest : TestRobolectric() {
         definitions = "Definitions 2"
     )
 
-    private val item3 = Irregulars(
+    private val item3 = Irregular(
         id = 3,
         base = "Base 3",
         simple = "Simple 3",

@@ -14,15 +14,17 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.irregulars.data.network.model
+package com.jpaya.englishisfun.idioms.ui.model
 
-/**
- * Class to map the irregulars' FireStore response.
- */
-class IrregularsContent {
-    var id: Long = 0
-    var base: String = ""
-    var simple: String = ""
-    var participle: String = ""
-    var definitions: String = ""
+import com.jpaya.base.adapter.GenericAdapterComparator
+
+data class IdiomItem(
+    val id: Long,
+    val idiom: String,
+    val description: String
+) : GenericAdapterComparator<IdiomItem> {
+
+    override fun isSameItemAs(item: IdiomItem) = id == item.id
+
+    override fun hasSameContentsAs(item: IdiomItem) = this == item
 }

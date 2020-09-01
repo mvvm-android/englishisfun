@@ -16,8 +16,9 @@
 
 package com.jpaya.englishisfun.conditionals.ui
 
-import com.jpaya.englishisfun.conditionals.domain.Conditionals
+import com.jpaya.englishisfun.conditionals.domain.Conditional
 import com.jpaya.englishisfun.conditionals.domain.ConditionalsInteractor
+import com.jpaya.englishisfun.conditionals.ui.model.ConditionalItem
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -31,7 +32,7 @@ class ConditionalsListPresenterTest {
 
     companion object {
         private val MOCK_CONDITIONALS_LIST = listOf(
-            Conditionals(
+            Conditional(
                 id = 1,
                 name = "Name 1",
                 condition = "Condition 1",
@@ -39,7 +40,7 @@ class ConditionalsListPresenterTest {
                 uses = mutableListOf("Use 1"),
                 examples = mutableListOf("Example 1")
             ),
-            Conditionals(
+            Conditional(
                 id = 2,
                 name = "Name 2",
                 condition = "Condition 2",
@@ -65,7 +66,7 @@ class ConditionalsListPresenterTest {
         whenever(interactor.getConditionalsItems()).doReturn(MOCK_CONDITIONALS_LIST)
 
         val expectedResult = listOf(
-            ConditionalsListPresenter.ConditionalsItem(
+            ConditionalItem(
                 id = 1,
                 name = "Name 1",
                 condition = "Condition 1",
@@ -73,7 +74,7 @@ class ConditionalsListPresenterTest {
                 uses = "Use 1",
                 examples = "Example 1"
             ),
-            ConditionalsListPresenter.ConditionalsItem(
+            ConditionalItem(
                 id = 2,
                 name = "Name 2",
                 condition = "Condition 2",
@@ -93,7 +94,7 @@ class ConditionalsListPresenterTest {
         whenever(interactor.searchConditionals(filter)).doReturn(MOCK_CONDITIONALS_LIST)
 
         val expectedResult = listOf(
-            ConditionalsListPresenter.ConditionalsItem(
+            ConditionalItem(
                 id = 1,
                 name = "Name 1",
                 condition = "Condition 1",
@@ -101,7 +102,7 @@ class ConditionalsListPresenterTest {
                 uses = "Use 1",
                 examples = "Example 1"
             ),
-            ConditionalsListPresenter.ConditionalsItem(
+            ConditionalItem(
                 id = 2,
                 name = "Name 2",
                 condition = "Condition 2",

@@ -14,15 +14,13 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.irregulars.domain
+package com.jpaya.englishisfun.abbreviations.data.network.model
 
 /**
- * Model class to represent an irregular verb.
+ * Class to map the abbreviations' FireStore response.
  */
-data class Irregulars(
-    val id: Long,
-    val base: String,
-    val simple: String,
-    val participle: String,
-    val definitions: String
-)
+class AbbreviationNetworkItem {
+    var id: Long = 0
+    var abbr: String = ""
+    var desc: String = ""
+}

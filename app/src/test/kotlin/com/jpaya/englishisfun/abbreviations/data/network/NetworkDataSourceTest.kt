@@ -16,9 +16,9 @@
 
 package com.jpaya.englishisfun.abbreviations.data.network
 
-import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationsContent
+import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationNetworkItem
 import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationsResponse
-import com.jpaya.englishisfun.abbreviations.domain.Abbreviations
+import com.jpaya.englishisfun.abbreviations.domain.Abbreviation
 import com.jpaya.englishisfun.firestore.FireStoreClient
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
@@ -34,12 +34,12 @@ class NetworkDataSourceTest {
     companion object {
         private val MOCK_ABBREVIATIONS_DOCUMENT = AbbreviationsResponse().apply {
             abbreviations = listOf(
-                AbbreviationsContent().apply {
+                AbbreviationNetworkItem().apply {
                     id = 1
                     abbr = "Abbreviation 1"
                     desc = "Description 1"
                 },
-                AbbreviationsContent().apply {
+                AbbreviationNetworkItem().apply {
                     id = 2
                     abbr = "Abbreviation 2"
                     desc = "Description 2"
@@ -63,19 +63,19 @@ class NetworkDataSourceTest {
         whenever(fireStoreClient.abbreviations()).doReturn(MOCK_ABBREVIATIONS_DOCUMENT)
 
         val expectedResult = listOf(
-            Abbreviations(
+            Abbreviation(
                 id = 1,
                 abbr = "Abbreviation 1",
                 desc = "Description 1"
             ),
-            Abbreviations(
+            Abbreviation(
                 id = 2,
                 abbr = "Abbreviation 2",
                 desc = "Description 2"
             )
         )
 
-        assertEquals(expectedResult, dataSource.getAbbreviationItems())
+        assertEquals(expectedResult, dataSource.getAbbreviations())
     }
 
     @ExperimentalCoroutinesApi
@@ -83,8 +83,8 @@ class NetworkDataSourceTest {
     fun `Check getAbbreviationItems works properly when null`() = runBlockingTest {
         whenever(fireStoreClient.abbreviations()).doReturn(null)
 
-        val expectedResult = listOf<Abbreviations>()
+        val expectedResult = listOf<Abbreviation>()
 
-        assertEquals(expectedResult, dataSource.getAbbreviationItems())
+        assertEquals(expectedResult, dataSource.getAbbreviations())
     }
 }

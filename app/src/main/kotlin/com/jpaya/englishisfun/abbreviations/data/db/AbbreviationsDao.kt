@@ -22,7 +22,7 @@ import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 
 /**
- * Defines the data-access object for [RoomAbbreviationsItem].
+ * Defines the data-access object for [AbbreviationRoomItem].
  */
 @Dao
 interface AbbreviationsDao {
@@ -31,7 +31,7 @@ interface AbbreviationsDao {
      * Returns a list with all the entities.
      */
     @Query("SELECT * FROM abbreviations")
-    suspend fun all(): List<RoomAbbreviationsItem>
+    suspend fun all(): List<AbbreviationRoomItem>
 
     /**
      * Returns the number of entities.
@@ -43,19 +43,19 @@ interface AbbreviationsDao {
      * Persists an entity.
      */
     @Insert(onConflict = REPLACE)
-    suspend fun save(item: RoomAbbreviationsItem)
+    suspend fun save(item: AbbreviationRoomItem)
 
     /**
      * Persists a list of entities.
      */
     @Insert(onConflict = REPLACE)
-    suspend fun save(items: List<RoomAbbreviationsItem>)
+    suspend fun save(items: List<AbbreviationRoomItem>)
 
     /**
      * Searches entities with the specified filter.
      */
     @Query("SELECT * FROM abbreviations WHERE abbr LIKE :filter")
-    suspend fun search(filter: String): List<RoomAbbreviationsItem>
+    suspend fun search(filter: String): List<AbbreviationRoomItem>
 
     /**
      * Deletes an entity by its id.

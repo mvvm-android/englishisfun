@@ -14,16 +14,12 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.conditionals.domain
+package com.jpaya.base.adapter
 
-/**
- * Model class to represent a conditional.
- */
-data class Conditionals(
-    val id: Long,
-    val name: String,
-    val condition: String,
-    val result: String,
-    val uses: MutableList<String>,
-    val examples: MutableList<String>
-)
+import androidx.recyclerview.widget.DiffUtil
+
+class ListAdapterComparator<T : GenericAdapterComparator<T>> : DiffUtil.ItemCallback<T>() {
+    override fun areItemsTheSame(oldItem: T, newItem: T) = oldItem.isSameItemAs(newItem)
+
+    override fun areContentsTheSame(oldItem: T, newItem: T) = oldItem.hasSameContentsAs(newItem)
+}
