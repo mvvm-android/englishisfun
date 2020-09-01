@@ -20,7 +20,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "statives")
-data class RoomStativeItem(
+data class StativeRoomItem(
     @PrimaryKey(autoGenerate = true) val id: Long,
     val category: String,
     val verbs: MutableList<String>

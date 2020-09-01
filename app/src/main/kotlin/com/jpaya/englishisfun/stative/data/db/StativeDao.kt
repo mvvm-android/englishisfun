@@ -22,7 +22,7 @@ import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 
 /**
- * Defines the data-access object for [RoomStativeItem].
+ * Defines the data-access object for [StativeRoomItem].
  */
 @Dao
 interface StativeDao {
@@ -31,7 +31,7 @@ interface StativeDao {
      * Returns a list with all the entities.
      */
     @Query("SELECT * FROM statives")
-    suspend fun all(): List<RoomStativeItem>
+    suspend fun all(): List<StativeRoomItem>
 
     /**
      * Returns the number of entities.
@@ -43,19 +43,19 @@ interface StativeDao {
      * Persists an entity.
      */
     @Insert(onConflict = REPLACE)
-    suspend fun save(item: RoomStativeItem)
+    suspend fun save(item: StativeRoomItem)
 
     /**
      * Persists a list of entities.
      */
     @Insert(onConflict = REPLACE)
-    suspend fun save(items: List<RoomStativeItem>)
+    suspend fun save(items: List<StativeRoomItem>)
 
     /**
      * Searches entities with the specified filter.
      */
     @Query("SELECT * FROM statives WHERE category LIKE :filter")
-    suspend fun search(filter: String): List<RoomStativeItem>
+    suspend fun search(filter: String): List<StativeRoomItem>
 
     /**
      * Deletes an entity by its id.

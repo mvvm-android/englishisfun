@@ -35,7 +35,7 @@ class DatabaseDataSource @Inject constructor(
     suspend fun save(item: Stative) = dao.save(item.toRoomItem())
 
     suspend fun save(items: List<Stative>) {
-        val objects = mutableListOf<RoomStativeItem>()
+        val objects = mutableListOf<StativeRoomItem>()
         items.forEach {
             objects.add(it.toRoomItem())
         }

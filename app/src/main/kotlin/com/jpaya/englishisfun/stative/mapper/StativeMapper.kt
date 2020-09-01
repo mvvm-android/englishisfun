@@ -16,18 +16,18 @@
 
 package com.jpaya.englishisfun.stative.mapper
 
-import com.jpaya.englishisfun.stative.data.db.RoomStativeItem
+import com.jpaya.englishisfun.stative.data.db.StativeRoomItem
 import com.jpaya.englishisfun.stative.data.network.model.StativeContent
 import com.jpaya.englishisfun.stative.domain.Stative
 import com.jpaya.englishisfun.stative.ui.StativePresenter.StativeItem
 
-fun Stative.toRoomItem() = RoomStativeItem(
+fun Stative.toRoomItem() = StativeRoomItem(
     id = id,
     category = category,
     verbs = verbs
 )
 
-fun RoomStativeItem.toDomain() = Stative(
+fun StativeRoomItem.toDomain() = Stative(
     id = id,
     category = category,
     verbs = verbs
