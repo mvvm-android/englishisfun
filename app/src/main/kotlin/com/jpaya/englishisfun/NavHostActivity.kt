@@ -61,9 +61,10 @@ class NavHostActivity : AppCompatActivity(R.layout.activity_main) {
             AppBarConfiguration(
                 setOf(
                     R.id.abbreviations_list_fragment,
-                    R.id.conditionals_list_fragment,
-                    R.id.idioms_list_fragment,
                     R.id.irregulars_list_fragment,
+                    R.id.idioms_list_fragment,
+                    R.id.conditionals_list_fragment,
+                    R.id.phrasals_list_fragment,
                     R.id.settings_fragment
                 ),
                 drawer_layout

@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "14db2874caa8bd45768284ab5275d506",
+    "identityHash": "29260dcd02aaf921e0634f5a27ebe78a",
     "entities": [
       {
         "tableName": "irregulars",
@@ -161,12 +161,56 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "phrasals",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `base` TEXT NOT NULL, `simple` TEXT NOT NULL, `participle` TEXT NOT NULL, `definitions` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "base",
+            "columnName": "base",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "simple",
+            "columnName": "simple",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "participle",
+            "columnName": "participle",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "definitions",
+            "columnName": "definitions",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '14db2874caa8bd45768284ab5275d506')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '29260dcd02aaf921e0634f5a27ebe78a')"
     ]
   }
 }

@@ -24,6 +24,11 @@
         android:label="@string/home_tab_irregulars" />
 
     <fragment
+        android:id="@+id/phrasals_list_fragment"
+        android:name="com.jpaya.englishisfun.phrasals.ui.PhrasalsListFragment"
+        android:label="@string/home_tab_phrasals" />
+
+    <fragment
         android:id="@+id/settings_fragment"
         android:name="com.jpaya.englishisfun.settings.ui.SettingsFragment"
         android:label="@string/home_tab_settings">
