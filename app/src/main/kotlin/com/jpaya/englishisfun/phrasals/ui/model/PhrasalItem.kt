@@ -20,9 +20,7 @@ import com.jpaya.base.adapter.GenericAdapterComparator
 
 data class PhrasalItem(
     val id: Long,
-    val base: String,
-    val simple: String,
-    val participle: String,
+    val verb: String,
     val definitions: String
 ) : GenericAdapterComparator<PhrasalItem> {
 

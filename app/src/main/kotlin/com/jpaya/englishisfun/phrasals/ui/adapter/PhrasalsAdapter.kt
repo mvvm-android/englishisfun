@@ -34,7 +34,7 @@ class PhrasalsAdapter :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(getItem(position))
 
-    override fun getSectionName(position: Int): String = getItem(position).base.first().toString()
+    override fun getSectionName(position: Int): String = getItem(position).verb.first().toString()
 
     class ViewHolder(private var binding: PhrasalsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 

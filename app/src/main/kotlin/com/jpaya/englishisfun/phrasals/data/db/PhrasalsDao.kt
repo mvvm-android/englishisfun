@@ -54,7 +54,7 @@ interface PhrasalsDao {
     /**
      * Searches entities with the specified filter.
      */
-    @Query("SELECT * FROM phrasals WHERE base LIKE :filter")
+    @Query("SELECT * FROM phrasals WHERE verb LIKE :filter")
     suspend fun search(filter: String): List<PhrasalRoomItem>
 
     /**
