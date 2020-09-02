@@ -25,7 +25,7 @@ import androidx.room.Query
  * Defines the data-access object for [StativeRoomItem].
  */
 @Dao
-interface StativeDao {
+interface StativesDao {
 
     /**
      * Returns a list with all the entities.

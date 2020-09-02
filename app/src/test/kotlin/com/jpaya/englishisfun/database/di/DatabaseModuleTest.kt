@@ -21,6 +21,8 @@ import com.jpaya.englishisfun.conditionals.data.db.ConditionalsDao
 import com.jpaya.englishisfun.database.EnglishIsFunDatabase
 import com.jpaya.englishisfun.idioms.data.db.IdiomsDao
 import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
+import com.jpaya.englishisfun.phrasals.data.db.PhrasalsDao
+import com.jpaya.englishisfun.statives.data.db.StativesDao
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -79,5 +81,25 @@ class DatabaseModuleTest {
 
         assertNotNull(databaseModule.providesConditionalsDao(database))
         assertEquals(dao, databaseModule.providesConditionalsDao(database))
+    }
+
+    @Test
+    fun verifyProvidedStativesDao() {
+        val database: EnglishIsFunDatabase = mock()
+        val dao: StativesDao = mock()
+        doReturn(dao).whenever(database).stative()
+
+        assertNotNull(databaseModule.providesStativeDao(database))
+        assertEquals(dao, databaseModule.providesStativeDao(database))
+    }
+
+    @Test
+    fun verifyProvidedPhrasalsDao() {
+        val database: EnglishIsFunDatabase = mock()
+        val dao: PhrasalsDao = mock()
+        doReturn(dao).whenever(database).phrasals()
+
+        assertNotNull(databaseModule.providesPhrasalsDao(database))
+        assertEquals(dao, databaseModule.providesPhrasalsDao(database))
     }
 }

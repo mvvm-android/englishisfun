@@ -18,7 +18,7 @@ package com.jpaya.englishisfun.statives.di
 
 import com.jpaya.englishisfun.firestore.FireStoreClient
 import com.jpaya.englishisfun.statives.data.db.DatabaseDataSource
-import com.jpaya.englishisfun.statives.data.db.StativeDao
+import com.jpaya.englishisfun.statives.data.db.StativesDao
 import com.jpaya.englishisfun.statives.data.network.NetworkDataSource
 import com.jpaya.englishisfun.statives.domain.StativesInteractor
 import com.jpaya.englishisfun.statives.ui.StativesPresenter
@@ -66,5 +66,5 @@ class StativesModule {
      * @return Instance of data source.
      */
     @Provides
-    fun providesDatabaseDataSource(dao: StativeDao) = DatabaseDataSource(dao)
+    fun providesDatabaseDataSource(dao: StativesDao) = DatabaseDataSource(dao)
 }

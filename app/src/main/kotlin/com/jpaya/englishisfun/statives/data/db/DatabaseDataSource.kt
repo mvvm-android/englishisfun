@@ -25,7 +25,7 @@ import javax.inject.Singleton
 
 @Singleton
 class DatabaseDataSource @Inject constructor(
-    private val dao: StativeDao
+    private val dao: StativesDao
 ) {
 
     suspend fun all(): List<Stative> = dao.all().map { it.toDomain() }
