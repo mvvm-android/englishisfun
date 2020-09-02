@@ -22,8 +22,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "phrasals")
 data class PhrasalRoomItem(
     @PrimaryKey(autoGenerate = true) val id: Long,
-    val base: String,
-    val simple: String,
-    val participle: String,
+    val verb: String,
     val definitions: String
 )

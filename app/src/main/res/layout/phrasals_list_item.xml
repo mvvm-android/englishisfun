@@ -19,37 +19,25 @@
             android:id="@+id/base"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{phrasal.base}"
+            android:text="@{phrasal.verb}"
             android:textIsSelectable="true"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Base" />
+            tools:text="Verb" />
 
         <TextView
             android:id="@+id/simple"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@{phrasal.simple}"
+            android:text="@{phrasal.definitions}"
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/base"
-            tools:text="Simple" />
-
-        <TextView
-            android:id="@+id/participle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="@{phrasal.participle}"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/simple"
-            tools:text="Participle" />
+            tools:text="Definitions" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

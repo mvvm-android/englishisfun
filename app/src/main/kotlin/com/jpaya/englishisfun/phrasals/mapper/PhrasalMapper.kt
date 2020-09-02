@@ -23,32 +23,24 @@ import com.jpaya.englishisfun.phrasals.ui.model.PhrasalItem
 
 fun Phrasal.toRoomItem() = PhrasalRoomItem(
     id = id,
-    base = base,
-    simple = simple,
-    participle = participle,
+    verb = verb,
     definitions = definitions
 )
 
 fun PhrasalRoomItem.toDomain() = Phrasal(
     id = id,
-    base = base,
-    simple = simple,
-    participle = participle,
+    verb = verb,
     definitions = definitions
 )
 
 fun PhrasalNetworkItem.toDomain() = Phrasal(
     id = id,
-    base = base,
-    simple = simple,
-    participle = participle,
+    verb = verb,
     definitions = definitions
 )
 
 fun Phrasal.toPresentation() = PhrasalItem(
     id = id,
-    base = base,
-    simple = simple,
-    participle = participle,
+    verb = verb,
     definitions = definitions
 )

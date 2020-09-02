@@ -21,8 +21,6 @@ package com.jpaya.englishisfun.phrasals.domain
  */
 data class Phrasal(
     val id: Long,
-    val base: String,
-    val simple: String,
-    val participle: String,
+    val verb: String,
     val definitions: String
 )
