@@ -14,18 +14,17 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.idioms.data.network
+package com.jpaya.englishisfun.statives.ui.model
 
-import com.jpaya.englishisfun.firestore.FireStoreClient
-import com.jpaya.englishisfun.idioms.mapper.toDomain
-import com.jpaya.englishisfun.idioms.domain.Idiom
-import javax.inject.Inject
-import javax.inject.Singleton
+import com.jpaya.base.adapter.GenericAdapterComparator
 
-@Singleton
-class NetworkDataSource @Inject constructor(
-    private val fireStoreClient: FireStoreClient
-) {
+data class StativeItem(
+    val id: Long,
+    val category: String,
+    val verbs: MutableList<String>
+) : GenericAdapterComparator<StativeItem> {
 
-    suspend fun getIdiomsItems(): List<Idiom> = fireStoreClient.idioms()?.idioms?.map { it.toDomain() } ?: listOf()
+    override fun isSameItemAs(item: StativeItem) = id == item.id
+
+    override fun hasSameContentsAs(item: StativeItem) = this == item
 }

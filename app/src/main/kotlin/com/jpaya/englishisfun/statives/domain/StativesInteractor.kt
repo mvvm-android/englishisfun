@@ -14,18 +14,22 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.idioms.data.network
+package com.jpaya.englishisfun.statives.domain
 
-import com.jpaya.englishisfun.firestore.FireStoreClient
-import com.jpaya.englishisfun.idioms.mapper.toDomain
-import com.jpaya.englishisfun.idioms.domain.Idiom
+import com.jpaya.englishisfun.statives.data.db.DatabaseDataSource
+import com.jpaya.englishisfun.statives.data.network.NetworkDataSource
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
-class NetworkDataSource @Inject constructor(
-    private val fireStoreClient: FireStoreClient
+class StativesInteractor @Inject constructor(
+    private val network: NetworkDataSource,
+    private val database: DatabaseDataSource
 ) {
 
-    suspend fun getIdiomsItems(): List<Idiom> = fireStoreClient.idioms()?.idioms?.map { it.toDomain() } ?: listOf()
+    suspend fun getStativeItems(): List<Stative> {
+        val result = network.getStativeItems()
+        database.save(result)
+        return result
+    }
+
+    suspend fun searchStative(filter: String): List<Stative> = database.search(filter)
 }

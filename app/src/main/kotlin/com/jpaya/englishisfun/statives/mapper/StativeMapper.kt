@@ -14,33 +14,33 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.idioms.mapper
+package com.jpaya.englishisfun.statives.mapper
 
-import com.jpaya.englishisfun.idioms.data.db.IdiomRoomItem
-import com.jpaya.englishisfun.idioms.data.network.model.IdiomNetworkItem
-import com.jpaya.englishisfun.idioms.domain.Idiom
-import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
+import com.jpaya.englishisfun.statives.data.db.StativeRoomItem
+import com.jpaya.englishisfun.statives.data.network.model.StativeNetworkItem
+import com.jpaya.englishisfun.statives.domain.Stative
+import com.jpaya.englishisfun.statives.ui.model.StativeItem
 
-fun Idiom.toRoomItem() = IdiomRoomItem(
+fun Stative.toRoomItem() = StativeRoomItem(
     id = id,
-    idiom = idiom,
-    description = description
+    category = category,
+    verbs = verbs
 )
 
-fun IdiomRoomItem.toDomain() = Idiom(
+fun StativeRoomItem.toDomain() = Stative(
     id = id,
-    idiom = idiom,
-    description = description
+    category = category,
+    verbs = verbs
 )
 
-fun IdiomNetworkItem.toDomain() = Idiom(
+fun StativeNetworkItem.toDomain() = Stative(
     id = id,
-    idiom = idiom,
-    description = description
+    category = category,
+    verbs = verbs
 )
 
-fun Idiom.toPresentation() = IdiomItem(
+fun Stative.toPresentation() = StativeItem(
     id = id,
-    idiom = idiom,
-    description = description
+    category = category,
+    verbs = verbs
 )

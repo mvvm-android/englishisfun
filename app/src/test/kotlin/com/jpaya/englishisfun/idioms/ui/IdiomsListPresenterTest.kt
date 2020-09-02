@@ -16,7 +16,7 @@
 
 package com.jpaya.englishisfun.idioms.ui
 
-import com.jpaya.englishisfun.idioms.domain.Idioms
+import com.jpaya.englishisfun.idioms.domain.Idiom
 import com.jpaya.englishisfun.idioms.domain.IdiomsInteractor
 import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 import com.nhaarman.mockitokotlin2.doReturn
@@ -32,12 +32,12 @@ class IdiomsListPresenterTest {
 
     companion object {
         private val MOCK_IDIOMS_LIST = listOf(
-            Idioms(
+            Idiom(
                 id = 1,
                 idiom = "Idiom 1",
                 description = "Description 1"
             ),
-            Idioms(
+            Idiom(
                 id = 2,
                 idiom = "Idiom 2",
                 description = "Description 2"

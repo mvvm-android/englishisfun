@@ -25,11 +25,11 @@ class IdiomsInteractor @Inject constructor(
     private val database: DatabaseDataSource
 ) {
 
-    suspend fun getIdiomsItems(): List<Idioms> {
+    suspend fun getIdiomsItems(): List<Idiom> {
         val result = network.getIdiomsItems()
         database.save(result)
         return result
     }
 
-    suspend fun searchIdioms(filter: String): List<Idioms> = database.search(filter)
+    suspend fun searchIdioms(filter: String): List<Idiom> = database.search(filter)
 }

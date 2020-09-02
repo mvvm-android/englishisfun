@@ -14,18 +14,14 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.idioms.data.network
+package com.jpaya.englishisfun.statives.data.db
 
-import com.jpaya.englishisfun.firestore.FireStoreClient
-import com.jpaya.englishisfun.idioms.mapper.toDomain
-import com.jpaya.englishisfun.idioms.domain.Idiom
-import javax.inject.Inject
-import javax.inject.Singleton
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-@Singleton
-class NetworkDataSource @Inject constructor(
-    private val fireStoreClient: FireStoreClient
-) {
-
-    suspend fun getIdiomsItems(): List<Idiom> = fireStoreClient.idioms()?.idioms?.map { it.toDomain() } ?: listOf()
-}
+@Entity(tableName = "statives")
+data class StativeRoomItem(
+    @PrimaryKey(autoGenerate = true) val id: Long,
+    val category: String,
+    val verbs: MutableList<String>
+)

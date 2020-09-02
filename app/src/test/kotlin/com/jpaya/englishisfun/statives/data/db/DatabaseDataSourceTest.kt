@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.idioms.data.db
+package com.jpaya.englishisfun.statives.data.db
 
 import androidx.room.Room
 import com.jpaya.englishisfun.database.EnglishIsFunDatabase
-import com.jpaya.englishisfun.idioms.domain.Idiom
+import com.jpaya.englishisfun.statives.domain.Stative
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
@@ -29,33 +29,33 @@ class DatabaseDataSourceTest : TestRobolectric() {
 
     private lateinit var dataSource: DatabaseDataSource
 
-    private val item1 = Idiom(
+    private val item1 = Stative(
         id = 1,
-        idiom = "Idiom 1",
-        description = "Description 1"
+        category = "Category 1",
+        verbs = mutableListOf("Verb 1")
     )
 
-    private val item2 = Idiom(
+    private val item2 = Stative(
         id = 2,
-        idiom = "Idiom 2",
-        description = "Description 2"
+        category = "Category 2",
+        verbs = mutableListOf("Verb 2")
     )
 
-    private val item3 = Idiom(
+    private val item3 = Stative(
         id = 3,
-        idiom = "Idiom 3",
-        description = "Description 3"
+        category = "Category 3",
+        verbs = mutableListOf("Verb 3")
     )
 
     @Before
     fun setUp() {
         val database = Room.inMemoryDatabaseBuilder(context, EnglishIsFunDatabase::class.java).build()
-        dataSource = DatabaseDataSource(database.idioms())
+        dataSource = DatabaseDataSource(database.stative())
     }
 
     @Test
-    fun `Check idioms works properly`() = runBlocking {
-        val filter = "Idiom 1"
+    fun `Check statives works properly`() = runBlocking {
+        val filter = "Category 1"
         assertEquals(0, dataSource.count())
         assertEquals(0, dataSource.search(filter).size)
 

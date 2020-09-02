@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.idioms.domain
+package com.jpaya.englishisfun.statives.domain
 
-import com.jpaya.englishisfun.idioms.data.db.DatabaseDataSource
-import com.jpaya.englishisfun.idioms.data.network.NetworkDataSource
+import com.jpaya.englishisfun.statives.data.db.DatabaseDataSource
+import com.jpaya.englishisfun.statives.data.network.NetworkDataSource
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -27,50 +27,50 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
-class IdiomsInteractorTest {
+class StativesInteractorTest {
 
     companion object {
-        private val MOCK_IDIOMS_ITEMS = listOf(
-            Idiom(
+        private val MOCK_STATIVES_ITEMS = listOf(
+            Stative(
                 id = 1,
-                idiom = "Idiom 1",
-                description = "Description 1"
+                category = "Category 1",
+                verbs = mutableListOf("Verb 1")
             ),
-            Idiom(
+            Stative(
                 id = 2,
-                idiom = "Idiom 2",
-                description = "Description 2"
+                category = "Category 2",
+                verbs = mutableListOf("Verb 2")
             )
         )
     }
 
     private lateinit var network: NetworkDataSource
     private lateinit var database: DatabaseDataSource
-    private lateinit var interactor: IdiomsInteractor
+    private lateinit var interactor: StativesInteractor
 
     @Before
     fun setUp() {
         network = mock()
         database = mock()
-        interactor = IdiomsInteractor(network, database)
+        interactor = StativesInteractor(network, database)
     }
 
     @ExperimentalCoroutinesApi
     @Test
-    fun `Check getIdiomsItems works properly`() = runBlockingTest {
-        whenever(network.getIdiomsItems()).doReturn(MOCK_IDIOMS_ITEMS)
+    fun `Check getIrregularsItems works properly`() = runBlockingTest {
+        whenever(network.getStativeItems()).doReturn(MOCK_STATIVES_ITEMS)
 
-        assertEquals(2, interactor.getIdiomsItems().size)
-        assertEquals(MOCK_IDIOMS_ITEMS, interactor.getIdiomsItems())
+        assertEquals(2, interactor.getStativeItems().size)
+        assertEquals(MOCK_STATIVES_ITEMS, interactor.getStativeItems())
     }
 
     @ExperimentalCoroutinesApi
     @Test
-    fun `Check searchIdioms works properly`() = runBlockingTest {
-        val filter = "Idiom"
-        whenever(database.search(filter)).doReturn(MOCK_IDIOMS_ITEMS)
+    fun `Check searchIrregulars works properly`() = runBlockingTest {
+        val filter = "filter"
+        whenever(database.search(filter)).doReturn(MOCK_STATIVES_ITEMS)
 
         assertEquals(2, database.search(filter).size)
-        assertEquals(MOCK_IDIOMS_ITEMS, interactor.searchIdioms(filter))
+        assertEquals(MOCK_STATIVES_ITEMS, interactor.searchStative(filter))
     }
 }

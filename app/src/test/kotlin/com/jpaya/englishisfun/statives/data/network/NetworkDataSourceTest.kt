@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.idioms.data.network
+package com.jpaya.englishisfun.statives.data.network
 
 import com.jpaya.englishisfun.firestore.FireStoreClient
-import com.jpaya.englishisfun.idioms.data.network.model.IdiomNetworkItem
-import com.jpaya.englishisfun.idioms.data.network.model.IdiomsResponse
-import com.jpaya.englishisfun.idioms.domain.Idiom
+import com.jpaya.englishisfun.statives.data.network.model.StativeNetworkItem
+import com.jpaya.englishisfun.statives.data.network.model.StativesResponse
+import com.jpaya.englishisfun.statives.domain.Stative
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -32,17 +32,17 @@ import org.junit.Test
 class NetworkDataSourceTest {
 
     companion object {
-        private val MOCK_IDIOMS_DOCUMENT = IdiomsResponse().apply {
-            idioms = listOf(
-                IdiomNetworkItem().apply {
+        private val MOCK_STATIVES_DOCUMENT = StativesResponse().apply {
+            statives = mutableListOf(
+                StativeNetworkItem().apply {
                     id = 1
-                    idiom = "Idiom 1"
-                    description = "Description 1"
+                    category = "Category 1"
+                    verbs = mutableListOf("Verb 1")
                 },
-                IdiomNetworkItem().apply {
+                StativeNetworkItem().apply {
                     id = 2
-                    idiom = "Idiom 2"
-                    description = "Description 2"
+                    category = "Category 2"
+                    verbs = mutableListOf("Verb 2")
                 }
             )
         }
@@ -59,32 +59,32 @@ class NetworkDataSourceTest {
 
     @ExperimentalCoroutinesApi
     @Test
-    fun `Check getIdiomsItems works properly`() = runBlockingTest {
-        whenever(fireStoreClient.idioms()).doReturn(MOCK_IDIOMS_DOCUMENT)
+    fun `Check getConditionalsItems works properly`() = runBlockingTest {
+        whenever(fireStoreClient.statives()).doReturn(MOCK_STATIVES_DOCUMENT)
 
         val expectedResult = listOf(
-            Idiom(
+            Stative(
                 id = 1,
-                idiom = "Idiom 1",
-                description = "Description 1"
+                category = "Category 1",
+                verbs = mutableListOf("Verb 1")
             ),
-            Idiom(
+            Stative(
                 id = 2,
-                idiom = "Idiom 2",
-                description = "Description 2"
+                category = "Category 2",
+                verbs = mutableListOf("Verb 2")
             )
         )
 
-        assertEquals(expectedResult, dataSource.getIdiomsItems())
+        assertEquals(expectedResult, dataSource.getStativeItems())
     }
 
     @ExperimentalCoroutinesApi
     @Test
-    fun `Check getIdiomsItems works properly when null`() = runBlockingTest {
-        whenever(fireStoreClient.idioms()).doReturn(null)
+    fun `Check getConditionalsItems works properly when null`() = runBlockingTest {
+        whenever(fireStoreClient.statives()).doReturn(null)
 
-        val expectedResult = listOf<Idiom>()
+        val expectedResult = listOf<Stative>()
 
-        assertEquals(expectedResult, dataSource.getIdiomsItems())
+        assertEquals(expectedResult, dataSource.getStativeItems())
     }
 }

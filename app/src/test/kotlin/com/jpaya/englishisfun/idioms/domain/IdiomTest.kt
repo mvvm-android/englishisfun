@@ -14,18 +14,26 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.idioms.data.network
+package com.jpaya.englishisfun.idioms.domain
 
-import com.jpaya.englishisfun.firestore.FireStoreClient
-import com.jpaya.englishisfun.idioms.mapper.toDomain
-import com.jpaya.englishisfun.idioms.domain.Idiom
-import javax.inject.Inject
-import javax.inject.Singleton
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
-@Singleton
-class NetworkDataSource @Inject constructor(
-    private val fireStoreClient: FireStoreClient
-) {
+class IdiomTest {
 
-    suspend fun getIdiomsItems(): List<Idiom> = fireStoreClient.idioms()?.idioms?.map { it.toDomain() } ?: listOf()
+    @Test
+    fun initShouldInitialiseProperly() {
+        val id: Long = 1
+        val idiom = "Idiom"
+        val description = "Description"
+        val idioms = Idiom(
+            id = id,
+            idiom = idiom,
+            description = description
+        )
+
+        assertEquals(id, idioms.id)
+        assertEquals(idiom, idioms.idiom)
+        assertEquals(description, idioms.description)
+    }
 }

@@ -20,5 +20,5 @@ package com.jpaya.englishisfun.idioms.data.network.model
  * Class to map the idioms' FireStore response.
  */
 class IdiomsResponse {
-    var idioms: List<IdiomsContent> = listOf()
+    var idioms: List<IdiomNetworkItem> = listOf()
 }
