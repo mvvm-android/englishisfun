@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.statives.ui.adapter
+package com.jpaya.englishisfun.phrasals.ui.adapter
 
 import android.widget.FrameLayout
-import com.jpaya.englishisfun.databinding.StativeListItemBinding
-import com.jpaya.englishisfun.statives.ui.model.StativeItem
+import com.jpaya.englishisfun.databinding.PhrasalsListItemBinding
+import com.jpaya.englishisfun.phrasals.ui.model.PhrasalItem
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
-import org.hamcrest.CoreMatchers.instanceOf
+import org.hamcrest.CoreMatchers
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
-class StativesAdapterTest : TestRobolectric() {
+class PhrasalsAdapterTest : TestRobolectric() {
 
-    private lateinit var adapter: StativesAdapter
+    private lateinit var adapter: PhrasalsAdapter
 
     @Before
     fun setUp() {
-        adapter = StativesAdapter()
+        adapter = PhrasalsAdapter()
     }
 
     @Test
@@ -40,18 +40,17 @@ class StativesAdapterTest : TestRobolectric() {
         val binding = viewHolder.binding
 
         assertNotNull(viewHolder)
-        assertThat(binding, instanceOf(StativeListItemBinding::class.java))
+        assertThat(binding, CoreMatchers.instanceOf(PhrasalsListItemBinding::class.java))
 
         // Check bind works properly
-        val item = StativeItem(
+        val item = PhrasalItem(
             id = 1,
-            category = "Category",
-            verbs = mutableListOf("Verb 1")
+            verb = "Verb",
+            definitions = "Definitions",
         )
         viewHolder.bind(item)
 
-        assertEquals(item.category, binding.base.text.toString())
-        assertEquals(item.category, binding.simple.text.toString())
-        assertEquals(item.category, binding.participle.text.toString())
+        assertEquals(item.verb, binding.base.text.toString())
+        assertEquals(item.definitions, binding.simple.text.toString())
     }
 }

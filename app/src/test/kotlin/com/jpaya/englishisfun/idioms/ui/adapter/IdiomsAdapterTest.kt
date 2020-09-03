@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.statives.ui.adapter
+package com.jpaya.englishisfun.idioms.ui.adapter
 
 import android.widget.FrameLayout
-import com.jpaya.englishisfun.databinding.StativeListItemBinding
-import com.jpaya.englishisfun.statives.ui.model.StativeItem
+import com.jpaya.englishisfun.databinding.IdiomsListItemBinding
+import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
-import org.hamcrest.CoreMatchers.instanceOf
+import org.hamcrest.CoreMatchers
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
-class StativesAdapterTest : TestRobolectric() {
+class IdiomsAdapterTest : TestRobolectric(), IdiomsAdapter.Listener {
 
-    private lateinit var adapter: StativesAdapter
+    private lateinit var adapter: IdiomsAdapter
 
     @Before
     fun setUp() {
-        adapter = StativesAdapter()
+        adapter = IdiomsAdapter(this)
     }
 
     @Test
@@ -40,18 +40,19 @@ class StativesAdapterTest : TestRobolectric() {
         val binding = viewHolder.binding
 
         assertNotNull(viewHolder)
-        assertThat(binding, instanceOf(StativeListItemBinding::class.java))
+        assertThat(binding, CoreMatchers.instanceOf(IdiomsListItemBinding::class.java))
 
         // Check bind works properly
-        val item = StativeItem(
+        val item = IdiomItem(
             id = 1,
-            category = "Category",
-            verbs = mutableListOf("Verb 1")
+            idiom = "Idiom",
+            description = "Description"
         )
         viewHolder.bind(item)
 
-        assertEquals(item.category, binding.base.text.toString())
-        assertEquals(item.category, binding.simple.text.toString())
-        assertEquals(item.category, binding.participle.text.toString())
+        assertEquals(item.idiom, binding.idiom.text.toString())
+        assertEquals(item.description, binding.description.text.toString())
     }
+
+    override fun onItemSelected(id: Long) {}
 }

@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.statives.ui.adapter
+package com.jpaya.englishisfun.conditionals.ui.adapter
 
 import android.widget.FrameLayout
-import com.jpaya.englishisfun.databinding.StativeListItemBinding
-import com.jpaya.englishisfun.statives.ui.model.StativeItem
+import com.jpaya.englishisfun.conditionals.ui.model.ConditionalItem
+import com.jpaya.englishisfun.databinding.ConditionalsListItemBinding
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
-import org.hamcrest.CoreMatchers.instanceOf
+import org.hamcrest.CoreMatchers
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
-class StativesAdapterTest : TestRobolectric() {
+class ConditionalsAdapterTest : TestRobolectric(), ConditionalsAdapter.Listener {
 
-    private lateinit var adapter: StativesAdapter
+    private lateinit var adapter: ConditionalsAdapter
 
     @Before
     fun setUp() {
-        adapter = StativesAdapter()
+        adapter = ConditionalsAdapter(this)
     }
 
     @Test
@@ -40,18 +40,25 @@ class StativesAdapterTest : TestRobolectric() {
         val binding = viewHolder.binding
 
         assertNotNull(viewHolder)
-        assertThat(binding, instanceOf(StativeListItemBinding::class.java))
+        assertThat(binding, CoreMatchers.instanceOf(ConditionalsListItemBinding::class.java))
 
         // Check bind works properly
-        val item = StativeItem(
+        val item = ConditionalItem(
             id = 1,
-            category = "Category",
-            verbs = mutableListOf("Verb 1")
+            name = "Name",
+            condition = "Condition",
+            result = "Result",
+            uses = "Uses",
+            examples = "Examples"
         )
         viewHolder.bind(item)
 
-        assertEquals(item.category, binding.base.text.toString())
-        assertEquals(item.category, binding.simple.text.toString())
-        assertEquals(item.category, binding.participle.text.toString())
+        assertEquals(item.name, binding.name.text.toString())
+        assertEquals(item.condition, binding.condition.text.toString())
+        assertEquals(item.result, binding.result.text.toString())
+        assertEquals(item.uses, binding.uses.text.toString())
+        assertEquals(item.examples, binding.examples.text.toString())
     }
+
+    override fun onItemSelected(id: Long) {}
 }

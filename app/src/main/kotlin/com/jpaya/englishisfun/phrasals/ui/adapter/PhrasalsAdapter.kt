@@ -36,7 +36,7 @@ class PhrasalsAdapter :
 
     override fun getSectionName(position: Int): String = getItem(position).verb.first().toString()
 
-    class ViewHolder(private var binding: PhrasalsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(var binding: PhrasalsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: PhrasalItem) {
             binding.phrasal = item

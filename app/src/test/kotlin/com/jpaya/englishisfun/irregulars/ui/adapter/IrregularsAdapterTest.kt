@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.statives.ui.adapter
+package com.jpaya.englishisfun.irregulars.ui.adapter
 
 import android.widget.FrameLayout
-import com.jpaya.englishisfun.databinding.StativeListItemBinding
-import com.jpaya.englishisfun.statives.ui.model.StativeItem
+import com.jpaya.englishisfun.databinding.IrregularsListItemBinding
+import com.jpaya.englishisfun.irregulars.ui.model.IrregularItem
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
-import org.hamcrest.CoreMatchers.instanceOf
+import org.hamcrest.CoreMatchers
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
-class StativesAdapterTest : TestRobolectric() {
+class IrregularsAdapterTest : TestRobolectric(), IrregularsAdapter.Listener {
 
-    private lateinit var adapter: StativesAdapter
+    private lateinit var adapter: IrregularsAdapter
 
     @Before
     fun setUp() {
-        adapter = StativesAdapter()
+        adapter = IrregularsAdapter(this)
     }
 
     @Test
@@ -40,18 +40,22 @@ class StativesAdapterTest : TestRobolectric() {
         val binding = viewHolder.binding
 
         assertNotNull(viewHolder)
-        assertThat(binding, instanceOf(StativeListItemBinding::class.java))
+        assertThat(binding, CoreMatchers.instanceOf(IrregularsListItemBinding::class.java))
 
         // Check bind works properly
-        val item = StativeItem(
+        val item = IrregularItem(
             id = 1,
-            category = "Category",
-            verbs = mutableListOf("Verb 1")
+            base = "Base",
+            simple = "Description",
+            participle = "Participle",
+            definitions = "Definitions"
         )
         viewHolder.bind(item)
 
-        assertEquals(item.category, binding.base.text.toString())
-        assertEquals(item.category, binding.simple.text.toString())
-        assertEquals(item.category, binding.participle.text.toString())
+        assertEquals(item.base, binding.base.text.toString())
+        assertEquals(item.simple, binding.simple.text.toString())
+        assertEquals(item.participle, binding.participle.text.toString())
     }
+
+    override fun onItemSelected(id: Long) {}
 }
