@@ -16,29 +16,28 @@
 
 package com.jpaya.base.utils
 
-// class VersioningUtilsImplTest : TestRobolectric() {
-//
-//    @get:Rule
-//    val rule = ActivityScenarioRule(AppCompatActivity::class.java)
-//    private lateinit var scenario: ActivityScenario<AppCompatActivity>
-//
-//    private lateinit var versioningUtils: VersioningUtils
-//
-//    @Before
-//    fun setUp() {
-//        scenario = rule.scenario
-//        scenario.onActivity {
-//            versioningUtils = VersioningUtilsImpl(it)
-//        }
-//    }
-//
-//    @Test
-//    fun verifyProvidedVersionName() {
-//        assertNull(versioningUtils.versionName())
-//    }
-//
-//    @Test
-//    fun verifyProvidedVersionCode() {
-//        assertNotNull(versioningUtils.versionCode())
-//    }
-// }
+import com.jpaya.base.testutils.TestRobolectric
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertNull
+import org.junit.Before
+import org.junit.Test
+
+class VersioningUtilsImplTest : TestRobolectric() {
+
+    private lateinit var versioningUtils: VersioningUtils
+
+    @Before
+    fun setUp() {
+        versioningUtils = VersioningUtilsImpl(context)
+    }
+
+    @Test
+    fun verifyProvidedVersionName() {
+        assertNull(versioningUtils.versionName())
+    }
+
+    @Test
+    fun verifyProvidedVersionCode() {
+        assertNotNull(versioningUtils.versionCode())
+    }
+}
