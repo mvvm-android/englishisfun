@@ -16,8 +16,7 @@
 
 include(
     ":app",
-    ":base-android",
-    ":test_utils"
+    ":base-android"
 )
 
 rootProject.buildFileName = "build.gradle.kts"

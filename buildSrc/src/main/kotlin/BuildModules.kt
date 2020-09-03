@@ -20,8 +20,4 @@
 object BuildModules {
     const val APP = ":app"
     const val BASE_ANDROID = ":base-android"
-
-    object Libraries {
-        const val TEST_UTILS = ":test_utils"
-    }
 }
