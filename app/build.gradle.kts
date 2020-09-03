@@ -192,7 +192,6 @@ dependencies {
             AnnotationProcessorsLibraries.ROOM
         )
     )
-    testImplementation(project(BuildModules.Libraries.TEST_UTILS))
     testImplementation(TestLibraries.all())
     androidTestImplementation(TestAndroidLibraries.all())
 }
