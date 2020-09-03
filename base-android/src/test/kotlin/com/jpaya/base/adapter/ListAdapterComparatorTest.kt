@@ -34,18 +34,18 @@ class ListAdapterComparatorTest {
         // Different data
         val item1 = SampleClass(1, "Name 1")
         val item2 = SampleClass(2, "Name 2")
-        assertFalse(item1.isSameItemAs(item2))
-        assertFalse(item1.hasSameContentsAs(item2))
+        assertFalse(adapterComparator.areItemsTheSame(item1, item2))
+        assertFalse(adapterComparator.areContentsTheSame(item1, item2))
 
         // Same Id
         val item3 = SampleClass(1, "Name 3")
-        assertTrue(item1.isSameItemAs(item3))
-        assertFalse(item1.hasSameContentsAs(item3))
+        assertTrue(adapterComparator.areItemsTheSame(item1, item3))
+        assertFalse(adapterComparator.areContentsTheSame(item1, item3))
 
         // Same data
         val item4 = SampleClass(1, "Name 1")
-        assertTrue(item1.isSameItemAs(item4))
-        assertTrue(item1.hasSameContentsAs(item4))
+        assertTrue(adapterComparator.areItemsTheSame(item1, item4))
+        assertTrue(adapterComparator.areContentsTheSame(item1, item4))
     }
 
     data class SampleClass(
