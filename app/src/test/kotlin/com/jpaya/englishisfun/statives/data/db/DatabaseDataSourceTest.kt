@@ -17,9 +17,9 @@
 package com.jpaya.englishisfun.statives.data.db
 
 import androidx.room.Room
+import com.jpaya.base.testutils.TestRobolectric
 import com.jpaya.englishisfun.database.EnglishIsFunDatabase
 import com.jpaya.englishisfun.statives.domain.Stative
-import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Before

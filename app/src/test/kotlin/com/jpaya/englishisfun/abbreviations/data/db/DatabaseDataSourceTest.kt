@@ -17,9 +17,9 @@
 package com.jpaya.englishisfun.abbreviations.data.db
 
 import androidx.room.Room
+import com.jpaya.base.testutils.TestRobolectric
 import com.jpaya.englishisfun.abbreviations.domain.Abbreviation
 import com.jpaya.englishisfun.database.EnglishIsFunDatabase
-import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Before

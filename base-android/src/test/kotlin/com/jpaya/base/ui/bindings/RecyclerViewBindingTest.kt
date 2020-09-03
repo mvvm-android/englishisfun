@@ -17,8 +17,8 @@
 package com.jpaya.base.ui.bindings
 
 import androidx.recyclerview.widget.RecyclerView
+import com.jpaya.base.testutils.TestRobolectric
 import com.jpaya.base.ui.recyclerview.RecyclerViewItemDecoration
-import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.instanceOf
 import org.junit.Assert.assertEquals

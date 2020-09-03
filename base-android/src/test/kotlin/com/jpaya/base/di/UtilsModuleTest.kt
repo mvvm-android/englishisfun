@@ -16,7 +16,7 @@
 
 package com.jpaya.base.di
 
-import com.jpaya.libraries.testutils.robolectric.TestRobolectric
+import com.jpaya.base.testutils.TestRobolectric
 import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test

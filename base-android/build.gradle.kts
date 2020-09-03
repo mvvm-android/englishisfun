@@ -16,6 +16,7 @@
 
 import dependencies.AnnotationProcessorsLibraries
 import dependencies.Libraries
+import dependencies.TestLibraries
 import extensions.implementation
 import extensions.kapt
 
@@ -51,6 +52,9 @@ dependencies {
             Libraries.ROOM_KTX
         )
     )
+    implementation(TestLibraries.CORE)
+    implementation(TestLibraries.JUNIT)
+    implementation(TestLibraries.ROBOELECTRIC)
     kapt(
         arrayOf(
             AnnotationProcessorsLibraries.DATABINDING,

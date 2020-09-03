@@ -17,7 +17,7 @@
 package com.jpaya.base.ui.bindings
 
 import android.view.View
-import com.jpaya.libraries.testutils.robolectric.TestRobolectric
+import com.jpaya.base.testutils.TestRobolectric
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
