@@ -36,7 +36,7 @@ class StativesAdapter :
 
     override fun getSectionName(position: Int): String = getItem(position).category.first().toString()
 
-    class ViewHolder(private var binding: StativeListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(var binding: StativeListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: StativeItem) {
             binding.stative = item
