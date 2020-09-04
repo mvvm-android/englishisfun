@@ -17,9 +17,9 @@
 package com.jpaya.englishisfun.statives.ui.adapter
 
 import android.widget.FrameLayout
-import com.jpaya.base.testutils.TestRobolectric
 import com.jpaya.englishisfun.databinding.StativeListItemBinding
 import com.jpaya.englishisfun.statives.ui.model.StativeItem
+import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import org.hamcrest.CoreMatchers.instanceOf
 import org.junit.Assert.*
 import org.junit.Before

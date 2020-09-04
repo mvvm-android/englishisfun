@@ -17,9 +17,9 @@
 package com.jpaya.englishisfun.idioms.ui.adapter
 
 import android.widget.FrameLayout
-import com.jpaya.base.testutils.TestRobolectric
 import com.jpaya.englishisfun.databinding.IdiomsListItemBinding
 import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
+import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import org.hamcrest.CoreMatchers
 import org.junit.Assert.*
 import org.junit.Before

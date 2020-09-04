@@ -17,9 +17,9 @@
 package com.jpaya.englishisfun.irregulars.ui.adapter
 
 import android.widget.FrameLayout
-import com.jpaya.base.testutils.TestRobolectric
 import com.jpaya.englishisfun.databinding.IrregularsListItemBinding
 import com.jpaya.englishisfun.irregulars.ui.model.IrregularItem
+import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import org.hamcrest.CoreMatchers
 import org.junit.Assert.*
 import org.junit.Before
