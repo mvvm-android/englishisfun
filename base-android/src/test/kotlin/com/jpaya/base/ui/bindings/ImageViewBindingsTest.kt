@@ -17,7 +17,8 @@
 package com.jpaya.base.ui.bindings
 
 import android.widget.ImageView
-import com.jpaya.base.testutils.TestRobolectric
+import com.jpaya.base.R
+import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
 import org.junit.Before

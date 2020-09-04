@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jpaya.base.testutils
+package com.jpaya.libraries.testutils.robolectric
 
 import android.app.Application
 import android.content.Context
