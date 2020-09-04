@@ -32,7 +32,7 @@ class ConditionalsAdapter(private val listener: Listener) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(getItem(position))
 
-    inner class ViewHolder(private var binding: ConditionalsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(var binding: ConditionalsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: ConditionalItem) {
             itemView.setOnClickListener {

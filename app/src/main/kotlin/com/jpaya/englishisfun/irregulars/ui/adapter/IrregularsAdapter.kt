@@ -36,7 +36,7 @@ class IrregularsAdapter(private val listener: Listener) :
 
     override fun getSectionName(position: Int): String = getItem(position).base.first().toString()
 
-    inner class ViewHolder(private var binding: IrregularsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(var binding: IrregularsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: IrregularItem) {
             itemView.setOnClickListener {
