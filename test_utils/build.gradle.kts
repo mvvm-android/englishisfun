@@ -14,14 +14,21 @@
  * limitations under the License.
  */
 
-/**
- * Configuration of build modules
- */
-object BuildModules {
-    const val APP = ":app"
-    const val BASE_ANDROID = ":base-android"
+import dependencies.AnnotationProcessorsLibraries
+import dependencies.Libraries
+import dependencies.TestLibraries
+import extensions.implementation
 
-    object Libraries {
-        const val TEST_UTILS = ":test_utils"
-    }
+plugins {
+    id("commons.android-library")
+}
+
+dependencies {
+    implementation(
+        arrayOf(
+            Libraries.NAVIGATION_UI
+        )
+    )
+    implementation(TestLibraries.all())
+    kapt(AnnotationProcessorsLibraries.AUTO_SERVICE)
 }
