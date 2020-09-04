@@ -46,7 +46,7 @@ class PhrasalsAdapterTest : TestRobolectric() {
         val item = PhrasalItem(
             id = 1,
             verb = "Verb",
-            definitions = "Definitions",
+            definitions = "Definitions"
         )
         viewHolder.bind(item)
 
