@@ -27,7 +27,7 @@ import org.junit.Test
 
 class PhrasalsAdapterTest : TestRobolectric() {
 
-    private val ITEMS_LIST = listOf(
+    private val itemsList = listOf(
         PhrasalItem(
             id = 1,
             verb = "Verb",
@@ -49,20 +49,20 @@ class PhrasalsAdapterTest : TestRobolectric() {
     @Test
     fun `Check itemCount works properly`() {
         assertEquals(0, adapter.itemCount)
-        adapter.submitList(ITEMS_LIST)
+        adapter.submitList(itemsList)
         assertEquals(2, adapter.itemCount)
     }
 
     @Test
     fun `Check getSectionName works properly`() {
-        adapter.submitList(ITEMS_LIST)
+        adapter.submitList(itemsList)
         assertEquals("V", adapter.getSectionName(0))
         assertEquals("A", adapter.getSectionName(1))
     }
 
     @Test
     fun `Check onCreateViewHolder and onBindViewHolder works properly`() {
-        adapter.submitList(ITEMS_LIST)
+        adapter.submitList(itemsList)
 
         val viewHolder = adapter.onCreateViewHolder(FrameLayout(context), 0)
         val binding = viewHolder.binding
