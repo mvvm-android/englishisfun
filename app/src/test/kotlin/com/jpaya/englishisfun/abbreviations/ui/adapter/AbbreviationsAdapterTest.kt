@@ -16,11 +16,8 @@
 
 package com.jpaya.englishisfun.abbreviations.ui.adapter
 
-import android.widget.FrameLayout
 import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
-import com.jpaya.englishisfun.databinding.AbbreviationsListItemBinding
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
-import org.hamcrest.CoreMatchers
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
