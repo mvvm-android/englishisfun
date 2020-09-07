@@ -14,42 +14,36 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.conditionals.ui.adapter
+package com.jpaya.englishisfun.abbreviations.ui.adapter
 
 import android.widget.FrameLayout
-import com.jpaya.englishisfun.conditionals.ui.model.ConditionalItem
-import com.jpaya.englishisfun.databinding.ConditionalsListItemBinding
+import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
+import com.jpaya.englishisfun.databinding.AbbreviationsListItemBinding
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import org.hamcrest.CoreMatchers
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
-class ConditionalsAdapterTest : TestRobolectric(), ConditionalsAdapter.Listener {
+class AbbreviationsAdapterTest : TestRobolectric(), AbbreviationsAdapter.Listener {
 
     private val itemsList = listOf(
-        ConditionalItem(
+        AbbreviationItem(
             id = 1,
-            name = "Name",
-            condition = "Condition",
-            result = "Result",
-            uses = "Uses",
-            examples = "Examples"
+            abbr = "Abbreviation",
+            desc = "Description"
         ),
-        ConditionalItem(
+        AbbreviationItem(
             id = 2,
-            name = "Another Name",
-            condition = "Another Condition",
-            result = "Another Result",
-            uses = "Another Uses",
-            examples = "Another Examples"
+            abbr = "Another Abbreviation",
+            desc = "Another Description"
         ),
     )
-    private lateinit var adapter: ConditionalsAdapter
+    private lateinit var adapter: AbbreviationsAdapter
 
     @Before
     fun setUp() {
-        adapter = ConditionalsAdapter(this)
+        adapter = AbbreviationsAdapter(this)
     }
 
     @Test
@@ -67,14 +61,11 @@ class ConditionalsAdapterTest : TestRobolectric(), ConditionalsAdapter.Listener 
         val binding = viewHolder.binding
 
         assertNotNull(viewHolder)
-        assertThat(binding, CoreMatchers.instanceOf(ConditionalsListItemBinding::class.java))
+        assertThat(binding, CoreMatchers.instanceOf(AbbreviationsListItemBinding::class.java))
 
         adapter.onBindViewHolder(viewHolder, 1)
-        assertEquals("Another Name", binding.name.text.toString())
-        assertEquals("Another Condition", binding.condition.text.toString())
-        assertEquals("Another Result", binding.result.text.toString())
-        assertEquals("Another Uses", binding.uses.text.toString())
-        assertEquals("Another Examples", binding.examples.text.toString())
+        assertEquals("Another Abbreviation", binding.tvAbbreviation.text.toString())
+        assertEquals("Another Description", binding.tvDescription.text.toString())
     }
 
     override fun onItemSelected(id: Long) {}
