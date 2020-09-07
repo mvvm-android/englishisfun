@@ -36,24 +36,18 @@ dependencies {
     implementation(
         arrayOf(
             Libraries.COIL,
-            Libraries.CONSTRAINT_LAYOUT,
             Libraries.CORE_KTX,
-            Libraries.FIREBASE_FIRESTORE,
-            Libraries.FIREBASE_AUTH,
             Libraries.FRAGMENT_KTX,
             Libraries.HILT,
             Libraries.NAVIGATION_FRAGMENT,
             Libraries.NAVIGATION_UI,
-            Libraries.RECYCLER_VIEW,
-            Libraries.ROOM,
-            Libraries.ROOM_KTX
+            Libraries.RECYCLER_VIEW
         )
     )
     kapt(
         arrayOf(
             AnnotationProcessorsLibraries.DATABINDING,
-            AnnotationProcessorsLibraries.HILT,
-            AnnotationProcessorsLibraries.ROOM
+            AnnotationProcessorsLibraries.HILT
         )
     )
 }
