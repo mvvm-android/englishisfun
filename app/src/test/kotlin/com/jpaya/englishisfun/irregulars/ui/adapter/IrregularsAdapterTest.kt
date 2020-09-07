@@ -39,7 +39,7 @@ class IrregularsAdapterTest : TestRobolectric(), IrregularsAdapter.Listener {
             id = 2,
             base = "Another Base",
             simple = "Another Simple",
-            participle = "Another participle",
+            participle = "Another Participle",
             definitions = "Another definition"
         ),
     )
