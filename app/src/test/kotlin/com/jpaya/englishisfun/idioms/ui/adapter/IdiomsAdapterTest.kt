@@ -27,6 +27,18 @@ import org.junit.Test
 
 class IdiomsAdapterTest : TestRobolectric(), IdiomsAdapter.Listener {
 
+    private val itemsList = listOf(
+        IdiomItem(
+            id = 1,
+            idiom = "Idiom",
+            description = "Description"
+        ),
+        IdiomItem(
+            id = 2,
+            idiom = "Another Idiom",
+            description = "Another Description"
+        ),
+    )
     private lateinit var adapter: IdiomsAdapter
 
     @Before
@@ -35,23 +47,32 @@ class IdiomsAdapterTest : TestRobolectric(), IdiomsAdapter.Listener {
     }
 
     @Test
-    fun `Check onCreateViewHolder works properly`() {
+    fun `Check itemCount works properly`() {
+        assertEquals(0, adapter.itemCount)
+        adapter.submitList(itemsList)
+        assertEquals(2, adapter.itemCount)
+    }
+
+    @Test
+    fun `Check getSectionName works properly`() {
+        adapter.submitList(itemsList)
+        assertEquals("I", adapter.getSectionName(0))
+        assertEquals("A", adapter.getSectionName(1))
+    }
+
+    @Test
+    fun `Check onCreateViewHolder and onBindViewHolder works properly`() {
+        adapter.submitList(itemsList)
+
         val viewHolder = adapter.onCreateViewHolder(FrameLayout(context), 0)
         val binding = viewHolder.binding
 
         assertNotNull(viewHolder)
         assertThat(binding, CoreMatchers.instanceOf(IdiomsListItemBinding::class.java))
 
-        // Check bind works properly
-        val item = IdiomItem(
-            id = 1,
-            idiom = "Idiom",
-            description = "Description"
-        )
-        viewHolder.bind(item)
-
-        assertEquals(item.idiom, binding.idiom.text.toString())
-        assertEquals(item.description, binding.description.text.toString())
+        adapter.onBindViewHolder(viewHolder, 1)
+        assertEquals("Another Idiom", binding.idiom.text.toString())
+        assertEquals("Another Description", binding.description.text.toString())
     }
 
     override fun onItemSelected(id: Long) {}
