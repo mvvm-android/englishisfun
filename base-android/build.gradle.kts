@@ -16,8 +16,10 @@
 
 import dependencies.AnnotationProcessorsLibraries
 import dependencies.Libraries
+import dependencies.TestLibraries
 import extensions.implementation
 import extensions.kapt
+import extensions.testImplementation
 
 plugins {
     id("commons.android-library")
@@ -50,4 +52,6 @@ dependencies {
             AnnotationProcessorsLibraries.HILT
         )
     )
+    testImplementation(project(BuildModules.Libraries.TEST_UTILS))
+    testImplementation(TestLibraries.all())
 }
