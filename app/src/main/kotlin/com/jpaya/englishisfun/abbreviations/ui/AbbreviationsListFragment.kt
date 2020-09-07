@@ -29,11 +29,20 @@ import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.extensions.exhaustive
 import com.jpaya.englishisfun.R
 import com.jpaya.englishisfun.abbreviations.ui.adapter.AbbreviationsAdapter
+import com.jpaya.englishisfun.data.network.WooCommerceService
+import com.jpaya.englishisfun.data.network.model.ProductNetworkItem
 import com.jpaya.englishisfun.extensions.DebouncingQueryTextListener
 import com.jpaya.englishisfun.extensions.hide
 import com.jpaya.englishisfun.extensions.show
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.abbreviations_fragment_list.*
+import okhttp3.OkHttpClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
 
 @AndroidEntryPoint
 class AbbreviationsListFragment :
@@ -48,6 +57,31 @@ class AbbreviationsListFragment :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://192.168.1.137:8888/wp-json/wc/v3/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(
+                OkHttpClient.Builder()
+                    .addInterceptor(AuthIntercepter("ck_8f10a9e2cb2051e2b5c03abe4000c6a0c4904f2a", "cs_074eeb483d8602ac9d41503bba1f67bad3914367"))
+                    .build()
+            )
+            .build()
+
+        val service: WooCommerceService = retrofit.create(WooCommerceService::class.java)
+        service.listProducts()
+            .enqueue(object : Callback<List<ProductNetworkItem>> {
+                override fun onResponse(
+                    call: Call<List<ProductNetworkItem>>,
+                    response: Response<List<ProductNetworkItem>>
+                ) {
+                    val aux = ""
+                }
+
+                override fun onFailure(call: Call<List<ProductNetworkItem>>, t: Throwable) {
+                    val aux = ""
+                }
+            })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

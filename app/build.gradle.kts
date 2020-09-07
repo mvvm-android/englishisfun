@@ -155,6 +155,12 @@ junitJacoco {
 afterEvaluate {
 }
 
+configurations {
+    all {
+        exclude(group = "org.apache.httpcomponents", module = "httpclient")
+    }
+}
+
 dependencies {
     implementation(project(BuildModules.BASE_ANDROID))
     implementation(
@@ -178,6 +184,9 @@ dependencies {
             Libraries.RAINBOW_CAKE,
             Libraries.RECYCLER_VIEW,
             Libraries.RECYCLER_VIEW_SCROLL,
+            "com.squareup.retrofit2:retrofit:2.9.0",
+            "com.squareup.retrofit2:converter-gson:2.9.0",
+            "org.apache.httpcomponents:httpclient:4.5.12",
             Libraries.ROOM,
             Libraries.ROOM_KTX,
             Libraries.SHIMMER,
