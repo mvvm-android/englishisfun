@@ -42,8 +42,6 @@ dependencies {
             Libraries.FIREBASE_AUTH,
             Libraries.FRAGMENT_KTX,
             Libraries.HILT,
-            Libraries.LIFECYCLE_EXTENSIONS,
-            Libraries.LIFECYCLE_VIEWMODEL,
             Libraries.NAVIGATION_FRAGMENT,
             Libraries.NAVIGATION_UI,
             Libraries.RECYCLER_VIEW,

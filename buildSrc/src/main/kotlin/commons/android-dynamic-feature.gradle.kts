@@ -113,8 +113,6 @@ dependencies {
     implementation(Libraries.KOTLIN)
     implementation(Libraries.KOTLIN_COROUTINES)
     implementation(Libraries.KOTLIN_COROUTINES_ANDROID)
-    implementation(Libraries.LIFECYCLE_EXTENSIONS)
-    implementation(Libraries.LIFECYCLE_VIEWMODEL)
     implementation(Libraries.NAVIGATION_FRAGMENT)
     implementation(Libraries.NAVIGATION_UI)
     implementation(Libraries.TIMBER)
