@@ -20,13 +20,25 @@ import android.widget.FrameLayout
 import com.jpaya.englishisfun.databinding.StativeListItemBinding
 import com.jpaya.englishisfun.statives.ui.model.StativeItem
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
-import org.hamcrest.CoreMatchers.instanceOf
+import org.hamcrest.CoreMatchers
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
 class StativesAdapterTest : TestRobolectric() {
 
+    private val ITEMS_LIST = listOf(
+        StativeItem(
+            id = 1,
+            category = "Category",
+            verbs = mutableListOf("Verb 1")
+        ),
+        StativeItem(
+            id = 2,
+            category = "Another category",
+            verbs = mutableListOf("Verb 2")
+        ),
+    )
     private lateinit var adapter: StativesAdapter
 
     @Before
@@ -35,23 +47,32 @@ class StativesAdapterTest : TestRobolectric() {
     }
 
     @Test
-    fun `Check onCreateViewHolder works properly`() {
+    fun `Check itemCount works properly`() {
+        assertEquals(0, adapter.itemCount)
+        adapter.submitList(ITEMS_LIST)
+        assertEquals(2, adapter.itemCount)
+    }
+
+    @Test
+    fun `Check getSectionName works properly`() {
+        adapter.submitList(ITEMS_LIST)
+        assertEquals("C", adapter.getSectionName(0))
+        assertEquals("A", adapter.getSectionName(1))
+    }
+
+    @Test
+    fun `Check onCreateViewHolder and onBindViewHolder works properly`() {
+        adapter.submitList(ITEMS_LIST)
+
         val viewHolder = adapter.onCreateViewHolder(FrameLayout(context), 0)
         val binding = viewHolder.binding
 
         assertNotNull(viewHolder)
-        assertThat(binding, instanceOf(StativeListItemBinding::class.java))
+        assertThat(binding, CoreMatchers.instanceOf(StativeListItemBinding::class.java))
 
-        // Check bind works properly
-        val item = StativeItem(
-            id = 1,
-            category = "Category",
-            verbs = mutableListOf("Verb 1")
-        )
-        viewHolder.bind(item)
-
-        assertEquals(item.category, binding.base.text.toString())
-        assertEquals(item.category, binding.simple.text.toString())
-        assertEquals(item.category, binding.participle.text.toString())
+        adapter.onBindViewHolder(viewHolder, 1)
+        assertEquals("Another category", binding.base.text.toString())
+        assertEquals("Another category", binding.simple.text.toString())
+        assertEquals("Another category", binding.participle.text.toString())
     }
 }
