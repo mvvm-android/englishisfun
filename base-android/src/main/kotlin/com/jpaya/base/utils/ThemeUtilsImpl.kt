@@ -18,7 +18,6 @@ package com.jpaya.base.utils
 
 import android.content.Context
 import android.content.res.Configuration
-import android.os.Handler
 import androidx.appcompat.app.AppCompatDelegate
 import java.util.*
 import javax.inject.Inject
@@ -30,7 +29,6 @@ import javax.inject.Inject
 class ThemeUtilsImpl @Inject constructor() : ThemeUtils {
 
     companion object {
-        private const val DELAY_TO_APPLY_THEME = 1000L
         private const val NIGHT_TIME_START_HOUR = 18
         private const val NIGHT_TIME_END_HOUR = 6
     }
@@ -55,25 +53,17 @@ class ThemeUtilsImpl @Inject constructor() : ThemeUtils {
     }
 
     /**
-     * Force [AppCompatDelegate] Mode to night/notnight.
+     * Force [AppCompatDelegate] Mode to night/day.
      *
      * @param forceNight Boolean that force night mode otherwise notnight is configured.
-     * @param delay Delay to apply mode changes.
      */
-    private fun setNightMode(forceNight: Boolean, delay: Long = DELAY_TO_APPLY_THEME) {
-        Handler().postDelayed(
-            {
-                AppCompatDelegate.setDefaultNightMode(
-                    if (forceNight) {
-                        AppCompatDelegate.MODE_NIGHT_YES
-                    } else {
-                        AppCompatDelegate.MODE_NIGHT_NO
-                    }
-                )
-            },
-            delay
-        )
-    }
+    private fun setNightMode(forceNight: Boolean) = AppCompatDelegate.setDefaultNightMode(
+        if (forceNight) {
+            AppCompatDelegate.MODE_NIGHT_YES
+        } else {
+            AppCompatDelegate.MODE_NIGHT_NO
+        }
+    )
 
     override fun setAppearance(appearance: String) {
         when (appearance) {
