@@ -27,6 +27,18 @@ import org.junit.Test
 
 class PhrasalsAdapterTest : TestRobolectric() {
 
+    private val itemsList = listOf(
+        PhrasalItem(
+            id = 1,
+            verb = "Verb",
+            definitions = "Definitions"
+        ),
+        PhrasalItem(
+            id = 2,
+            verb = "Another verb",
+            definitions = "Another definition"
+        ),
+    )
     private lateinit var adapter: PhrasalsAdapter
 
     @Before
@@ -35,22 +47,31 @@ class PhrasalsAdapterTest : TestRobolectric() {
     }
 
     @Test
-    fun `Check onCreateViewHolder works properly`() {
+    fun `Check itemCount works properly`() {
+        assertEquals(0, adapter.itemCount)
+        adapter.submitList(itemsList)
+        assertEquals(2, adapter.itemCount)
+    }
+
+    @Test
+    fun `Check getSectionName works properly`() {
+        adapter.submitList(itemsList)
+        assertEquals("V", adapter.getSectionName(0))
+        assertEquals("A", adapter.getSectionName(1))
+    }
+
+    @Test
+    fun `Check onCreateViewHolder and onBindViewHolder works properly`() {
+        adapter.submitList(itemsList)
+
         val viewHolder = adapter.onCreateViewHolder(FrameLayout(context), 0)
         val binding = viewHolder.binding
 
         assertNotNull(viewHolder)
         assertThat(binding, CoreMatchers.instanceOf(PhrasalsListItemBinding::class.java))
 
-        // Check bind works properly
-        val item = PhrasalItem(
-            id = 1,
-            verb = "Verb",
-            definitions = "Definitions"
-        )
-        viewHolder.bind(item)
-
-        assertEquals(item.verb, binding.base.text.toString())
-        assertEquals(item.definitions, binding.simple.text.toString())
+        adapter.onBindViewHolder(viewHolder, 1)
+        assertEquals("Another verb", binding.base.text.toString())
+        assertEquals("Another definition", binding.simple.text.toString())
     }
 }

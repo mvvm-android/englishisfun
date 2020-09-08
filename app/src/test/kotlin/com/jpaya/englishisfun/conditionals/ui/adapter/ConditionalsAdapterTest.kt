@@ -27,6 +27,24 @@ import org.junit.Test
 
 class ConditionalsAdapterTest : TestRobolectric(), ConditionalsAdapter.Listener {
 
+    private val itemsList = listOf(
+        ConditionalItem(
+            id = 1,
+            name = "Name",
+            condition = "Condition",
+            result = "Result",
+            uses = "Uses",
+            examples = "Examples"
+        ),
+        ConditionalItem(
+            id = 2,
+            name = "Another Name",
+            condition = "Another Condition",
+            result = "Another Result",
+            uses = "Another Uses",
+            examples = "Another Examples"
+        ),
+    )
     private lateinit var adapter: ConditionalsAdapter
 
     @Before
@@ -35,29 +53,28 @@ class ConditionalsAdapterTest : TestRobolectric(), ConditionalsAdapter.Listener 
     }
 
     @Test
-    fun `Check onCreateViewHolder works properly`() {
+    fun `Check itemCount works properly`() {
+        assertEquals(0, adapter.itemCount)
+        adapter.submitList(itemsList)
+        assertEquals(2, adapter.itemCount)
+    }
+
+    @Test
+    fun `Check onCreateViewHolder and onBindViewHolder works properly`() {
+        adapter.submitList(itemsList)
+
         val viewHolder = adapter.onCreateViewHolder(FrameLayout(context), 0)
         val binding = viewHolder.binding
 
         assertNotNull(viewHolder)
         assertThat(binding, CoreMatchers.instanceOf(ConditionalsListItemBinding::class.java))
 
-        // Check bind works properly
-        val item = ConditionalItem(
-            id = 1,
-            name = "Name",
-            condition = "Condition",
-            result = "Result",
-            uses = "Uses",
-            examples = "Examples"
-        )
-        viewHolder.bind(item)
-
-        assertEquals(item.name, binding.name.text.toString())
-        assertEquals(item.condition, binding.condition.text.toString())
-        assertEquals(item.result, binding.result.text.toString())
-        assertEquals(item.uses, binding.uses.text.toString())
-        assertEquals(item.examples, binding.examples.text.toString())
+        adapter.onBindViewHolder(viewHolder, 1)
+        assertEquals("Another Name", binding.name.text.toString())
+        assertEquals("Another Condition", binding.condition.text.toString())
+        assertEquals("Another Result", binding.result.text.toString())
+        assertEquals("Another Uses", binding.uses.text.toString())
+        assertEquals("Another Examples", binding.examples.text.toString())
     }
 
     override fun onItemSelected(id: Long) {}

@@ -27,6 +27,22 @@ import org.junit.Test
 
 class IrregularsAdapterTest : TestRobolectric(), IrregularsAdapter.Listener {
 
+    private val itemsList = listOf(
+        IrregularItem(
+            id = 1,
+            base = "Base",
+            simple = "Simple",
+            participle = "Participle",
+            definitions = "Definition"
+        ),
+        IrregularItem(
+            id = 2,
+            base = "Another Base",
+            simple = "Another Simple",
+            participle = "Another Participle",
+            definitions = "Another definition"
+        ),
+    )
     private lateinit var adapter: IrregularsAdapter
 
     @Before
@@ -35,26 +51,33 @@ class IrregularsAdapterTest : TestRobolectric(), IrregularsAdapter.Listener {
     }
 
     @Test
-    fun `Check onCreateViewHolder works properly`() {
+    fun `Check itemCount works properly`() {
+        assertEquals(0, adapter.itemCount)
+        adapter.submitList(itemsList)
+        assertEquals(2, adapter.itemCount)
+    }
+
+    @Test
+    fun `Check getSectionName works properly`() {
+        adapter.submitList(itemsList)
+        assertEquals("B", adapter.getSectionName(0))
+        assertEquals("A", adapter.getSectionName(1))
+    }
+
+    @Test
+    fun `Check onCreateViewHolder and onBindViewHolder works properly`() {
+        adapter.submitList(itemsList)
+
         val viewHolder = adapter.onCreateViewHolder(FrameLayout(context), 0)
         val binding = viewHolder.binding
 
         assertNotNull(viewHolder)
         assertThat(binding, CoreMatchers.instanceOf(IrregularsListItemBinding::class.java))
 
-        // Check bind works properly
-        val item = IrregularItem(
-            id = 1,
-            base = "Base",
-            simple = "Description",
-            participle = "Participle",
-            definitions = "Definitions"
-        )
-        viewHolder.bind(item)
-
-        assertEquals(item.base, binding.base.text.toString())
-        assertEquals(item.simple, binding.simple.text.toString())
-        assertEquals(item.participle, binding.participle.text.toString())
+        adapter.onBindViewHolder(viewHolder, 1)
+        assertEquals("Another Base", binding.base.text.toString())
+        assertEquals("Another Simple", binding.simple.text.toString())
+        assertEquals("Another Participle", binding.participle.text.toString())
     }
 
     override fun onItemSelected(id: Long) {}
