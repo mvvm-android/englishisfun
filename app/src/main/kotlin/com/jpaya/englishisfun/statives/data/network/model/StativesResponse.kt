@@ -20,5 +20,5 @@ package com.jpaya.englishisfun.statives.data.network.model
  * Class to map the statives' FireStore response.
  */
 class StativesResponse {
-    var statives: List<StativeNetworkItem> = listOf()
+    lateinit var statives: List<StativeNetworkItem>
 }

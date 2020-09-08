@@ -21,6 +21,6 @@ package com.jpaya.englishisfun.idioms.data.network.model
  */
 class IdiomNetworkItem {
     var id: Long = 0
-    var idiom: String = ""
-    var description: String = ""
+    lateinit var idiom: String
+    lateinit var description: String
 }

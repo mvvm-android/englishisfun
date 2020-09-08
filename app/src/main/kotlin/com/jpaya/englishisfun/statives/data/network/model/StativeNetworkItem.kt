@@ -21,6 +21,6 @@ package com.jpaya.englishisfun.statives.data.network.model
  */
 class StativeNetworkItem {
     var id: Long = 0
-    var category: String = ""
-    var verbs: MutableList<String> = mutableListOf()
+    lateinit var category: String
+    lateinit var verbs: MutableList<String>
 }

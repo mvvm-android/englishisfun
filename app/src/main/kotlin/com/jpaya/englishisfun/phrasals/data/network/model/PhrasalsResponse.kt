@@ -20,5 +20,5 @@ package com.jpaya.englishisfun.phrasals.data.network.model
  * Class to map the irregulars' FireStore response.
  */
 class PhrasalsResponse {
-    var phrasals: List<PhrasalNetworkItem> = listOf()
+    lateinit var phrasals: List<PhrasalNetworkItem>
 }

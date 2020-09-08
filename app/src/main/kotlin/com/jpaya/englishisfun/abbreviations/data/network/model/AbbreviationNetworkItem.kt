@@ -21,6 +21,6 @@ package com.jpaya.englishisfun.abbreviations.data.network.model
  */
 class AbbreviationNetworkItem {
     var id: Long = 0
-    var abbr: String = ""
-    var desc: String = ""
+    lateinit var abbr: String
+    lateinit var desc: String
 }

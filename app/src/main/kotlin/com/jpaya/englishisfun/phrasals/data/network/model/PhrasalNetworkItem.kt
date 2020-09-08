@@ -21,6 +21,6 @@ package com.jpaya.englishisfun.phrasals.data.network.model
  */
 class PhrasalNetworkItem {
     var id: Long = 0
-    var verb: String = ""
-    var definitions: String = ""
+    lateinit var verb: String
+    lateinit var definitions: String
 }

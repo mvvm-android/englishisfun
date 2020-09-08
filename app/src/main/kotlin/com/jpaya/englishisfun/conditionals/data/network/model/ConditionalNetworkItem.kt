@@ -21,9 +21,9 @@ package com.jpaya.englishisfun.conditionals.data.network.model
  */
 class ConditionalNetworkItem {
     var id: Long = 0
-    var name: String = ""
-    var condition: String = ""
-    var result: String = ""
-    var uses: MutableList<String> = mutableListOf()
-    var examples: MutableList<String> = mutableListOf()
+    lateinit var name: String
+    lateinit var condition: String
+    lateinit var result: String
+    lateinit var uses: MutableList<String>
+    lateinit var examples: MutableList<String>
 }
