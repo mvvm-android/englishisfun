@@ -16,10 +16,9 @@
 
 package com.jpaya.base.utils
 
-import android.os.Handler
 import androidx.appcompat.app.AppCompatDelegate
 import com.jpaya.base.extensions.isNightTime
-import java.util.*
+import java.util.Calendar
 import javax.inject.Inject
 
 /**
@@ -33,25 +32,17 @@ class ThemeUtilsImpl @Inject constructor() : ThemeUtils {
     }
 
     /**
-     * Force [AppCompatDelegate] Mode to night/notnight.
+     * Force [AppCompatDelegate] Mode to night/day.
      *
      * @param forceNight Boolean that force night mode otherwise notnight is configured.
-     * @param delay Delay to apply mode changes.
      */
-    private fun setNightMode(forceNight: Boolean, delay: Long = DELAY_TO_APPLY_THEME) {
-        Handler().postDelayed(
-            {
-                AppCompatDelegate.setDefaultNightMode(
-                    if (forceNight) {
-                        AppCompatDelegate.MODE_NIGHT_YES
-                    } else {
-                        AppCompatDelegate.MODE_NIGHT_NO
-                    }
-                )
-            },
-            delay
-        )
-    }
+    private fun setNightMode(forceNight: Boolean) = AppCompatDelegate.setDefaultNightMode(
+        if (forceNight) {
+            AppCompatDelegate.MODE_NIGHT_YES
+        } else {
+            AppCompatDelegate.MODE_NIGHT_NO
+        }
+    )
 
     override fun setAppearance(appearance: String) {
         when (appearance) {
