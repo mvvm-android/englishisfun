@@ -27,10 +27,6 @@ import javax.inject.Inject
  */
 class ThemeUtilsImpl @Inject constructor() : ThemeUtils {
 
-    companion object {
-        private const val DELAY_TO_APPLY_THEME = 1000L
-    }
-
     /**
      * Force [AppCompatDelegate] Mode to night/day.
      *
