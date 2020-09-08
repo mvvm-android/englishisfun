@@ -17,7 +17,7 @@
 package com.jpaya.englishisfun.phrasals.data.db
 
 import androidx.room.Room
-import com.jpaya.englishisfun.database.EnglishIsFunDatabase
+import com.jpaya.englishisfun.data.database.EnglishIsFunDatabase
 import com.jpaya.englishisfun.phrasals.domain.Phrasal
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import kotlinx.coroutines.runBlocking

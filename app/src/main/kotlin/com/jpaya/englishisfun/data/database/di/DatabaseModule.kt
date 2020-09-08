@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.database.di
+package com.jpaya.englishisfun.data.database.di
 
 import android.content.Context
 import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationsDao
 import com.jpaya.englishisfun.conditionals.data.db.ConditionalsDao
-import com.jpaya.englishisfun.database.EnglishIsFunDatabase
+import com.jpaya.englishisfun.data.database.EnglishIsFunDatabase
 import com.jpaya.englishisfun.idioms.data.db.IdiomsDao
 import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
 import com.jpaya.englishisfun.phrasals.data.db.PhrasalsDao

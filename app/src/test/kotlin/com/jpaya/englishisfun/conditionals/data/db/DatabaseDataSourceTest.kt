@@ -18,7 +18,7 @@ package com.jpaya.englishisfun.conditionals.data.db
 
 import androidx.room.Room
 import com.jpaya.englishisfun.conditionals.domain.Conditional
-import com.jpaya.englishisfun.database.EnglishIsFunDatabase
+import com.jpaya.englishisfun.data.database.EnglishIsFunDatabase
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals

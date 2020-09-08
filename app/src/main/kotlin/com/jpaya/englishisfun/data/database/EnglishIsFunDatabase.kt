@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.database
+package com.jpaya.englishisfun.data.database
 
 import android.content.Context
 import androidx.room.Database
@@ -25,7 +25,7 @@ import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationRoomItem
 import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationsDao
 import com.jpaya.englishisfun.conditionals.data.db.ConditionalRoomItem
 import com.jpaya.englishisfun.conditionals.data.db.ConditionalsDao
-import com.jpaya.englishisfun.database.converters.Converters
+import com.jpaya.englishisfun.data.database.converters.Converters
 import com.jpaya.englishisfun.idioms.data.db.IdiomRoomItem
 import com.jpaya.englishisfun.idioms.data.db.IdiomsDao
 import com.jpaya.englishisfun.irregulars.data.db.IrregularRoomItem
