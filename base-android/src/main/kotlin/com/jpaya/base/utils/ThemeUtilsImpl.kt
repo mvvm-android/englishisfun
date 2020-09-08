@@ -16,10 +16,9 @@
 
 package com.jpaya.base.utils
 
-import android.content.Context
-import android.content.res.Configuration
 import android.os.Handler
 import androidx.appcompat.app.AppCompatDelegate
+import com.jpaya.base.extensions.isNightTime
 import java.util.*
 import javax.inject.Inject
 
@@ -31,27 +30,6 @@ class ThemeUtilsImpl @Inject constructor() : ThemeUtils {
 
     companion object {
         private const val DELAY_TO_APPLY_THEME = 1000L
-        private const val NIGHT_TIME_START_HOUR = 18
-        private const val NIGHT_TIME_END_HOUR = 6
-    }
-
-    /**
-     * Whether the current configuration is a dark theme i.e. in Night configuration.
-     */
-    private fun isDarkTheme(context: Context) = context.resources.configuration.uiMode and
-        Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
-
-    /**
-     * Whether the current configuration is a light theme i.e. in Day configuration.
-     */
-    private fun isLightTheme(context: Context) = !isDarkTheme(context)
-
-    /**
-     * Checks the time and determines night time.
-     */
-    private fun isNightTime(): Boolean {
-        val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
-        return hour < NIGHT_TIME_END_HOUR || hour > NIGHT_TIME_START_HOUR
     }
 
     /**
@@ -77,7 +55,7 @@ class ThemeUtilsImpl @Inject constructor() : ThemeUtils {
 
     override fun setAppearance(appearance: String) {
         when (appearance) {
-            "auto" -> setNightMode(isNightTime())
+            "auto" -> setNightMode(Calendar.getInstance().isNightTime())
             "dark" -> setNightMode(true)
             "light" -> setNightMode(false)
         }
