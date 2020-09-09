@@ -21,13 +21,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jpaya.base.adapter.ListAdapterComparator
+import com.jpaya.englishisfun.DataBindingAdapter
 import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
 import com.jpaya.englishisfun.databinding.AbbreviationsListItemBinding
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
 
 class AbbreviationsAdapter(private val listener: Listener) :
     ListAdapter<AbbreviationItem, AbbreviationsAdapter.ViewHolder>(ListAdapterComparator<AbbreviationItem>()),
-    FastScrollRecyclerView.SectionedAdapter {
+    FastScrollRecyclerView.SectionedAdapter,
+    DataBindingAdapter<List<AbbreviationItem>> {
+
+    override fun setData(data: List<AbbreviationItem>) = submitList(data)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(AbbreviationsListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))

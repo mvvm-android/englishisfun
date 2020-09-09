@@ -19,14 +19,18 @@ package com.jpaya.englishisfun
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.facebook.shimmer.ShimmerFrameLayout
-import com.jpaya.englishisfun.abbreviations.ui.adapter.AbbreviationsAdapter
-import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
 import com.jpaya.englishisfun.extensions.hide
 import com.jpaya.englishisfun.extensions.show
 
+interface DataBindingAdapter<T> {
+    fun setData(data: T)
+}
+
 @BindingAdapter("list")
-fun <T> setRecyclerViewData(recyclerView: RecyclerView, data: List<T>) {
-    (recyclerView.adapter as AbbreviationsAdapter).submitList(data as List<AbbreviationItem>)
+fun <T> setRecyclerViewData(recyclerView: RecyclerView, data: T) {
+    if (recyclerView.adapter is DataBindingAdapter<*>) {
+        (recyclerView.adapter as DataBindingAdapter<T>).setData(data)
+    }
 }
 
 @BindingAdapter("visible")
