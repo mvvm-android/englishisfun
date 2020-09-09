@@ -24,7 +24,7 @@ import com.jpaya.base.adapter.ListAdapterComparator
 import com.jpaya.englishisfun.conditionals.ui.model.ConditionalItem
 import com.jpaya.englishisfun.databinding.ConditionalsListItemBinding
 
-class ConditionalsAdapter(private val listener: Listener) :
+class ConditionalsAdapter :
     ListAdapter<ConditionalItem, ConditionalsAdapter.ViewHolder>(ListAdapterComparator<ConditionalItem>()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -32,18 +32,11 @@ class ConditionalsAdapter(private val listener: Listener) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(getItem(position))
 
-    inner class ViewHolder(var binding: ConditionalsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(var binding: ConditionalsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: ConditionalItem) {
-            itemView.setOnClickListener {
-                binding.conditional?.let { listener.onItemSelected(it.id) }
-            }
             binding.conditional = item
             binding.executePendingBindings()
         }
-    }
-
-    interface Listener {
-        fun onItemSelected(id: Long)
     }
 }

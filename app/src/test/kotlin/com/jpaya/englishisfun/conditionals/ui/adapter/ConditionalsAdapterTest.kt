@@ -25,7 +25,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
-class ConditionalsAdapterTest : TestRobolectric(), ConditionalsAdapter.Listener {
+class ConditionalsAdapterTest : TestRobolectric() {
 
     private val itemsList = listOf(
         ConditionalItem(
@@ -49,7 +49,7 @@ class ConditionalsAdapterTest : TestRobolectric(), ConditionalsAdapter.Listener 
 
     @Before
     fun setUp() {
-        adapter = ConditionalsAdapter(this)
+        adapter = ConditionalsAdapter()
     }
 
     @Test
@@ -76,6 +76,4 @@ class ConditionalsAdapterTest : TestRobolectric(), ConditionalsAdapter.Listener 
         assertEquals("Another Uses", binding.uses.text.toString())
         assertEquals("Another Examples", binding.examples.text.toString())
     }
-
-    override fun onItemSelected(id: Long) {}
 }

@@ -32,8 +32,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.conditionals_fragment_list.*
 
 @AndroidEntryPoint
-class ConditionalsListFragment :
-    RainbowCakeFragment<ListViewState, ConditionalsListViewModel>(), ConditionalsAdapter.Listener {
+class ConditionalsListFragment : RainbowCakeFragment<ListViewState, ConditionalsListViewModel>() {
 
     private val customViewModel: ConditionalsListViewModel by viewModels()
     private lateinit var adapter: ConditionalsAdapter
@@ -44,7 +43,7 @@ class ConditionalsListFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = ConditionalsAdapter(this)
+        adapter = ConditionalsAdapter()
         conditionalsList.adapter = adapter
         conditionalsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
@@ -77,9 +76,5 @@ class ConditionalsListFragment :
                 errorGroup.isVisible = true
             }
         }.exhaustive
-    }
-
-    override fun onItemSelected(id: Long) {
-//        navigator?.add(DetailFragment.newInstance(id))
     }
 }
