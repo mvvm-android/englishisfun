@@ -35,8 +35,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.abbreviations_fragment_list.*
 
 @AndroidEntryPoint
-class AbbreviationsListFragment :
-    RainbowCakeFragment<AbbreviationsListViewState, AbbreviationsListViewModel>(), AbbreviationsAdapter.Listener {
+class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState, AbbreviationsListViewModel>() {
 
     private val customViewModel: AbbreviationsListViewModel by viewModels()
     private lateinit var abbreviationsAdapter: AbbreviationsAdapter
@@ -59,7 +58,7 @@ class AbbreviationsListFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        abbreviationsAdapter = AbbreviationsAdapter(this)
+        abbreviationsAdapter = AbbreviationsAdapter()
         irregularsList.adapter = abbreviationsAdapter
         irregularsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
@@ -90,9 +89,5 @@ class AbbreviationsListFragment :
     override fun render(viewState: AbbreviationsListViewState) {
         TransitionManager.beginDelayedTransition(listFragmentRoot)
         binding.viewState = viewState
-    }
-
-    override fun onItemSelected(id: Long) {
-//        navigator?.add(DetailFragment.newInstance(id))
     }
 }
