@@ -19,6 +19,9 @@ package com.jpaya.englishisfun.abbreviations.ui
 import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import co.zsmb.rainbowcake.test.observeStateAndEvents
+import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListViewState.ListReady
+import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListViewState.Loading
+import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListViewState.NetworkError
 import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
