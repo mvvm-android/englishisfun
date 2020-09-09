@@ -17,11 +17,8 @@
 package com.jpaya.englishisfun.abbreviations.ui
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.View
+import android.view.*
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.transition.TransitionManager
@@ -29,6 +26,7 @@ import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.extensions.exhaustive
 import com.jpaya.englishisfun.R
 import com.jpaya.englishisfun.abbreviations.ui.adapter.AbbreviationsAdapter
+import com.jpaya.englishisfun.databinding.AbbreviationsFragmentListBinding
 import com.jpaya.englishisfun.extensions.DebouncingQueryTextListener
 import com.jpaya.englishisfun.extensions.hide
 import com.jpaya.englishisfun.extensions.show
@@ -41,9 +39,16 @@ class AbbreviationsListFragment :
 
     private val customViewModel: AbbreviationsListViewModel by viewModels()
     private lateinit var abbreviationsAdapter: AbbreviationsAdapter
+    private lateinit var binding: AbbreviationsFragmentListBinding
 
     override fun provideViewModel() = customViewModel
     override fun getViewResource() = R.layout.abbreviations_fragment_list
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
+        binding = AbbreviationsFragmentListBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,25 +89,7 @@ class AbbreviationsListFragment :
 
     override fun render(viewState: AbbreviationsListViewState) {
         TransitionManager.beginDelayedTransition(listFragmentRoot)
-        when (viewState) {
-            Loading -> {
-                shimmerLayout.show()
-                irregularsList.isVisible = false
-                errorGroup.isVisible = false
-            }
-            is ListReady -> {
-                abbreviationsAdapter.submitList(viewState.abbreviations)
-                shimmerLayout.hide()
-                irregularsList.isVisible = true
-                errorGroup.isVisible = false
-            }
-            NetworkError -> {
-                abbreviationsAdapter.submitList(null)
-                shimmerLayout.hide()
-                irregularsList.isVisible = false
-                errorGroup.isVisible = true
-            }
-        }.exhaustive
+        binding.viewState = viewState
     }
 
     override fun onItemSelected(id: Long) {

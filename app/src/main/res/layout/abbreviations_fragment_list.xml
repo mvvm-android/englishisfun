@@ -5,6 +5,11 @@
 
     <data>
 
+        <import type="android.view.View" />
+
+        <variable
+            name="viewState"
+            type="com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListViewState" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,6 +26,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:visible="@{viewState.showLoading()}"
             app:shimmer_duration="1000">
 
             <!-- Adding 10 rows of placeholders -->
@@ -56,6 +62,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
+            android:visibility="@{viewState.showList() ? View.VISIBLE : View.GONE}"
             app:fastScrollAutoHide="true"
             app:fastScrollAutoHideDelay="1500"
             app:fastScrollEnableThumbInactiveColor="true"
@@ -72,12 +79,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:list="@{viewState.list()}"
             tools:listitem="@layout/abbreviations_list_item" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/errorGroup"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:visibility="@{viewState.showErrorGroup() ? View.VISIBLE : View.GONE}"
             app:constraint_referenced_ids="errorText,retryButton" />
 
         <TextView
