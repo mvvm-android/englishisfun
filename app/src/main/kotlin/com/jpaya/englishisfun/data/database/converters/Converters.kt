@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.database.converters
+package com.jpaya.englishisfun.data.database.converters
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson

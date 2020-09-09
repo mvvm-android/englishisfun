@@ -21,8 +21,8 @@ package com.jpaya.englishisfun.irregulars.data.network.model
  */
 class IrregularNetworkItem {
     var id: Long = 0
-    var base: String = ""
-    var simple: String = ""
-    var participle: String = ""
-    var definitions: String = ""
+    lateinit var base: String
+    lateinit var simple: String
+    lateinit var participle: String
+    lateinit var definitions: String
 }

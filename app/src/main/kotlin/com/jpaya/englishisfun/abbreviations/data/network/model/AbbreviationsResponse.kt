@@ -20,5 +20,5 @@ package com.jpaya.englishisfun.abbreviations.data.network.model
  * Class to map the abbreviations' FireStore response.
  */
 class AbbreviationsResponse {
-    var abbreviations: List<AbbreviationNetworkItem> = listOf()
+    lateinit var abbreviations: List<AbbreviationNetworkItem>
 }
