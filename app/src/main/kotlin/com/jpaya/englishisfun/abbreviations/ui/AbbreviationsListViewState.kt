@@ -20,28 +20,28 @@ import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
 
 sealed class AbbreviationsListViewState {
     abstract fun showLoading(): Boolean
-    abstract fun showErrorGroup(): Boolean
+    abstract fun showError(): Boolean
     abstract fun showList(): Boolean
     abstract fun list(): List<AbbreviationItem>
-}
 
-object Loading : AbbreviationsListViewState() {
-    override fun showLoading(): Boolean = true
-    override fun showErrorGroup(): Boolean = false
-    override fun showList(): Boolean = false
-    override fun list(): List<AbbreviationItem> = listOf()
-}
+    object Loading : AbbreviationsListViewState() {
+        override fun showLoading(): Boolean = true
+        override fun showError(): Boolean = false
+        override fun showList(): Boolean = false
+        override fun list(): List<AbbreviationItem> = listOf()
+    }
 
-data class ListReady(val abbreviations: List<AbbreviationItem>) : AbbreviationsListViewState() {
-    override fun showLoading(): Boolean = false
-    override fun showErrorGroup(): Boolean = false
-    override fun showList(): Boolean = true
-    override fun list(): List<AbbreviationItem> = abbreviations
-}
+    data class ListReady(val abbreviations: List<AbbreviationItem>) : AbbreviationsListViewState() {
+        override fun showLoading(): Boolean = false
+        override fun showError(): Boolean = false
+        override fun showList(): Boolean = true
+        override fun list(): List<AbbreviationItem> = abbreviations
+    }
 
-object NetworkError : AbbreviationsListViewState() {
-    override fun showLoading(): Boolean = false
-    override fun showErrorGroup(): Boolean = true
-    override fun showList(): Boolean = false
-    override fun list(): List<AbbreviationItem> = listOf()
+    object NetworkError : AbbreviationsListViewState() {
+        override fun showLoading(): Boolean = false
+        override fun showError(): Boolean = true
+        override fun showList(): Boolean = false
+        override fun list(): List<AbbreviationItem> = listOf()
+    }
 }

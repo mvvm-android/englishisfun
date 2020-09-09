@@ -86,7 +86,7 @@
             android:id="@+id/errorGroup"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:visibility="@{viewState.showErrorGroup() ? View.VISIBLE : View.GONE}"
+            android:visibility="@{viewState.showError() ? View.VISIBLE : View.GONE}"
             app:constraint_referenced_ids="errorText,retryButton" />
 
         <TextView
