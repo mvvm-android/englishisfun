@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.extensions
+package com.jpaya.base.ui.searchview
 
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.LifecycleOwner
@@ -23,7 +23,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-internal class DebouncingQueryTextListener(
+class DebouncingQueryTextListener(
     lifecycleOwner: LifecycleOwner,
     private val onDebouncingQueryTextChange: (String?) -> Unit
 ) : SearchView.OnQueryTextListener {

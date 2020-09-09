@@ -30,7 +30,7 @@ import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import com.jpaya.englishisfun.R
 import com.jpaya.englishisfun.abbreviations.ui.adapter.AbbreviationsAdapter
 import com.jpaya.englishisfun.databinding.AbbreviationsFragmentListBinding
-import com.jpaya.englishisfun.extensions.DebouncingQueryTextListener
+import com.jpaya.base.ui.searchview.DebouncingQueryTextListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.abbreviations_fragment_list.*
 

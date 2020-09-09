@@ -28,7 +28,7 @@ import androidx.transition.TransitionManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
 import co.zsmb.rainbowcake.extensions.exhaustive
 import com.jpaya.englishisfun.R
-import com.jpaya.englishisfun.extensions.DebouncingQueryTextListener
+import com.jpaya.base.ui.searchview.DebouncingQueryTextListener
 import com.jpaya.englishisfun.extensions.hide
 import com.jpaya.englishisfun.extensions.show
 import com.jpaya.englishisfun.irregulars.ui.adapter.IrregularsAdapter
