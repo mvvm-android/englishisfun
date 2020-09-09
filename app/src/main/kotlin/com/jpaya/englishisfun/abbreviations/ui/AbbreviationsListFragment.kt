@@ -17,19 +17,20 @@
 package com.jpaya.englishisfun.abbreviations.ui
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.transition.TransitionManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
-import co.zsmb.rainbowcake.extensions.exhaustive
 import com.jpaya.englishisfun.R
 import com.jpaya.englishisfun.abbreviations.ui.adapter.AbbreviationsAdapter
 import com.jpaya.englishisfun.databinding.AbbreviationsFragmentListBinding
 import com.jpaya.englishisfun.extensions.DebouncingQueryTextListener
-import com.jpaya.englishisfun.extensions.hide
-import com.jpaya.englishisfun.extensions.show
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.abbreviations_fragment_list.*
 
