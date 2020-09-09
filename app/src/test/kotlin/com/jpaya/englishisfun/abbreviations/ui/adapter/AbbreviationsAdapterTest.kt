@@ -22,7 +22,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
-class AbbreviationsAdapterTest : TestRobolectric(), AbbreviationsAdapter.Listener {
+class AbbreviationsAdapterTest : TestRobolectric() {
 
     private val itemsList = listOf(
         AbbreviationItem(
@@ -40,7 +40,7 @@ class AbbreviationsAdapterTest : TestRobolectric(), AbbreviationsAdapter.Listene
 
     @Before
     fun setUp() {
-        adapter = AbbreviationsAdapter(this)
+        adapter = AbbreviationsAdapter()
     }
 
     @Test
@@ -73,6 +73,4 @@ class AbbreviationsAdapterTest : TestRobolectric(), AbbreviationsAdapter.Listene
         assertEquals("Another Description", binding.tvDescription.text.toString())
     }
 */
-
-    override fun onItemSelected(id: Long) {}
 }
