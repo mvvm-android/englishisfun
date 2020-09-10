@@ -16,7 +16,7 @@
 
 package com.jpaya.englishisfun.phrasals.data.network
 
-import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.data.firebase.FireStoreClient
 import com.jpaya.englishisfun.phrasals.data.network.model.PhrasalNetworkItem
 import com.jpaya.englishisfun.phrasals.data.network.model.PhrasalsResponse
 import com.jpaya.englishisfun.phrasals.domain.Phrasal

@@ -16,7 +16,7 @@
 
 package com.jpaya.englishisfun.suggestions.data.network
 
-import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.data.firebase.FireStoreClient
 import com.jpaya.englishisfun.suggestions.data.network.model.SuggestionsContent
 import com.jpaya.englishisfun.suggestions.domain.Suggestions
 import com.nhaarman.mockitokotlin2.mock

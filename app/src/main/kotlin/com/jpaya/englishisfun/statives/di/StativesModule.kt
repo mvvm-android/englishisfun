@@ -16,7 +16,7 @@
 
 package com.jpaya.englishisfun.statives.di
 
-import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.data.firebase.FireStoreClient
 import com.jpaya.englishisfun.statives.data.db.DatabaseDataSource
 import com.jpaya.englishisfun.statives.data.db.StativesDao
 import com.jpaya.englishisfun.statives.data.network.NetworkDataSource

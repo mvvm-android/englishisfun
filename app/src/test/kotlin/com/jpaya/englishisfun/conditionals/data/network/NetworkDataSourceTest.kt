@@ -19,7 +19,7 @@ package com.jpaya.englishisfun.conditionals.data.network
 import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalNetworkItem
 import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsResponse
 import com.jpaya.englishisfun.conditionals.domain.Conditional
-import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.data.firebase.FireStoreClient
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever

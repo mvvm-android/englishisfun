@@ -16,7 +16,7 @@
 
 package com.jpaya.englishisfun.irregulars.di
 
-import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.data.firebase.FireStoreClient
 import com.jpaya.englishisfun.irregulars.data.db.DatabaseDataSource
 import com.jpaya.englishisfun.irregulars.data.db.IrregularsDao
 import com.jpaya.englishisfun.irregulars.data.network.NetworkDataSource

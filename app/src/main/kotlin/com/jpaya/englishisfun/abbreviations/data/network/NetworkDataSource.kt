@@ -18,7 +18,7 @@ package com.jpaya.englishisfun.abbreviations.data.network
 
 import com.jpaya.englishisfun.abbreviations.mapper.toDomain
 import com.jpaya.englishisfun.abbreviations.domain.Abbreviation
-import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.data.firebase.FireStoreClient
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.database.di
+package com.jpaya.englishisfun.data.database.di
 
 import com.jpaya.englishisfun.abbreviations.data.db.AbbreviationsDao
 import com.jpaya.englishisfun.conditionals.data.db.ConditionalsDao
