@@ -18,11 +18,14 @@ package com.jpaya.englishisfun.statives.ui
 
 import androidx.hilt.lifecycle.ViewModelInject
 import co.zsmb.rainbowcake.base.RainbowCakeViewModel
+import com.jpaya.englishisfun.statives.ui.StativesViewState.ListReady
+import com.jpaya.englishisfun.statives.ui.StativesViewState.Loading
+import com.jpaya.englishisfun.statives.ui.StativesViewState.NetworkError
 import java.io.IOException
 
 class StativesViewModel @ViewModelInject constructor(
     private val presenter: StativesPresenter
-) : RainbowCakeViewModel<ListViewState>(Loading) {
+) : RainbowCakeViewModel<StativesViewState>(Loading) {
 
     init {
         execute { loadStative() }

@@ -18,10 +18,30 @@ package com.jpaya.englishisfun.statives.ui
 
 import com.jpaya.englishisfun.statives.ui.model.StativeItem
 
-sealed class ListViewState
+sealed class StativesViewState {
+    abstract fun showLoading(): Boolean
+    abstract fun showError(): Boolean
+    abstract fun showList(): Boolean
+    abstract fun list(): List<StativeItem>
 
-object Loading : ListViewState()
+    object Loading : StativesViewState() {
+        override fun showLoading(): Boolean = true
+        override fun showError(): Boolean = false
+        override fun showList(): Boolean = false
+        override fun list(): List<StativeItem> = listOf()
+    }
 
-data class ListReady(val items: List<StativeItem>) : ListViewState()
+    data class ListReady(val statives: List<StativeItem>) : StativesViewState() {
+        override fun showLoading(): Boolean = false
+        override fun showError(): Boolean = false
+        override fun showList(): Boolean = true
+        override fun list(): List<StativeItem> = statives
+    }
 
-object NetworkError : ListViewState()
+    object NetworkError : StativesViewState() {
+        override fun showLoading(): Boolean = false
+        override fun showError(): Boolean = true
+        override fun showList(): Boolean = false
+        override fun list(): List<StativeItem> = listOf()
+    }
+}
