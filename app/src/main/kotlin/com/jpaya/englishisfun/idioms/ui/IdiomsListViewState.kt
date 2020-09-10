@@ -18,10 +18,30 @@ package com.jpaya.englishisfun.idioms.ui
 
 import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 
-sealed class ListViewState
+sealed class IdiomsListViewState {
+    abstract fun showLoading(): Boolean
+    abstract fun showError(): Boolean
+    abstract fun showList(): Boolean
+    abstract fun list(): List<IdiomItem>
 
-object Loading : ListViewState()
+    object Loading : IdiomsListViewState() {
+        override fun showLoading(): Boolean = true
+        override fun showError(): Boolean = false
+        override fun showList(): Boolean = false
+        override fun list(): List<IdiomItem> = listOf()
+    }
 
-data class ListReady(val idioms: List<IdiomItem>) : ListViewState()
+    data class ListReady(val idioms: List<IdiomItem>) : IdiomsListViewState() {
+        override fun showLoading(): Boolean = false
+        override fun showError(): Boolean = false
+        override fun showList(): Boolean = true
+        override fun list(): List<IdiomItem> = idioms
+    }
 
-object NetworkError : ListViewState()
+    object NetworkError : IdiomsListViewState() {
+        override fun showLoading(): Boolean = false
+        override fun showError(): Boolean = true
+        override fun showList(): Boolean = false
+        override fun list(): List<IdiomItem> = listOf()
+    }
+}

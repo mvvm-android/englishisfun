@@ -18,11 +18,14 @@ package com.jpaya.englishisfun.idioms.ui
 
 import androidx.hilt.lifecycle.ViewModelInject
 import co.zsmb.rainbowcake.base.RainbowCakeViewModel
+import com.jpaya.englishisfun.idioms.ui.IdiomsListViewState.ListReady
+import com.jpaya.englishisfun.idioms.ui.IdiomsListViewState.Loading
+import com.jpaya.englishisfun.idioms.ui.IdiomsListViewState.NetworkError
 import java.io.IOException
 
 class IdiomsListViewModel @ViewModelInject constructor(
     private val presenter: IdiomsListPresenter
-) : RainbowCakeViewModel<ListViewState>(Loading) {
+) : RainbowCakeViewModel<IdiomsListViewState>(Loading) {
 
     init {
         execute { loadIdioms() }

@@ -19,6 +19,9 @@ package com.jpaya.englishisfun.idioms.ui
 import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import co.zsmb.rainbowcake.test.observeStateAndEvents
+import com.jpaya.englishisfun.idioms.ui.IdiomsListViewState.ListReady
+import com.jpaya.englishisfun.idioms.ui.IdiomsListViewState.Loading
+import com.jpaya.englishisfun.idioms.ui.IdiomsListViewState.NetworkError
 import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock

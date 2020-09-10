@@ -21,13 +21,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jpaya.base.adapter.ListAdapterComparator
+import com.jpaya.englishisfun.DataBindingAdapter
 import com.jpaya.englishisfun.databinding.IdiomsListItemBinding
 import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
 
 class IdiomsAdapter :
     ListAdapter<IdiomItem, IdiomsAdapter.ViewHolder>(ListAdapterComparator<IdiomItem>()),
-    FastScrollRecyclerView.SectionedAdapter {
+    FastScrollRecyclerView.SectionedAdapter,
+    DataBindingAdapter<List<IdiomItem>> {
+
+    override fun setData(data: List<IdiomItem>) = submitList(data)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(IdiomsListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
