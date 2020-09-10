@@ -70,7 +70,6 @@ class PhrasalsListFragment : RainbowCakeFragment<ListViewState, PhrasalsListView
 
         (menu.findItem(R.id.action_search).actionView as SearchView).apply {
             queryHint = getString(R.string.search)
-            setIconifiedByDefault(false)
             setOnQueryTextListener(
                 DebouncingQueryTextListener(this@PhrasalsListFragment) {
                     if (it == null || it.isEmpty()) {

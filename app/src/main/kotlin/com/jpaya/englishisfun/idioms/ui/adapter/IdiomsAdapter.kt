@@ -25,7 +25,8 @@ import com.jpaya.englishisfun.databinding.IdiomsListItemBinding
 import com.jpaya.englishisfun.idioms.ui.model.IdiomItem
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
 
-class IdiomsAdapter : ListAdapter<IdiomItem, IdiomsAdapter.ViewHolder>(ListAdapterComparator<IdiomItem>()),
+class IdiomsAdapter :
+    ListAdapter<IdiomItem, IdiomsAdapter.ViewHolder>(ListAdapterComparator<IdiomItem>()),
     FastScrollRecyclerView.SectionedAdapter {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =

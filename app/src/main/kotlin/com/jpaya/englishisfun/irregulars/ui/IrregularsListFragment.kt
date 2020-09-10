@@ -71,7 +71,6 @@ class IrregularsListFragment :
 
         (menu.findItem(R.id.action_search).actionView as SearchView).apply {
             queryHint = getString(R.string.search)
-            setIconifiedByDefault(false)
             setOnQueryTextListener(
                 DebouncingQueryTextListener(this@IrregularsListFragment) {
                     if (it == null || it.isEmpty()) {
