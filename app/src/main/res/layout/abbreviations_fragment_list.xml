@@ -26,8 +26,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:visible="@{viewState.showLoading()}"
-            app:shimmer_duration="1000">
+            app:shimmer_duration="1000"
+            app:visible="@{viewState.showLoading()}">
 
             <!-- Adding 10 rows of placeholders -->
             <LinearLayout

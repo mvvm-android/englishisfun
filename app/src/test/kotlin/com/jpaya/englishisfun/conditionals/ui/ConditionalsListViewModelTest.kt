@@ -19,6 +19,9 @@ package com.jpaya.englishisfun.conditionals.ui
 import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import co.zsmb.rainbowcake.test.observeStateAndEvents
+import com.jpaya.englishisfun.conditionals.ui.ConditionalsListViewState.ListReady
+import com.jpaya.englishisfun.conditionals.ui.ConditionalsListViewState.Loading
+import com.jpaya.englishisfun.conditionals.ui.ConditionalsListViewState.NetworkError
 import com.jpaya.englishisfun.conditionals.ui.model.ConditionalItem
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock

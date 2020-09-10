@@ -17,28 +17,34 @@
 package com.jpaya.englishisfun.conditionals.ui
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.core.view.isVisible
+import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.transition.TransitionManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
-import co.zsmb.rainbowcake.extensions.exhaustive
 import com.jpaya.englishisfun.R
 import com.jpaya.englishisfun.conditionals.ui.adapter.ConditionalsAdapter
-import com.jpaya.englishisfun.extensions.hide
-import com.jpaya.englishisfun.extensions.show
+import com.jpaya.englishisfun.databinding.ConditionalsFragmentListBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.conditionals_fragment_list.*
 
 @AndroidEntryPoint
-class ConditionalsListFragment : RainbowCakeFragment<ListViewState, ConditionalsListViewModel>() {
+class ConditionalsListFragment : RainbowCakeFragment<ConditionalsListViewState, ConditionalsListViewModel>() {
 
     private val customViewModel: ConditionalsListViewModel by viewModels()
     private lateinit var adapter: ConditionalsAdapter
+    private lateinit var binding: ConditionalsFragmentListBinding
 
     override fun provideViewModel() = customViewModel
     override fun getViewResource() = R.layout.conditionals_fragment_list
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
+        binding = ConditionalsFragmentListBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -55,26 +61,8 @@ class ConditionalsListFragment : RainbowCakeFragment<ListViewState, Conditionals
         }
     }
 
-    override fun render(viewState: ListViewState) {
+    override fun render(viewState: ConditionalsListViewState) {
         TransitionManager.beginDelayedTransition(listFragmentRoot)
-        when (viewState) {
-            Loading -> {
-                shimmerLayout.show()
-                conditionalsList.isVisible = false
-                errorGroup.isVisible = false
-            }
-            is ListReady -> {
-                adapter.submitList(viewState.conditionals)
-                shimmerLayout.hide()
-                conditionalsList.isVisible = true
-                errorGroup.isVisible = false
-            }
-            NetworkError -> {
-                adapter.submitList(null)
-                shimmerLayout.hide()
-                conditionalsList.isVisible = false
-                errorGroup.isVisible = true
-            }
-        }.exhaustive
+        binding.viewState = viewState
     }
 }

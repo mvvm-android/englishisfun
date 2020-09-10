@@ -18,11 +18,14 @@ package com.jpaya.englishisfun.conditionals.ui
 
 import androidx.hilt.lifecycle.ViewModelInject
 import co.zsmb.rainbowcake.base.RainbowCakeViewModel
+import com.jpaya.englishisfun.conditionals.ui.ConditionalsListViewState.ListReady
+import com.jpaya.englishisfun.conditionals.ui.ConditionalsListViewState.Loading
+import com.jpaya.englishisfun.conditionals.ui.ConditionalsListViewState.NetworkError
 import java.io.IOException
 
 class ConditionalsListViewModel @ViewModelInject constructor(
     private val presenter: ConditionalsListPresenter
-) : RainbowCakeViewModel<ListViewState>(Loading) {
+) : RainbowCakeViewModel<ConditionalsListViewState>(Loading) {
 
     init {
         execute { loadConditionals() }

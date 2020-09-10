@@ -21,11 +21,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jpaya.base.adapter.ListAdapterComparator
+import com.jpaya.englishisfun.DataBindingAdapter
 import com.jpaya.englishisfun.conditionals.ui.model.ConditionalItem
 import com.jpaya.englishisfun.databinding.ConditionalsListItemBinding
 
 class ConditionalsAdapter :
-    ListAdapter<ConditionalItem, ConditionalsAdapter.ViewHolder>(ListAdapterComparator<ConditionalItem>()) {
+    ListAdapter<ConditionalItem, ConditionalsAdapter.ViewHolder>(ListAdapterComparator<ConditionalItem>()),
+    DataBindingAdapter<List<ConditionalItem>> {
+
+    override fun setData(data: List<ConditionalItem>) = submitList(data)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(ConditionalsListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))

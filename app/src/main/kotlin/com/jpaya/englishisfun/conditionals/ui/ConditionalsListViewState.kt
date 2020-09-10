@@ -18,10 +18,30 @@ package com.jpaya.englishisfun.conditionals.ui
 
 import com.jpaya.englishisfun.conditionals.ui.model.ConditionalItem
 
-sealed class ListViewState
+sealed class ConditionalsListViewState {
+    abstract fun showLoading(): Boolean
+    abstract fun showError(): Boolean
+    abstract fun showList(): Boolean
+    abstract fun list(): List<ConditionalItem>
 
-object Loading : ListViewState()
+    object Loading : ConditionalsListViewState() {
+        override fun showLoading(): Boolean = true
+        override fun showError(): Boolean = false
+        override fun showList(): Boolean = false
+        override fun list(): List<ConditionalItem> = listOf()
+    }
 
-data class ListReady(val conditionals: List<ConditionalItem>) : ListViewState()
+    data class ListReady(val conditionals: List<ConditionalItem>) : ConditionalsListViewState() {
+        override fun showLoading(): Boolean = false
+        override fun showError(): Boolean = false
+        override fun showList(): Boolean = true
+        override fun list(): List<ConditionalItem> = conditionals
+    }
 
-object NetworkError : ListViewState()
+    object NetworkError : ConditionalsListViewState() {
+        override fun showLoading(): Boolean = false
+        override fun showError(): Boolean = true
+        override fun showList(): Boolean = false
+        override fun list(): List<ConditionalItem> = listOf()
+    }
+}
