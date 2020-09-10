@@ -35,25 +35,25 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-            <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/conditionals_list_item_shimmer" />
 
-            <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/conditionals_list_item_shimmer" />
 
-            <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/conditionals_list_item_shimmer" />
 
-            <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/conditionals_list_item_shimmer" />
 
-            <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/conditionals_list_item_shimmer" />
 
-            <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/conditionals_list_item_shimmer" />
 
-            <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/conditionals_list_item_shimmer" />
 
-            <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/conditionals_list_item_shimmer" />
 
-            <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/conditionals_list_item_shimmer" />
 
-            <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/conditionals_list_item_shimmer" />
             </LinearLayout>
         </com.facebook.shimmer.ShimmerFrameLayout>
 
