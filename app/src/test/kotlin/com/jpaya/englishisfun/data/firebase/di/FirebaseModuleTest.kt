@@ -18,7 +18,6 @@ package com.jpaya.englishisfun.data.firebase.di
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.jpaya.englishisfun.data.firebase.di.FirebaseModule
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
