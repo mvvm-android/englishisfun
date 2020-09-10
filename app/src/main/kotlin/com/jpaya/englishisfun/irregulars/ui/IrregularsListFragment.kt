@@ -17,32 +17,38 @@
 package com.jpaya.englishisfun.irregulars.ui
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.transition.TransitionManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
-import co.zsmb.rainbowcake.extensions.exhaustive
 import com.jpaya.englishisfun.R
 import com.jpaya.base.ui.searchview.DebouncingQueryTextListener
-import com.jpaya.englishisfun.extensions.hide
-import com.jpaya.englishisfun.extensions.show
+import com.jpaya.englishisfun.databinding.IrregularsFragmentListBinding
 import com.jpaya.englishisfun.irregulars.ui.adapter.IrregularsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.irregulars_fragment_list.*
 
 @AndroidEntryPoint
-class IrregularsListFragment : RainbowCakeFragment<ListViewState, IrregularsListViewModel>() {
+class IrregularsListFragment : RainbowCakeFragment<IrregularsListViewState, IrregularsListViewModel>() {
 
     private val customViewModel: IrregularsListViewModel by viewModels()
     private lateinit var irregularsAdapter: IrregularsAdapter
+    private lateinit var binding: IrregularsFragmentListBinding
 
     override fun provideViewModel() = customViewModel
     override fun getViewResource() = R.layout.irregulars_fragment_list
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
+        binding = IrregularsFragmentListBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,26 +89,8 @@ class IrregularsListFragment : RainbowCakeFragment<ListViewState, IrregularsList
         }
     }
 
-    override fun render(viewState: ListViewState) {
+    override fun render(viewState: IrregularsListViewState) {
         TransitionManager.beginDelayedTransition(listFragmentRoot)
-        when (viewState) {
-            Loading -> {
-                shimmerLayout.show()
-                irregularsList.isVisible = false
-                errorGroup.isVisible = false
-            }
-            is ListReady -> {
-                irregularsAdapter.submitList(viewState.irregulars)
-                shimmerLayout.hide()
-                irregularsList.isVisible = true
-                errorGroup.isVisible = false
-            }
-            NetworkError -> {
-                irregularsAdapter.submitList(null)
-                shimmerLayout.hide()
-                irregularsList.isVisible = false
-                errorGroup.isVisible = true
-            }
-        }.exhaustive
+        binding.viewState = viewState
     }
 }

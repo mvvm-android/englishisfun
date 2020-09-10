@@ -19,6 +19,9 @@ package com.jpaya.englishisfun.irregulars.ui
 import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import co.zsmb.rainbowcake.test.observeStateAndEvents
+import com.jpaya.englishisfun.irregulars.ui.IrregularsListViewState.ListReady
+import com.jpaya.englishisfun.irregulars.ui.IrregularsListViewState.Loading
+import com.jpaya.englishisfun.irregulars.ui.IrregularsListViewState.NetworkError
 import com.jpaya.englishisfun.irregulars.ui.model.IrregularItem
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
