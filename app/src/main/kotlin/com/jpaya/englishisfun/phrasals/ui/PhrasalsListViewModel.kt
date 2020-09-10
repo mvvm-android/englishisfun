@@ -18,11 +18,14 @@ package com.jpaya.englishisfun.phrasals.ui
 
 import androidx.hilt.lifecycle.ViewModelInject
 import co.zsmb.rainbowcake.base.RainbowCakeViewModel
+import com.jpaya.englishisfun.phrasals.ui.PhrasalsListViewState.ListReady
+import com.jpaya.englishisfun.phrasals.ui.PhrasalsListViewState.Loading
+import com.jpaya.englishisfun.phrasals.ui.PhrasalsListViewState.NetworkError
 import java.io.IOException
 
 class PhrasalsListViewModel @ViewModelInject constructor(
     private val presenter: PhrasalsListPresenter
-) : RainbowCakeViewModel<ListViewState>(Loading) {
+) : RainbowCakeViewModel<PhrasalsListViewState>(Loading) {
 
     init {
         execute { loadPhrasals() }
