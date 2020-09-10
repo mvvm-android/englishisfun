@@ -25,7 +25,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
-class IdiomsAdapterTest : TestRobolectric(), IdiomsAdapter.Listener {
+class IdiomsAdapterTest : TestRobolectric() {
 
     private val itemsList = listOf(
         IdiomItem(
@@ -43,7 +43,7 @@ class IdiomsAdapterTest : TestRobolectric(), IdiomsAdapter.Listener {
 
     @Before
     fun setUp() {
-        adapter = IdiomsAdapter(this)
+        adapter = IdiomsAdapter()
     }
 
     @Test
@@ -74,6 +74,4 @@ class IdiomsAdapterTest : TestRobolectric(), IdiomsAdapter.Listener {
         assertEquals("Another Idiom", binding.idiom.text.toString())
         assertEquals("Another Description", binding.description.text.toString())
     }
-
-    override fun onItemSelected(id: Long) {}
 }

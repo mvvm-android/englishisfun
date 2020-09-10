@@ -36,7 +36,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.idioms_fragment_list.*
 
 @AndroidEntryPoint
-class IdiomsListFragment : RainbowCakeFragment<ListViewState, IdiomsListViewModel>(), IdiomsAdapter.Listener {
+class IdiomsListFragment : RainbowCakeFragment<ListViewState, IdiomsListViewModel>() {
 
     private val customViewModel: IdiomsListViewModel by viewModels()
     private lateinit var idiomsAdapter: IdiomsAdapter
@@ -52,7 +52,7 @@ class IdiomsListFragment : RainbowCakeFragment<ListViewState, IdiomsListViewMode
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        idiomsAdapter = IdiomsAdapter(this)
+        idiomsAdapter = IdiomsAdapter()
         idiomsList.adapter = idiomsAdapter
         idiomsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
@@ -102,9 +102,5 @@ class IdiomsListFragment : RainbowCakeFragment<ListViewState, IdiomsListViewMode
                 errorGroup.isVisible = true
             }
         }.exhaustive
-    }
-
-    override fun onItemSelected(id: Long) {
-//        navigator?.add(DetailFragment.newInstance(id))
     }
 }
