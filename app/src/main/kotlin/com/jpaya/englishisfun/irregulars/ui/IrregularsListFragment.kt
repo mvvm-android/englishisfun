@@ -36,8 +36,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.irregulars_fragment_list.*
 
 @AndroidEntryPoint
-class IrregularsListFragment :
-    RainbowCakeFragment<ListViewState, IrregularsListViewModel>(), IrregularsAdapter.Listener {
+class IrregularsListFragment : RainbowCakeFragment<ListViewState, IrregularsListViewModel>() {
 
     private val customViewModel: IrregularsListViewModel by viewModels()
     private lateinit var irregularsAdapter: IrregularsAdapter
@@ -53,7 +52,7 @@ class IrregularsListFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        irregularsAdapter = IrregularsAdapter(this)
+        irregularsAdapter = IrregularsAdapter()
         irregularsList.adapter = irregularsAdapter
         irregularsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
@@ -105,9 +104,5 @@ class IrregularsListFragment :
                 errorGroup.isVisible = true
             }
         }.exhaustive
-    }
-
-    override fun onItemSelected(id: Long) {
-//        navigator?.add(DetailFragment.newInstance(id))
     }
 }

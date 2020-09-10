@@ -25,7 +25,7 @@ import com.jpaya.englishisfun.databinding.IrregularsListItemBinding
 import com.jpaya.englishisfun.irregulars.ui.model.IrregularItem
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
 
-class IrregularsAdapter(private val listener: Listener) :
+class IrregularsAdapter :
     ListAdapter<IrregularItem, IrregularsAdapter.ViewHolder>(ListAdapterComparator<IrregularItem>()),
     FastScrollRecyclerView.SectionedAdapter {
 
@@ -36,18 +36,11 @@ class IrregularsAdapter(private val listener: Listener) :
 
     override fun getSectionName(position: Int): String = getItem(position).base.first().toString()
 
-    inner class ViewHolder(var binding: IrregularsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(var binding: IrregularsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: IrregularItem) {
-            itemView.setOnClickListener {
-                binding.irregular?.let { listener.onItemSelected(it.id) }
-            }
             binding.irregular = item
             binding.executePendingBindings()
         }
-    }
-
-    interface Listener {
-        fun onItemSelected(id: Long)
     }
 }

@@ -25,7 +25,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
-class IrregularsAdapterTest : TestRobolectric(), IrregularsAdapter.Listener {
+class IrregularsAdapterTest : TestRobolectric() {
 
     private val itemsList = listOf(
         IrregularItem(
@@ -47,7 +47,7 @@ class IrregularsAdapterTest : TestRobolectric(), IrregularsAdapter.Listener {
 
     @Before
     fun setUp() {
-        adapter = IrregularsAdapter(this)
+        adapter = IrregularsAdapter()
     }
 
     @Test
@@ -79,6 +79,4 @@ class IrregularsAdapterTest : TestRobolectric(), IrregularsAdapter.Listener {
         assertEquals("Another Simple", binding.simple.text.toString())
         assertEquals("Another Participle", binding.participle.text.toString())
     }
-
-    override fun onItemSelected(id: Long) {}
 }
