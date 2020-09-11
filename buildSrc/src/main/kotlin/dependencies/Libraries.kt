@@ -30,7 +30,7 @@ object Compose {
 object Libraries {
     private object Versions {
         const val APPCOMPAT = "1.2.0"
-        const val COIL = "0.12.0"
+        const val COIL = "0.13.0"
         const val COMPOSE = "0.1.0-dev14"
         const val CONSTRAINT_LAYOUT = "2.0.1"
         const val CORE_KTX = "1.3.1"
@@ -43,10 +43,10 @@ object Libraries {
         const val FRAGMENT = "1.2.5"
         const val HILT = "2.28-alpha"
         const val HILT_VIEWMODEL = "1.0.0-alpha01"
-        const val KOTLIN = "1.4.0"
+        const val KOTLIN = "1.4.10"
         const val LICENSES_DIALOG = "2.1.0"
         const val LIFECYCLE = "2.2.0"
-        const val MATERIAL = "1.2.0"
+        const val MATERIAL = "1.2.1"
         const val MOSHI = "1.9.3"
         const val NAVIGATION = "2.3.0"
         const val PAGING = "2.1.2"
