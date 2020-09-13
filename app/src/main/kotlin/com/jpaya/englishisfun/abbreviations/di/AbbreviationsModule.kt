@@ -21,7 +21,7 @@ import com.jpaya.englishisfun.abbreviations.data.db.DatabaseDataSource
 import com.jpaya.englishisfun.abbreviations.data.network.NetworkDataSource
 import com.jpaya.englishisfun.abbreviations.domain.AbbreviationsInteractor
 import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListPresenter
-import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.data.firebase.FireStoreClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

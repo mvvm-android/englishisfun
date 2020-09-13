@@ -16,7 +16,7 @@
 
 package com.jpaya.englishisfun.suggestions.di
 
-import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.data.firebase.FireStoreClient
 import com.jpaya.englishisfun.suggestions.data.network.NetworkDataSource
 import com.jpaya.englishisfun.suggestions.domain.SuggestionsInteractor
 import com.jpaya.englishisfun.suggestions.ui.SuggestionsPresenter

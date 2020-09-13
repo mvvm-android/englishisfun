@@ -16,7 +16,7 @@
 
 package com.jpaya.englishisfun.statives.data.network
 
-import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.data.firebase.FireStoreClient
 import com.jpaya.englishisfun.statives.domain.Stative
 import com.jpaya.englishisfun.statives.mapper.toDomain
 import javax.inject.Inject

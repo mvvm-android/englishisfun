@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.firestore
+package com.jpaya.englishisfun.data.firebase
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.CollectionReference

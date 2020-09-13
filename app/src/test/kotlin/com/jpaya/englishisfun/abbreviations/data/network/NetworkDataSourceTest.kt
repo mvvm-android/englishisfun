@@ -19,7 +19,7 @@ package com.jpaya.englishisfun.abbreviations.data.network
 import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationNetworkItem
 import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationsResponse
 import com.jpaya.englishisfun.abbreviations.domain.Abbreviation
-import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.data.firebase.FireStoreClient
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever

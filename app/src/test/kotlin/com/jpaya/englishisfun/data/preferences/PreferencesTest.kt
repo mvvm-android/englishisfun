@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.abbreviations.data.network
+package com.jpaya.englishisfun.data.preferences
 
-import com.jpaya.englishisfun.abbreviations.mapper.toDomain
-import com.jpaya.englishisfun.abbreviations.domain.Abbreviation
-import com.jpaya.englishisfun.data.firebase.FireStoreClient
-import javax.inject.Inject
-import javax.inject.Singleton
+import com.jpaya.libraries.testutils.robolectric.TestRobolectric
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
-@Singleton
-class NetworkDataSource @Inject constructor(
-    private val fireStoreClient: FireStoreClient
-) {
+class PreferencesTest : TestRobolectric() {
 
-    suspend fun getAbbreviations(): List<Abbreviation> =
-        fireStoreClient.abbreviations()?.abbreviations?.map { it.toDomain() } ?: listOf()
+    @Test
+    fun `Check getAppearance and putAppearance work properly`() {
+        assertEquals("auto", Preferences.getAppearance(context)) // Default value
+        val appearance = "light"
+        Preferences.putAppearance(appearance, context)
+        assertEquals(appearance, Preferences.getAppearance(context))
+    }
 }

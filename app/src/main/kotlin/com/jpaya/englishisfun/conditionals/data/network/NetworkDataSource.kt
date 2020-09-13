@@ -18,7 +18,7 @@ package com.jpaya.englishisfun.conditionals.data.network
 
 import com.jpaya.englishisfun.conditionals.mapper.toDomain
 import com.jpaya.englishisfun.conditionals.domain.Conditional
-import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.data.firebase.FireStoreClient
 import javax.inject.Inject
 import javax.inject.Singleton
 

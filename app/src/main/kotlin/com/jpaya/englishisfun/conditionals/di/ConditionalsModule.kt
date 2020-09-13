@@ -21,7 +21,7 @@ import com.jpaya.englishisfun.conditionals.data.db.DatabaseDataSource
 import com.jpaya.englishisfun.conditionals.data.network.NetworkDataSource
 import com.jpaya.englishisfun.conditionals.domain.ConditionalsInteractor
 import com.jpaya.englishisfun.conditionals.ui.ConditionalsListPresenter
-import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.data.firebase.FireStoreClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

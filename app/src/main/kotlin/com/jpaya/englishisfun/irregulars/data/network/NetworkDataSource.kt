@@ -16,7 +16,7 @@
 
 package com.jpaya.englishisfun.irregulars.data.network
 
-import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.data.firebase.FireStoreClient
 import com.jpaya.englishisfun.irregulars.mapper.toDomain
 import com.jpaya.englishisfun.irregulars.domain.Irregular
 import javax.inject.Inject

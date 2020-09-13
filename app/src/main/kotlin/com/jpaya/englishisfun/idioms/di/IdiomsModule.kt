@@ -16,7 +16,7 @@
 
 package com.jpaya.englishisfun.idioms.di
 
-import com.jpaya.englishisfun.firestore.FireStoreClient
+import com.jpaya.englishisfun.data.firebase.FireStoreClient
 import com.jpaya.englishisfun.idioms.data.db.DatabaseDataSource
 import com.jpaya.englishisfun.idioms.data.db.IdiomsDao
 import com.jpaya.englishisfun.idioms.data.network.NetworkDataSource
