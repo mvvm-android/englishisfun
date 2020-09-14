@@ -18,10 +18,30 @@ package com.jpaya.englishisfun.phrasals.ui
 
 import com.jpaya.englishisfun.phrasals.ui.model.PhrasalItem
 
-sealed class ListViewState
+sealed class PhrasalsListViewState {
+    abstract fun showLoading(): Boolean
+    abstract fun showError(): Boolean
+    abstract fun showList(): Boolean
+    abstract fun list(): List<PhrasalItem>
 
-object Loading : ListViewState()
+    object Loading : PhrasalsListViewState() {
+        override fun showLoading(): Boolean = true
+        override fun showError(): Boolean = false
+        override fun showList(): Boolean = false
+        override fun list(): List<PhrasalItem> = listOf()
+    }
 
-data class ListReady(val phrasals: List<PhrasalItem>) : ListViewState()
+    data class ListReady(val phrasals: List<PhrasalItem>) : PhrasalsListViewState() {
+        override fun showLoading(): Boolean = false
+        override fun showError(): Boolean = false
+        override fun showList(): Boolean = true
+        override fun list(): List<PhrasalItem> = phrasals
+    }
 
-object NetworkError : ListViewState()
+    object NetworkError : PhrasalsListViewState() {
+        override fun showLoading(): Boolean = false
+        override fun showError(): Boolean = true
+        override fun showList(): Boolean = false
+        override fun list(): List<PhrasalItem> = listOf()
+    }
+}

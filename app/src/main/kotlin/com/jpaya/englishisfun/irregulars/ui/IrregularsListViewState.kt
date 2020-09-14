@@ -18,10 +18,30 @@ package com.jpaya.englishisfun.irregulars.ui
 
 import com.jpaya.englishisfun.irregulars.ui.model.IrregularItem
 
-sealed class ListViewState
+sealed class IrregularsListViewState {
+    abstract fun showLoading(): Boolean
+    abstract fun showError(): Boolean
+    abstract fun showList(): Boolean
+    abstract fun list(): List<IrregularItem>
 
-object Loading : ListViewState()
+    object Loading : IrregularsListViewState() {
+        override fun showLoading(): Boolean = true
+        override fun showError(): Boolean = false
+        override fun showList(): Boolean = false
+        override fun list(): List<IrregularItem> = listOf()
+    }
 
-data class ListReady(val irregulars: List<IrregularItem>) : ListViewState()
+    data class ListReady(val irregulars: List<IrregularItem>) : IrregularsListViewState() {
+        override fun showLoading(): Boolean = false
+        override fun showError(): Boolean = false
+        override fun showList(): Boolean = true
+        override fun list(): List<IrregularItem> = irregulars
+    }
 
-object NetworkError : ListViewState()
+    object NetworkError : IrregularsListViewState() {
+        override fun showLoading(): Boolean = false
+        override fun showError(): Boolean = true
+        override fun showList(): Boolean = false
+        override fun list(): List<IrregularItem> = listOf()
+    }
+}

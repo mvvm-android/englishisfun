@@ -21,13 +21,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jpaya.base.adapter.ListAdapterComparator
+import com.jpaya.englishisfun.DataBindingAdapter
 import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
 import com.jpaya.englishisfun.databinding.AbbreviationsListItemBinding
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
 
-class AbbreviationsAdapter(private val listener: Listener) :
+class AbbreviationsAdapter :
     ListAdapter<AbbreviationItem, AbbreviationsAdapter.ViewHolder>(ListAdapterComparator<AbbreviationItem>()),
-    FastScrollRecyclerView.SectionedAdapter {
+    FastScrollRecyclerView.SectionedAdapter,
+    DataBindingAdapter<List<AbbreviationItem>> {
+
+    override fun setData(data: List<AbbreviationItem>) = submitList(data)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(AbbreviationsListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
@@ -36,18 +40,11 @@ class AbbreviationsAdapter(private val listener: Listener) :
 
     override fun getSectionName(position: Int): String = getItem(position).abbr.first().toString()
 
-    inner class ViewHolder(var binding: AbbreviationsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(var binding: AbbreviationsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: AbbreviationItem) {
-            itemView.setOnClickListener {
-                binding.abbreviation?.let { listener.onItemSelected(it.id) }
-            }
             binding.abbreviation = item
             binding.executePendingBindings()
         }
-    }
-
-    interface Listener {
-        fun onItemSelected(id: Long)
     }
 }

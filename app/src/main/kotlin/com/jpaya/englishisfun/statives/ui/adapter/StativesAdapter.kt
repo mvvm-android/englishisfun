@@ -21,13 +21,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jpaya.base.adapter.ListAdapterComparator
+import com.jpaya.englishisfun.DataBindingAdapter
 import com.jpaya.englishisfun.databinding.StativeListItemBinding
 import com.jpaya.englishisfun.statives.ui.model.StativeItem
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
 
 class StativesAdapter :
     ListAdapter<StativeItem, StativesAdapter.ViewHolder>(ListAdapterComparator<StativeItem>()),
-    FastScrollRecyclerView.SectionedAdapter {
+    FastScrollRecyclerView.SectionedAdapter,
+    DataBindingAdapter<List<StativeItem>> {
+
+    override fun setData(data: List<StativeItem>) = submitList(data)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(StativeListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))

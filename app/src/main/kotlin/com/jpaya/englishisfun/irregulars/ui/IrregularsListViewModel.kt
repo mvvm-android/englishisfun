@@ -18,11 +18,14 @@ package com.jpaya.englishisfun.irregulars.ui
 
 import androidx.hilt.lifecycle.ViewModelInject
 import co.zsmb.rainbowcake.base.RainbowCakeViewModel
+import com.jpaya.englishisfun.irregulars.ui.IrregularsListViewState.ListReady
+import com.jpaya.englishisfun.irregulars.ui.IrregularsListViewState.Loading
+import com.jpaya.englishisfun.irregulars.ui.IrregularsListViewState.NetworkError
 import java.io.IOException
 
 class IrregularsListViewModel @ViewModelInject constructor(
     private val presenter: IrregularsListPresenter
-) : RainbowCakeViewModel<ListViewState>(Loading) {
+) : RainbowCakeViewModel<IrregularsListViewState>(Loading) {
 
     init {
         execute { loadIrregulars() }

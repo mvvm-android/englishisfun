@@ -18,10 +18,30 @@ package com.jpaya.englishisfun.abbreviations.ui
 
 import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
 
-sealed class AbbreviationsListViewState
+sealed class AbbreviationsListViewState {
+    abstract fun showLoading(): Boolean
+    abstract fun showError(): Boolean
+    abstract fun showList(): Boolean
+    abstract fun list(): List<AbbreviationItem>
 
-object Loading : AbbreviationsListViewState()
+    object Loading : AbbreviationsListViewState() {
+        override fun showLoading(): Boolean = true
+        override fun showError(): Boolean = false
+        override fun showList(): Boolean = false
+        override fun list(): List<AbbreviationItem> = listOf()
+    }
 
-data class ListReady(val abbreviations: List<AbbreviationItem>) : AbbreviationsListViewState()
+    data class ListReady(val abbreviations: List<AbbreviationItem>) : AbbreviationsListViewState() {
+        override fun showLoading(): Boolean = false
+        override fun showError(): Boolean = false
+        override fun showList(): Boolean = true
+        override fun list(): List<AbbreviationItem> = abbreviations
+    }
 
-object NetworkError : AbbreviationsListViewState()
+    object NetworkError : AbbreviationsListViewState() {
+        override fun showLoading(): Boolean = false
+        override fun showError(): Boolean = true
+        override fun showList(): Boolean = false
+        override fun list(): List<AbbreviationItem> = listOf()
+    }
+}

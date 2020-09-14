@@ -25,7 +25,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
-class IrregularsAdapterTest : TestRobolectric(), IrregularsAdapter.Listener {
+class IrregularsAdapterTest : TestRobolectric() {
 
     private val itemsList = listOf(
         IrregularItem(
@@ -47,26 +47,26 @@ class IrregularsAdapterTest : TestRobolectric(), IrregularsAdapter.Listener {
 
     @Before
     fun setUp() {
-        adapter = IrregularsAdapter(this)
+        adapter = IrregularsAdapter()
     }
 
     @Test
     fun `Check itemCount works properly`() {
         assertEquals(0, adapter.itemCount)
-        adapter.submitList(itemsList)
+        adapter.setData(itemsList)
         assertEquals(2, adapter.itemCount)
     }
 
     @Test
     fun `Check getSectionName works properly`() {
-        adapter.submitList(itemsList)
+        adapter.setData(itemsList)
         assertEquals("B", adapter.getSectionName(0))
         assertEquals("A", adapter.getSectionName(1))
     }
 
     @Test
     fun `Check onCreateViewHolder and onBindViewHolder works properly`() {
-        adapter.submitList(itemsList)
+        adapter.setData(itemsList)
 
         val viewHolder = adapter.onCreateViewHolder(FrameLayout(context), 0)
         val binding = viewHolder.binding
@@ -79,6 +79,4 @@ class IrregularsAdapterTest : TestRobolectric(), IrregularsAdapter.Listener {
         assertEquals("Another Simple", binding.simple.text.toString())
         assertEquals("Another Participle", binding.participle.text.toString())
     }
-
-    override fun onItemSelected(id: Long) {}
 }

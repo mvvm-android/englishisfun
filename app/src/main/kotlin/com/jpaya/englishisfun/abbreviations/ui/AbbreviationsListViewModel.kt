@@ -18,6 +18,9 @@ package com.jpaya.englishisfun.abbreviations.ui
 
 import androidx.hilt.lifecycle.ViewModelInject
 import co.zsmb.rainbowcake.base.RainbowCakeViewModel
+import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListViewState.ListReady
+import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListViewState.Loading
+import com.jpaya.englishisfun.abbreviations.ui.AbbreviationsListViewState.NetworkError
 import java.io.IOException
 
 class AbbreviationsListViewModel @ViewModelInject constructor(

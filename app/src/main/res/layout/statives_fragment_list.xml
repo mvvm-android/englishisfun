@@ -9,14 +9,14 @@
 
         <variable
             name="viewState"
-            type="com.jpaya.englishisfun.irregulars.ui.IrregularsListViewState" />
+            type="com.jpaya.englishisfun.statives.ui.StativesViewState" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/listFragmentRoot"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".irregulars.ui.IrregularsListFragment">
+        tools:context=".statives.ui.StativesFragment">
 
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmerLayout"
@@ -35,30 +35,30 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/stative_list_item_shimmer" />
 
-                <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/stative_list_item_shimmer" />
 
-                <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/stative_list_item_shimmer" />
 
-                <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/stative_list_item_shimmer" />
 
-                <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/stative_list_item_shimmer" />
 
-                <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/stative_list_item_shimmer" />
 
-                <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/stative_list_item_shimmer" />
 
-                <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/stative_list_item_shimmer" />
 
-                <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/stative_list_item_shimmer" />
 
-                <include layout="@layout/irregulars_list_item_shimmer" />
+                <include layout="@layout/stative_list_item_shimmer" />
             </LinearLayout>
         </com.facebook.shimmer.ShimmerFrameLayout>
 
         <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
-            android:id="@+id/irregularsList"
+            android:id="@+id/list"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
@@ -80,7 +80,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:list="@{viewState.list()}"
-            tools:listitem="@layout/irregulars_list_item" />
+            tools:listitem="@layout/stative_list_item" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/errorGroup"

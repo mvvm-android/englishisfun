@@ -19,6 +19,9 @@ package com.jpaya.englishisfun.statives.ui
 import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import co.zsmb.rainbowcake.test.observeStateAndEvents
+import com.jpaya.englishisfun.statives.ui.StativesViewState.ListReady
+import com.jpaya.englishisfun.statives.ui.StativesViewState.Loading
+import com.jpaya.englishisfun.statives.ui.StativesViewState.NetworkError
 import com.jpaya.englishisfun.statives.ui.model.StativeItem
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock

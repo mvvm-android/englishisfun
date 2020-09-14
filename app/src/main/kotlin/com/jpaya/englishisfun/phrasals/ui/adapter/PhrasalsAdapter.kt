@@ -21,13 +21,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jpaya.base.adapter.ListAdapterComparator
+import com.jpaya.englishisfun.DataBindingAdapter
 import com.jpaya.englishisfun.databinding.PhrasalsListItemBinding
 import com.jpaya.englishisfun.phrasals.ui.model.PhrasalItem
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
 
 class PhrasalsAdapter :
     ListAdapter<PhrasalItem, PhrasalsAdapter.ViewHolder>(ListAdapterComparator<PhrasalItem>()),
-    FastScrollRecyclerView.SectionedAdapter {
+    FastScrollRecyclerView.SectionedAdapter,
+    DataBindingAdapter<List<PhrasalItem>> {
+
+    override fun setData(data: List<PhrasalItem>) = submitList(data)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(PhrasalsListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))

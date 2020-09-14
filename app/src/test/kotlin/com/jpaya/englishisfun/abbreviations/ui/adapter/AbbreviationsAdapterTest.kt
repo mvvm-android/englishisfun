@@ -22,7 +22,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
-class AbbreviationsAdapterTest : TestRobolectric(), AbbreviationsAdapter.Listener {
+class AbbreviationsAdapterTest : TestRobolectric() {
 
     private val itemsList = listOf(
         AbbreviationItem(
@@ -40,19 +40,19 @@ class AbbreviationsAdapterTest : TestRobolectric(), AbbreviationsAdapter.Listene
 
     @Before
     fun setUp() {
-        adapter = AbbreviationsAdapter(this)
+        adapter = AbbreviationsAdapter()
     }
 
     @Test
     fun `Check itemCount works properly`() {
         assertEquals(0, adapter.itemCount)
-        adapter.submitList(itemsList)
+        adapter.setData(itemsList)
         assertEquals(2, adapter.itemCount)
     }
 
     @Test
     fun `Check getSectionName works properly`() {
-        adapter.submitList(itemsList)
+        adapter.setData(itemsList)
         assertEquals("A", adapter.getSectionName(0))
         assertEquals("A", adapter.getSectionName(1))
     }
@@ -60,7 +60,7 @@ class AbbreviationsAdapterTest : TestRobolectric(), AbbreviationsAdapter.Listene
 /*
     @Test
     fun `Check onCreateViewHolder and onBindViewHolder works properly`() {
-        adapter.submitList(itemsList)
+        adapter.setData(itemsList)
 
         val viewHolder = adapter.onCreateViewHolder(FrameLayout(context), 0)
         val binding = viewHolder.binding
@@ -73,6 +73,4 @@ class AbbreviationsAdapterTest : TestRobolectric(), AbbreviationsAdapter.Listene
         assertEquals("Another Description", binding.tvDescription.text.toString())
     }
 */
-
-    override fun onItemSelected(id: Long) {}
 }

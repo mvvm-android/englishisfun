@@ -17,32 +17,38 @@
 package com.jpaya.englishisfun.phrasals.ui
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.transition.TransitionManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
-import co.zsmb.rainbowcake.extensions.exhaustive
 import com.jpaya.englishisfun.R
-import com.jpaya.englishisfun.extensions.DebouncingQueryTextListener
-import com.jpaya.englishisfun.extensions.hide
-import com.jpaya.englishisfun.extensions.show
+import com.jpaya.base.ui.searchview.DebouncingQueryTextListener
+import com.jpaya.englishisfun.databinding.PhrasalsFragmentListBinding
 import com.jpaya.englishisfun.phrasals.ui.adapter.PhrasalsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.phrasals_fragment_list.*
 
 @AndroidEntryPoint
-class PhrasalsListFragment : RainbowCakeFragment<ListViewState, PhrasalsListViewModel>() {
+class PhrasalsListFragment : RainbowCakeFragment<PhrasalsListViewState, PhrasalsListViewModel>() {
 
     private val customViewModel: PhrasalsListViewModel by viewModels()
     private lateinit var adapter: PhrasalsAdapter
+    private lateinit var binding: PhrasalsFragmentListBinding
 
     override fun provideViewModel() = customViewModel
     override fun getViewResource() = R.layout.phrasals_fragment_list
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
+        binding = PhrasalsFragmentListBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,7 +76,6 @@ class PhrasalsListFragment : RainbowCakeFragment<ListViewState, PhrasalsListView
 
         (menu.findItem(R.id.action_search).actionView as SearchView).apply {
             queryHint = getString(R.string.search)
-            setIconifiedByDefault(false)
             setOnQueryTextListener(
                 DebouncingQueryTextListener(this@PhrasalsListFragment) {
                     if (it == null || it.isEmpty()) {
@@ -84,26 +89,8 @@ class PhrasalsListFragment : RainbowCakeFragment<ListViewState, PhrasalsListView
         }
     }
 
-    override fun render(viewState: ListViewState) {
+    override fun render(viewState: PhrasalsListViewState) {
         TransitionManager.beginDelayedTransition(listFragmentRoot)
-        when (viewState) {
-            Loading -> {
-                shimmerLayout.show()
-                phrasalsList.isVisible = false
-                errorGroup.isVisible = false
-            }
-            is ListReady -> {
-                adapter.submitList(viewState.phrasals)
-                shimmerLayout.hide()
-                phrasalsList.isVisible = true
-                errorGroup.isVisible = false
-            }
-            NetworkError -> {
-                adapter.submitList(null)
-                shimmerLayout.hide()
-                phrasalsList.isVisible = false
-                errorGroup.isVisible = true
-            }
-        }.exhaustive
+        binding.viewState = viewState
     }
 }

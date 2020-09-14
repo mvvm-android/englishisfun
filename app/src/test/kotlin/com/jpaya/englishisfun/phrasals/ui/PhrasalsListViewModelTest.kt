@@ -19,6 +19,9 @@ package com.jpaya.englishisfun.phrasals.ui
 import co.zsmb.rainbowcake.test.assertObserved
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import co.zsmb.rainbowcake.test.observeStateAndEvents
+import com.jpaya.englishisfun.phrasals.ui.PhrasalsListViewState.ListReady
+import com.jpaya.englishisfun.phrasals.ui.PhrasalsListViewState.Loading
+import com.jpaya.englishisfun.phrasals.ui.PhrasalsListViewState.NetworkError
 import com.jpaya.englishisfun.phrasals.ui.model.PhrasalItem
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock

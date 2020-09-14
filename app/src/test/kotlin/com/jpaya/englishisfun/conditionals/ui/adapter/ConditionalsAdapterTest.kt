@@ -25,7 +25,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
-class ConditionalsAdapterTest : TestRobolectric(), ConditionalsAdapter.Listener {
+class ConditionalsAdapterTest : TestRobolectric() {
 
     private val itemsList = listOf(
         ConditionalItem(
@@ -49,19 +49,19 @@ class ConditionalsAdapterTest : TestRobolectric(), ConditionalsAdapter.Listener 
 
     @Before
     fun setUp() {
-        adapter = ConditionalsAdapter(this)
+        adapter = ConditionalsAdapter()
     }
 
     @Test
     fun `Check itemCount works properly`() {
         assertEquals(0, adapter.itemCount)
-        adapter.submitList(itemsList)
+        adapter.setData(itemsList)
         assertEquals(2, adapter.itemCount)
     }
 
     @Test
     fun `Check onCreateViewHolder and onBindViewHolder works properly`() {
-        adapter.submitList(itemsList)
+        adapter.setData(itemsList)
 
         val viewHolder = adapter.onCreateViewHolder(FrameLayout(context), 0)
         val binding = viewHolder.binding
@@ -76,6 +76,4 @@ class ConditionalsAdapterTest : TestRobolectric(), ConditionalsAdapter.Listener 
         assertEquals("Another Uses", binding.uses.text.toString())
         assertEquals("Another Examples", binding.examples.text.toString())
     }
-
-    override fun onItemSelected(id: Long) {}
 }
