@@ -27,5 +27,8 @@ class NetworkDataSource @Inject constructor(
     private val fireStoreClient: FireStoreClient
 ) {
 
-    suspend fun getIdiomsItems(): List<Idiom> = fireStoreClient.idioms()?.idioms?.map { it.toDomain() } ?: listOf()
+    suspend fun getIdiomsItems(): List<Idiom> {
+        val result = fireStoreClient.idioms()
+        return if (result != null && result.isInitialized()) result.idioms.map { it.toDomain() } else emptyList()
+    }
 }

@@ -21,4 +21,6 @@ package com.jpaya.englishisfun.idioms.data.network.model
  */
 class IdiomsResponse {
     lateinit var idioms: List<IdiomNetworkItem>
+
+    fun isInitialized() = this::idioms.isInitialized
 }
