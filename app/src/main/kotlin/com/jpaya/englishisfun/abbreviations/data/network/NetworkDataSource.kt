@@ -16,8 +16,8 @@
 
 package com.jpaya.englishisfun.abbreviations.data.network
 
-import com.jpaya.englishisfun.abbreviations.mapper.toDomain
 import com.jpaya.englishisfun.abbreviations.domain.Abbreviation
+import com.jpaya.englishisfun.abbreviations.mapper.toDomain
 import com.jpaya.englishisfun.data.firebase.FireStoreClient
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -27,6 +27,8 @@ class NetworkDataSource @Inject constructor(
     private val fireStoreClient: FireStoreClient
 ) {
 
-    suspend fun getAbbreviations(): List<Abbreviation> =
-        fireStoreClient.abbreviations()?.abbreviations?.map { it.toDomain() } ?: listOf()
+    suspend fun getAbbreviations(): List<Abbreviation> {
+        val result = fireStoreClient.abbreviations()
+        return if (result != null && result.isInitialized()) result.abbreviations.map { it.toDomain() } else emptyList()
+    }
 }
