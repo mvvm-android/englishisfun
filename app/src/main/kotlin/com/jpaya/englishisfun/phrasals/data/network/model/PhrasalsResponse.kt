@@ -21,4 +21,6 @@ package com.jpaya.englishisfun.phrasals.data.network.model
  */
 class PhrasalsResponse {
     lateinit var phrasals: List<PhrasalNetworkItem>
+
+    fun isInitialized() = this::phrasals.isInitialized
 }
