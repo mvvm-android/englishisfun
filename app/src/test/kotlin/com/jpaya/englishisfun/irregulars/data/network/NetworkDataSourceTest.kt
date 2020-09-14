@@ -88,10 +88,20 @@ class NetworkDataSourceTest {
 
     @ExperimentalCoroutinesApi
     @Test
+    fun `Check getIrregularsItems works properly when null list`() = runBlockingTest {
+        whenever(fireStoreClient.irregulars()).doReturn(IrregularsResponse())
+
+        val expectedResult = emptyList<Irregular>()
+
+        assertEquals(expectedResult, dataSource.getIrregularsItems())
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
     fun `Check getIrregularsItems works properly when null`() = runBlockingTest {
         whenever(fireStoreClient.irregulars()).doReturn(null)
 
-        val expectedResult = listOf<Irregular>()
+        val expectedResult = emptyList<Irregular>()
 
         assertEquals(expectedResult, dataSource.getIrregularsItems())
     }
