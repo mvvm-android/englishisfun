@@ -92,10 +92,20 @@ class NetworkDataSourceTest {
 
     @ExperimentalCoroutinesApi
     @Test
+    fun `Check getConditionalsItems works properly when null list`() = runBlockingTest {
+        whenever(fireStoreClient.conditionals()).doReturn(ConditionalsResponse())
+
+        val expectedResult = emptyList<Conditional>()
+
+        assertEquals(expectedResult, dataSource.getConditionalsItems())
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
     fun `Check getConditionalsItems works properly when null`() = runBlockingTest {
         whenever(fireStoreClient.conditionals()).doReturn(null)
 
-        val expectedResult = listOf<Conditional>()
+        val expectedResult = emptyList<Conditional>()
 
         assertEquals(expectedResult, dataSource.getConditionalsItems())
     }
