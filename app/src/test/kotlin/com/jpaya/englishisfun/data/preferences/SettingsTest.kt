@@ -17,16 +17,19 @@
 package com.jpaya.englishisfun.data.preferences
 
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class PreferencesTest : TestRobolectric() {
+class SettingsTest : TestRobolectric() {
 
+    @ExperimentalCoroutinesApi
     @Test
-    fun `Check getAppearance and putAppearance work properly`() {
-        assertEquals("auto", Preferences.getAppearance(context)) // Default value
+    fun `Check getAppearance and putAppearance work properly`() = runBlockingTest {
+        assertEquals("auto", Settings.getAppearance(context)) // Default value
         val appearance = "light"
-        Preferences.putAppearance(appearance, context)
-        assertEquals(appearance, Preferences.getAppearance(context))
+        Settings.putAppearance(appearance, context)
+        assertEquals(appearance, Settings.getAppearance(context))
     }
 }

@@ -18,8 +18,10 @@ package com.jpaya.englishisfun
 
 import android.app.Application
 import com.jpaya.base.utils.ThemeUtils
-import com.jpaya.englishisfun.data.preferences.Preferences
+import com.jpaya.englishisfun.data.preferences.Settings
 import dagger.hilt.android.HiltAndroidApp
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.runBlocking
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -55,6 +57,6 @@ class EnglishIsFunApp : Application() {
      * Initialize random nightMode to make developer aware of day/night themes.
      */
     private fun initRandomNightMode() {
-        themeUtils.setAppearance(Preferences.getAppearance(applicationContext))
+//        runBlocking { Settings.getAppearance(applicationContext).collect { themeUtils.setAppearance(it) } }
     }
 }

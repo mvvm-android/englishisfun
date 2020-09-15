@@ -161,6 +161,7 @@ dependencies {
         arrayOf(
             Libraries.APPCOMPAT,
             Libraries.CONSTRAINT_LAYOUT,
+            Libraries.DATASTORE,
             Libraries.FIREBASE_ANALYTICS,
             Libraries.FIREBASE_AUTH,
             Libraries.FIREBASE_CRASHLYTICS,

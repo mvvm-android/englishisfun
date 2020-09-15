@@ -23,7 +23,7 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.jpaya.englishisfun.R
-import com.jpaya.englishisfun.data.preferences.Preferences
+import com.jpaya.englishisfun.data.preferences.Settings
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,8 +36,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         findPreference<ListPreference>(getString(R.string.setting_appearance_key))
             ?.setOnPreferenceChangeListener { _, newValue ->
-                viewModel.setAppearance(newValue as String)
-                Preferences.putAppearance(newValue, requireContext().applicationContext)
+                viewModel.setAppearance(newValue as String, requireContext().applicationContext)
                 true
             }
 

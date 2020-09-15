@@ -17,24 +17,24 @@
 package com.jpaya.englishisfun.data.preferences
 
 import android.content.Context
-import android.content.Context.MODE_PRIVATE
+import androidx.datastore.preferences.createDataStore
+import androidx.datastore.preferences.edit
+import androidx.datastore.preferences.preferencesKey
+import kotlinx.coroutines.flow.map
 
-object Preferences {
+object Settings {
 
-    const val FILE_NAME = "secret_preferences"
+    private const val STORE_NAME = "settings"
 
-    // Pref Keys
-    private const val APPEARANCE_PREF_KEY = "appearance"
+    // Preferences
+    private val APPEARANCE = preferencesKey<String>("appearance")
 
     // Default Values
-    private const val DEFAULT_APPERANCE = "auto"
+    private const val DEFAULT_APPEARANCE = "auto"
 
-    fun putAppearance(appearance: String, applicationContext: Context) =
-        getPreferences(applicationContext).edit().putString(APPEARANCE_PREF_KEY, appearance).apply()
+    suspend fun putAppearance(appearance: String, context: Context) = dataStore(context).edit { it[APPEARANCE] = appearance }
 
-    fun getAppearance(applicationContext: Context) =
-        getPreferences(applicationContext).getString(APPEARANCE_PREF_KEY, DEFAULT_APPERANCE)!!
+    fun getAppearance(context: Context) = dataStore(context).data.map { it[APPEARANCE] ?: DEFAULT_APPEARANCE }
 
-    private fun getPreferences(applicationContext: Context) =
-        applicationContext.getSharedPreferences(FILE_NAME, MODE_PRIVATE)
+    private fun dataStore(context: Context) = context.createDataStore(STORE_NAME)
 }
