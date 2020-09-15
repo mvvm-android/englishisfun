@@ -80,10 +80,20 @@ class NetworkDataSourceTest {
 
     @ExperimentalCoroutinesApi
     @Test
+    fun `Check getAbbreviationItems works properly when null list`() = runBlockingTest {
+        whenever(fireStoreClient.abbreviations()).doReturn(AbbreviationsResponse())
+
+        val expectedResult = emptyList<Abbreviation>()
+
+        assertEquals(expectedResult, dataSource.getAbbreviations())
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
     fun `Check getAbbreviationItems works properly when null`() = runBlockingTest {
         whenever(fireStoreClient.abbreviations()).doReturn(null)
 
-        val expectedResult = listOf<Abbreviation>()
+        val expectedResult = emptyList<Abbreviation>()
 
         assertEquals(expectedResult, dataSource.getAbbreviations())
     }

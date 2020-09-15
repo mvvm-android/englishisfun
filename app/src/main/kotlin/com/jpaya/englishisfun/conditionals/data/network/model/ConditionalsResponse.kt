@@ -21,4 +21,6 @@ package com.jpaya.englishisfun.conditionals.data.network.model
  */
 class ConditionalsResponse {
     lateinit var conditionals: MutableList<ConditionalNetworkItem>
+
+    fun isInitialized() = this::conditionals.isInitialized
 }

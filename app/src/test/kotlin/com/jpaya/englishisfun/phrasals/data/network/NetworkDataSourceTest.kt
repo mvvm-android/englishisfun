@@ -80,10 +80,20 @@ class NetworkDataSourceTest {
 
     @ExperimentalCoroutinesApi
     @Test
+    fun `Check getPhrasalsItems works properly when null list`() = runBlockingTest {
+        whenever(fireStoreClient.phrasals()).doReturn(PhrasalsResponse())
+
+        val expectedResult = emptyList<Phrasal>()
+
+        assertEquals(expectedResult, dataSource.getPhrasalsItems())
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
     fun `Check getPhrasalsItems works properly when null`() = runBlockingTest {
         whenever(fireStoreClient.phrasals()).doReturn(null)
 
-        val expectedResult = listOf<Phrasal>()
+        val expectedResult = emptyList<Phrasal>()
 
         assertEquals(expectedResult, dataSource.getPhrasalsItems())
     }

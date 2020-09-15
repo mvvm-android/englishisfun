@@ -21,4 +21,6 @@ package com.jpaya.englishisfun.statives.data.network.model
  */
 class StativesResponse {
     lateinit var statives: List<StativeNetworkItem>
+
+    fun isInitialized() = this::statives.isInitialized
 }
