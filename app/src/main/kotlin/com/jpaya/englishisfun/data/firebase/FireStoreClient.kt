@@ -54,6 +54,9 @@ class FireStoreClient @Inject constructor(
         private const val STATIVE_COLLECTION = "stative"
         private const val STATIVE_DOCUMENT = "list"
 
+        private const val PHRASAL_COLLECTION = "phrasal"
+        private const val PHRASAL_DOCUMENT = "list"
+
         private const val SUGGESTION_COLLECTION = "suggestion"
     }
 
@@ -101,7 +104,7 @@ class FireStoreClient @Inject constructor(
      * Function to obtain all phrasals.
      */
     suspend fun phrasals() = execute(
-        fireStore.collection("phrasal").document("list"),
+        fireStore.collection(PHRASAL_COLLECTION).document(PHRASAL_DOCUMENT),
         PhrasalsResponse::class.java
     )
 

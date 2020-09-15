@@ -22,6 +22,16 @@ package com.jpaya.base.utils
 interface ThemeUtils {
 
     /**
+     * Whether the current configuration is a dark theme i.e. in Night configuration.
+     */
+    fun isDarkTheme(): Boolean
+
+    /**
+     * Whether the current configuration is a light theme i.e. in Day configuration.
+     */
+    fun isLightTheme(): Boolean
+
+    /**
      * Changes the appearance of the application.
      *
      * @param appearance String with the chosen appearance. Accepted values: auto, dark and light.

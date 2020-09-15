@@ -28,6 +28,16 @@ import javax.inject.Inject
 class ThemeUtilsImpl @Inject constructor() : ThemeUtils {
 
     /**
+     * Whether the current configuration is a dark theme i.e. in Night configuration.
+     */
+    override fun isDarkTheme() = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
+
+    /**
+     * Whether the current configuration is a light theme i.e. in Day configuration.
+     */
+    override fun isLightTheme() = !isDarkTheme()
+
+    /**
      * Force [AppCompatDelegate] Mode to night/day.
      *
      * @param forceNight Boolean that force night mode otherwise notnight is configured.
