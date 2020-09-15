@@ -19,12 +19,13 @@ package com.jpaya.englishisfun.settings.ui
 import androidx.hilt.lifecycle.ViewModelInject
 import co.zsmb.rainbowcake.base.RainbowCakeViewModel
 import com.jpaya.base.utils.ThemeUtils
+import com.jpaya.base.utils.ThemeUtilsImpl.Appearance
 
 class SettingsViewModel @ViewModelInject constructor(
     private val themeUtils: ThemeUtils
 ) : RainbowCakeViewModel<SettingsViewState>(Loaded) {
 
-    fun setAppearance(appearance: String) {
+    fun setAppearance(appearance: Appearance) {
         themeUtils.setAppearance(appearance)
     }
 }
