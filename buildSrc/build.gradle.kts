@@ -46,7 +46,7 @@ object GradleVersions {
     const val HILT = "2.28-alpha"
     const val JACOCO = "0.16.0"
     const val KOTLIN = "1.4.10"
-    const val KTLINT = "0.38.1"
+    const val KTLINT = "0.39.0"
     const val NAVIGATION = "2.2.2"
     const val SONARQUBE = "3.0"
     const val SPOTLESS = "4.3.0"
