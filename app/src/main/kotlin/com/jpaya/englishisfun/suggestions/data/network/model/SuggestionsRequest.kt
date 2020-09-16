@@ -19,8 +19,8 @@ package com.jpaya.englishisfun.suggestions.data.network.model
 /**
  * Class to map the suggestions' FireStore request.
  */
-data class SuggestionsContent(
-    var title: String = "",
-    var section: String = "",
-    var description: String = ""
+data class SuggestionsRequest(
+    val title: String,
+    val section: String,
+    val description: String
 )

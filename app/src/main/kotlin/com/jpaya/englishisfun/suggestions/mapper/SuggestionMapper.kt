@@ -16,11 +16,11 @@
 
 package com.jpaya.englishisfun.suggestions.mapper
 
-import com.jpaya.englishisfun.suggestions.data.network.model.SuggestionsContent
+import com.jpaya.englishisfun.suggestions.data.network.model.SuggestionsRequest
 import com.jpaya.englishisfun.suggestions.domain.Suggestions
 import com.jpaya.englishisfun.suggestions.ui.SuggestionsPresenter.SuggestionsItem
 
-fun Suggestions.toNetwork() = SuggestionsContent(
+fun Suggestions.toNetwork() = SuggestionsRequest(
     title = title,
     section = section,
     description = description

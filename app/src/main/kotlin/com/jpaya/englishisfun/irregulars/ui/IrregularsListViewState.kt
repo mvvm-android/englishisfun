@@ -31,7 +31,7 @@ sealed class IrregularsListViewState {
         override fun list(): List<IrregularItem> = listOf()
     }
 
-    data class ListReady(val irregulars: List<IrregularItem>) : IrregularsListViewState() {
+    data class ListReady(private val irregulars: List<IrregularItem>) : IrregularsListViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
         override fun showList(): Boolean = true

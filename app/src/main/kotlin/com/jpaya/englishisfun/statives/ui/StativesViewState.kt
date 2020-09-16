@@ -31,7 +31,7 @@ sealed class StativesViewState {
         override fun list(): List<StativeItem> = listOf()
     }
 
-    data class ListReady(val statives: List<StativeItem>) : StativesViewState() {
+    data class ListReady(private val statives: List<StativeItem>) : StativesViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
         override fun showList(): Boolean = true

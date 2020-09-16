@@ -16,14 +16,23 @@
 
 package com.jpaya.englishisfun.about.ui
 
-sealed class AboutViewState {
-    abstract fun version(): String
+import com.jpaya.englishisfun.about.ui.AboutViewState.Loaded
+import com.jpaya.englishisfun.about.ui.AboutViewState.Loading
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
-    object Loading : AboutViewState() {
-        override fun version(): String = ""
+class AboutViewStateTest {
+
+    @Test
+    fun `Check Loaded state works properly`() {
+        val loaded = Loading
+        assertEquals("", loaded.version())
     }
 
-    data class Loaded(private val version: String) : AboutViewState() {
-        override fun version(): String = version
+    @Test
+    fun `Check Loading state works properly`() {
+        val version = "1.0"
+        val loading = Loaded(version)
+        assertEquals(version, loading.version())
     }
 }

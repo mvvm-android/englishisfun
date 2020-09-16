@@ -25,7 +25,7 @@ import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsRespon
 import com.jpaya.englishisfun.irregulars.data.network.model.IrregularsResponse
 import com.jpaya.englishisfun.phrasals.data.network.model.PhrasalsResponse
 import com.jpaya.englishisfun.statives.data.network.model.StativesResponse
-import com.jpaya.englishisfun.suggestions.data.network.model.SuggestionsContent
+import com.jpaya.englishisfun.suggestions.data.network.model.SuggestionsRequest
 import kotlinx.coroutines.tasks.await
 import timber.log.Timber
 import javax.inject.Inject
@@ -63,55 +63,40 @@ class FireStoreClient @Inject constructor(
     /**
      * Function to obtain all abbreviations.
      */
-    suspend fun abbreviations() = execute(
-        fireStore.collection(ABBREVIATION_COLLECTION).document(ABBREVIATION_DOCUMENT),
-        AbbreviationsResponse::class.java
-    )
+    suspend fun abbreviations() =
+        execute(document(ABBREVIATION_COLLECTION, ABBREVIATION_DOCUMENT), AbbreviationsResponse::class.java)
 
     /**
      * Function to obtain all idioms.
      */
-    suspend fun idioms() = execute(
-        fireStore.collection(IDIOM_COLLECTION).document(IDIOM_DOCUMENT),
-        IdiomsResponse::class.java
-    )
+    suspend fun idioms() = execute(document(IDIOM_COLLECTION, IDIOM_DOCUMENT), IdiomsResponse::class.java)
 
     /**
      * Function to obtain all irregulars.
      */
-    suspend fun irregulars() = execute(
-        fireStore.collection(IRREGULAR_COLLECTION).document(IRREGULAR_DOCUMENT),
-        IrregularsResponse::class.java
-    )
+    suspend fun irregulars() =
+        execute(document(IRREGULAR_COLLECTION, IRREGULAR_DOCUMENT), IrregularsResponse::class.java)
 
     /**
      * Function to obtain all conditionals.
      */
-    suspend fun conditionals() = execute(
-        fireStore.collection(CONDITIONAL_COLLECTION).document(CONDITIONAL_DOCUMENT),
-        ConditionalsResponse::class.java
-    )
+    suspend fun conditionals() =
+        execute(document(CONDITIONAL_COLLECTION, CONDITIONAL_DOCUMENT), ConditionalsResponse::class.java)
 
     /**
      * Function to obtain all stative verbs.
      */
-    suspend fun statives() = execute(
-        fireStore.collection(STATIVE_COLLECTION).document(STATIVE_DOCUMENT),
-        StativesResponse::class.java
-    )
+    suspend fun statives() = execute(document(STATIVE_COLLECTION, STATIVE_DOCUMENT), StativesResponse::class.java)
 
     /**
      * Function to obtain all phrasals.
      */
-    suspend fun phrasals() = execute(
-        fireStore.collection(PHRASAL_COLLECTION).document(PHRASAL_DOCUMENT),
-        PhrasalsResponse::class.java
-    )
+    suspend fun phrasals() = execute(document(PHRASAL_COLLECTION, PHRASAL_DOCUMENT), PhrasalsResponse::class.java)
 
     /**
      * Function to save a suggestion.
      */
-    suspend fun sendSuggestion(data: SuggestionsContent) {
+    suspend fun sendSuggestion(data: SuggestionsRequest) {
         fireStore.collection(SUGGESTION_COLLECTION)
             .add(data)
             .addOnSuccessListener {
@@ -122,6 +107,8 @@ class FireStoreClient @Inject constructor(
             }
             .await()
     }
+
+    private fun document(collection: String, document: String) = fireStore.collection(collection).document(document)
 
     private suspend fun <T> execute(reference: DocumentReference, valueType: Class<T>): T? =
         reference.get().await().toObject(valueType)

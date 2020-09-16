@@ -31,7 +31,7 @@ sealed class ConditionalsListViewState {
         override fun list(): List<ConditionalItem> = listOf()
     }
 
-    data class ListReady(val conditionals: List<ConditionalItem>) : ConditionalsListViewState() {
+    data class ListReady(private val conditionals: List<ConditionalItem>) : ConditionalsListViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
         override fun showList(): Boolean = true

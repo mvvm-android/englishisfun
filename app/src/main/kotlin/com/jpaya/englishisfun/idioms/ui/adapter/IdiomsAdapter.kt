@@ -40,7 +40,7 @@ class IdiomsAdapter :
 
     override fun getSectionName(position: Int): String = getItem(position).idiom.first().toString()
 
-    class ViewHolder(var binding: IdiomsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding: IdiomsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: IdiomItem) {
             binding.item = item

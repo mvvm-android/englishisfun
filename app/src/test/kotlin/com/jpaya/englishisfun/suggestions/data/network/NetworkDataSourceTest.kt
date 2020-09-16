@@ -17,7 +17,7 @@
 package com.jpaya.englishisfun.suggestions.data.network
 
 import com.jpaya.englishisfun.data.firebase.FireStoreClient
-import com.jpaya.englishisfun.suggestions.data.network.model.SuggestionsContent
+import com.jpaya.englishisfun.suggestions.data.network.model.SuggestionsRequest
 import com.jpaya.englishisfun.suggestions.domain.Suggestions
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
@@ -35,7 +35,7 @@ class NetworkDataSourceTest {
             description = "Description"
         )
 
-        private val MOCK_NETWORK_ITEM = SuggestionsContent(
+        private val MOCK_NETWORK_ITEM = SuggestionsRequest(
             title = "Title",
             section = "Section",
             description = "Description"

@@ -14,16 +14,26 @@
  * limitations under the License.
  */
 
-package com.jpaya.englishisfun.about.ui
+package com.jpaya.englishisfun.suggestions.data.network.model
 
-sealed class AboutViewState {
-    abstract fun version(): String
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
-    object Loading : AboutViewState() {
-        override fun version(): String = ""
-    }
+class SuggestionsRequestTest {
 
-    data class Loaded(private val version: String) : AboutViewState() {
-        override fun version(): String = version
+    @Test
+    fun initShouldInitialiseProperly() {
+        val title = "Title"
+        val section = "Section"
+        val description = "Description"
+        val suggestion = SuggestionsRequest(
+            title = title,
+            section = section,
+            description = description
+        )
+
+        assertEquals(title, suggestion.title)
+        assertEquals(section, suggestion.section)
+        assertEquals(description, suggestion.description)
     }
 }

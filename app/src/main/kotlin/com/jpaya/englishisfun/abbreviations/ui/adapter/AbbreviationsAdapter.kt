@@ -40,7 +40,7 @@ class AbbreviationsAdapter :
 
     override fun getSectionName(position: Int): String = getItem(position).abbr.first().toString()
 
-    class ViewHolder(var binding: AbbreviationsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding: AbbreviationsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: AbbreviationItem) {
             binding.abbreviation = item
