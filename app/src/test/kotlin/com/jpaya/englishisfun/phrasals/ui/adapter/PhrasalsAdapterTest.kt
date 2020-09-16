@@ -21,7 +21,9 @@ import com.jpaya.englishisfun.databinding.PhrasalsListItemBinding
 import com.jpaya.englishisfun.phrasals.ui.model.PhrasalItem
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import org.hamcrest.CoreMatchers
-import org.junit.Assert.*
+import org.hamcrest.MatcherAssert.assertThat
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
 
