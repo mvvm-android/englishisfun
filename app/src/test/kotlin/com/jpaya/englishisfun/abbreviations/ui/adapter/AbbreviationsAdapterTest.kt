@@ -16,8 +16,11 @@
 
 package com.jpaya.englishisfun.abbreviations.ui.adapter
 
+import android.widget.FrameLayout
 import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
+import com.jpaya.englishisfun.databinding.AbbreviationsListItemBinding
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
+import org.hamcrest.CoreMatchers.instanceOf
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
@@ -57,7 +60,6 @@ class AbbreviationsAdapterTest : TestRobolectric() {
         assertEquals("A", adapter.getSectionName(1))
     }
 
-/*
     @Test
     fun `Check onCreateViewHolder and onBindViewHolder works properly`() {
         adapter.setData(itemsList)
@@ -66,11 +68,10 @@ class AbbreviationsAdapterTest : TestRobolectric() {
         val binding = viewHolder.binding
 
         assertNotNull(viewHolder)
-        assertThat(binding, CoreMatchers.instanceOf(AbbreviationsListItemBinding::class.java))
+        assertThat(binding, instanceOf(AbbreviationsListItemBinding::class.java))
 
         adapter.onBindViewHolder(viewHolder, 1)
         assertEquals("Another Abbreviation", binding.tvAbbreviation.text.toString())
         assertEquals("Another Description", binding.tvDescription.text.toString())
     }
-*/
 }
