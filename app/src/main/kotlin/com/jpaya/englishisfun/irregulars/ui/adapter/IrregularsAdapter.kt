@@ -40,7 +40,7 @@ class IrregularsAdapter :
 
     override fun getSectionName(position: Int): String = getItem(position).base.first().toString()
 
-    class ViewHolder(var binding: IrregularsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding: IrregularsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: IrregularItem) {
             binding.irregular = item

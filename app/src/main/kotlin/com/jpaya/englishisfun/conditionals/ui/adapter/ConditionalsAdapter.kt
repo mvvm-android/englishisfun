@@ -36,7 +36,7 @@ class ConditionalsAdapter :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(getItem(position))
 
-    class ViewHolder(var binding: ConditionalsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding: ConditionalsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: ConditionalItem) {
             binding.conditional = item
