@@ -25,7 +25,7 @@ import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsRespon
 import com.jpaya.englishisfun.irregulars.data.network.model.IrregularsResponse
 import com.jpaya.englishisfun.phrasals.data.network.model.PhrasalsResponse
 import com.jpaya.englishisfun.statives.data.network.model.StativesResponse
-import com.jpaya.englishisfun.suggestions.data.network.model.SuggestionsContent
+import com.jpaya.englishisfun.suggestions.data.network.model.SuggestionsRequest
 import kotlinx.coroutines.tasks.await
 import timber.log.Timber
 import javax.inject.Inject
@@ -111,7 +111,7 @@ class FireStoreClient @Inject constructor(
     /**
      * Function to save a suggestion.
      */
-    suspend fun sendSuggestion(data: SuggestionsContent) {
+    suspend fun sendSuggestion(data: SuggestionsRequest) {
         fireStore.collection(SUGGESTION_COLLECTION)
             .add(data)
             .addOnSuccessListener {
