@@ -17,24 +17,33 @@
 package com.jpaya.englishisfun.about.ui
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
-import co.zsmb.rainbowcake.extensions.exhaustive
 import com.jpaya.englishisfun.R
+import com.jpaya.englishisfun.databinding.AboutFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 import de.psdev.licensesdialog.LicensesDialog
-import kotlinx.android.synthetic.main.about_fragment.*
 
 @AndroidEntryPoint
 class AboutFragment : RainbowCakeFragment<AboutViewState, AboutViewModel>() {
 
     private val customViewModel: AboutViewModel by viewModels()
+    private lateinit var binding: AboutFragmentBinding
 
     override fun provideViewModel() = customViewModel
     override fun getViewResource() = R.layout.about_fragment
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
+        binding = AboutFragmentBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,32 +55,22 @@ class AboutFragment : RainbowCakeFragment<AboutViewState, AboutViewModel>() {
         inflater.inflate(R.menu.about_fragment, menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_libraries -> {
-                showLicensesDialog()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
+        R.id.action_libraries -> {
+            showLicensesDialog()
+            true
         }
+        else -> super.onOptionsItemSelected(item)
     }
 
-    private fun showLicensesDialog() {
-        LicensesDialog.Builder(requireContext())
-            .setTitle(getString(R.string.third_party_libraries))
-            .setNotices(R.raw.notices)
-            .setIncludeOwnLicense(true)
-            .build()
-            .show()
-    }
+    private fun showLicensesDialog() = LicensesDialog.Builder(requireContext())
+        .setTitle(getString(R.string.third_party_libraries))
+        .setNotices(R.raw.notices)
+        .setIncludeOwnLicense(true)
+        .build()
+        .show()
 
     override fun render(viewState: AboutViewState) {
-        when (viewState) {
-            AboutViewState.Loading -> {
-            }
-            is AboutViewState.Loaded -> {
-                tv_version.text = viewState.version
-            }
-        }.exhaustive
+        binding.viewState = viewState
     }
 }

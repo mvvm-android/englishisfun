@@ -31,7 +31,7 @@ sealed class AbbreviationsListViewState {
         override fun list(): List<AbbreviationItem> = listOf()
     }
 
-    data class ListReady(val abbreviations: List<AbbreviationItem>) : AbbreviationsListViewState() {
+    data class ListReady(private val abbreviations: List<AbbreviationItem>) : AbbreviationsListViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
         override fun showList(): Boolean = true

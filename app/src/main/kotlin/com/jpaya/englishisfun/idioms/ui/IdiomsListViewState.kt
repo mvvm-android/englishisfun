@@ -31,7 +31,7 @@ sealed class IdiomsListViewState {
         override fun list(): List<IdiomItem> = listOf()
     }
 
-    data class ListReady(val idioms: List<IdiomItem>) : IdiomsListViewState() {
+    data class ListReady(private val idioms: List<IdiomItem>) : IdiomsListViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
         override fun showList(): Boolean = true

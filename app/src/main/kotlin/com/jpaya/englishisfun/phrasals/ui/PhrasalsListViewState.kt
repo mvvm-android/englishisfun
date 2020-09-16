@@ -31,7 +31,7 @@ sealed class PhrasalsListViewState {
         override fun list(): List<PhrasalItem> = listOf()
     }
 
-    data class ListReady(val phrasals: List<PhrasalItem>) : PhrasalsListViewState() {
+    data class ListReady(private val phrasals: List<PhrasalItem>) : PhrasalsListViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
         override fun showList(): Boolean = true
