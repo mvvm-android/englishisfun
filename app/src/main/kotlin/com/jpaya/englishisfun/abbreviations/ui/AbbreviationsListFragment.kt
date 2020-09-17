@@ -79,7 +79,7 @@ class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState
     private fun calcColumns(context: Context): Int {
         val displayMetrics: DisplayMetrics = context.resources.displayMetrics
         val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
-        return (screenWidthDp / COLUMN_WIDTH + 0.5).toInt()
+        return (screenWidthDp / COLUMN_WIDTH).toInt()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
