@@ -16,12 +16,14 @@
 
 package com.jpaya.englishisfun.abbreviations.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import android.util.DisplayMetrics
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -37,6 +39,10 @@ import kotlinx.android.synthetic.main.abbreviations_fragment_list.*
 
 @AndroidEntryPoint
 class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState, AbbreviationsListViewModel>() {
+
+    companion object {
+        private const val COLUMN_WIDTH: Float = 180F
+    }
 
     private val customViewModel: AbbreviationsListViewModel by viewModels()
     private lateinit var abbreviationsAdapter: AbbreviationsAdapter
@@ -61,13 +67,19 @@ class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState
 
         abbreviationsAdapter = AbbreviationsAdapter()
         irregularsList.adapter = abbreviationsAdapter
-        irregularsList.layoutManager = GridLayoutManager(context, 3)
-        irregularsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-        irregularsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.HORIZONTAL))
+        irregularsList.layoutManager = GridLayoutManager(requireContext(), calcColumns(requireContext()))
+        irregularsList.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
+        irregularsList.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.HORIZONTAL))
 
         retryButton.setOnClickListener {
             viewModel.reload()
         }
+    }
+
+    private fun calcColumns(context: Context): Int {
+        val displayMetrics: DisplayMetrics = context.resources.displayMetrics
+        val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
+        return (screenWidthDp / COLUMN_WIDTH + 0.5).toInt()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
