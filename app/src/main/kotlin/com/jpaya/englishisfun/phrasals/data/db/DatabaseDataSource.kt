@@ -28,23 +28,17 @@ class DatabaseDataSource @Inject constructor(
     private val dao: PhrasalsDao
 ) {
 
-    suspend fun all(): List<Phrasal> = dao.all().map { it.toDomain() }
+    suspend fun all() = dao.all().map { it.toDomain() }
 
     suspend fun count() = dao.count()
 
     suspend fun save(item: Phrasal) = dao.save(item.toRoomItem())
 
-    suspend fun save(items: List<Phrasal>) {
-        val objects = mutableListOf<PhrasalRoomItem>()
-        items.forEach {
-            objects.add(it.toRoomItem())
-        }
-        dao.save(objects)
-    }
+    suspend fun saveAll(items: List<Phrasal>) = dao.save(items.map { it.toRoomItem() })
 
-    suspend fun search(filter: String): List<Phrasal> = dao.search(filter.encloseToLikeQuery()).map { it.toDomain() }
+    suspend fun search(filter: String) = dao.search(filter.encloseToLikeQuery()).map { it.toDomain() }
 
     suspend fun delete(id: Long) = dao.delete(id)
 
-    suspend fun delete() = dao.delete()
+    suspend fun deleteAll() = dao.delete()
 }

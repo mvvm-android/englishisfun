@@ -27,7 +27,7 @@ class PhrasalsInteractor @Inject constructor(
 
     suspend fun getPhrasalsItems(): List<Phrasal> {
         val result = network.getPhrasalsItems()
-        database.save(result)
+        database.saveAll(result)
         return result
     }
 

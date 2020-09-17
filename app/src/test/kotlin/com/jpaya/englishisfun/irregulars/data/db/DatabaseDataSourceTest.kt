@@ -69,7 +69,7 @@ class DatabaseDataSourceTest : TestRobolectric() {
         assertEquals(1, dataSource.count())
         assertEquals(1, dataSource.search(filter).size)
 
-        dataSource.save(listOf(item2, item3))
+        dataSource.saveAll(listOf(item2, item3))
         assertEquals(3, dataSource.count())
         assertEquals(1, dataSource.search(filter).size)
 
@@ -91,7 +91,7 @@ class DatabaseDataSourceTest : TestRobolectric() {
         assertEquals(2, dataSource.count())
         assertEquals(1, dataSource.search(filter).size)
 
-        dataSource.delete()
+        dataSource.deleteAll()
         assertEquals(0, dataSource.count())
         assertEquals(0, dataSource.search(filter).size)
     }
