@@ -34,6 +34,8 @@
             style="@style/TextAppearance.CardTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:lines="2"
+            android:minLines="1"
             android:padding="@dimen/abbreviations_list_item_text_padding"
             android:text="@{abbreviation.desc}"
             android:textColor="@android:color/white"
