@@ -16,12 +16,18 @@
 
 package com.jpaya.englishisfun.abbreviations.ui.adapter
 
+import android.animation.AnimatorInflater
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.TransitionDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jpaya.base.adapter.ListAdapterComparator
+import com.jpaya.base.ui.bindings.visible
 import com.jpaya.englishisfun.DataBindingAdapter
+import com.jpaya.englishisfun.R
 import com.jpaya.englishisfun.abbreviations.ui.model.AbbreviationItem
 import com.jpaya.englishisfun.databinding.AbbreviationsListItemBinding
 import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
@@ -43,6 +49,26 @@ class AbbreviationsAdapter :
     class ViewHolder(val binding: AbbreviationsListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: AbbreviationItem) {
+            itemView.setOnClickListener {
+                binding.abbreviation?.let {
+                    it.open = it.open.not()
+                    AnimatorInflater.loadAnimator(itemView.context, R.animator.card_flip_right_in).apply {
+                        setTarget(itemView)
+                        start()
+                    }
+                    binding.tvAbbreviation.visible = it.open.not()
+                    binding.tvDescription.visible = it.open
+                    val trans = TransitionDrawable(
+                        if (it.open) {
+                            arrayOf(ColorDrawable(Color.WHITE), ColorDrawable(Color.BLACK))
+                        } else {
+                            arrayOf(ColorDrawable(Color.BLACK), ColorDrawable(Color.WHITE))
+                        }
+                    )
+                    itemView.background = trans
+                    trans.startTransition(300)
+                }
+            }
             binding.abbreviation = item
             binding.executePendingBindings()
         }

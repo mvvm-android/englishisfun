@@ -25,12 +25,13 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.transition.TransitionManager
 import co.zsmb.rainbowcake.base.RainbowCakeFragment
+import com.jpaya.base.ui.searchview.DebouncingQueryTextListener
 import com.jpaya.englishisfun.R
 import com.jpaya.englishisfun.abbreviations.ui.adapter.AbbreviationsAdapter
 import com.jpaya.englishisfun.databinding.AbbreviationsFragmentListBinding
-import com.jpaya.base.ui.searchview.DebouncingQueryTextListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.abbreviations_fragment_list.*
 
@@ -60,7 +61,9 @@ class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState
 
         abbreviationsAdapter = AbbreviationsAdapter()
         irregularsList.adapter = abbreviationsAdapter
+        irregularsList.layoutManager = GridLayoutManager(context, 3)
         irregularsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        irregularsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.HORIZONTAL))
 
         retryButton.setOnClickListener {
             viewModel.reload()

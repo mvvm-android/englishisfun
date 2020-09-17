@@ -16,12 +16,15 @@
 
 package com.jpaya.englishisfun.abbreviations.ui.model
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.jpaya.base.adapter.GenericAdapterComparator
 
 data class AbbreviationItem(
     val id: Long,
     val abbr: String,
-    val desc: String
+    val desc: String,
+    var open: Boolean = false
 ) : GenericAdapterComparator<AbbreviationItem> {
 
     override fun isSameItemAs(item: AbbreviationItem) = id == item.id

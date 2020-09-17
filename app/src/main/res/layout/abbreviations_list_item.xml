@@ -21,6 +21,9 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/abbreviations_list_item_text_padding"
             android:text="@{abbreviation.abbr}"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -33,10 +36,12 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/abbreviations_list_item_text_padding"
             android:text="@{abbreviation.desc}"
+            android:textColor="@android:color/white"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_abbreviation"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Description" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
