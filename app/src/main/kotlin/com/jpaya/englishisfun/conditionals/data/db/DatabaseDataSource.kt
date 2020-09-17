@@ -16,7 +16,6 @@
 
 package com.jpaya.englishisfun.conditionals.data.db
 
-import com.jpaya.base.extensions.encloseToLikeQuery
 import com.jpaya.englishisfun.conditionals.domain.Conditional
 import com.jpaya.englishisfun.conditionals.mapper.toDomain
 import com.jpaya.englishisfun.conditionals.mapper.toRoomItem
@@ -41,9 +40,6 @@ class DatabaseDataSource @Inject constructor(
         }
         dao.save(objects)
     }
-
-    suspend fun search(filter: String): List<Conditional> =
-        dao.search(filter.encloseToLikeQuery()).map { it.toDomain() }
 
     suspend fun delete(id: Long) = dao.delete(id)
 

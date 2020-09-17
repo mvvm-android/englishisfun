@@ -69,14 +69,4 @@ class ConditionalsInteractorTest {
         assertEquals(2, interactor.getConditionalsItems().size)
         assertEquals(MOCK_CONDITIONALS_ITEMS, interactor.getConditionalsItems())
     }
-
-    @ExperimentalCoroutinesApi
-    @Test
-    fun `Check searchConditionals works properly`() = runBlockingTest {
-        val filter = "filter"
-        whenever(database.search(filter)).doReturn(MOCK_CONDITIONALS_ITEMS)
-
-        assertEquals(2, database.search(filter).size)
-        assertEquals(MOCK_CONDITIONALS_ITEMS, interactor.searchConditionals(filter))
-    }
 }

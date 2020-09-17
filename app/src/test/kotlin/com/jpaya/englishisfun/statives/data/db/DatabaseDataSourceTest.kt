@@ -55,22 +55,17 @@ class DatabaseDataSourceTest : TestRobolectric() {
 
     @Test
     fun `Check statives works properly`() = runBlocking {
-        val filter = "Category 1"
         assertEquals(0, dataSource.count())
-        assertEquals(0, dataSource.search(filter).size)
 
         dataSource.save(item1)
         assertEquals(1, dataSource.count())
-        assertEquals(1, dataSource.search(filter).size)
 
         dataSource.save(listOf(item2, item3))
         assertEquals(3, dataSource.count())
-        assertEquals(1, dataSource.search(filter).size)
 
         // Save duplicated item
         dataSource.save(item2)
         assertEquals(3, dataSource.count())
-        assertEquals(1, dataSource.search(filter).size)
 
         val list = dataSource.all()
         assertEquals(3, list.size)
@@ -79,14 +74,11 @@ class DatabaseDataSourceTest : TestRobolectric() {
         // Delete unexisting element
         dataSource.delete(4)
         assertEquals(3, dataSource.count())
-        assertEquals(1, dataSource.search(filter).size)
 
         dataSource.delete(3)
         assertEquals(2, dataSource.count())
-        assertEquals(1, dataSource.search(filter).size)
 
         dataSource.delete()
         assertEquals(0, dataSource.count())
-        assertEquals(0, dataSource.search(filter).size)
     }
 }
