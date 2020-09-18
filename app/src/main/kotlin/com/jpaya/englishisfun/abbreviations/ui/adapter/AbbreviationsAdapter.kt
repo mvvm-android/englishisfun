@@ -38,7 +38,7 @@ class AbbreviationsAdapter :
     DataBindingAdapter<List<AbbreviationItem>> {
 
     companion object {
-        private const val TRANSITION_DURATION = 300
+        private const val TRANSITION_DURATION = 500
     }
 
     override fun setData(data: List<AbbreviationItem>) = submitList(data)
@@ -56,7 +56,7 @@ class AbbreviationsAdapter :
             itemView.setOnClickListener {
                 binding.abbreviation?.let {
                     it.open = it.open.not()
-                    AnimatorInflater.loadAnimator(itemView.context, R.animator.card_flip_right_in).apply {
+                    AnimatorInflater.loadAnimator(itemView.context, R.animator.flip).apply {
                         setTarget(itemView)
                         start()
                     }
