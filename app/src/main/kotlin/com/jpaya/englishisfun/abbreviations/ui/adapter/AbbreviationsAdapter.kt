@@ -37,10 +37,6 @@ class AbbreviationsAdapter :
     FastScrollRecyclerView.SectionedAdapter,
     DataBindingAdapter<List<AbbreviationItem>> {
 
-    companion object {
-        private const val TRANSITION_DURATION = 500
-    }
-
     override fun setData(data: List<AbbreviationItem>) = submitList(data)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -70,7 +66,7 @@ class AbbreviationsAdapter :
                         }
                     )
                     itemView.background = trans
-                    trans.startTransition(TRANSITION_DURATION)
+                    trans.startTransition(itemView.context.resources.getInteger(R.integer.animation_duration))
                 }
             }
             binding.abbreviation = item
