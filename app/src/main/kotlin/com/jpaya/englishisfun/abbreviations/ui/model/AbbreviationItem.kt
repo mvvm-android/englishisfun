@@ -16,8 +16,6 @@
 
 package com.jpaya.englishisfun.abbreviations.ui.model
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.jpaya.base.adapter.GenericAdapterComparator
 
 data class AbbreviationItem(
