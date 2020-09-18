@@ -58,13 +58,8 @@ class AbbreviationsAdapter :
                     }
                     binding.tvAbbreviation.visible = it.open.not()
                     binding.tvDescription.visible = it.open
-                    val trans = TransitionDrawable(
-                        if (it.open) {
-                            arrayOf(ColorDrawable(Color.WHITE), ColorDrawable(Color.BLACK))
-                        } else {
-                            arrayOf(ColorDrawable(Color.BLACK), ColorDrawable(Color.WHITE))
-                        }
-                    )
+                    val openTransition = arrayOf(ColorDrawable(Color.WHITE), ColorDrawable(Color.BLACK))
+                    val trans = TransitionDrawable(if (it.open) openTransition else openTransition.reversedArray())
                     itemView.background = trans
                     trans.startTransition(itemView.context.resources.getInteger(R.integer.animation_duration))
                 }
