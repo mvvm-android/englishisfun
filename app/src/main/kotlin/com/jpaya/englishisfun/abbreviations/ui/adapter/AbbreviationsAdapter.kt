@@ -37,6 +37,11 @@ class AbbreviationsAdapter :
     FastScrollRecyclerView.SectionedAdapter,
     DataBindingAdapter<List<AbbreviationItem>> {
 
+    companion object {
+        private val OPENED_DRAWABLE = ColorDrawable(Color.BLACK)
+        private val CLOSED_DRAWABLE = ColorDrawable(Color.WHITE)
+    }
+
     override fun setData(data: List<AbbreviationItem>) = submitList(data)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -58,12 +63,15 @@ class AbbreviationsAdapter :
                     }
                     binding.tvAbbreviation.visible = it.open.not()
                     binding.tvDescription.visible = it.open
-                    val openTransition = arrayOf(ColorDrawable(Color.WHITE), ColorDrawable(Color.BLACK))
+                    val openTransition = arrayOf(CLOSED_DRAWABLE, OPENED_DRAWABLE)
                     val trans = TransitionDrawable(if (it.open) openTransition else openTransition.reversedArray())
                     itemView.background = trans
                     trans.startTransition(itemView.context.resources.getInteger(R.integer.animation_duration))
                 }
             }
+            binding.tvAbbreviation.visible = item.open.not()
+            binding.tvDescription.visible = item.open
+            binding.root.background = if (item.open) OPENED_DRAWABLE else CLOSED_DRAWABLE
             binding.abbreviation = item
             binding.executePendingBindings()
         }
