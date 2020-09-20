@@ -93,18 +93,3 @@ android {
 junitJacoco {
     includeNoLocationClasses = true
 }
-
-dependencies {
-    implementation(Libraries.HILT)
-    implementation(Libraries.HILT_VIEWMODEL)
-    implementation(Libraries.KOTLIN)
-    implementation(Libraries.KOTLIN_COROUTINES)
-    implementation(Libraries.KOTLIN_COROUTINES_ANDROID)
-    implementation(Libraries.TIMBER)
-
-    kapt(AnnotationProcessorsLibraries.HILT)
-
-    testImplementation(project(BuildModules.Libraries.TEST_UTILS))
-    testImplementation(TestLibraries.all())
-    androidTestImplementation(TestAndroidLibraries.all())
-}
