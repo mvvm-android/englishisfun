@@ -27,7 +27,7 @@ class IdiomsInteractor @Inject constructor(
 
     suspend fun getIdiomsItems(): List<Idiom> {
         val result = network.getIdiomsItems()
-        database.save(result)
+        database.saveAll(result)
         return result
     }
 

@@ -27,7 +27,7 @@ class AbbreviationsInteractor @Inject constructor(
 
     suspend fun getAbbreviations(): List<Abbreviation> {
         val result = network.getAbbreviations()
-        database.save(result)
+        database.saveAll(result)
         return result
     }
 

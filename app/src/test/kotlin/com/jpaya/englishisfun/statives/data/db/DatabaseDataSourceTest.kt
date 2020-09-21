@@ -60,7 +60,7 @@ class DatabaseDataSourceTest : TestRobolectric() {
         dataSource.save(item1)
         assertEquals(1, dataSource.count())
 
-        dataSource.save(listOf(item2, item3))
+        dataSource.saveAll(listOf(item2, item3))
         assertEquals(3, dataSource.count())
 
         // Save duplicated item
@@ -78,7 +78,7 @@ class DatabaseDataSourceTest : TestRobolectric() {
         dataSource.delete(3)
         assertEquals(2, dataSource.count())
 
-        dataSource.delete()
+        dataSource.deleteAll()
         assertEquals(0, dataSource.count())
     }
 }

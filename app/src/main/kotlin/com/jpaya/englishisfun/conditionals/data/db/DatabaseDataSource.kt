@@ -27,21 +27,15 @@ class DatabaseDataSource @Inject constructor(
     private val dao: ConditionalsDao
 ) {
 
-    suspend fun all(): List<Conditional> = dao.all().map { it.toDomain() }
+    suspend fun all() = dao.all().map { it.toDomain() }
 
     suspend fun count() = dao.count()
 
     suspend fun save(item: Conditional) = dao.save(item.toRoomItem())
 
-    suspend fun save(items: List<Conditional>) {
-        val objects = mutableListOf<ConditionalRoomItem>()
-        items.forEach {
-            objects.add(it.toRoomItem())
-        }
-        dao.save(objects)
-    }
+    suspend fun saveAll(items: List<Conditional>) = dao.save(items.map { it.toRoomItem() })
 
     suspend fun delete(id: Long) = dao.delete(id)
 
-    suspend fun delete() = dao.delete()
+    suspend fun deleteAll() = dao.delete()
 }
