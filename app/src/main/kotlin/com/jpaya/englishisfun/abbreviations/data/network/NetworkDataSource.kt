@@ -29,6 +29,6 @@ class NetworkDataSource @Inject constructor(
 
     suspend fun getAbbreviations(): List<Abbreviation> {
         val result = fireStoreClient.abbreviations()
-        return if (result != null && result.isInitialized()) result.abbreviations.map { it.toDomain() } else emptyList()
+        return if (result.isRight) result.right()result.abbreviations.map { it.toDomain() } else emptyList()
     }
 }

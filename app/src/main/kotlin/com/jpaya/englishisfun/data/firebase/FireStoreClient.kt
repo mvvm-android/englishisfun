@@ -19,6 +19,10 @@ package com.jpaya.englishisfun.data.firebase
 import androidx.annotation.VisibleForTesting
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.jpaya.base.exception.Failure
+import com.jpaya.base.functional.Either
+import com.jpaya.base.functional.Either.Left
+import com.jpaya.base.functional.Either.Right
 import com.jpaya.englishisfun.abbreviations.data.network.model.AbbreviationsResponse
 import com.jpaya.englishisfun.idioms.data.network.model.IdiomsResponse
 import com.jpaya.englishisfun.conditionals.data.network.model.ConditionalsResponse
@@ -63,8 +67,12 @@ class FireStoreClient @Inject constructor(
     /**
      * Function to obtain all abbreviations.
      */
-    suspend fun abbreviations() =
-        execute(document(ABBREVIATION_COLLECTION, ABBREVIATION_DOCUMENT), AbbreviationsResponse::class.java)
+    suspend fun abbreviations(): Either<Failure, AbbreviationsResponse> =
+        try {
+            Right(document(ABBREVIATION_COLLECTION, ABBREVIATION_DOCUMENT).get().await().toObject(AbbreviationsResponse::class.java)!!)
+        } catch (e: Exception) {
+            Left(Failure.NetworkConnection)
+        }
 
     /**
      * Function to obtain all idioms.
@@ -111,5 +119,9 @@ class FireStoreClient @Inject constructor(
     private fun document(collection: String, document: String) = fireStore.collection(collection).document(document)
 
     private suspend fun <T> execute(reference: DocumentReference, valueType: Class<T>): T? =
-        reference.get().await().toObject(valueType)
+        try {
+            reference.get().await().toObject(valueType)
+        } catch (e: Exception) {
+            null
+        }
 }
