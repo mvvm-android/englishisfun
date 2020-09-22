@@ -75,11 +75,7 @@ class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState
             queryHint = getString(R.string.search)
             setOnQueryTextListener(
                 DebouncingQueryTextListener(this@AbbreviationsListFragment) {
-                    if (it == null || it.isEmpty()) {
-                        viewModel.resetSearch()
-                    } else {
-                        viewModel.search(it)
-                    }
+                    if (it.isNullOrEmpty()) viewModel.resetSearch() else viewModel.search(it)
                 }
             )
             clearFocus()

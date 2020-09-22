@@ -78,11 +78,7 @@ class PhrasalsListFragment : RainbowCakeFragment<PhrasalsListViewState, Phrasals
             queryHint = getString(R.string.search)
             setOnQueryTextListener(
                 DebouncingQueryTextListener(this@PhrasalsListFragment) {
-                    if (it == null || it.isEmpty()) {
-                        viewModel.resetSearch()
-                    } else {
-                        viewModel.search(it)
-                    }
+                    if (it.isNullOrEmpty()) viewModel.resetSearch() else viewModel.search(it)
                 }
             )
             clearFocus()
