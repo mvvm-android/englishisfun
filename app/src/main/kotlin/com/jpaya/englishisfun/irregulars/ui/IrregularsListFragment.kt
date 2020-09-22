@@ -65,9 +65,6 @@ class IrregularsListFragment : RainbowCakeFragment<IrregularsListViewState, Irre
         retry.setOnClickListener {
             viewModel.reload()
         }
-        viewSavedButton.setOnClickListener {
-//            navigator?.add(SavedFragment())
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

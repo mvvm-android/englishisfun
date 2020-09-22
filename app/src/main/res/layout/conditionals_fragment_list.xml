@@ -87,7 +87,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:visibility="@{viewState.showError() ? View.VISIBLE : View.GONE}"
-            app:constraint_referenced_ids="errorText,retry,viewSavedButton" />
+            app:constraint_referenced_ids="errorText,retry" />
 
         <TextView
             android:id="@+id/errorText"
@@ -109,21 +109,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/retry"
-            app:layout_constraintBottom_toTopOf="@+id/viewSavedButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/errorText" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/viewSavedButton"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:text="@string/irregulars_list_view_saved"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/retry" />
-
+            app:layout_constraintTop_toBottomOf="@+id/errorText" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

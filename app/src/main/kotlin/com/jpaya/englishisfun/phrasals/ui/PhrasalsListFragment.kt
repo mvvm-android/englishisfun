@@ -65,9 +65,6 @@ class PhrasalsListFragment : RainbowCakeFragment<PhrasalsListViewState, Phrasals
         retry.setOnClickListener {
             viewModel.reload()
         }
-        viewSavedButton.setOnClickListener {
-//            navigator?.add(SavedFragment())
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

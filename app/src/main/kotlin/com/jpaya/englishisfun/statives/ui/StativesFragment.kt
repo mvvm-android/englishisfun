@@ -56,9 +56,6 @@ class StativesFragment : RainbowCakeFragment<StativesViewState, StativesViewMode
         retry.setOnClickListener {
             viewModel.reload()
         }
-        viewSavedButton.setOnClickListener {
-//            navigator?.add(SavedFragment())
-        }
     }
 
     override fun render(viewState: StativesViewState) {

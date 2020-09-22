@@ -56,9 +56,6 @@ class ConditionalsListFragment : RainbowCakeFragment<ConditionalsListViewState, 
         retry.setOnClickListener {
             viewModel.reload()
         }
-        viewSavedButton.setOnClickListener {
-//            navigator?.add(SavedFragment())
-        }
     }
 
     override fun render(viewState: ConditionalsListViewState) {
