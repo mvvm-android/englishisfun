@@ -36,8 +36,8 @@ sealed class PhrasalsListViewState {
     data class ListReady(private val phrasals: List<PhrasalItem>) : PhrasalsListViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
-        override fun showList(): Boolean = phrasals.isNullOrEmpty().not()
-        override fun showEmpty(): Boolean = phrasals.isNullOrEmpty()
+        override fun showList(): Boolean = phrasals.isEmpty().not()
+        override fun showEmpty(): Boolean = phrasals.isEmpty()
         override fun list(): List<PhrasalItem> = phrasals
     }
 

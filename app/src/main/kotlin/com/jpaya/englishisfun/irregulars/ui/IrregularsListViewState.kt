@@ -36,8 +36,8 @@ sealed class IrregularsListViewState {
     data class ListReady(private val irregulars: List<IrregularItem>) : IrregularsListViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
-        override fun showList(): Boolean = irregulars.isNullOrEmpty().not()
-        override fun showEmpty(): Boolean = irregulars.isNullOrEmpty()
+        override fun showList(): Boolean = irregulars.isEmpty().not()
+        override fun showEmpty(): Boolean = irregulars.isEmpty()
         override fun list(): List<IrregularItem> = irregulars
     }
 

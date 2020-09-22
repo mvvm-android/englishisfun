@@ -36,8 +36,8 @@ sealed class AbbreviationsListViewState {
     data class ListReady(private val abbreviations: List<AbbreviationItem>) : AbbreviationsListViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
-        override fun showList(): Boolean = abbreviations.isNullOrEmpty().not()
-        override fun showEmpty(): Boolean = abbreviations.isNullOrEmpty()
+        override fun showList(): Boolean = abbreviations.isEmpty().not()
+        override fun showEmpty(): Boolean = abbreviations.isEmpty()
         override fun list(): List<AbbreviationItem> = abbreviations
     }
 

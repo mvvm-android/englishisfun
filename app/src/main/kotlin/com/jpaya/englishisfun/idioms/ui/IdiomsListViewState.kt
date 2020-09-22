@@ -36,8 +36,8 @@ sealed class IdiomsListViewState {
     data class ListReady(private val idioms: List<IdiomItem>) : IdiomsListViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
-        override fun showList(): Boolean = idioms.isNullOrEmpty().not()
-        override fun showEmpty(): Boolean = idioms.isNullOrEmpty()
+        override fun showList(): Boolean = idioms.isEmpty().not()
+        override fun showEmpty(): Boolean = idioms.isEmpty()
         override fun list(): List<IdiomItem> = idioms
     }
 

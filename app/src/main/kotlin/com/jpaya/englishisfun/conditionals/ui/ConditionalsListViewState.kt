@@ -36,8 +36,8 @@ sealed class ConditionalsListViewState {
     data class ListReady(private val conditionals: List<ConditionalItem>) : ConditionalsListViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
-        override fun showList(): Boolean = conditionals.isNullOrEmpty().not()
-        override fun showEmpty(): Boolean = conditionals.isNullOrEmpty()
+        override fun showList(): Boolean = conditionals.isEmpty().not()
+        override fun showEmpty(): Boolean = conditionals.isEmpty()
         override fun list(): List<ConditionalItem> = conditionals
     }
 

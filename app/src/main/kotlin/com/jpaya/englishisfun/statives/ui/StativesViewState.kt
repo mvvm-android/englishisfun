@@ -36,8 +36,8 @@ sealed class StativesViewState {
     data class ListReady(private val statives: List<StativeItem>) : StativesViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
-        override fun showList(): Boolean = statives.isNullOrEmpty().not()
-        override fun showEmpty(): Boolean = statives.isNullOrEmpty()
+        override fun showList(): Boolean = statives.isEmpty().not()
+        override fun showEmpty(): Boolean = statives.isEmpty()
         override fun list(): List<StativeItem> = statives
     }
 
