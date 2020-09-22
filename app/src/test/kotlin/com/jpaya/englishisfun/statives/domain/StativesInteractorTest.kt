@@ -63,14 +63,4 @@ class StativesInteractorTest {
         assertEquals(2, interactor.getStativeItems().size)
         assertEquals(MOCK_STATIVES_ITEMS, interactor.getStativeItems())
     }
-
-    @ExperimentalCoroutinesApi
-    @Test
-    fun `Check searchIrregulars works properly`() = runBlockingTest {
-        val filter = "filter"
-        whenever(database.search(filter)).doReturn(MOCK_STATIVES_ITEMS)
-
-        assertEquals(2, database.search(filter).size)
-        assertEquals(MOCK_STATIVES_ITEMS, interactor.searchStative(filter))
-    }
 }

@@ -54,7 +54,7 @@ interface IrregularsDao {
     /**
      * Searches entities with the specified filter.
      */
-    @Query("SELECT * FROM irregulars WHERE base LIKE :filter")
+    @Query("SELECT * FROM irregulars WHERE base LIKE :filter OR simple LIKE :filter OR participle LIKE :filter")
     suspend fun search(filter: String): List<IrregularRoomItem>
 
     /**

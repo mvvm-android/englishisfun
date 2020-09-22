@@ -54,7 +54,7 @@ interface AbbreviationsDao {
     /**
      * Searches entities with the specified filter.
      */
-    @Query("SELECT * FROM abbreviations WHERE abbr LIKE :filter")
+    @Query("SELECT * FROM abbreviations WHERE abbr LIKE :filter OR `desc` LIKE :filter")
     suspend fun search(filter: String): List<AbbreviationRoomItem>
 
     /**
