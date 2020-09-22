@@ -30,6 +30,4 @@ class StativesInteractor @Inject constructor(
         database.saveAll(result)
         return result
     }
-
-    suspend fun searchStative(filter: String): List<Stative> = database.search(filter)
 }

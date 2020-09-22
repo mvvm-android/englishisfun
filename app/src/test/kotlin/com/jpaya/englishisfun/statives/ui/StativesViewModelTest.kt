@@ -115,39 +115,4 @@ class StativesViewModelTest : ViewModelTest() {
             )
         }
     }
-
-    @Test
-    fun `Search feature loads items properly`() = runBlockingTest {
-        var invocations = 0
-        val filter = "Category 1"
-        whenever(presenter.searchStative(filter)).thenAnswer {
-            when (invocations++) {
-                0 -> throw IOException("Network error")
-                else -> MOCK_ITEMS_FILTERED
-            }
-        }
-
-        val vm = StativesViewModel(presenter)
-
-        vm.search(filter)
-        vm.observeStateAndEvents { stateObserver, _ ->
-            stateObserver.assertObserved(
-                NetworkError
-            )
-        }
-
-        vm.search(filter)
-        vm.observeStateAndEvents { stateObserver, _ ->
-            stateObserver.assertObserved(
-                ListReady(MOCK_ITEMS_FILTERED)
-            )
-        }
-
-        vm.resetSearch()
-        vm.observeStateAndEvents { stateObserver, _ ->
-            stateObserver.assertObserved(
-                Loading
-            )
-        }
-    }
 }

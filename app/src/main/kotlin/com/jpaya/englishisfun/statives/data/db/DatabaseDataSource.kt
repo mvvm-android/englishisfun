@@ -16,7 +16,6 @@
 
 package com.jpaya.englishisfun.statives.data.db
 
-import com.jpaya.base.extensions.encloseToLikeQuery
 import com.jpaya.englishisfun.statives.domain.Stative
 import com.jpaya.englishisfun.statives.mapper.toDomain
 import com.jpaya.englishisfun.statives.mapper.toRoomItem
@@ -35,8 +34,6 @@ class DatabaseDataSource @Inject constructor(
     suspend fun save(item: Stative) = dao.save(item.toRoomItem())
 
     suspend fun saveAll(items: List<Stative>) = dao.save(items.map { it.toRoomItem() })
-
-    suspend fun search(filter: String): List<Stative> = dao.search(filter.encloseToLikeQuery()).map { it.toDomain() }
 
     suspend fun delete(id: Long) = dao.delete(id)
 

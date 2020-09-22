@@ -29,8 +29,4 @@ class StativesPresenter @Inject constructor(
     suspend fun getStativeItems(): List<StativeItem> = withIOContext {
         interactor.getStativeItems().map { it.toPresentation() }
     }
-
-    suspend fun searchStative(filter: String): List<StativeItem> = withIOContext {
-        interactor.searchStative(filter).map { it.toPresentation() }
-    }
 }

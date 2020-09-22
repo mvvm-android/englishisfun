@@ -86,32 +86,4 @@ class ConditionalsListPresenterTest {
 
         assertEquals(expectedResult, presenter.getConditionalsItems())
     }
-
-    @ExperimentalCoroutinesApi
-    @Test
-    fun `Check searchConditionals works properly`() = runBlocking {
-        val filter = "Name"
-        whenever(interactor.searchConditionals(filter)).doReturn(MOCK_CONDITIONALS_LIST)
-
-        val expectedResult = listOf(
-            ConditionalItem(
-                id = 1,
-                name = "Name 1",
-                condition = "Condition 1",
-                result = "Result 1",
-                uses = "Use 1",
-                examples = "Example 1"
-            ),
-            ConditionalItem(
-                id = 2,
-                name = "Name 2",
-                condition = "Condition 2",
-                result = "Result 2",
-                uses = "Use 1",
-                examples = "Example 1"
-            )
-        )
-
-        assertEquals(expectedResult, presenter.searchConditionals(filter))
-    }
 }
