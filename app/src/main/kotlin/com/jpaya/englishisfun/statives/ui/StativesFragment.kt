@@ -34,7 +34,6 @@ import kotlinx.android.synthetic.main.statives_fragment_list.*
 class StativesFragment : RainbowCakeFragment<StativesViewState, StativesViewModel>() {
 
     private val customViewModel: StativesViewModel by viewModels()
-    private lateinit var adapter: StativesAdapter
     private lateinit var binding: StativesFragmentListBinding
 
     override fun provideViewModel() = customViewModel
@@ -50,8 +49,7 @@ class StativesFragment : RainbowCakeFragment<StativesViewState, StativesViewMode
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = StativesAdapter()
-        list.adapter = adapter
+        list.adapter = StativesAdapter()
         list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
