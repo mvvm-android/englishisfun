@@ -27,7 +27,9 @@ class ConditionalsListViewModel @ViewModelInject constructor(
     private val presenter: ConditionalsListPresenter
 ) : RainbowCakeViewModel<ConditionalsListViewState>(Loading) {
 
-    fun init() = execute { loadConditionals() }
+    init {
+        execute { loadConditionals() }
+    }
 
     fun reload() = execute { loadConditionals() }
 

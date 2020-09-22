@@ -27,7 +27,9 @@ class IrregularsListViewModel @ViewModelInject constructor(
     private val presenter: IrregularsListPresenter
 ) : RainbowCakeViewModel<IrregularsListViewState>(Loading) {
 
-    fun init() = execute { loadIrregulars() }
+    init {
+        execute { loadIrregulars() }
+    }
 
     fun reload() = execute { loadIrregulars() }
 

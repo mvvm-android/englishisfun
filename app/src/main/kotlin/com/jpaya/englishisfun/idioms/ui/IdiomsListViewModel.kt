@@ -27,7 +27,9 @@ class IdiomsListViewModel @ViewModelInject constructor(
     private val presenter: IdiomsListPresenter
 ) : RainbowCakeViewModel<IdiomsListViewState>(Loading) {
 
-    fun init() = execute { loadIdioms() }
+    init {
+        execute { loadIdioms() }
+    }
 
     fun reload() = execute { loadIdioms() }
 

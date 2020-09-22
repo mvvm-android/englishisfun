@@ -27,7 +27,9 @@ class AbbreviationsListViewModel @ViewModelInject constructor(
     private val presenter: AbbreviationsListPresenter
 ) : RainbowCakeViewModel<AbbreviationsListViewState>(Loading) {
 
-    fun init() = execute { loadAbbreviations() }
+    init {
+        execute { loadAbbreviations() }
+    }
 
     fun reload() = execute { loadAbbreviations() }
 
