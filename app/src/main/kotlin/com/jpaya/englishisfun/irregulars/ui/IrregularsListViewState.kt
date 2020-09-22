@@ -22,19 +22,22 @@ sealed class IrregularsListViewState {
     abstract fun showLoading(): Boolean
     abstract fun showError(): Boolean
     abstract fun showList(): Boolean
+    abstract fun showEmpty(): Boolean
     abstract fun list(): List<IrregularItem>
 
     object Loading : IrregularsListViewState() {
         override fun showLoading(): Boolean = true
         override fun showError(): Boolean = false
         override fun showList(): Boolean = false
+        override fun showEmpty(): Boolean = false
         override fun list(): List<IrregularItem> = listOf()
     }
 
     data class ListReady(private val irregulars: List<IrregularItem>) : IrregularsListViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
-        override fun showList(): Boolean = true
+        override fun showList(): Boolean = irregulars.isNullOrEmpty().not()
+        override fun showEmpty(): Boolean = irregulars.isNullOrEmpty()
         override fun list(): List<IrregularItem> = irregulars
     }
 
@@ -42,6 +45,7 @@ sealed class IrregularsListViewState {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = true
         override fun showList(): Boolean = false
+        override fun showEmpty(): Boolean = false
         override fun list(): List<IrregularItem> = listOf()
     }
 }

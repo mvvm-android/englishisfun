@@ -22,19 +22,22 @@ sealed class ConditionalsListViewState {
     abstract fun showLoading(): Boolean
     abstract fun showError(): Boolean
     abstract fun showList(): Boolean
+    abstract fun showEmpty(): Boolean
     abstract fun list(): List<ConditionalItem>
 
     object Loading : ConditionalsListViewState() {
         override fun showLoading(): Boolean = true
         override fun showError(): Boolean = false
         override fun showList(): Boolean = false
+        override fun showEmpty(): Boolean = false
         override fun list(): List<ConditionalItem> = listOf()
     }
 
     data class ListReady(private val conditionals: List<ConditionalItem>) : ConditionalsListViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
-        override fun showList(): Boolean = true
+        override fun showList(): Boolean = conditionals.isNullOrEmpty().not()
+        override fun showEmpty(): Boolean = conditionals.isNullOrEmpty()
         override fun list(): List<ConditionalItem> = conditionals
     }
 
@@ -42,6 +45,7 @@ sealed class ConditionalsListViewState {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = true
         override fun showList(): Boolean = false
+        override fun showEmpty(): Boolean = false
         override fun list(): List<ConditionalItem> = listOf()
     }
 }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Statives list-->
+    <string name="statives_list_empty_text">No statives found</string>
+    <string name="statives_list_error_text">Ups… an error occurred on obtain statives list, please swipe down to try again</string>
+</resources>

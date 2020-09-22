@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Phrasals list-->
+    <string name="phrasals_list_empty_text">No phrasals found</string>
+    <string name="phrasals_list_error_text">Failed to load phrasals.\nPlease check your connection.</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Conditionals list-->
+    <string name="conditionals_list_empty_text">No conditionals found</string>
+    <string name="conditionals_list_error_text">Ups… an error occurred on obtain conditionals list, please swipe down to try again</string>
+</resources>

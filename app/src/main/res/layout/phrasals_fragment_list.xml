@@ -5,8 +5,6 @@
 
     <data>
 
-        <import type="android.view.View" />
-
         <variable
             name="viewState"
             type="com.jpaya.englishisfun.phrasals.ui.PhrasalsListViewState" />
@@ -62,7 +60,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
-            android:visibility="@{viewState.showList() ? View.VISIBLE : View.GONE}"
             app:fastScrollAutoHide="true"
             app:fastScrollAutoHideDelay="1500"
             app:fastScrollEnableThumbInactiveColor="true"
@@ -80,21 +77,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:list="@{viewState.list()}"
+            app:visible="@{viewState.showList()}"
             tools:listitem="@layout/irregulars_list_item" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/phrasals_list_empty_text"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visible="@{viewState.showEmpty()}" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/errorGroup"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:visibility="@{viewState.showError() ? View.VISIBLE : View.GONE}"
-            app:constraint_referenced_ids="errorText,retry" />
+            app:constraint_referenced_ids="errorText,retry"
+            app:visible="@{viewState.showError()}" />
 
         <TextView
             android:id="@+id/errorText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/irregulars_list_error_text"
+            android:text="@string/phrasals_list_error_text"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/retry"
             app:layout_constraintEnd_toEndOf="parent"
