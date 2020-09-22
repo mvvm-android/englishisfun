@@ -33,10 +33,27 @@ class ConditionalsListViewModel @ViewModelInject constructor(
 
     fun reload() = execute { loadConditionals() }
 
+    fun search(filter: String) {
+        execute { searchConditionals(filter) }
+    }
+
+    fun resetSearch() {
+        execute { loadConditionals() }
+    }
+
     private suspend fun loadConditionals() {
         viewState = Loading
         viewState = try {
             ListReady(presenter.getConditionalsItems())
+        } catch (e: IOException) {
+            NetworkError
+        }
+    }
+
+    private suspend fun searchConditionals(filter: String) {
+        viewState = Loading
+        viewState = try {
+            ListReady(presenter.searchConditionals(filter))
         } catch (e: IOException) {
             NetworkError
         }

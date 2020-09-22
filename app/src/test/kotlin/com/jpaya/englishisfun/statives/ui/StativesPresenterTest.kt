@@ -74,4 +74,26 @@ class StativesPresenterTest {
 
         assertEquals(expectedResult, presenter.getStativeItems())
     }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun `Check searchStative works properly`() = runBlocking {
+        val filter = "Category"
+        whenever(interactor.searchStative(filter)).doReturn(MOCK_STATIVES_LIST)
+
+        val expectedResult = listOf(
+            StativeItem(
+                id = 1,
+                category = "Category 1",
+                verbs = mutableListOf("Verb 1")
+            ),
+            StativeItem(
+                id = 2,
+                category = "Category 2",
+                verbs = mutableListOf("Verb 2")
+            )
+        )
+
+        assertEquals(expectedResult, presenter.searchStative(filter))
+    }
 }

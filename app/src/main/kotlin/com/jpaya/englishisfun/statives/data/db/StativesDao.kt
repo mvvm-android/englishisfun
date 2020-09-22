@@ -52,6 +52,12 @@ interface StativesDao {
     suspend fun save(items: List<StativeRoomItem>)
 
     /**
+     * Searches entities with the specified filter.
+     */
+    @Query("SELECT * FROM statives WHERE category LIKE :filter")
+    suspend fun search(filter: String): List<StativeRoomItem>
+
+    /**
      * Deletes an entity by its id.
      */
     @Query("DELETE FROM statives WHERE id = :id")

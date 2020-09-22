@@ -52,6 +52,12 @@ interface ConditionalsDao {
     suspend fun save(items: List<ConditionalRoomItem>)
 
     /**
+     * Searches entities with the specified filter.
+     */
+    @Query("SELECT * FROM conditionals WHERE name LIKE :filter")
+    suspend fun search(filter: String): List<ConditionalRoomItem>
+
+    /**
      * Deletes an entity by its id.
      */
     @Query("DELETE FROM conditionals WHERE id = :id")

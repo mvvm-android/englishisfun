@@ -29,4 +29,8 @@ class ConditionalsListPresenter @Inject constructor(
     suspend fun getConditionalsItems(): List<ConditionalItem> = withIOContext {
         interactor.getConditionalsItems().map { it.toPresentation() }
     }
+
+    suspend fun searchConditionals(filter: String): List<ConditionalItem> = withIOContext {
+        interactor.searchConditionals(filter).map { it.toPresentation() }
+    }
 }

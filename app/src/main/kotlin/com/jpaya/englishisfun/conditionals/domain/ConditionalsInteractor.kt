@@ -30,4 +30,6 @@ class ConditionalsInteractor @Inject constructor(
         database.saveAll(result)
         return result
     }
+
+    suspend fun searchConditionals(filter: String): List<Conditional> = database.search(filter)
 }
