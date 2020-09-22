@@ -82,11 +82,6 @@ jobs:
     - name: Code coverage
       run: ./gradlew jacocoTestReportDevDebug
 
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Jacoco
-        path: ~/work/englishisfun/englishisfun/**/build/reports/jacoco/devDebug/jacoco.xml
-
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
