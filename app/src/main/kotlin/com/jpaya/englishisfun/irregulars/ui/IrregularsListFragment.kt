@@ -47,6 +47,7 @@ class IrregularsListFragment : RainbowCakeFragment<IrregularsListViewState, Irre
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = IrregularsFragmentListBinding.inflate(inflater, container, false)
+        binding.viewModel = customViewModel
         return binding.root
     }
 
@@ -61,10 +62,6 @@ class IrregularsListFragment : RainbowCakeFragment<IrregularsListViewState, Irre
         irregularsAdapter = IrregularsAdapter()
         irregularsList.adapter = irregularsAdapter
         irregularsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-
-        retry.setOnClickListener {
-            viewModel.reload()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

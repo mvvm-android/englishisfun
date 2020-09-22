@@ -43,6 +43,7 @@ class StativesFragment : RainbowCakeFragment<StativesViewState, StativesViewMode
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = StativesFragmentListBinding.inflate(inflater, container, false)
+        binding.viewModel = customViewModel
         return binding.root
     }
 
@@ -52,10 +53,6 @@ class StativesFragment : RainbowCakeFragment<StativesViewState, StativesViewMode
         adapter = StativesAdapter()
         list.adapter = adapter
         list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-
-        retry.setOnClickListener {
-            viewModel.reload()
-        }
     }
 
     override fun render(viewState: StativesViewState) {

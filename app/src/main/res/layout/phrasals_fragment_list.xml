@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="viewModel"
+            type="com.jpaya.englishisfun.phrasals.ui.PhrasalsListViewModel" />
+
+        <variable
             name="viewState"
             type="com.jpaya.englishisfun.phrasals.ui.PhrasalsListViewState" />
     </data>
@@ -118,6 +122,7 @@
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:onClick="@{() -> viewModel.reload()}"
             android:text="@string/retry"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

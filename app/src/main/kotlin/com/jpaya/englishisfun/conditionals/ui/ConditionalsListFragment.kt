@@ -43,6 +43,7 @@ class ConditionalsListFragment : RainbowCakeFragment<ConditionalsListViewState, 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = ConditionalsFragmentListBinding.inflate(inflater, container, false)
+        binding.viewModel = customViewModel
         return binding.root
     }
 
@@ -52,10 +53,6 @@ class ConditionalsListFragment : RainbowCakeFragment<ConditionalsListViewState, 
         adapter = ConditionalsAdapter()
         conditionalsList.adapter = adapter
         conditionalsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-
-        retry.setOnClickListener {
-            viewModel.reload()
-        }
     }
 
     override fun render(viewState: ConditionalsListViewState) {
