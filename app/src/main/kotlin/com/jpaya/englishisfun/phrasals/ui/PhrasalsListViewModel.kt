@@ -27,21 +27,13 @@ class PhrasalsListViewModel @ViewModelInject constructor(
     private val presenter: PhrasalsListPresenter
 ) : RainbowCakeViewModel<PhrasalsListViewState>(Loading) {
 
-    init {
-        execute { loadPhrasals() }
-    }
+    fun init() = execute { loadPhrasals() }
 
-    fun reload() {
-        execute { loadPhrasals() }
-    }
+    fun reload() = execute { loadPhrasals() }
 
-    fun search(filter: String) {
-        execute { searchPhrasals(filter) }
-    }
+    fun search(filter: String) = execute { searchPhrasals(filter) }
 
-    fun resetSearch() {
-        execute { loadPhrasals() }
-    }
+    fun resetSearch() = execute { loadPhrasals() }
 
     private suspend fun loadPhrasals() {
         viewState = Loading

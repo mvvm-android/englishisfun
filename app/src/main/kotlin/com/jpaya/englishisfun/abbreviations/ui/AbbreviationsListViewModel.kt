@@ -27,21 +27,13 @@ class AbbreviationsListViewModel @ViewModelInject constructor(
     private val presenter: AbbreviationsListPresenter
 ) : RainbowCakeViewModel<AbbreviationsListViewState>(Loading) {
 
-    init {
-        execute { loadAbbreviations() }
-    }
+    fun init() = execute { loadAbbreviations() }
 
-    fun reload() {
-        execute { loadAbbreviations() }
-    }
+    fun reload() = execute { loadAbbreviations() }
 
-    fun search(filter: String) {
-        execute { searchAbbreviations(filter) }
-    }
+    fun search(filter: String) = execute { searchAbbreviations(filter) }
 
-    fun resetSearch() {
-        execute { loadAbbreviations() }
-    }
+    fun resetSearch() = execute { loadAbbreviations() }
 
     private suspend fun loadAbbreviations() {
         viewState = Loading

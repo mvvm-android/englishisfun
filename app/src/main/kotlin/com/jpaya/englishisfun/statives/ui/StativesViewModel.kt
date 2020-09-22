@@ -27,13 +27,9 @@ class StativesViewModel @ViewModelInject constructor(
     private val presenter: StativesPresenter
 ) : RainbowCakeViewModel<StativesViewState>(Loading) {
 
-    init {
-        execute { loadStative() }
-    }
+    fun init() = execute { loadStative() }
 
-    fun reload() {
-        execute { loadStative() }
-    }
+    fun reload() = execute { loadStative() }
 
     private suspend fun loadStative() {
         viewState = Loading
