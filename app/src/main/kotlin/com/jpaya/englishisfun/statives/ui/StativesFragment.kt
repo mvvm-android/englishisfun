@@ -53,7 +53,7 @@ class StativesFragment : RainbowCakeFragment<StativesViewState, StativesViewMode
         list.adapter = adapter
         list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
-        retryButton.setOnClickListener {
+        retry.setOnClickListener {
             viewModel.reload()
         }
         viewSavedButton.setOnClickListener {

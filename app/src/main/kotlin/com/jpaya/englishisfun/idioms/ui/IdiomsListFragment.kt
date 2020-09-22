@@ -62,7 +62,7 @@ class IdiomsListFragment : RainbowCakeFragment<IdiomsListViewState, IdiomsListVi
         idiomsList.adapter = idiomsAdapter
         idiomsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
-        retryButton.setOnClickListener {
+        retry.setOnClickListener {
             viewModel.reload()
         }
     }

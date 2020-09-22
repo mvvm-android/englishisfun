@@ -87,7 +87,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:visibility="@{viewState.showError() ? View.VISIBLE : View.GONE}"
-            app:constraint_referenced_ids="errorText,retryButton" />
+            app:constraint_referenced_ids="errorText,retry" />
 
         <TextView
             android:id="@+id/errorText"
@@ -96,14 +96,14 @@
             android:gravity="center"
             android:text="@string/irregulars_list_error_text"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/retryButton"
+            app:layout_constraintBottom_toTopOf="@+id/retry"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/retryButton"
+            android:id="@+id/retry"
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="240dp"
             android:layout_height="wrap_content"

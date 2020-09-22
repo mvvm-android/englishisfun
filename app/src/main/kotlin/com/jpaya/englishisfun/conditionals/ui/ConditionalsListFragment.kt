@@ -53,7 +53,7 @@ class ConditionalsListFragment : RainbowCakeFragment<ConditionalsListViewState, 
         conditionalsList.adapter = adapter
         conditionalsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
-        retryButton.setOnClickListener {
+        retry.setOnClickListener {
             viewModel.reload()
         }
         viewSavedButton.setOnClickListener {

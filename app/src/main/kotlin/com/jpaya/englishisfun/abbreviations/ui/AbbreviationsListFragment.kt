@@ -62,7 +62,7 @@ class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState
         irregularsList.adapter = abbreviationsAdapter
         irregularsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
-        retryButton.setOnClickListener {
+        retry.setOnClickListener {
             viewModel.reload()
         }
     }

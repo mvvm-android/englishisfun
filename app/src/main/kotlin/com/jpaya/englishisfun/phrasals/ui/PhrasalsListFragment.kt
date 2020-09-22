@@ -62,7 +62,7 @@ class PhrasalsListFragment : RainbowCakeFragment<PhrasalsListViewState, Phrasals
         phrasalsList.adapter = adapter
         phrasalsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
-        retryButton.setOnClickListener {
+        retry.setOnClickListener {
             viewModel.reload()
         }
         viewSavedButton.setOnClickListener {

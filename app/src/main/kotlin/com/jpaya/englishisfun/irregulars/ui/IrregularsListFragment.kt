@@ -62,7 +62,7 @@ class IrregularsListFragment : RainbowCakeFragment<IrregularsListViewState, Irre
         irregularsList.adapter = irregularsAdapter
         irregularsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
-        retryButton.setOnClickListener {
+        retry.setOnClickListener {
             viewModel.reload()
         }
         viewSavedButton.setOnClickListener {
