@@ -38,7 +38,6 @@ import kotlinx.android.synthetic.main.phrasals_fragment_list.*
 class PhrasalsListFragment : RainbowCakeFragment<PhrasalsListViewState, PhrasalsListViewModel>() {
 
     private val customViewModel: PhrasalsListViewModel by viewModels()
-    private lateinit var adapter: PhrasalsAdapter
     private lateinit var binding: PhrasalsFragmentListBinding
 
     override fun provideViewModel() = customViewModel
@@ -47,6 +46,7 @@ class PhrasalsListFragment : RainbowCakeFragment<PhrasalsListViewState, Phrasals
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = PhrasalsFragmentListBinding.inflate(inflater, container, false)
+        binding.viewModel = customViewModel
         return binding.root
     }
 
@@ -58,13 +58,8 @@ class PhrasalsListFragment : RainbowCakeFragment<PhrasalsListViewState, Phrasals
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = PhrasalsAdapter()
-        phrasalsList.adapter = adapter
+        phrasalsList.adapter = PhrasalsAdapter()
         phrasalsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-
-        retry.setOnClickListener {
-            viewModel.reload()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

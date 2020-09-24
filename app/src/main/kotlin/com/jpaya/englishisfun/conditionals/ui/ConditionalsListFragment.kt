@@ -34,7 +34,6 @@ import kotlinx.android.synthetic.main.conditionals_fragment_list.*
 class ConditionalsListFragment : RainbowCakeFragment<ConditionalsListViewState, ConditionalsListViewModel>() {
 
     private val customViewModel: ConditionalsListViewModel by viewModels()
-    private lateinit var adapter: ConditionalsAdapter
     private lateinit var binding: ConditionalsFragmentListBinding
 
     override fun provideViewModel() = customViewModel
@@ -43,19 +42,15 @@ class ConditionalsListFragment : RainbowCakeFragment<ConditionalsListViewState, 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = ConditionalsFragmentListBinding.inflate(inflater, container, false)
+        binding.viewModel = customViewModel
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = ConditionalsAdapter()
-        conditionalsList.adapter = adapter
+        conditionalsList.adapter = ConditionalsAdapter()
         conditionalsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-
-        retry.setOnClickListener {
-            viewModel.reload()
-        }
     }
 
     override fun render(viewState: ConditionalsListViewState) {

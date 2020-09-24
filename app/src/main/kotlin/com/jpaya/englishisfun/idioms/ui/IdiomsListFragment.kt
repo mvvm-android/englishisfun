@@ -38,7 +38,6 @@ import kotlinx.android.synthetic.main.idioms_fragment_list.*
 class IdiomsListFragment : RainbowCakeFragment<IdiomsListViewState, IdiomsListViewModel>() {
 
     private val customViewModel: IdiomsListViewModel by viewModels()
-    private lateinit var idiomsAdapter: IdiomsAdapter
     private lateinit var binding: IdiomsFragmentListBinding
 
     override fun provideViewModel() = customViewModel
@@ -47,6 +46,7 @@ class IdiomsListFragment : RainbowCakeFragment<IdiomsListViewState, IdiomsListVi
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = IdiomsFragmentListBinding.inflate(inflater, container, false)
+        binding.viewModel = customViewModel
         return binding.root
     }
 
@@ -58,13 +58,8 @@ class IdiomsListFragment : RainbowCakeFragment<IdiomsListViewState, IdiomsListVi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        idiomsAdapter = IdiomsAdapter()
-        idiomsList.adapter = idiomsAdapter
+        idiomsList.adapter = IdiomsAdapter()
         idiomsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-
-        retry.setOnClickListener {
-            viewModel.reload()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

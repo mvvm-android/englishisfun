@@ -22,19 +22,22 @@ sealed class AbbreviationsListViewState {
     abstract fun showLoading(): Boolean
     abstract fun showError(): Boolean
     abstract fun showList(): Boolean
+    abstract fun showEmpty(): Boolean
     abstract fun list(): List<AbbreviationItem>
 
     object Loading : AbbreviationsListViewState() {
         override fun showLoading(): Boolean = true
         override fun showError(): Boolean = false
         override fun showList(): Boolean = false
+        override fun showEmpty(): Boolean = false
         override fun list(): List<AbbreviationItem> = listOf()
     }
 
     data class ListReady(private val abbreviations: List<AbbreviationItem>) : AbbreviationsListViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
-        override fun showList(): Boolean = true
+        override fun showList(): Boolean = abbreviations.isEmpty().not()
+        override fun showEmpty(): Boolean = abbreviations.isEmpty()
         override fun list(): List<AbbreviationItem> = abbreviations
     }
 
@@ -42,6 +45,7 @@ sealed class AbbreviationsListViewState {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = true
         override fun showList(): Boolean = false
+        override fun showEmpty(): Boolean = false
         override fun list(): List<AbbreviationItem> = listOf()
     }
 }

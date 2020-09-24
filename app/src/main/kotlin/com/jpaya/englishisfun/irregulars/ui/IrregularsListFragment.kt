@@ -38,7 +38,6 @@ import kotlinx.android.synthetic.main.irregulars_fragment_list.*
 class IrregularsListFragment : RainbowCakeFragment<IrregularsListViewState, IrregularsListViewModel>() {
 
     private val customViewModel: IrregularsListViewModel by viewModels()
-    private lateinit var irregularsAdapter: IrregularsAdapter
     private lateinit var binding: IrregularsFragmentListBinding
 
     override fun provideViewModel() = customViewModel
@@ -47,6 +46,7 @@ class IrregularsListFragment : RainbowCakeFragment<IrregularsListViewState, Irre
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = IrregularsFragmentListBinding.inflate(inflater, container, false)
+        binding.viewModel = customViewModel
         return binding.root
     }
 
@@ -58,13 +58,8 @@ class IrregularsListFragment : RainbowCakeFragment<IrregularsListViewState, Irre
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        irregularsAdapter = IrregularsAdapter()
-        irregularsList.adapter = irregularsAdapter
+        irregularsList.adapter = IrregularsAdapter()
         irregularsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-
-        retry.setOnClickListener {
-            viewModel.reload()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

@@ -22,19 +22,22 @@ sealed class PhrasalsListViewState {
     abstract fun showLoading(): Boolean
     abstract fun showError(): Boolean
     abstract fun showList(): Boolean
+    abstract fun showEmpty(): Boolean
     abstract fun list(): List<PhrasalItem>
 
     object Loading : PhrasalsListViewState() {
         override fun showLoading(): Boolean = true
         override fun showError(): Boolean = false
         override fun showList(): Boolean = false
+        override fun showEmpty(): Boolean = false
         override fun list(): List<PhrasalItem> = listOf()
     }
 
     data class ListReady(private val phrasals: List<PhrasalItem>) : PhrasalsListViewState() {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = false
-        override fun showList(): Boolean = true
+        override fun showList(): Boolean = phrasals.isEmpty().not()
+        override fun showEmpty(): Boolean = phrasals.isEmpty()
         override fun list(): List<PhrasalItem> = phrasals
     }
 
@@ -42,6 +45,7 @@ sealed class PhrasalsListViewState {
         override fun showLoading(): Boolean = false
         override fun showError(): Boolean = true
         override fun showList(): Boolean = false
+        override fun showEmpty(): Boolean = false
         override fun list(): List<PhrasalItem> = listOf()
     }
 }
