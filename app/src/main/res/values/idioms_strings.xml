@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Idioms list-->
+    <string name="idioms_list_empty_text">No idioms found</string>
     <string name="idioms_list_error_text">Failed to load idioms.\nPlease check your connection.</string>
 </resources>

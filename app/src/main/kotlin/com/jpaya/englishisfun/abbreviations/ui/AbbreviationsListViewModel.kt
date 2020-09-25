@@ -31,17 +31,11 @@ class AbbreviationsListViewModel @ViewModelInject constructor(
         execute { loadAbbreviations() }
     }
 
-    fun reload() {
-        execute { loadAbbreviations() }
-    }
+    fun reload() = execute { loadAbbreviations() }
 
-    fun search(filter: String) {
-        execute { searchAbbreviations(filter) }
-    }
+    fun search(filter: String) = execute { searchAbbreviations(filter) }
 
-    fun resetSearch() {
-        execute { loadAbbreviations() }
-    }
+    fun resetSearch() = execute { loadAbbreviations() }
 
     private suspend fun loadAbbreviations() {
         viewState = Loading

@@ -27,9 +27,7 @@ class ConditionalsInteractor @Inject constructor(
 
     suspend fun getConditionalsItems(): List<Conditional> {
         val result = network.getConditionalsItems()
-        database.save(result)
+        database.saveAll(result)
         return result
     }
-
-    suspend fun searchConditionals(filter: String): List<Conditional> = database.search(filter)
 }

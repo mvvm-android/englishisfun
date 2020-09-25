@@ -27,9 +27,7 @@ class StativesInteractor @Inject constructor(
 
     suspend fun getStativeItems(): List<Stative> {
         val result = network.getStativeItems()
-        database.save(result)
+        database.saveAll(result)
         return result
     }
-
-    suspend fun searchStative(filter: String): List<Stative> = database.search(filter)
 }

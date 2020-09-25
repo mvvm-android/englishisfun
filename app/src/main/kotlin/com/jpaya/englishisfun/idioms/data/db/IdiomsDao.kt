@@ -54,7 +54,7 @@ interface IdiomsDao {
     /**
      * Searches entities with the specified filter.
      */
-    @Query("SELECT * FROM idioms WHERE idiom LIKE :filter")
+    @Query("SELECT * FROM idioms WHERE idiom LIKE :filter OR description LIKE :filter")
     suspend fun search(filter: String): List<IdiomRoomItem>
 
     /**

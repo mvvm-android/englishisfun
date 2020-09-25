@@ -31,17 +31,11 @@ class IdiomsListViewModel @ViewModelInject constructor(
         execute { loadIdioms() }
     }
 
-    fun reload() {
-        execute { loadIdioms() }
-    }
+    fun reload() = execute { loadIdioms() }
 
-    fun search(filter: String) {
-        execute { searchIdioms(filter) }
-    }
+    fun search(filter: String) = execute { searchIdioms(filter) }
 
-    fun resetSearch() {
-        execute { loadIdioms() }
-    }
+    fun resetSearch() = execute { loadIdioms() }
 
     private suspend fun loadIdioms() {
         viewState = Loading

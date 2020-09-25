@@ -38,7 +38,6 @@ import kotlinx.android.synthetic.main.abbreviations_fragment_list.*
 class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState, AbbreviationsListViewModel>() {
 
     private val customViewModel: AbbreviationsListViewModel by viewModels()
-    private lateinit var abbreviationsAdapter: AbbreviationsAdapter
     private lateinit var binding: AbbreviationsFragmentListBinding
 
     override fun provideViewModel() = customViewModel
@@ -47,6 +46,7 @@ class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = AbbreviationsFragmentListBinding.inflate(inflater, container, false)
+        binding.viewModel = customViewModel
         return binding.root
     }
 
@@ -58,13 +58,8 @@ class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        abbreviationsAdapter = AbbreviationsAdapter()
-        irregularsList.adapter = abbreviationsAdapter
+        irregularsList.adapter = AbbreviationsAdapter()
         irregularsList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-
-        retryButton.setOnClickListener {
-            viewModel.reload()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -75,11 +70,7 @@ class AbbreviationsListFragment : RainbowCakeFragment<AbbreviationsListViewState
             queryHint = getString(R.string.search)
             setOnQueryTextListener(
                 DebouncingQueryTextListener(this@AbbreviationsListFragment) {
-                    if (it == null || it.isEmpty()) {
-                        viewModel.resetSearch()
-                    } else {
-                        viewModel.search(it)
-                    }
+                    if (it.isNullOrEmpty()) viewModel.resetSearch() else viewModel.search(it)
                 }
             )
             clearFocus()

@@ -31,31 +31,12 @@ class StativesViewModel @ViewModelInject constructor(
         execute { loadStative() }
     }
 
-    fun reload() {
-        execute { loadStative() }
-    }
-
-    fun search(filter: String) {
-        execute { searchStative(filter) }
-    }
-
-    fun resetSearch() {
-        execute { loadStative() }
-    }
+    fun reload() = execute { loadStative() }
 
     private suspend fun loadStative() {
         viewState = Loading
         viewState = try {
             ListReady(presenter.getStativeItems())
-        } catch (e: IOException) {
-            NetworkError
-        }
-    }
-
-    private suspend fun searchStative(filter: String) {
-        viewState = Loading
-        viewState = try {
-            ListReady(presenter.searchStative(filter))
         } catch (e: IOException) {
             NetworkError
         }

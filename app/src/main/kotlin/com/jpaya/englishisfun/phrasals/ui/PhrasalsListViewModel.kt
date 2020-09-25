@@ -31,17 +31,11 @@ class PhrasalsListViewModel @ViewModelInject constructor(
         execute { loadPhrasals() }
     }
 
-    fun reload() {
-        execute { loadPhrasals() }
-    }
+    fun reload() = execute { loadPhrasals() }
 
-    fun search(filter: String) {
-        execute { searchPhrasals(filter) }
-    }
+    fun search(filter: String) = execute { searchPhrasals(filter) }
 
-    fun resetSearch() {
-        execute { loadPhrasals() }
-    }
+    fun resetSearch() = execute { loadPhrasals() }
 
     private suspend fun loadPhrasals() {
         viewState = Loading

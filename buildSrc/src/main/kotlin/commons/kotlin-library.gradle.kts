@@ -22,7 +22,3 @@ import extensions.implementation
 plugins {
     id("kotlin")
 }
-
-dependencies {
-    implementation(Libraries.KOTLIN)
-}
