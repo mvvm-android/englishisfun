@@ -18,6 +18,7 @@ package com.jpaya.englishisfun.settings.ui
 
 import co.zsmb.rainbowcake.test.base.ViewModelTest
 import com.jpaya.base.utils.ThemeUtilsImpl
+import com.jpaya.base.utils.ThemeUtilsImpl.Appearance.AUTO
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -38,7 +39,7 @@ class SettingsViewModelTest : ViewModelTest() {
 
     @Test
     fun `Check setAppearance works properly`() {
-        viewModel.setAppearance("value")
-        verify(themeUtils).setAppearance("value")
+        viewModel.setAppearance(AUTO)
+        verify(themeUtils).setAppearance(AUTO)
     }
 }

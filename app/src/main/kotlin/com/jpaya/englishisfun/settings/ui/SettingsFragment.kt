@@ -22,6 +22,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import com.jpaya.base.utils.ThemeUtilsImpl.Appearance
 import com.jpaya.englishisfun.R
 import com.jpaya.englishisfun.data.preferences.Preferences
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,7 +37,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         findPreference<ListPreference>(getString(R.string.setting_appearance_key))
             ?.setOnPreferenceChangeListener { _, newValue ->
-                viewModel.setAppearance(newValue as String)
+                viewModel.setAppearance(Appearance.valueOf(newValue as String))
                 Preferences.putAppearance(newValue, requireContext().applicationContext)
                 true
             }

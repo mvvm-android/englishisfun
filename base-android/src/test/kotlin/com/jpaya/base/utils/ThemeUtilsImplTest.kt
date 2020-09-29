@@ -17,6 +17,9 @@
 package com.jpaya.base.utils
 
 import com.jpaya.base.extensions.isNightTime
+import com.jpaya.base.utils.ThemeUtilsImpl.Appearance.AUTO
+import com.jpaya.base.utils.ThemeUtilsImpl.Appearance.DARK
+import com.jpaya.base.utils.ThemeUtilsImpl.Appearance.LIGHT
 import com.jpaya.libraries.testutils.robolectric.TestRobolectric
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
@@ -39,17 +42,17 @@ class ThemeUtilsImplTest : TestRobolectric() {
         assertFalse(themeUtils.isDarkTheme())
 
         // Dark appearance
-        themeUtils.setAppearance("dark")
+        themeUtils.setAppearance(DARK)
         assertFalse(themeUtils.isLightTheme())
         assertTrue(themeUtils.isDarkTheme())
 
         // Light appearance
-        themeUtils.setAppearance("light")
+        themeUtils.setAppearance(LIGHT)
         assertTrue(themeUtils.isLightTheme())
         assertFalse(themeUtils.isDarkTheme())
 
         // Auto appearance
-        themeUtils.setAppearance("auto")
+        themeUtils.setAppearance(AUTO)
         if (Calendar.getInstance().isNightTime()) {
             assertFalse(themeUtils.isLightTheme())
             assertTrue(themeUtils.isDarkTheme())

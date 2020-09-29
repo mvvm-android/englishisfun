@@ -16,6 +16,8 @@
 
 package com.jpaya.base.utils
 
+import com.jpaya.base.utils.ThemeUtilsImpl.Appearance
+
 /**
  * Utils interface for application theme configuration.
  */
@@ -36,5 +38,5 @@ interface ThemeUtils {
      *
      * @param appearance String with the chosen appearance. Accepted values: auto, dark and light.
      */
-    fun setAppearance(appearance: String)
+    fun setAppearance(appearance: Appearance)
 }
